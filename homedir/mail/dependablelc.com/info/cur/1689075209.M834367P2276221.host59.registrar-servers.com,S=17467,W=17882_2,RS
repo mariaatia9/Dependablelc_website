@@ -1,0 +1,415 @@
+Return-Path: <gm@dlt.ae>
+Delivered-To: info@dependablelc.com
+Received: from host59.registrar-servers.com
+	by host59.registrar-servers.com with LMTP
+	id 2Ps2MQk+rWR9uyIA+KyzgQ
+	(envelope-from <gm@dlt.ae>)
+	for <info@dependablelc.com>; Tue, 11 Jul 2023 07:33:29 -0400
+Return-path: <gm@dlt.ae>
+Envelope-to: info@dependablelc.com
+Delivery-date: Tue, 11 Jul 2023 07:33:29 -0400
+Received: from [63.250.43.69] (port=23966 helo=asp-relay-shared.jellyfish.systems)
+	by host59.registrar-servers.com with esmtps  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <gm@dlt.ae>)
+	id 1qJBcX-009klk-1z
+	for info@dependablelc.com;
+	Tue, 11 Jul 2023 07:33:29 -0400
+Received: from asp-relay-shared.jellyfish.systems (localhost [127.0.0.1])
+	by asp-relay-shared.jellyfish.systems (Postfix) with ESMTP id 4R0dzT2dfpz50qc
+	for <info@dependablelc.com>; Tue, 11 Jul 2023 11:33:25 +0000 (UTC)
+Received: from mail-ej1-f44.google.com (mail-ej1-f44.google.com [209.85.218.44])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by asp-relay-shared.jellyfish.systems (Postfix) with ESMTPS id 4R0dzS6vZ3z50rL
+	for <info@dependablelc.com>; Tue, 11 Jul 2023 11:33:24 +0000 (UTC)
+Received: by mail-ej1-f44.google.com with SMTP id a640c23a62f3a-991c786369cso686244466b.1
+        for <info@dependablelc.com>; Tue, 11 Jul 2023 04:33:24 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=dlt-ae.20221208.gappssmtp.com; s=20221208; t=1689075203; x=1691667203;
+        h=content-language:thread-index:mime-version:message-id:date:subject
+         :in-reply-to:references:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=9XZEyYTuNZ8bl+Of/x8y6YAop2t6DVWbr8kMV5dZB8w=;
+        b=fW7snRtS5mMjpNiOy0Ac//COYsV4LBdxY1fRKAU4+i0muNlOrs4Up05scUTs/k9nr/
+         39SfipblSNERkRXvlObvEU/y2k+GyvjAUQH75aaquAZKHJoW8eOWzKdLGtxH0cxu646w
+         scm9VB7vRycr0WgFtJdSn8FscGkbNBfH3h0Mtn0maUcI77QiYogciIgeSH7B586Oq7hk
+         xfzm1FtBOXLxf6stOWZGleGupXj1s8ne/ieSIOFDHxcAMY2/3OFLV9dupYCbuUZTkti3
+         qSI288s/Zorfa6tvf4ek7b/V2xcTrRf17mNAP+Emv7tzYS/omETIpBTyDV59Y5b8oHlS
+         B1Fg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1689075203; x=1691667203;
+        h=content-language:thread-index:mime-version:message-id:date:subject
+         :in-reply-to:references:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=9XZEyYTuNZ8bl+Of/x8y6YAop2t6DVWbr8kMV5dZB8w=;
+        b=JElX2qgRpwtZ568cUUL+EPfdelnUAraLcXVcHTmSAPUkBVmBEk1brjCqPl0tADcIfb
+         2HAM4jDDF0AWbtdY7o+Cjd9uVwnyltzc4BYE0+vGF0LA7hfZ8vZFYHDurZIQcXzQV48+
+         gVzUBLcJ0wxoKbOAvlfCl0odX7If9oi/yB1fAchCWWDWhqZUkIZbJ8hVqIVOymQK/Ham
+         3TUCaqul/kT2PrZ/DQdqNl22STZR4vCI2wBKqD9oIPkK68H/7D/jJocDAQZzDgm9n4R/
+         7yH+hWvVu6UhTuxeCwn6zDnWBuxzWldPY4/1GWe1VVHahQBBb0Bxi1a0u3gH6Qbr5gJ4
+         UV4w==
+X-Gm-Message-State: ABy/qLbtrfDMs7ZGwEPK3m9nZEr5eUyZqEq1OKSRgKhz4yNNOjK1glQS
+	fQe1VqUdSE9wZ7vWfhIytkM1ng==
+X-Google-Smtp-Source: APBJJlFaq/8sMJlv/U3BAXT9Do1UhHXBd/DiadfNzAawvNbTB6+UY4JpzLx8O2WlkU3gfxZg0jwvPA==
+X-Received: by 2002:a17:906:5349:b0:993:fba5:cdef with SMTP id j9-20020a170906534900b00993fba5cdefmr7696246ejo.8.1689075203434;
+        Tue, 11 Jul 2023 04:33:23 -0700 (PDT)
+Received: from DESKTOP092FG20 ([87.200.190.101])
+        by smtp.gmail.com with ESMTPSA id v1-20020a1709063bc100b00992b7ff3993sm1043404ejf.126.2023.07.11.04.33.22
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Tue, 11 Jul 2023 04:33:23 -0700 (PDT)
+From: <gm@dlt.ae>
+To: "'Aamer Saade'" <aamersaade80@gmail.com>,
+	"'Diamond Translation'" <dlt.dubai@outlook.com>
+Cc: <info@dependablelc.com>
+References: <DU0PR07MB8642791B80AE750EC46D217BF532A@DU0PR07MB8642.eurprd07.prod.outlook.com> <CAAbXZfVwPE9XNTxvT0VdGgDPhPwBpCAoCkw5xrPuicZEv84piw@mail.gmail.com>
+In-Reply-To: <CAAbXZfVwPE9XNTxvT0VdGgDPhPwBpCAoCkw5xrPuicZEv84piw@mail.gmail.com>
+Subject: RE: Al hosni advocate translated invoices
+Date: Tue, 11 Jul 2023 15:33:20 +0400
+Message-ID: <033601d9b3eb$7fddd070$7f997150$@dlt.ae>
+MIME-Version: 1.0
+Content-Type: multipart/alternative;
+	boundary="----=_NextPart_000_0337_01D9B40D.06EF7070"
+X-Mailer: Microsoft Outlook 16.0
+Thread-Index: AQLlY+pZ4qLWX7BIUeTaIULD2EGa7QG2PRmgrY9dK+A=
+Content-Language: en-us
+X-NCJF-Result: Gj+SPS76s8bh05+SHELCHmw4iAPp6g/wPw7MYW79SweB58ob+rCW7kAa8uXj0jk
+ 
+	8DZngsOTaQS6VvFlvm1j86d3jxwKUXduLRN2MDdqdgNhGYnq6bzK29P6n2wm+Glds5v2i4bnXzTEaY
+ 
+	zwGY9nsVNXlftLULbCLgr23FNPNOU1LvBtV04lJnAYuAoKZTznDPg+2PR5+LI/AycY521Djyye4+oe
+ 
+	alvRipktmvdVkYSpW7Ilw9KkgtFoXmSW0WhQc3SsVScTEfxo5BxpXYc7V1QDzrvpSw9kOgaWW/ZJAS
+ 
+	DcFfj47fClSvuLSkHewkciNR6xBRWO627iVRiW3yFFPqXsSaP/qbuY0/NvAUICcJ+vWcQr19geJsKO
+ 
+	BED2RsePrqlCHrtHN/kel6NKjP1VvFIyggo/0QGwo/ZO5fga1Htc0ITinihapIVa4Ccl8K5NBCFMcD
+ 
+	rfZ7dD4ACGrcGFKxpJBd9RkVy3nLbnH0zgc1TxwMNBaSzg6Fa6c8Wuf1ipEmTXCoYcdY/UlkCt22jT
+ 
+	d5IQ3NJkY8qNY/5FEwNqKhiZ4r1N3z4EJnJRyXi0jaLUJ+dizCnU85dDylN+wtQfumVUfTkyd9b27r
+ 
+	sAqQVI9/UOqVPRsnkr3LEr1dMjqxaCXdxfJm0sagf8s8/MKMksbY7Wn0r7VrSzRTf7dAauX6Y9GVEe
+ 
+	bUEiuT50I7HclxL2CXBgCFAEQ8SyGpYNwxgCcmjprM0yenaNPKEd6EkVMuFilOt4hF/oOhlG3jQ4Zj
+ 
+	smcgs5W920AV3FJSuWvlr/9pWRdQk/17gB/1pxyjevBj6VHmRNC0/ojqVo7RlPjtwtodzr5fTSDAwc
+ 
+	wVe/hd4Z/Eq67UdGTZUwzKggpKNea0ZK+VtYDUyzAFdu7dWMIo/KNW5AgnR/lVIZaamATbCFajKpMO
+ 
+	g1OEGM4g1gO6Ah7lIO9cdYDc1lKTbQkhnX/DT4WwvOALKdntK/CsvS8U/Igz1GUclG6vgmUGZbO0is
+ 
+	nfoErWv+p4+zvAk8sXoM5SmlZ92UhSc2FSHYioTb7s3WDxqG4bBGyXsy7VdMoKByu769ApelkBACP9
+ 
+	45w+Y15NU5oOVGt9r5nkKg1j9GgaPHDflNHl8I36ZZdEjgg7kdYKU0nqMFgxigFgIutPeckxYnOSVx
+ 
+	um//J0PNXLu/6oGrN1R06hFoPbQ+Bt5lfpLLS9YgwuVYrgA9hkk/xM1SPiFtIXnTS2I7wjWTZo5+qS
+ 
+	tSSHUuZDigw3yynUTWTWKuCtiLTvRDcd1UI71ot4Hk1qZ6ekxdGXvWUUdDrY4Z3yXC7rmQKhoiky1p
+ 
+	fdDxpfLdIAPZmBUeOt+Q88auptlNz2W8IEAxNYAAqY/huagzohDZIaoFZglcsq1hLDpEMIdduOxIBv
+ 
+	KVwMB0iQ3N8OsITlcSaBZSqpW0i4nGiW6ePraQHGtJ3jIWxLVLxYqXyyA4K6R6SucLeZiTPlF240G0
+ 
+	Gkwi/AGvzL5EBZohRkTMQ1r1udC643TeT35Cj/UaT6kjgyIRG6isJ5/37Iens9Hmp89m5miFKDwzTT
+ 
+	zcHQ3QtTDVex+TtVl/nthPtsC+5rvL04XR3qJAI/t3At0+ilWqGq/vP34M4knUJ3HqdSp+Kq5ol+xG
+ 
+	S3ZjbqS5Lskw1OPuNtEAiYMLKgz8sfKqP3+lOvxFwRaqY56QX4pQmR71huuwgEwXthoIyricYSI3vU
+ 
+	j7Ys9thd2b/7QXqCZ6H5EVuXVuzHCE2Ub6jfHkw9T4soQLHSQXBeOWP82I0oa5x0VOm1+FemaPfAgp
+ 
+	Jh8EOdOUwWoebPC8YsDxmrJNwPstngNtEXIqOdxmeyT1w+aiCCg5j88Byv90RdNhGxipZUSAgfP6Sm
+ 
+	nzM3+1XlNvhbonyzXro0O7YN/9XDoF8wHi2aUR2WpaIU7gI7e656zmL6jduEu/ztfFUogtbUj0jjMX
+ 
+	+KbjXgr3TlNcRZDLV0kcTD6XO/DKPMNFqbGhjG53c78CU9my4H1xH5HenIFJQ6VEuEUDf84qAVLUPX
+ 
+	Yix/yKWxaMr1+qs9ZzDoMiLjf4iRoG35ls95fbbkwrGAdQuyEk/Au4uZWHblosL01MxKCFaCQ95S67
+ 
+	59RPO77zKwyZ6g1V/hchAMKPvCO7yc0L3U+zHUJerc+OLFZaNb3uvBQZUeqxOzFb7aMIhXAyblTHXn
+ 
+	054+SyASQuWdXJ/VXgySwO2rIM9KRapposPSjUVywGPr35aPFx6HXvqYzaPh543gIhTUrrTdyw/qfi
+ 
+	sEcmWt/1NJdUZ0YpeLpHUGO36uEddc88VuNlrUqR0ruz52L/TMWrMdgPFceGszUP/FlisSmVL3j/yM
+ 
+	eoMIlr/09V3dAWMwmFS1fLQVZKjopoMeWBNz9NeRrF8sOLXislKBEZxXTWzBDW5HK5CiFb1dmMSy+b
+ 
+	swXOzk3z4ugFo4lavl462nf0fuhHA0woj1FA3x2rofmF8iw2dWJSygtZskZcy+Clh+/HzroGLUXh0Y
+ 
+	BLvtHK79/fxqsNy0agGz9v828UdmeHEviiQTxKYUTrNUInG1lQE8Us1jwhv9OZSxQLUhHcMtFQ756/
+ 
+	ls5PDQdMoH90cU5lXtUOWRWtYtFrlM1rYDVGrwU/qqDS1x746H82rpV7C17BzGnYcjnz1Bsb6xNMH2
+ 
+	+MrcRdxaZFRX7LRCdfTi6Grygn+KaiMscrxfJjCMCXknJjdEXAwNq1lHMLTsx3PybpRtaBxXr5UWrV
+ 
+	myUgqKob3TDW76hfwBFZnKrL4Cb4IevE3uZ/fX69Qk9/Mt0bEZcH5vBrIS/C2mr+wogUZowGX0+3wc
+ 
+	ykwlCpWsEmYDBiGFY7Y8McVa3fPlb7ypS6Zg0w/8mvzYQyQikZS44/f/Hyuldtas2TYa89js821nqu
+ 
+	RxDPlAbH4a41EFaIlHz+BO4Y27e1VBcAgv6a+MG4HUQP8duKkUJqBe/KdUMSF7cu1kcta5kl3IhbqO
+ 
+	qt1Ep2rHlcWyj9uGaLaTdFATN0Pz2wADlanU+MuAJuO6B2BL52IiLQ9ZX6aEjavDItEBm/dKluf+c5
+ 
+	hPflSXOqoDhV5r1d0EtozXKvBRpzEwv/quCOgtgsOkMHPVGbqM31r5KxY13y9+xp7F8lYOv02WDfRj
+ 
+	YCjQGolMpNj0RiNVpMs8KTWMj1CC2RKBhl/wQFf6R6aV8LflMPOB59RcU2yPZ6qxxaN+Qjj76BqtHs
+ 
+	LAOfBrQh8uG6J7bsF1xhCutH34xlH4tlTqiNdeM2m5mGDvd8jEz1ofqYH+EA2dPQDs1EALWlYZQM9E
+ 
+	kC1XTT8oy+LzF+nNfZh4WeOLaNbs/X7TtZgLnumCaJ9UF9GYH2BHh2J8j3jd8VdUTsg8wL1aURqhwc
+ 
+	3pZitC5RIEOGGDAQbYhJz7OCYG0t9D9KkXYrPJv0hViG/8Hv6O1VBmmqaCvCZRSB0bySus1HysRuXo
+ 
+	68uN4edf86qIL/sWdP+WKaPKPi1EDlYfNLGbL7cx7HmYFJlo5bHYyNvXZrjo6KRtoVWtY0jsQur83W
+ 
+	6k9YOI+AKLRj348U1n2CFA6RXU0QH51Fa3qLBKoRm7/COW2ptjgrNI38wBE9E+ahnj7zZeHiAcjAHr
+ 
+	/qynJ2me/zrELsqwiowNrdYzuG9Hn+3IZyNGo4Dv+6u/7Ft+pTnK8BOq97Qq3GoB4sQlpjVD7tLkXE
+ 
+	jCYYNUSRJmydIos//Bp/gmBnfD7xGP4t/hGMEwcRP3VCSMp4SBIN0PtT3E+znez6KRaHc56/NNiJJS
+ 
+	gPgGuYRvJ33NYCBfFOD4mtaSFtwR1Qd+E01lWkyz7Wn7ONC2vjNFsqXL8ZH5UoTUekSwpOvZ9YGwF8
+ 
+	9tmUOixFziJIpYW5v/Li17WccQkoWVDZm5OU3u2T7ZsHiDEGw/IuyPBsMTf654h34aKQ+or+ujLdt1
+ 
+	AfWA0orRwdn2XF/ADiJ4MdblNY+W1H7zo4CUT4MbZDEj+5nq0bb8g9UswWtGiQHwIIUC+z07h7cGdU
+ 
+	5dYiuf6lVGDB6D4Ff8l6bqJErqm1gpnWiciytj0zBo/ceIZ2UerS6jbULHtsmJ005ZoXz8DyWVGkyP
+ 
+	Urz6lL9VnDIn+LG1E9z+UOzK4K7pbPYWrr4nNmeEvv4De5yRCnFCVKNdgow6kkEbyTfMDTPkY66cr6
+ 
+	fDqlH3hwRdykusYpMNPOSRKGAzh5Pq5iXDQ0exbceSWwMow5Z7IKk4h7E8BRwo437z4/ulhvOSy+wo
+ 
+	jEJ9br/0Ymxu1ruadN7tkjBAd9ydWnM6tZzdwfUbpSUnxfhv//t2e/tYkDORF82dAnRU3h/H8XF1Pb
+ 
+	sedjOyHOrnp15J2rAqz4beRBiZBvjQzCJ7shNsRYlQFsr05c9cnockbEVbhCmjUeVRByLymbvyo1Lr
+ 
+	1yh+mg9Rg3rLDhig/jacu78U6FPJ6opyocDj0CN/arYKGmu4iPf4CxhfW4bkzI/m52NLYtMY0ucCDg
+ 
+	qnLEgiIK7rC5t0itzVFFUpM7wiiI7+s9TuBjmtoaawJrdJ1mg5lkS8n9Slv08x6eOLh/7xsgrwGdUi
+ 
+	IhVQma7GbMGSdZKxI0LSoh/y175uwetzJicpNQHkMjfwtEFv1Aw/7FZ1W2NhjD2hO1XPV9rwDL7B2P
+ 
+	FKWfeIFeCeIc6CfTOB2L+qs3n3334U252es+jWjudYdEq/hwcgc2X5iWwh1DwmdzUZQrob4miVYKZA
+ 
+	8lhmIo9suesX0j0T8XQfF7K8Ey/jBZr9ocP9DPnWqHpi5DABiSWQRfVGHfk4IEcMI00lKENkuyKRTV
+ 
+	y7Lf7ll4Enty+n3+hNWuoonb9D6lqHyGtdto5U8332E/MUvrqTreR7rX0o0LjdRObATNsIcSiZ8ke9
+ 
+	MS3tqXxIucVzV/7haZclqlUUdvYLypwaTuou6Hj+PGB5P/SHlsWpTYW29umipCwe7wnTnIeUXADF+P
+ 
+	Xe54H6HwwWufOk52FFkDD56lGmxUnCsxrOVr6RDpi6r5a1WCQl+M5PKL7mKGc1h8FJPDm12CWOHVc/
+ 
+	Qf1YebAlkQGxskPn4s/dv1SXBS9WxwBg0n4g2uqd9G3S/p9cpxx2ZIUNyHOWUUf8qS0fPmdD3f202O
+ 
+	yW0YPIPEAmDmBVHgr2Qoi8Hd3M6OL+yGyO/CV5e58Z3chiAADIf+Fns6y2JA4jcp8W//u2zZJyOBhR
+ 
+	bKIo2OjWcxQTZY4IDQgCeKbMpbbYjo8MP9Rfe3lJGyBrpVpZoldOeZv9a7dpaplBtbYe8AZ39Eiu7K
+ 
+	nZKZ8qyjPPF4kWonfTi12jpvqyqVa2UWAamt/BtxWksycK7disatRd9FPw9JW7YlplfhPil6LIbiXJ
+ 
+	XYTD0NBVSqK67paNr+zxY2NVCpbiMpsf2TTgFv/HcT9mDAc0vaudkzuo2jWxcnDAlqku8ozEBLhVqa
+ 
+	vaspyaZJRQxFwRCLew5DT4d7hAG2JbnSkK9bGQkvFtBj3eX50X+RHhB/aZ5HflG368iAh4VgljwnfQ
+ 
+	+p7xo88oICJK/1Q/qJ3dBKWD+IXtC66UnrzjsMyNAHc7MsJL6/uFt/vfrVFzVpPpw4HH2UBmxQgvxr
+ 
+	AXd8bJryw1QndsEgMIf9ZpVnkfByE+0DRRmYcw3yRAQJ+yrR0viTXSPaWNQ15jAJPZrwkOVMWkGb+M
+ 
+	NDW5FnK898SFLEeS5ywnNIu9CQ3Kh0DvKBOJp8iI57HEdNkWX26DjdegDLEGoArVEESKgriDeZFGMb
+ 
+	3izHK43gcX2dvTs9lTLZr7xmue3g0Z9Xyg7amJuly5bXR0pOXR74SdgbK5vvxTV/f9UD6jbw5xTciZ
+ 
+	udK/YMhoJm0Bqaf7NHn8jRskscfJREefQYq7IMS9TaZcSQ/WkvauNlMTnQCmcm9ukemmD4YTvdfe/k
+ 
+	bQYiVrPMkzcF7aMEUTifWsYu3rVrXCu0o1yqfZl0BRJHSotpW+9uLXe/hP/9uVved2Sdc1HwMjMUeJ
+ 
+	Vrs5/OL6sts7EYttlG110gjoiM6ZMmpsYDb8tJPjYrezr0/okufAYjpzf5Ct+suPxxJsz3+5rLmDF0
+ 
+	H1SPFBPHAh9yf2EWDnISTAXI/1sm2QL1MbhmY+t7PMz/rwkrulZ3mnEMblKM9tHpR31+izvnB7xAuO
+ 
+	G1uOz5zJwpqI38gNIVRsk8OH7/K4wb6hUc8/iJchbnhRC7kMYOtDQg7QR2vNarxmzwmXN+laXMJKH7
+ 
+	/5xCCRg8dQWackW4BYvpqBkZtKtNy1UzzfrHs2mjgX1gLQXmy3SbhLOoPRhRgXa/8GaaSaFpvgd2Ip
+ 
+	lHgqU2uQA==
+X-NCJF-Version: 6
+Authentication-Results: asp-relay-shared.jellyfish.systems;
+	dkim=pass header.d=dlt-ae.20221208.gappssmtp.com header.s=20221208 header.b=fW7snRtS;
+	dmarc=none;
+	spf=pass (asp-relay-shared.jellyfish.systems: domain of gm@dlt.ae designates 209.85.218.44 as permitted sender) smtp.mailfrom=gm@dlt.ae
+
+This is a multipart message in MIME format.
+
+------=_NextPart_000_0337_01D9B40D.06EF7070
+Content-Type: text/plain;
+	charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+Received with thanks
+
+And I will update you
+
+=20
+
+From: Aamer Saade <aamersaade80@gmail.com>=20
+Sent: Tuesday, July 11, 2023 3:13 PM
+To: Diamond Translation <dlt.dubai@outlook.com>; gm@dlt.ae
+Cc: info@dependablelc.com
+Subject: Re: Al hosni advocate translated invoices
+
+=20
+
+Dear all
+
+Hope you are doing well
+
+Kindly find the attachment below, the statement of claim against =
+AlHosani Advocates
+
+=20
+
+Please check the claim amount, and I need a copy of the legal notice =
+sent to them and the delivery note.=20
+
+and send me a copy of your latest trade license.=20
+
+Kind Regards
+
+Aamer Saade
+
+Legal consultant
+
+Dubai- 00971527107117
+
+=20
+
+=20
+
+On Sat, Jul 8, 2023 at 3:54=E2=80=AFPM Diamond Translation =
+<dlt.dubai@outlook.com <mailto:dlt.dubai@outlook.com> > wrote:
+
+Dear Team ,=20
+
+Good Day ,=20
+
+PFA .=20
+
+Regards ,=20
+Diamond Translation=20
+
+
+------=_NextPart_000_0337_01D9B40D.06EF7070
+Content-Type: text/html;
+	charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+<html xmlns:v=3D"urn:schemas-microsoft-com:vml" =
+xmlns:o=3D"urn:schemas-microsoft-com:office:office" =
+xmlns:w=3D"urn:schemas-microsoft-com:office:word" =
+xmlns:m=3D"http://schemas.microsoft.com/office/2004/12/omml" =
+xmlns=3D"http://www.w3.org/TR/REC-html40"><head><meta =
+http-equiv=3DContent-Type content=3D"text/html; charset=3Dutf-8"><meta =
+name=3DGenerator content=3D"Microsoft Word 15 (filtered =
+medium)"><style><!--
+/* Font Definitions */
+@font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+@font-face
+	{font-family:"Calibri Light";
+	panose-1:2 15 3 2 2 2 4 3 2 4;}
+@font-face
+	{font-family:"Comic Sans MS";
+	panose-1:3 15 7 2 3 3 2 2 2 4;}
+@font-face
+	{font-family:"Baskerville Old Face";}
+/* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin:0in;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+a:link, span.MsoHyperlink
+	{mso-style-priority:99;
+	color:blue;
+	text-decoration:underline;}
+span.EmailStyle19
+	{mso-style-type:personal-reply;
+	font-family:"Calibri",sans-serif;
+	color:#2F5496;}
+.MsoChpDefault
+	{mso-style-type:export-only;
+	font-family:"Calibri",sans-serif;}
+@page WordSection1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.0in 1.0in 1.0in;}
+div.WordSection1
+	{page:WordSection1;}
+--></style><!--[if gte mso 9]><xml>
+<o:shapedefaults v:ext=3D"edit" spidmax=3D"1026" />
+</xml><![endif]--><!--[if gte mso 9]><xml>
+<o:shapelayout v:ext=3D"edit">
+<o:idmap v:ext=3D"edit" data=3D"1" />
+</o:shapelayout></xml><![endif]--></head><body lang=3DEN-US link=3Dblue =
+vlink=3Dpurple style=3D'word-wrap:break-word'><div =
+class=3DWordSection1><p class=3DMsoNormal><span =
+style=3D'color:#2F5496'>Received with thanks<o:p></o:p></span></p><p =
+class=3DMsoNormal><span style=3D'color:#2F5496'>And I will update =
+you<o:p></o:p></span></p><p class=3DMsoNormal><span =
+style=3D'color:#2F5496'><o:p>&nbsp;</o:p></span></p><div =
+style=3D'border:none;border-top:solid #E1E1E1 1.0pt;padding:3.0pt 0in =
+0in 0in'><p class=3DMsoNormal><b>From:</b> Aamer Saade =
+&lt;aamersaade80@gmail.com&gt; <br><b>Sent:</b> Tuesday, July 11, 2023 =
+3:13 PM<br><b>To:</b> Diamond Translation &lt;dlt.dubai@outlook.com&gt;; =
+gm@dlt.ae<br><b>Cc:</b> info@dependablelc.com<br><b>Subject:</b> Re: Al =
+hosni advocate translated invoices<o:p></o:p></p></div><p =
+class=3DMsoNormal><o:p>&nbsp;</o:p></p><div><div><p =
+class=3DMsoNormal><span style=3D'font-family:"Comic Sans MS"'>Dear =
+all<o:p></o:p></span></p></div><div><p class=3DMsoNormal><span =
+style=3D'font-family:"Comic Sans MS"'>Hope you are =
+doing&nbsp;well<o:p></o:p></span></p></div><div><p =
+class=3DMsoNormal><span style=3D'font-family:"Comic Sans MS"'>Kindly =
+find the attachment below, the statement of claim against AlHosani =
+Advocates<o:p></o:p></span></p></div><div><p class=3DMsoNormal><span =
+style=3D'font-family:"Comic Sans =
+MS"'><o:p>&nbsp;</o:p></span></p></div><div><p class=3DMsoNormal><span =
+style=3D'font-family:"Comic Sans MS"'>Please check the claim amount, and =
+I need a copy of the legal notice sent to them and the =
+delivery&nbsp;note.&nbsp;<o:p></o:p></span></p></div><div><p =
+class=3DMsoNormal><span style=3D'font-family:"Comic Sans MS"'>and send =
+me a copy of your latest trade =
+license.&nbsp;<o:p></o:p></span></p></div><div><div><div><div><div><p =
+style=3D'margin-bottom:0in'><b><i><span style=3D'font-family:"Calibri =
+Light",sans-serif'>Kind Regards</span></i></b><o:p></o:p></p><p =
+style=3D'margin-bottom:0in;background-image:initial;background-position:i=
+nitial;background-repeat:initial'><b><i><span =
+style=3D'font-size:16.0pt;font-family:"Baskerville Old =
+Face",serif'>Aamer Saade</span></i></b><o:p></o:p></p><p =
+style=3D'margin-bottom:0in;background-image:initial;background-position:i=
+nitial;background-repeat:initial'><b><i><span =
+style=3D'font-size:16.0pt;font-family:"Baskerville Old =
+Face",serif'>Legal consultant</span></i></b><o:p></o:p></p><p =
+style=3D'margin-bottom:0in;background-image:initial;background-position:i=
+nitial;background-repeat:initial'><b><i><span =
+style=3D'font-size:16.0pt;font-family:"Baskerville Old =
+Face",serif'>Dubai- =
+00971527107117</span></i></b><o:p></o:p></p></div></div></div></div></div=
+><p class=3DMsoNormal><o:p>&nbsp;</o:p></p></div><p =
+class=3DMsoNormal><o:p>&nbsp;</o:p></p><div><div><p class=3DMsoNormal>On =
+Sat, Jul 8, 2023 at 3:54=E2=80=AFPM Diamond Translation &lt;<a =
+href=3D"mailto:dlt.dubai@outlook.com">dlt.dubai@outlook.com</a>&gt; =
+wrote:<o:p></o:p></p></div><blockquote =
+style=3D'border:none;border-left:solid #CCCCCC 1.0pt;padding:0in 0in 0in =
+6.0pt;margin-left:4.8pt;margin-right:0in'><div><div><div><p =
+class=3DMsoNormal =
+style=3D'mso-margin-top-alt:auto;mso-margin-bottom-alt:auto'>Dear Team , =
+<br><br>Good Day , <br><br>PFA . <br><br>Regards , <br>Diamond =
+Translation =
+<o:p></o:p></p></div></div></div></blockquote></div></div></body></html>
+------=_NextPart_000_0337_01D9B40D.06EF7070--
+

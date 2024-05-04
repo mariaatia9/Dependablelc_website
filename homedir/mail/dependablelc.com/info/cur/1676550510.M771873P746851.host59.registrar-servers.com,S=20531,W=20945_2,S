@@ -1,0 +1,414 @@
+Return-Path: <GeorginaHakim@outlook.com>
+Delivered-To: info@dependablelc.com
+Received: from host59.registrar-servers.com
+	by host59.registrar-servers.com with LMTP
+	id CIWlLG4h7mNjZQsA+KyzgQ
+	(envelope-from <GeorginaHakim@outlook.com>)
+	for <info@dependablelc.com>; Thu, 16 Feb 2023 07:28:30 -0500
+Return-path: <GeorginaHakim@outlook.com>
+Envelope-to: info@dependablelc.com
+Delivery-date: Thu, 16 Feb 2023 07:28:30 -0500
+Received: from [63.250.43.69] (port=8811 helo=asp-relay-shared.jellyfish.systems)
+	by host59.registrar-servers.com with esmtps  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <GeorginaHakim@outlook.com>)
+	id 1pSdNG-0038y0-Hs
+	for info@dependablelc.com;
+	Thu, 16 Feb 2023 07:28:30 -0500
+Received: from APC01-PSA-obe.outbound.protection.outlook.com (mail-psaapc01olkn2061.outbound.protection.outlook.com [40.92.52.61])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by asp-relay-shared.jellyfish.systems (Postfix) with ESMTPS id 4PHZ3q4Qtgz4w2G
+	for <info@dependablelc.com>; Thu, 16 Feb 2023 12:28:23 +0000 (UTC)
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=Z+gTznorxmjqiKwWSmTFsuOtLToxDA6TxJ/aD71sd7F8djIHBq4b18G4y6ltq/vBPkMxMhFym4eIZOo7GwxjteqMTWm3H3fyh2dKRSqhoJ778Q/tGPqp8JcAI/bgqjdeJZ0nabcW0BMbJqNo/s81j3DN4w4vWSafnVX5o4cWZBKcVedNRqOzGr0wo1fK/e9PCjWaE4tN1/YK7Q5u0+UU+0wU7tOLxXdlTtR1S4tjQqtVpAhRWz6QlnyWtu5/j+BZiqJsY/HcFWXrUoEVZd3iTi+ilER5cU682yXxwddhN/fKpfc6Q7zyGTswXklLRUutpNgAkDHIkNpjQYeD8pT9Qw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Iill+9bB34JgwKMkhpjIZ0tQZeov/jXVwkalNloSPMg=;
+ b=QVg3osTFVENjKyTdFyKp5DTSyL1yFSx2WAE7wObAr9OoDJzvGGu5i5+ISVCYWdO08DnGlHKEr05M8XiZycrulGt7jOL9kBRt0kol2WdiVzNxwKxNpr0JpPJilpoDSqfZ2OU//y63dzntwxV5FG6mmwaCWPFSzjwRxPcMFQzn6T2R6xLOsLVr9BnESM1oLH8FhlLnlYctTTkt6N4Yb9M3LUllJ5DJmoYL48Z5ysDskAXom7/c3myqHA52gzBxyKLyJ9Yb5XdfF0YT/gxkhX94hzdu+r8vVmI1nn74hS/+VGke+xkxCvZLkFd5K6cgjOXlAc301adyJWnyR2cp7ZQ9bQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
+ dkim=none; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Iill+9bB34JgwKMkhpjIZ0tQZeov/jXVwkalNloSPMg=;
+ b=sDUhKYJMJ//i+2+uyuPa+TMrK2sA3DK8OwLPSxJOEZA9oYYI3vhlZMzo74gR/0liP4uIWdHBS9LEfMJOMvDtP6X0eXV/2uyIZKKDGGq0rlhiLqrdfIeT46u8mB8205CI4wPnNQQC0MDDNEuUV5zG2yioEvlXujLkrqmi2v2nN8Sofio3Qbecr9mlBHtCBGociMkKek/4G3gdIR+iQuvfeT3DQS5/NIcI8gwZBy4xBF2giYLrSDMPwLL2l15wZVIrQcIH/2gHx0kTO28YHWU4O5ZI+Dh9cYaFhTaCT8Lumcyd2OsDK9uLnqzaG6fZamhWtrG3BPcieYlfwtMj9XUPug==
+Received: from TY2PR04MB4062.apcprd04.prod.outlook.com
+ (2603:1096:404:800f::11) by TY0PR04MB6422.apcprd04.prod.outlook.com
+ (2603:1096:400:27a::13) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.6111.13; Thu, 16 Feb
+ 2023 12:27:12 +0000
+Received: from TY2PR04MB4062.apcprd04.prod.outlook.com
+ ([fe80::476:e813:a81a:ad14]) by TY2PR04MB4062.apcprd04.prod.outlook.com
+ ([fe80::476:e813:a81a:ad14%9]) with mapi id 15.20.6111.012; Thu, 16 Feb 2023
+ 12:27:12 +0000
+From: Georgina Hakim <GeorginaHakim@outlook.com>
+Subject: Proposal .!!
+Thread-Topic: Proposal .!!
+Thread-Index: AQHZQgHm5H3laOvOvk2vmCFdAJsw2Q==
+Date: Thu, 16 Feb 2023 12:27:12 +0000
+Message-ID:
+ <TY2PR04MB4062BAFF833CE6C37580C2A6A4A09@TY2PR04MB4062.apcprd04.prod.outlook.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach:
+X-MS-TNEF-Correlator:
+msip_labels:
+x-tmn: [Q4NPVn9dU5AMtPYvtsXCRz6eJ9Jp6VqV]
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: TY2PR04MB4062:EE_|TY0PR04MB6422:EE_
+x-ms-office365-filtering-correlation-id: a67ab62d-4e58-4e10-5318-08db1019216f
+x-ms-exchange-slblob-mailprops:
+ W8QeQjNh5zrpX/yvvlPL+K4FLTQExqakHoIxMgBh6j+BE4qNPWb1Gf9Ujxwde+c8sl3A41jTTZKns8bY8ILpPzXXVfTiFQAz3YiQHeW1+q7kiFkwEF1HA3mheb+lbs1S2wn2Zj3dJ5gDIu2ZR2n5aCqNLzYTY9rxA4TUfd341xDBXQOIOcw2x24y3K2iYQus2Z7Rgtw/wP+lNFsORMce8BjNSnFitAvEth/UGJBsW2DxhOMwP+Rm9u57Smm9JKbL+QiIweAYvhwsluJVsnUd1rMqIMI4QZ14OIKDWD9sY8otEXdXCTE+mnR9I8sgVVaLCPixAcNBpbYNij0qvCOvE68X1bCx/4SyAt5cdJurvJLDGjDkoWCw5bIrxzumJMVWJwGa3lPv7YEZ8f7vvP1Pi9+BRRaywU2IMOkhgbQZ7YuG7/w7aKasqcpcIfxMN3yRz94ud8nK4pXj+JBdAJG7svMLdzY7Doomuf7LBVv3mtLTPGho8/iY/ajs9EeKjydKWv7Dx6YdIUjxZ8mYDsgHkJAAsnJI+FY7FYceBUsJ8hhSSylgWo+L9J3t8ojIsMx03pS+qZJFko/3Yz4j4EZM4J73dsI42wfPhKIM1OL+K8faoqP/8lp9qGglPPKEI4s80Bmn8RpFY7w=
+x-microsoft-antispam: BCL:0;
+x-microsoft-antispam-message-info:
+ 4Ll/LLsF5A5DCQU0m3ThCVtBh5RzBIwrztSGVpHKJ8UpxAfAKeBy6Ev6rllF25j0BGb+RRpWshxcXd/cRsu/H0V1SxZbL/038g5VSXHHig2XJZbTizfjXglc9cniDklyCwPl1TGWaTmcsuP+Jp8mOwnCe6fYRkJSiNxmk18h4iaMY1maVgJ27u7wujM+aiWbvn7gO2y7SbgNXYaPpwakAd6LMt+z3raxT/LYWZwj2HdgKM01OwQisSl9UyHGgcbSKtX6kcFCpzSg0xm0F+SV507UsHVY0U+UrSG3WPSsmjXXdGLYHP5fvJdKqo65K+iYqIb3ZKMF5pZCzYaZzm19BizKB/bCcLTn6M0azDpkapa/kKEq+eaxMuNxKqzbaQME05fgaAATk13c66aXLZjfgmkLMEdiIe/cnXZMR26X5OLxIIjJADp7mh44Cib/pKfo9LZBD0bEAg8gGpoJQ2L2CdlOp/ko5mFDct+G9gcdx1n+qTxNd+l7/JGlwAu7uzY2NWU1oCn7/D/fWYYhDukcg1pF92k7rmFsBMpmfaFGGTB17q4DFEgqSV+tLuInl60HeQxWAosoC/9C6iXRyfPqlw==
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0:
+ =?iso-8859-1?Q?mLd4cr591xl6pxthEyoozRVWToKK5JOjOTKynSFKOHY9eTwhOskSq87PQC?=
+ =?iso-8859-1?Q?avV40keyqa0f2Vx/y9D3qv9QweAaBHPMq0xPOtFtw5YsU3WgbagzGCjmp4?=
+ =?iso-8859-1?Q?DTrMl9AtV3kytjTKCn0FfKOU7Q1LB39KiPCoYSN1bhTUGtD1gkqOl5AGqb?=
+ =?iso-8859-1?Q?+YZ6BInsld4HNwtmqhiwxXTalhvAPvVyXUi+Ow5Uc98ikOSj5/iiSdbY+G?=
+ =?iso-8859-1?Q?20ovobLvqExnJv3WeaYsF1fC50VdHF3Ik428dMKcqCxCN35KC4sLVFwfL9?=
+ =?iso-8859-1?Q?zBFS+r5VcDjog1A0W1bnTxOglAEDelZfjFUmQntXNVIbSOxNuW54UIaxRl?=
+ =?iso-8859-1?Q?ZLWQp/4FrZI9fC62V42McB8ge/CcuarcackocC1Ji+CWcIj9dqiZ/soMpZ?=
+ =?iso-8859-1?Q?WiUcri1njMxxtXsKDfSoK6LI5wgFsRSB1eVn/tkUR8t1la00BvIYH5ukuI?=
+ =?iso-8859-1?Q?u45YdEwpwj67f9E/ICm6bWRBk1UhKGJB6VrCl7WnLOWl84lgw3aw1vUnLz?=
+ =?iso-8859-1?Q?z7cKxx0O5Ja3zuKTAIUUZgqCWM3NV+zuE8uFYzw5Vp54P7RSDkahYXGHhy?=
+ =?iso-8859-1?Q?xUe73p5iWBAPVLdNG52L3NizacODrfDf7w/+RQ238PF3mRBkuaagkB2opR?=
+ =?iso-8859-1?Q?8PVKJV6xjoiP75peY0Q25u+lgHDbIvmgErxL6IgSypkzMxcxJSV1av9BjL?=
+ =?iso-8859-1?Q?lB6PgWbQLec4+ipI+mZ+YGmFcgdwv42bR6vDvA5nsquWaGyPs831tQCykO?=
+ =?iso-8859-1?Q?C9DY4Wj/3kLwEyQNUsAUuYlGeSZqagPHG9euGmfEkiD5ARZqIuNW4Tmsyi?=
+ =?iso-8859-1?Q?SzDYfImdTZnqbM5A+d+Z+km77WphsgUClBnMvx81+Dj8aFWxemPcOr+ZZJ?=
+ =?iso-8859-1?Q?7KsiF0ffbS9keHLnIvS6sQq3ZwmJIl4e/jOyvl3HoocyeLYqvLwrk1GM/t?=
+ =?iso-8859-1?Q?4sTODTzzovVh45bq2voyW17ig/NqqZN6JtDjUU4BMbjLXT8cZTwYEP0rLH?=
+ =?iso-8859-1?Q?r7BE5WouZPmRIXpBtSMEmBLH29kLH6gEFwlEGHV3iqVdqBjWhFS0C8VDhr?=
+ =?iso-8859-1?Q?VLI346i+Q9J5B31DMFGMspYVgf5EOgFw/aNPvkTOwRe7OVG/8/zG2L4XLV?=
+ =?iso-8859-1?Q?R2fCj9/uMmujdlcmx81fkZ/6nvPwQbad8yvR5PyIBbksw/z6l/+yl1R8hn?=
+ =?iso-8859-1?Q?XXaWkWbbRo2Zw9ZNlNW1LU2iNL62nmKt8ojObFCh+DGoXu+0huLOEbTK84?=
+ =?iso-8859-1?Q?OGmh4vchz2Y7cfB3J2ZeVFLWOdbGyRvfhIsCzDsydpuyOVFABpmLR1N919?=
+ =?iso-8859-1?Q?6A3nmPl5REYN0EoG5sEa2Vtv3Q=3D=3D?=
+Content-Type: multipart/alternative;
+	boundary="_000_TY2PR04MB4062BAFF833CE6C37580C2A6A4A09TY2PR04MB4062apcp_"
+MIME-Version: 1.0
+X-OriginatorOrg: outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: TY2PR04MB4062.apcprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-CrossTenant-Network-Message-Id: a67ab62d-4e58-4e10-5318-08db1019216f
+X-MS-Exchange-CrossTenant-originalarrivaltime: 16 Feb 2023 12:27:12.3915
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-rms-persistedconsumerorg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: TY0PR04MB6422
+X-NCJF-Result: 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
+ 
+	I46Gw2aMJhkGrWtBhOSvp9EA5n8CjIMCA==
+X-NCJF-Version: 2
+Authentication-Results: asp-relay-shared.jellyfish.systems;
+	dkim=pass header.d=outlook.com header.s=selector1 header.b=sDUhKYJM;
+	arc=pass ("microsoft.com:s=arcselector9901:i=1");
+	dmarc=pass (policy=none) header.from=outlook.com;
+	spf=pass (asp-relay-shared.jellyfish.systems: domain of GeorginaHakim@outlook.com designates 40.92.52.61 as permitted sender) smtp.mailfrom=GeorginaHakim@outlook.com
+
+--_000_TY2PR04MB4062BAFF833CE6C37580C2A6A4A09TY2PR04MB4062apcp_
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
+
+Hello Sir,
+
+
+
+Allow me to introduce.
+
+
+
+We are an India based SEO & Web Development company. We are a team of 100+ =
+IT professionals with expertise in Digital Marketing Web Development & Apps=
+ Development.
+
+
+
+We provide a S.E.O. special offer for the following package:
+
+
+
+1. On-page SEO
+
+2. Web Competition Research & Analysis
+
+3. Keyword Research & Analysis
+
+4. Off-page SEO
+
+5. Local SEO
+
+6. Content Marketing
+
+7. Backlinks Acquisition
+
+8. Google AdWords
+
+9. Content optimization
+
+10. Site Map for User
+
+
+
+Our services are much affordable. I'd be happy to send you our package and =
+pricing if you'd like to assess our work.
+
+
+
+Look forward to hearing from you.
+
+
+
+Warm Regards
+
+
+
+Georgina Hakim
+
+
+--_000_TY2PR04MB4062BAFF833CE6C37580C2A6A4A09TY2PR04MB4062apcp_
+Content-Type: text/html; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
+
+<html>
+<head>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Diso-8859-=
+1">
+<style type=3D"text/css" style=3D"display:none;"> P {margin-top:0;margin-bo=
+ttom:0;} </style>
+</head>
+<body dir=3D"ltr">
+<div style=3D"font-family: Calibri, Arial, Helvetica, sans-serif; font-size=
+: 12pt; color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);" class=
+=3D"elementToProof">
+<p class=3D"MsoNoSpacing ContentPasted0" style=3D"margin:0in 0in 0.0001pt;f=
+ont-size:11pt;font-family:&quot;Calibri&quot;, &quot;sans-serif&quot;">
+Hello Sir,</p>
+<p class=3D"MsoNoSpacing" style=3D"margin:0in 0in 0.0001pt;font-size:11pt;f=
+ont-family:&quot;Calibri&quot;, &quot;sans-serif&quot;">
+<o:p class=3D"ContentPasted0">&nbsp;</o:p></p>
+<p class=3D"MsoNoSpacing ContentPasted0" style=3D"margin:0in 0in 0.0001pt;f=
+ont-size:11pt;font-family:&quot;Calibri&quot;, &quot;sans-serif&quot;">
+Allow me to introduce.</p>
+<p class=3D"MsoNoSpacing" style=3D"margin:0in 0in 0.0001pt;font-size:11pt;f=
+ont-family:&quot;Calibri&quot;, &quot;sans-serif&quot;">
+<o:p class=3D"ContentPasted0">&nbsp;</o:p></p>
+<p class=3D"MsoNoSpacing ContentPasted0" style=3D"margin:0in 0in 0.0001pt;f=
+ont-size:11pt;font-family:&quot;Calibri&quot;, &quot;sans-serif&quot;">
+We are an India based SEO &amp; Web Development company. We are a team of 1=
+00+ IT professionals with expertise in Digital Marketing Web Development &a=
+mp; Apps Development.</p>
+<p class=3D"MsoNoSpacing" style=3D"margin:0in 0in 0.0001pt;font-size:11pt;f=
+ont-family:&quot;Calibri&quot;, &quot;sans-serif&quot;">
+<o:p class=3D"ContentPasted0">&nbsp;</o:p></p>
+<p class=3D"MsoNoSpacing ContentPasted0" style=3D"margin:0in 0in 0.0001pt;f=
+ont-size:11pt;font-family:&quot;Calibri&quot;, &quot;sans-serif&quot;">
+<span style=3D"font-size:13.0pt" class=3D"ContentPasted0">We provide a <u><=
+span style=3D"color:#0070C0" class=3D"ContentPasted0">S.E.O. special offer<=
+/span></u> for the following package</span>:
+</p>
+<p class=3D"MsoNoSpacing" style=3D"margin:0in 0in 0.0001pt;font-size:11pt;f=
+ont-family:&quot;Calibri&quot;, &quot;sans-serif&quot;">
+<o:p class=3D"ContentPasted0">&nbsp;</o:p></p>
+<p class=3D"MsoNoSpacing ContentPasted0" style=3D"margin:0in 0in 0.0001pt;f=
+ont-size:11pt;font-family:&quot;Calibri&quot;, &quot;sans-serif&quot;">
+1. On-page SEO</p>
+<p class=3D"MsoNoSpacing ContentPasted0" style=3D"margin:0in 0in 0.0001pt;f=
+ont-size:11pt;font-family:&quot;Calibri&quot;, &quot;sans-serif&quot;">
+2. Web Competition Research &amp; Analysis</p>
+<p class=3D"MsoNoSpacing ContentPasted0" style=3D"margin:0in 0in 0.0001pt;f=
+ont-size:11pt;font-family:&quot;Calibri&quot;, &quot;sans-serif&quot;">
+3. Keyword Research &amp; Analysis</p>
+<p class=3D"MsoNoSpacing ContentPasted0" style=3D"margin:0in 0in 0.0001pt;f=
+ont-size:11pt;font-family:&quot;Calibri&quot;, &quot;sans-serif&quot;">
+4. Off-page SEO</p>
+<p class=3D"MsoNoSpacing ContentPasted0" style=3D"margin:0in 0in 0.0001pt;f=
+ont-size:11pt;font-family:&quot;Calibri&quot;, &quot;sans-serif&quot;">
+5. Local SEO</p>
+<p class=3D"MsoNoSpacing ContentPasted0" style=3D"margin:0in 0in 0.0001pt;f=
+ont-size:11pt;font-family:&quot;Calibri&quot;, &quot;sans-serif&quot;">
+6. Content Marketing</p>
+<p class=3D"MsoNoSpacing ContentPasted0" style=3D"margin:0in 0in 0.0001pt;f=
+ont-size:11pt;font-family:&quot;Calibri&quot;, &quot;sans-serif&quot;">
+7. Backlinks Acquisition</p>
+<p class=3D"MsoNoSpacing ContentPasted0" style=3D"margin:0in 0in 0.0001pt;f=
+ont-size:11pt;font-family:&quot;Calibri&quot;, &quot;sans-serif&quot;">
+8. Google AdWords</p>
+<p class=3D"MsoNoSpacing ContentPasted0" style=3D"margin:0in 0in 0.0001pt;f=
+ont-size:11pt;font-family:&quot;Calibri&quot;, &quot;sans-serif&quot;">
+9. Content optimization</p>
+<p class=3D"MsoNoSpacing ContentPasted0" style=3D"margin:0in 0in 0.0001pt;f=
+ont-size:11pt;font-family:&quot;Calibri&quot;, &quot;sans-serif&quot;">
+10. Site Map for User</p>
+<p class=3D"MsoNoSpacing" style=3D"margin:0in 0in 0.0001pt;font-size:11pt;f=
+ont-family:&quot;Calibri&quot;, &quot;sans-serif&quot;">
+<o:p class=3D"ContentPasted0">&nbsp;</o:p></p>
+<p class=3D"MsoNoSpacing ContentPasted0" style=3D"margin:0in 0in 0.0001pt;f=
+ont-size:11pt;font-family:&quot;Calibri&quot;, &quot;sans-serif&quot;">
+Our services are much affordable. I'd be happy to send you our package and =
+pricing if you'd like to assess our work.</p>
+<p class=3D"MsoNoSpacing" style=3D"margin:0in 0in 0.0001pt;font-size:11pt;f=
+ont-family:&quot;Calibri&quot;, &quot;sans-serif&quot;">
+<o:p class=3D"ContentPasted0">&nbsp;</o:p></p>
+<p class=3D"MsoNoSpacing ContentPasted0" style=3D"margin:0in 0in 0.0001pt;f=
+ont-size:11pt;font-family:&quot;Calibri&quot;, &quot;sans-serif&quot;">
+Look forward to hearing from you.</p>
+<p class=3D"MsoNoSpacing" style=3D"margin:0in 0in 0.0001pt;font-size:11pt;f=
+ont-family:&quot;Calibri&quot;, &quot;sans-serif&quot;">
+<o:p class=3D"ContentPasted0">&nbsp;</o:p></p>
+<p class=3D"MsoNoSpacing ContentPasted0" style=3D"margin:0in 0in 0.0001pt;f=
+ont-size:11pt;font-family:&quot;Calibri&quot;, &quot;sans-serif&quot;">
+Warm Regards</p>
+<p class=3D"MsoNoSpacing" style=3D"margin:0in 0in 0.0001pt;font-size:11pt;f=
+ont-family:&quot;Calibri&quot;, &quot;sans-serif&quot;">
+<o:p class=3D"ContentPasted0">&nbsp;</o:p></p>
+<p class=3D"MsoNoSpacing ContentPasted0" style=3D"margin:0in 0in 0.0001pt;f=
+ont-size:11pt;font-family:&quot;Calibri&quot;, &quot;sans-serif&quot;">
+Georgina Hakim</p>
+<br>
+</div>
+</body>
+</html>
+
+--_000_TY2PR04MB4062BAFF833CE6C37580C2A6A4A09TY2PR04MB4062apcp_--

@@ -1,0 +1,81 @@
+Return-Path: <>
+Delivered-To: dependablelc@host59.registrar-servers.com
+Received: from host59.registrar-servers.com
+	by host59.registrar-servers.com with LMTP
+	id kNLFLDGvDGbgqzIA+KyzgQ
+	(envelope-from <>)
+	for <dependablelc@host59.registrar-servers.com>; Tue, 02 Apr 2024 21:21:53 -0400
+Return-path: <>
+Envelope-to: dependablelc@host59.registrar-servers.com
+Delivery-date: Tue, 02 Apr 2024 21:21:53 -0400
+Received: from mailnull by host59.registrar-servers.com with local (Exim 4.96.1)
+	id 1rrpK5-00EIi0-2J
+	for dependablelc@host59.registrar-servers.com;
+	Tue, 02 Apr 2024 21:21:53 -0400
+X-Failed-Recipients: admin@dependablelc.com
+Auto-Submitted: auto-replied
+From: Mail Delivery System <Mailer-Daemon@host59.registrar-servers.com>
+To: dependablelc@host59.registrar-servers.com
+References: <JYwPfs8sShRHLsO8y40zb4FfYujTDIPcoL6pxsI1mI@dependablelc.com>
+Content-Type: multipart/report; report-type=delivery-status; boundary=1712107313-eximdsn-1753010751
+MIME-Version: 1.0
+Subject: Mail delivery failed: returning message to sender
+Message-Id: <E1rrpK5-00EIi0-2J@host59.registrar-servers.com>
+Date: Tue, 02 Apr 2024 21:21:53 -0400
+
+--1712107313-eximdsn-1753010751
+Content-type: text/plain; charset=us-ascii
+
+This message was created automatically by mail delivery software.
+
+A message that you sent could not be delivered to one or more of its
+recipients. This is a permanent error. The following address(es) failed:
+
+  admin@dependablelc.com
+    No Such User Here
+
+--1712107313-eximdsn-1753010751
+Content-type: message/delivery-status
+
+Reporting-MTA: dns; host59.registrar-servers.com
+
+Action: failed
+Final-Recipient: rfc822;admin@dependablelc.com
+Status: 5.0.0
+
+--1712107313-eximdsn-1753010751
+Content-type: message/rfc822
+
+Return-path: <dependablelc@host59.registrar-servers.com>
+Received: from dependablelc by host59.registrar-servers.com with local (Exim 4.96.1)
+	(envelope-from <dependablelc@host59.registrar-servers.com>)
+	id 1rrpK5-00EIhY-1c
+	for admin@dependablelc.com;
+	Tue, 02 Apr 2024 21:21:53 -0400
+To: admin@dependablelc.com
+Subject: [DLC] Your site has updated to WordPress 6.5
+X-PHP-Script: dependablelc.com/wp-cron.php for 198.54.126.42, 198.54.126.42
+X-PHP-Filename: /home/dependablelc/public_html/wp-cron.php REMOTE_ADDR: 198.54.126.42
+Date: Wed, 3 Apr 2024 01:21:53 +0000
+From: WordPress <wordpress@dependablelc.com>
+Message-ID: <JYwPfs8sShRHLsO8y40zb4FfYujTDIPcoL6pxsI1mI@dependablelc.com>
+X-Mailer: PHPMailer 6.9.1 (https://github.com/PHPMailer/PHPMailer)
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Sender:  <dependablelc@host59.registrar-servers.com>
+
+Howdy! Your site at https://dependablelc.com has been updated automatically to WordPress 6.5.
+
+No further action is needed on your part. For more on version 6.5, see the About WordPress screen:
+https://dependablelc.com/wp-admin/about.php
+
+If you experience any issues or need support, the volunteers in the WordPress.org support forums may be able to help.
+https://wordpress.org/support/forums/
+
+You also have some plugins or themes with updates available. Update them now:
+https://dependablelc.com/wp-admin/
+
+The WordPress Team
+
+
+--1712107313-eximdsn-1753010751--

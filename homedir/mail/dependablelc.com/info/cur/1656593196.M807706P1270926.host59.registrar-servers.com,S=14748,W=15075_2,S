@@ -1,0 +1,327 @@
+Return-Path: <alhakim80f@gmail.com>
+Delivered-To: info@dependablelc.com
+Received: from host59.registrar-servers.com
+	by host59.registrar-servers.com with LMTP
+	id CLx1LyybvWKOZBMA+KyzgQ
+	(envelope-from <alhakim80f@gmail.com>)
+	for <info@dependablelc.com>; Thu, 30 Jun 2022 08:46:36 -0400
+Return-path: <alhakim80f@gmail.com>
+Envelope-to: info@dependablelc.com
+Delivery-date: Thu, 30 Jun 2022 08:46:36 -0400
+Received: from [63.250.43.69] (port=61667 helo=asp-relay-shared.jellyfish.systems)
+	by host59.registrar-servers.com with esmtps  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <alhakim80f@gmail.com>)
+	id 1o6tZ6-005L3j-Ni
+	for info@dependablelc.com;
+	Thu, 30 Jun 2022 08:46:36 -0400
+Received: from mail-qk1-f181.google.com (mail-qk1-f181.google.com [209.85.222.181])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by asp-relay-shared.jellyfish.systems (Postfix) with ESMTPS id 4LYdPN4TBYzBrRf
+	for <info@dependablelc.com>; Thu, 30 Jun 2022 12:46:27 +0000 (UTC)
+Received: by mail-qk1-f181.google.com with SMTP id p11so1076805qkg.12
+        for <info@dependablelc.com>; Thu, 30 Jun 2022 05:46:27 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20210112;
+        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+         :cc;
+        bh=CG1HgUU0INmN/uNafjvS3YSJ45CmGDbAr7UUJvWaHzA=;
+        b=dfW3GCXMxHeYC0VSQ3z4TFV8JapyXBCdlC9m3yhpQww0P795QEw2ZtAaUuYzqEP4+v
+         xrSAocRx497PdEPpcRJa6egk6xyEl4vkZ2KL0KXjJCzIl5gMBH21O/reJMrH/mkBnJr2
+         y0LNoujI1/pNSoJSVmgMudVrawOId7T3GJ/t2phUkH+N6mNPIfzkJq9cBktkf7grZ9mO
+         BANXje8zDm3mh7YYXSOxD8bc5m1YiGNHpoEDTWRPad6cCDoPHWMSsyTElYmkOFrHYykG
+         xNfq9U2VgGOy7WIpzl02qPcqa87axSc4wGShlI1pXda4nf57tC7280XbodhdlhQpynCa
+         rc1g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+         :message-id:subject:to:cc;
+        bh=CG1HgUU0INmN/uNafjvS3YSJ45CmGDbAr7UUJvWaHzA=;
+        b=SRDgr0bXy541/cLcSIRf8x9eJpuc6gFtisk6hv0sMEGiPlLDoGs8h8KG6n1QhQNeJ+
+         JnNDEyBKjOft5U+9EwKTIDQbNEclVIHW7X5ix9CF7lLxUex4AoH6kQqJH73tBrEOJdfF
+         B2skWyJ6xWQuzJp4umtQKK565sj+M+FP4sWwpC99LdaoH+LkLFLoC66jK2V+UFaVwoF6
+         n4Cid3zAugUVrY+O9IDhyp800fD+bvF8xVkrX20P+bynA3vZ0xWe+D9p5apW3u4Cs6vb
+         dA46XO4mlmRgaitKtwK0d5RAmZ9jaWpbswiWO845Can02A+URensMRmpuUjZtmnW+CEU
+         YMbw==
+X-Gm-Message-State: AJIora8KpRE3gqD1Lb9Iecs/f64JOpjgznzryyKlPhRICRGWXeDnkyfK
+	qH2qEw3LCF8tcYICcOFfoH49DtYnsHEJLOUfSiw=
+X-Google-Smtp-Source: AGRyM1ts5owrjlMeB5rzirDE4oLfOLeJwfleu7otq9ERRU3kghhQYzBZalnZrHv2PQ8uJUGAJNVSO33QWtPcICbz5KM=
+X-Received: by 2002:a05:620a:400c:b0:6a6:f8e6:92cc with SMTP id
+ h12-20020a05620a400c00b006a6f8e692ccmr6221148qko.561.1656593186697; Thu, 30
+ Jun 2022 05:46:26 -0700 (PDT)
+MIME-Version: 1.0
+References: <GU_cV000000000000000000000000000000000000000000000RDEMQ600GM1wUaIgRZKX_Sg5G9bfmg@sfdc.net>
+In-Reply-To: <GU_cV000000000000000000000000000000000000000000000RDEMQ600GM1wUaIgRZKX_Sg5G9bfmg@sfdc.net>
+From: Fidaa A <alhakim80f@gmail.com>
+Date: Thu, 30 Jun 2022 22:46:13 +1000
+Message-ID: <CAEfyEuokzBMJDB8P6U5DWrQf5C1ri4Sh81jpdUGDHmhaVGARzQ@mail.gmail.com>
+Subject: Re: 2101, Silver Tower, Business Bay_SELLER
+To: "Sales Progression-Allsopp & Allsopp" <salesprogression@allsoppandallsopp.com>
+Cc: melissa.s@allsoppandallsopp.com, joanne@allsoppandallsopp.com, 
+	laila@allsoppandallsopp.com, info@dependablelc.com, c_alhakim@yahoo.com, 
+	"joseph.w@allsoppandallsopp.com" <joseph.w@allsoppandallsopp.com>
+Content-Type: multipart/alternative; boundary="0000000000006e35fb05e2a9a8a0"
+X-NCJF-Result: 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
+X-NCJF-Version: 8
+Authentication-Results: asp-relay-shared.jellyfish.systems;
+	dkim=pass header.d=gmail.com header.s=20210112 header.b=dfW3GCXM;
+	dmarc=pass (policy=none) header.from=gmail.com;
+	spf=pass (asp-relay-shared.jellyfish.systems: domain of alhakim80f@gmail.com designates 209.85.222.181 as permitted sender) smtp.mailfrom=alhakim80f@gmail.com
+
+--0000000000006e35fb05e2a9a8a0
+Content-Type: text/plain; charset="UTF-8"
+
+Hi Jo,
+
+As of today, the settlement was not completed due to default by the buyer.
+
+The buyer did not fullfill his contractual obligations according to the
+agreement of sale
+
+Please refer to item 2.14 of the contract, agreement of sale.
+
+Seller is entitled to 80% of the deposit and 20% to the broker.
+
+Chad will be at your head office at 9am to meet with you and pick up the
+deposit cheque.
+
+This matter is required to be settled tomorrow
+
+Our solicitor has also been Cc'd in this email.
+
+Thank you and best regards
+
+Mrs Fidaa Al Hakim
+
+On Mon, 13 Jun 2022, 5:13 pm Sales Progression-Allsopp & Allsopp, <
+salesprogression@allsoppandallsopp.com> wrote:
+
+> Hello Fidaa Al Hakim,
+>
+> Congratulations on the sale of your property 2101, Silver Tower, Business
+> Bay
+>
+> Your Property Sales Consultants have made us aware of the details of your
+> sale, so we are all up to date and ready to guide you through the sale
+> progression to a successful transfer.
+>
+> Jo Murphy will be your Sales Progression Officer. They will liaise
+> directly between yourself, the buyer, and any third parties involved in the
+> sale such as the Developer, and Dubai Land Department.
+>
+> Jo will be in contact with you within the next 48 hours to confirm the
+> next steps and let you know what is required from you to begin the process.
+>
+> In the meantime, the step-by-step guide to the sales progression process
+> is attached, along with a guide on how to prepare managers' cheques which
+> is the method of payment required at transfer.
+>
+> We look forward to working with you.
+>
+> Kind Regards
+> Sales Progression
+> Allsopp & Allsopp
+
+--0000000000006e35fb05e2a9a8a0
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"auto">Hi Jo,<div dir=3D"auto"><br></div><div dir=3D"auto">As of=
+ today, the settlement was not completed due to default by the buyer.</div>=
+<div dir=3D"auto"><br></div><div dir=3D"auto">The buyer did not fullfill hi=
+s contractual obligations according to the agreement of sale</div><div dir=
+=3D"auto"><br></div><div dir=3D"auto">Please refer to item 2.14 of the cont=
+ract, agreement of sale.</div><div dir=3D"auto"><br></div><div dir=3D"auto"=
+>Seller is entitled to 80% of the deposit and 20% to the broker.</div><div =
+dir=3D"auto"><br></div><div dir=3D"auto">Chad will be at your head office a=
+t 9am to=C2=A0meet with you and pick up the deposit cheque.</div><div dir=
+=3D"auto"><br></div><div dir=3D"auto">This=C2=A0matter is required to be se=
+ttled tomorrow</div><div dir=3D"auto"><br></div><div dir=3D"auto">Our solic=
+itor has also been Cc&#39;d in this email.</div><div dir=3D"auto"><br></div=
+><div dir=3D"auto">Thank you and best regards</div><div dir=3D"auto"><br></=
+div><div dir=3D"auto">Mrs Fidaa Al Hakim</div></div><br><div class=3D"gmail=
+_quote"><div dir=3D"ltr" class=3D"gmail_attr">On Mon, 13 Jun 2022, 5:13 pm =
+Sales Progression-Allsopp &amp; Allsopp, &lt;<a href=3D"mailto:salesprogres=
+sion@allsoppandallsopp.com">salesprogression@allsoppandallsopp.com</a>&gt; =
+wrote:<br></div><blockquote class=3D"gmail_quote" style=3D"margin:0 0 0 .8e=
+x;border-left:1px #ccc solid;padding-left:1ex">Hello Fidaa Al Hakim, <br>
+<br>
+Congratulations on the sale of your property 2101, Silver Tower, Business B=
+ay<br>
+<br>
+Your Property Sales Consultants have made us aware of the details of your s=
+ale, so we are all up to date and ready to guide you through the sale progr=
+ession to a successful transfer.<br>
+<br>
+Jo Murphy will be your Sales Progression Officer. They will liaise directly=
+ between yourself, the buyer, and any third parties involved in the sale su=
+ch as the Developer, and Dubai Land Department.<br>
+<br>
+Jo will be in contact with you within the next 48 hours to confirm the next=
+ steps and let you know what is required from you to begin the process.<br>
+<br>
+In the meantime, the step-by-step guide to the sales progression process is=
+ attached, along with a guide on how to prepare managers&#39; cheques which=
+ is the method of payment required at transfer.<br>
+<br>
+We look forward to working with you.<br>
+<br>
+Kind Regards<br>
+Sales Progression<br>
+Allsopp &amp; Allsopp</blockquote></div>
+
+--0000000000006e35fb05e2a9a8a0--

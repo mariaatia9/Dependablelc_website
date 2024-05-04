@@ -1,0 +1,472 @@
+Return-Path: <markobjelotomic@gmail.com>
+Delivered-To: info@dependablelc.com
+Received: from host59.registrar-servers.com
+	by host59.registrar-servers.com with LMTP
+	id uMBlOolyQWRIISwA+KyzgQ
+	(envelope-from <markobjelotomic@gmail.com>)
+	for <info@dependablelc.com>; Thu, 20 Apr 2023 13:12:41 -0400
+Return-path: <markobjelotomic@gmail.com>
+Envelope-to: info@dependablelc.com
+Delivery-date: Thu, 20 Apr 2023 13:12:41 -0400
+Received: from [63.250.43.69] (port=26928 helo=asp-relay-shared.jellyfish.systems)
+	by host59.registrar-servers.com with esmtps  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <markobjelotomic@gmail.com>)
+	id 1ppXpp-00CCiT-Pe
+	for info@dependablelc.com;
+	Thu, 20 Apr 2023 13:12:41 -0400
+Received: from mail-pj1-f44.google.com (mail-pj1-f44.google.com [209.85.216.44])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by asp-relay-shared.jellyfish.systems (Postfix) with ESMTPS id 4Q2PNh1XSfz4w0j
+	for <info@dependablelc.com>; Thu, 20 Apr 2023 17:12:36 +0000 (UTC)
+Received: by mail-pj1-f44.google.com with SMTP id 98e67ed59e1d1-24762b39b0dso894095a91.1
+        for <info@dependablelc.com>; Thu, 20 Apr 2023 10:12:36 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20221208; t=1682010755; x=1684602755;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=wyhZGP5XQYpq5XZYquhQPOnIHcLHq8EtAGVfDzlvtG4=;
+        b=JtXUt+gznY2u4Gtz3U/CBSbd16KH3sMA37zWTkNOX6kic5QZZI9go9Rcomav7lvnis
+         kK4IM1mYZMpbSLUORvfS5FaGvv8yYeW8pLqQgFgdN4townlJe2p+oQRVQWPfq3JYf/xL
+         erCFBtPqmxI1/UQ/sSkvclKHxRHnVSaD6/qJNPkRqCnrIrhrVRVzdyQuWLDci7aPaony
+         2Mik9L27mhH7FBj0jEw8REvTh6gCDKulsmoWjwVwLbv5FNHMH7uuq2uQP9lKG04qjnYd
+         UzJ/nAFcDpsAC+kmZr6yA1aUJRCJ5ya3J/xMuFXX7SKqA6Ux0pAqRQJtBmgPDo6bYOdE
+         vI/A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1682010755; x=1684602755;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=wyhZGP5XQYpq5XZYquhQPOnIHcLHq8EtAGVfDzlvtG4=;
+        b=aEaqzVxN1re/MiPsPbrSLTtYK2jaS21PHqQl/ZPdF/eg9x+JtvFh2gKvdlB30VxGbD
+         c17xLRO0DUZtIvY8CJJdaTyLk/xkkYE/kLdyiACohFlQlAWtw3NfTy6Rrn7QPvsTs/fs
+         0QrBkG8BjvRNOR8f60EgIgn0reoOp7JTuHLnW2qTHJFVBkDWWfXbvZSpST8AR+gN0DHD
+         RbQ8waBsakBGqdz183jx17nEkpMkpPyazdihcb7iaWFNxpz9IO6D6U2+OETNalC5UZ8R
+         0A+P/fs+LVHvOHCdCMi9ud/FAfgJGrYf+Gh1RbkTnqrpj9QuRKSsu8wpHXHnVpuU15C4
+         OYqw==
+X-Gm-Message-State: AAQBX9c+1nZzX9YlsLFBfgbfmkudsbsTn1Hi8sS/Xl9KxQRbhHfAc5gV
+	PZdbBTRBx0o4iOhKqvyvB9Za8dHX4pNm9eGG8X3oYFYOhUg=
+X-Google-Smtp-Source: AKy350YK7N4rQMANZwPafAhOc9KK6DFqc+mqxCaNFadwoJghELWyYircbalLZXCrzhHn00/9fe1kwTOwOm/U+S7yLCs=
+X-Received: by 2002:a17:90a:f297:b0:246:d1ae:5fce with SMTP id
+ fs23-20020a17090af29700b00246d1ae5fcemr2125940pjb.35.1682010755216; Thu, 20
+ Apr 2023 10:12:35 -0700 (PDT)
+MIME-Version: 1.0
+References: <VI1PR06MB5279C89C44B3D6CAEBFDE7FCED329@VI1PR06MB5279.eurprd06.prod.outlook.com>
+In-Reply-To: <VI1PR06MB5279C89C44B3D6CAEBFDE7FCED329@VI1PR06MB5279.eurprd06.prod.outlook.com>
+From: Marko Bjelotomic <markobjelotomic@gmail.com>
+Date: Thu, 20 Apr 2023 21:12:12 +0400
+Message-ID: <CAG3hBcfASF=iOJedqBUX47=K7B-uv3d=t7KBd2ZuuDQ5xqyrtw@mail.gmail.com>
+Subject: Fwd: Hayk School complaint
+To: info@dependablelc.com
+Content-Type: multipart/alternative; boundary="00000000000092bca305f9c7a5d3"
+X-NCJF-Result: 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
+X-NCJF-Version: 3
+Authentication-Results: asp-relay-shared.jellyfish.systems;
+	dkim=pass header.d=gmail.com header.s=20221208 header.b=JtXUt+gz;
+	dmarc=pass (policy=none) header.from=gmail.com;
+	spf=pass (asp-relay-shared.jellyfish.systems: domain of markobjelotomic@gmail.com designates 209.85.216.44 as permitted sender) smtp.mailfrom=markobjelotomic@gmail.com
+
+--00000000000092bca305f9c7a5d3
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+Hi Aamer,
+
+This is the first complaint ever, several weeks after she took the kids.
+
+---------- Forwarded message ---------
+From: Rebecca Bennett <rebecca.bennett@rgsgd.com>
+Date: Fri, 28 Oct 2022, 19:21
+Subject: Hayk
+To: Marko.bjelotomic@gmail.com <Marko.bjelotomic@gmail.com>,
+Ani.bjelotomic@gmail.com <Ani.bjelotomic@gmail.com>
+
+
+Dear both,
+
+
+
+I wanted to alert you to something that Hayk said to me whilst teaching his
+class this week. He was singing a song about killing and when I asked him
+what it was =E2=80=93 he said =E2=80=98oh its from Squid Games=E2=80=99 I w=
+as initially surprised
+as aware of the graphic nature of the Netflix show and explained to him, he
+shouldn=E2=80=99t be watching these shows as they are not designed for chil=
+dren. I
+didn=E2=80=99t want to make a big thing of it or cause him upset or embarra=
+ssment
+but mentioned I would speak with you both in regard to it.
+
+
+
+I am not sure whether you are aware that he has access to material such as
+this or whether you have a Netflix account or he has just stumbled across
+it on YouTube. Perhaps you may want to check your parental settings to
+further prevent access to such material, obviously the nature of this will
+then set algorithms to bring up similar materials. Could you also check
+with him what he has accessed and ensure he is not scared or disturbed by
+this and know it is not appropriate to discuss in class. Tereza our school
+councellor is also on hand to discuss this further with him if need be and
+has experience of handling such matters
+
+
+
+I have  attached a link to the series details =E2=80=93 in case you aren=E2=
+=80=99t aware of
+the show.
+
+Squid Game (TV Series 2021=E2=80=93 ) - IMDb
+<https://www.imdb.com/title/tt10919420/>
+
+
+
+Please do reach out to me if you have any questions or want further
+clarification, I hope that this is a one off and he has just stumbled
+across it.
+
+
+
+Kind regards
+
+
+
+
+
+[image: Logo] <https://www.rgsgd.com/>
+
+*Beckie Bennett*
+
+Key Stage One Assistant Head
+
+The Royal Grammar School Guildford Dubai
+
+D +971 50 123 4567
+
+www.rgsgd.com
+
+[image: Facebook icon] <https://www.facebook.com/rgsguildforddxb>  [image:
+LinkedIn icon] <https://www.linkedin.com/company/rgs-guildford-dubai/>  [im=
+age:
+Twitter icon] <https://twitter.com/rgsguildforddxb>  [image: Instagram icon=
+]
+<https://www.instagram.com/rgsguildforddxb/>
+
+[image: Banner] <https://www.rgsgd.com/>
+
+--00000000000092bca305f9c7a5d3
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"auto">Hi Aamer,=C2=A0<div dir=3D"auto"><br></div><div dir=3D"au=
+to">This is the first complaint ever, several weeks after she took the kids=
+.</div></div><br><div class=3D"gmail_quote"><div dir=3D"ltr" class=3D"gmail=
+_attr">---------- Forwarded message ---------<br>From: <strong class=3D"gma=
+il_sendername" dir=3D"auto">Rebecca Bennett</strong> <span dir=3D"auto">&lt=
+;<a href=3D"mailto:rebecca.bennett@rgsgd.com">rebecca.bennett@rgsgd.com</a>=
+&gt;</span><br>Date: Fri, 28 Oct 2022, 19:21<br>Subject: Hayk<br>To: <a hre=
+f=3D"mailto:Marko.bjelotomic@gmail.com">Marko.bjelotomic@gmail.com</a> &lt;=
+<a href=3D"mailto:Marko.bjelotomic@gmail.com">Marko.bjelotomic@gmail.com</a=
+>&gt;, <a href=3D"mailto:Ani.bjelotomic@gmail.com">Ani.bjelotomic@gmail.com=
+</a> &lt;<a href=3D"mailto:Ani.bjelotomic@gmail.com">Ani.bjelotomic@gmail.c=
+om</a>&gt;<br></div><br><br>
+
+
+
+
+
+<div lang=3D"EN-US" link=3D"#0563C1" vlink=3D"#954F72" style=3D"word-wrap:b=
+reak-word">
+<div class=3D"m_-3028039918909828668WordSection1">
+<p class=3D"MsoNormal">Dear both, <u></u><u></u></p>
+<p class=3D"MsoNormal"><u></u>=C2=A0<u></u></p>
+<p class=3D"MsoNormal">I wanted to alert you to something that Hayk said to=
+ me whilst teaching his class this week. He was singing a song about killin=
+g and when I asked him what it was =E2=80=93 he said =E2=80=98oh its from S=
+quid Games=E2=80=99 I was initially surprised as aware of
+ the graphic nature of the Netflix show and explained to him, he shouldn=E2=
+=80=99t be watching these shows as they are not designed for children. I di=
+dn=E2=80=99t want to make a big thing of it or cause him upset or embarrass=
+ment but mentioned I would speak with you both in
+ regard to it. <u></u><u></u></p>
+<p class=3D"MsoNormal"><u></u>=C2=A0<u></u></p>
+<p class=3D"MsoNormal">I am not sure whether you are aware that he has acce=
+ss to material such as this or whether you have a Netflix account or he has=
+ just stumbled across it on YouTube. Perhaps you may want to check your par=
+ental settings to further prevent
+ access to such material, obviously the nature of this will then set algori=
+thms to bring up similar materials. Could you also check with him what he h=
+as accessed and ensure he is not scared or disturbed by this and know it is=
+ not appropriate to discuss in class.
+ Tereza our school councellor is also on hand to discuss this further with =
+him if need be and has experience of handling such matters<u></u><u></u></p=
+>
+<p class=3D"MsoNormal"><u></u>=C2=A0<u></u></p>
+<p class=3D"MsoNormal">I have =C2=A0attached a link to the series details =
+=E2=80=93 in case you aren=E2=80=99t aware of the show.
+<u></u><u></u></p>
+<p class=3D"MsoNormal"><a href=3D"https://www.imdb.com/title/tt10919420/" t=
+arget=3D"_blank" rel=3D"noreferrer">Squid Game (TV Series 2021=E2=80=93 ) -=
+ IMDb</a><u></u><u></u></p>
+<p class=3D"MsoNormal"><u></u>=C2=A0<u></u></p>
+<p class=3D"MsoNormal">Please do reach out to me if you have any questions =
+or want further clarification, I hope that this is a one off and he has jus=
+t stumbled across it.<u></u><u></u></p>
+<p class=3D"MsoNormal"><u></u>=C2=A0<u></u></p>
+<p class=3D"MsoNormal">Kind regards<u></u><u></u></p>
+<p class=3D"MsoNormal"><u></u>=C2=A0<u></u></p>
+<p class=3D"MsoNormal"><u></u>=C2=A0<u></u></p>
+<table border=3D"0" cellspacing=3D"3" cellpadding=3D"0" width=3D"439" style=
+=3D"width:329.25pt">
+<tbody>
+<tr style=3D"height:96.75pt">
+<td width=3D"146" valign=3D"top" style=3D"width:109.5pt;padding:.75pt .75pt=
+ .75pt .75pt;height:96.75pt">
+<p class=3D"MsoNormal"><a href=3D"https://www.rgsgd.com/" target=3D"_blank"=
+ rel=3D"noreferrer"><span style=3D"font-family:&quot;Arial&quot;,sans-serif=
+;color:blue;text-decoration:none"><img border=3D"0" width=3D"143" height=3D=
+"86" style=3D"width:1.4916in;height:.9in" id=3D"m_-3028039918909828668_x000=
+0_i1030" src=3D"https://www.rgsgd.com/wp-content/uploads/sites/53/RGS-Logo.=
+png" alt=3D"Logo"></span></a><span style=3D"font-family:&quot;Arial&quot;,s=
+ans-serif;color:black"><u></u><u></u></span></p>
+</td>
+<td width=3D"291" style=3D"width:218.25pt;padding:.75pt .75pt .75pt 7.5pt;h=
+eight:96.75pt">
+<table border=3D"0" cellspacing=3D"3" cellpadding=3D"0" width=3D"272" style=
+=3D"width:204.0pt">
+<tbody>
+<tr style=3D"height:11.25pt">
+<td width=3D"238" valign=3D"top" style=3D"width:178.5pt;padding:.75pt .75pt=
+ .75pt .75pt;height:11.25pt">
+<p class=3D"MsoNormal"><b><span style=3D"font-size:16.0pt">Beckie Bennett</=
+span></b><b><span style=3D"font-size:16.0pt"><u></u><u></u></span></b></p>
+</td>
+</tr>
+<tr style=3D"height:11.25pt">
+<td valign=3D"top" style=3D"padding:.75pt .75pt .75pt .75pt;height:11.25pt"=
+>
+<p class=3D"MsoNormal"><span style=3D"font-size:10.5pt;font-family:normal;c=
+olor:#c21721">Key Stage One Assistant Head=C2=A0<u></u><u></u></span></p>
+</td>
+</tr>
+<tr style=3D"height:11.25pt">
+<td valign=3D"top" style=3D"padding:.75pt .75pt .75pt .75pt;height:11.25pt"=
+>
+<p class=3D"MsoNormal"><span style=3D"font-size:10.5pt;font-family:normal">=
+The Royal Grammar School Guildford Dubai<u></u><u></u></span></p>
+</td>
+</tr>
+<tr style=3D"height:11.25pt">
+<td valign=3D"top" style=3D"padding:.75pt .75pt .75pt .75pt;height:11.25pt"=
+>
+<p class=3D"MsoNormal"><span style=3D"font-size:10.5pt;font-family:normal">=
+D +971 50 123 4567<u></u><u></u></span></p>
+</td>
+</tr>
+<tr style=3D"height:12.0pt">
+<td valign=3D"top" style=3D"padding:.75pt .75pt .75pt .75pt;height:12.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.5pt;font-family:normal">=
+<a href=3D"https://www.rgsgd.com/" target=3D"_blank" rel=3D"noreferrer"><sp=
+an style=3D"color:blue">www.rgsgd.com</span></a><u></u><u></u></span></p>
+</td>
+</tr>
+<tr style=3D"height:26.25pt">
+<td style=3D"padding:.75pt .75pt .75pt .75pt;height:26.25pt">
+<p class=3D"MsoNormal"><a href=3D"https://www.facebook.com/rgsguildforddxb"=
+ target=3D"_blank" rel=3D"noreferrer"><span style=3D"color:blue;text-decora=
+tion:none"><img border=3D"0" width=3D"20" height=3D"20" style=3D"width:.208=
+3in;height:.2083in" id=3D"m_-3028039918909828668_x0000_i1029" src=3D"https:=
+//www.rgsgd.com/wp-content/uploads/sites/53/FbIcon.png" alt=3D"Facebook ico=
+n"></span></a>=C2=A0=C2=A0<a href=3D"https://www.linkedin.com/company/rgs-g=
+uildford-dubai/" target=3D"_blank" rel=3D"noreferrer"><span style=3D"color:=
+blue;text-decoration:none"><img border=3D"0" width=3D"20" height=3D"20" sty=
+le=3D"width:.2083in;height:.2083in" id=3D"m_-3028039918909828668_x0000_i102=
+8" src=3D"https://www.rgsgd.com/wp-content/uploads/sites/53/InIcon.png" alt=
+=3D"LinkedIn icon"></span></a>=C2=A0=C2=A0<a href=3D"https://twitter.com/rg=
+sguildforddxb" target=3D"_blank" rel=3D"noreferrer"><span style=3D"color:bl=
+ue;text-decoration:none"><img border=3D"0" width=3D"20" height=3D"20" style=
+=3D"width:.2083in;height:.2083in" id=3D"m_-3028039918909828668_x0000_i1027"=
+ src=3D"https://www.rgsgd.com/wp-content/uploads/sites/53/Twitter-Icon.png"=
+ alt=3D"Twitter icon"></span></a>=C2=A0=C2=A0<a href=3D"https://www.instagr=
+am.com/rgsguildforddxb/" target=3D"_blank" rel=3D"noreferrer"><span style=
+=3D"color:blue;text-decoration:none"><img border=3D"0" width=3D"20" height=
+=3D"20" style=3D"width:.2083in;height:.2083in" id=3D"m_-3028039918909828668=
+_x0000_i1026" src=3D"https://www.rgsgd.com/wp-content/uploads/sites/53/Inst=
+agram-Icon.png" alt=3D"Instagram icon"></span></a>=C2=A0<u></u><u></u></p>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr style=3D"height:68.25pt">
+<td colspan=3D"2" style=3D"padding:.75pt .75pt .75pt .75pt;height:68.25pt">
+<p class=3D"MsoNormal"><a href=3D"https://www.rgsgd.com/" target=3D"_blank"=
+ rel=3D"noreferrer"><span style=3D"font-family:&quot;Arial&quot;,sans-serif=
+;color:blue;text-decoration:none"><img border=3D"0" width=3D"407" height=3D=
+"87" style=3D"width:4.2416in;height:.9083in" id=3D"m_-3028039918909828668_x=
+0000_i1025" src=3D"https://www.rgsgd.com/wp-content/uploads/sites/53/banner=
+_rgs_email.jpg" alt=3D"Banner"></span></a><span style=3D"font-family:&quot;=
+Arial&quot;,sans-serif;color:black"><u></u><u></u></span></p>
+</td>
+</tr>
+</tbody>
+</table>
+<p class=3D"MsoNormal"><u></u>=C2=A0<u></u></p>
+<p class=3D"MsoNormal"><u></u>=C2=A0<u></u></p>
+</div>
+</div>
+
+</div>
+
+--00000000000092bca305f9c7a5d3--

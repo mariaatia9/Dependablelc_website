@@ -1,0 +1,287 @@
+Return-Path: <>
+Delivered-To: dependablelc@host59.registrar-servers.com
+Received: from host59.registrar-servers.com
+	by host59.registrar-servers.com with LMTP
+	id UIK4M4/5SGViZScA+KyzgQ
+	(envelope-from <>)
+	for <dependablelc@host59.registrar-servers.com>; Mon, 06 Nov 2023 09:34:55 -0500
+Return-path: <>
+Envelope-to: dependablelc@host59.registrar-servers.com
+Delivery-date: Mon, 06 Nov 2023 09:34:55 -0500
+Received: from mailnull by host59.registrar-servers.com with local (Exim 4.96.1)
+	id 1r00gp-00Cr4U-2V
+	for dependablelc@host59.registrar-servers.com;
+	Mon, 06 Nov 2023 09:34:55 -0500
+X-Failed-Recipients: admin@dependablelc.com
+Auto-Submitted: auto-replied
+From: Mail Delivery System <Mailer-Daemon@host59.registrar-servers.com>
+To: dependablelc@host59.registrar-servers.com
+References: <NypLzI4AdyzfZw1CjQuqByxHwbTHRTuO7gt6jDQk0@dependablelc.com>
+Content-Type: multipart/report; report-type=delivery-status; boundary=1699281295-eximdsn-1081744578
+MIME-Version: 1.0
+Subject: Mail delivery failed: returning message to sender
+Message-Id: <E1r00gp-00Cr4U-2V@host59.registrar-servers.com>
+Date: Mon, 06 Nov 2023 09:34:55 -0500
+
+--1699281295-eximdsn-1081744578
+Content-type: text/plain; charset=us-ascii
+
+This message was created automatically by mail delivery software.
+
+A message that you sent could not be delivered to one or more of its
+recipients. This is a permanent error. The following address(es) failed:
+
+  admin@dependablelc.com
+    No Such User Here
+
+--1699281295-eximdsn-1081744578
+Content-type: message/delivery-status
+
+Reporting-MTA: dns; host59.registrar-servers.com
+
+Action: failed
+Final-Recipient: rfc822;admin@dependablelc.com
+Status: 5.0.0
+
+--1699281295-eximdsn-1081744578
+Content-type: message/rfc822
+
+Return-path: <dependablelc@host59.registrar-servers.com>
+Received: from dependablelc by host59.registrar-servers.com with local (Exim 4.96.1)
+	(envelope-from <dependablelc@host59.registrar-servers.com>)
+	id 1r00gp-00Cr45-1l
+	for admin@dependablelc.com;
+	Mon, 06 Nov 2023 09:34:55 -0500
+To: admin@dependablelc.com
+Subject: =?us-ascii?Q?Your_Weekly_WPForms_Summary_for_dependablelc.co?=  =?us-ascii?Q?m?=
+X-PHP-Script: dependablelc.com/wp-cron.php for 198.54.126.42, 198.54.126.42
+X-PHP-Filename: /home/dependablelc/public_html/wp-cron.php REMOTE_ADDR: 198.54.126.42
+Date: Mon, 6 Nov 2023 14:34:55 +0000
+From: DLC <admin@dependablelc.com>
+Reply-To: admin@dependablelc.com
+Message-ID: <NypLzI4AdyzfZw1CjQuqByxHwbTHRTuO7gt6jDQk0@dependablelc.com>
+X-Mailer: PHPMailer 6.8.0 (https://github.com/PHPMailer/PHPMailer)
+MIME-Version: 1.0
+Content-Type: text/html; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+Sender:  <dependablelc@host59.registrar-servers.com>
+
+<!doctype html>=0A<html lang=3D"en">=0A<head>=0A=09<meta http-equiv=3D"Cont=
+ent-Type" content=3D"text/html; charset=3DUTF-8">=0A=09<meta http-equiv=3D"=
+X-UA-Compatible" content=3D"IE=3Dedge">=0A=09<meta name=3D"viewport" conten=
+t=3D"width=3Ddevice-width">=0A=09<title>WPForms</title>=0A<style type=3D"te=
+xt/css">a {=0A  text-decoration: none;=0A}=0A=0A@media only screen and (max=
+-width: 599px) {=0A  table.body .container {=0A    width: 95% !important;=
+=0A  }=0A  .header {=0A    padding: 15px 15px 12px 15px !important;=0A  }=
+=0A  .header img {=0A    width: 200px !important;=0A    height: auto !impor=
+tant;=0A  }=0A  .content,=0A  .aside {=0A    padding: 30px 40px 20px 40px !=
+important;=0A  }=0A  .upsell-pro table.features td {=0A    width: 100% !imp=
+ortant;=0A    display: block !important;=0A  }=0A  table.receipt-details td=
+.receipt-details-inner {=0A    padding: 30px 0px 20px 0px !important;=0A  }=
+=0A}=0A=0A/*# sourceMappingURL=3Ddata:application/json;charset=3Dutf8;base6=
+4,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiYXNzZXRzL2Nzcy9lbWFpbHMvcGFydGlhbHMvbWVkaWFfc=
+XVlcmllcy5jc3MiLCJzb3VyY2VzIjpbImFzc2V0cy9zY3NzL2VtYWlscy9wYXJ0aWFscy9tZWRp=
+YV9xdWVyaWVzLnNjc3MiXSwic291cmNlc0NvbnRlbnQiOlsiYSB7XG5cdHRleHQtZGVjb3JhdGl=
+vbjogbm9uZTsgLy8gVGhpcyBvbmUgaXMgbmVlZGVkIGZvciBPdXRsb29rIGNvbXBhdGliaWxpdH=
+kuXG59XG5cbkBtZWRpYSBvbmx5IHNjcmVlbiBhbmQgKG1heC13aWR0aDogNTk5cHgpIHtcblxuX=
+HR0YWJsZS5ib2R5IC5jb250YWluZXIge1xuXHRcdHdpZHRoOiA5NSUgIWltcG9ydGFudDtcblx0=
+fVxuXG5cdC5oZWFkZXIge1xuXHRcdHBhZGRpbmc6IDE1cHggMTVweCAxMnB4IDE1cHggIWltcG9=
+ydGFudDtcblx0fVxuXG5cdC5oZWFkZXIgaW1nIHtcblx0XHR3aWR0aDogMjAwcHggIWltcG9ydG=
+FudDtcblx0XHRoZWlnaHQ6IGF1dG8gIWltcG9ydGFudDtcblx0fVxuXG5cdC5jb250ZW50LFxuX=
+HQuYXNpZGUge1xuXHRcdHBhZGRpbmc6IDMwcHggNDBweCAyMHB4IDQwcHggIWltcG9ydGFudDtc=
+blx0fVxuXG5cdC51cHNlbGwtcHJvIHRhYmxlLmZlYXR1cmVzIHRkIHtcblx0XHR3aWR0aDogMTA=
+wJSAhaW1wb3J0YW50O1xuXHRcdGRpc3BsYXk6IGJsb2NrICFpbXBvcnRhbnQ7XG5cdH1cblxuXH=
+R0YWJsZS5yZWNlaXB0LWRldGFpbHMgdGQucmVjZWlwdC1kZXRhaWxzLWlubmVyIHtcblx0XHRwY=
+WRkaW5nOiAzMHB4IDBweCAyMHB4IDBweCAhaW1wb3J0YW50O1xuXHR9XG59Il0sIm5hbWVzIjpb=
+XSwibWFwcGluZ3MiOiJBQUFBLEFBQUEsQ0FBQyxDQUFDO0VBQ0QsZUFBZSxFQUFFLElBQUk7Q0F=
+DckI7O0FBRUQsTUFBTSxNQUFNLE1BQU0sTUFBTSxTQUFTLEVBQUUsS0FBSztFQUV2QyxBQUFBLE=
+tBQUssQUFBQSxLQUFLLENBQUMsVUFBVSxDQUFDO0lBQ3JCLEtBQUssRUFBRSxjQUFjO0dBQ3JCO=
+0VBRUQsQUFBQSxPQUFPLENBQUM7SUFDUCxPQUFPLEVBQUUsOEJBQThCO0dBQ3ZDO0VBRUQsQUFB=
+QSxPQUFPLENBQUMsR0FBRyxDQUFDO0lBQ1gsS0FBSyxFQUFFLGdCQUFnQjtJQUN2QixNQUFNLEV=
+BQUUsZUFBZTtHQUN2QjtFQUVELEFBQUEsUUFBUTtFQUNSLE1BQU0sQ0FBQztJQUNOLE9BQU8sRU=
+FBRSw4QkFBOEI7R0FDdkM7RUFFRCxBQUFBLFdBQVcsQ0FBQyxLQUFLLEFBQUEsU0FBUyxDQUFDL=
+EVBQUUsQ0FBQztJQUM3QixLQUFLLEVBQUUsZUFBZTtJQUN0QixPQUFPLEVBQUUsZ0JBQWdCO0dB=
+Q3pCO0VBRUQsQUFBQSxLQUFLLEFBQUEsZ0JBQWdCLENBQUMsRUFBRSxBQUFBLHNCQUFzQixDQUF=
+DO0lBQzlDLE9BQU8sRUFBRSw0QkFBNEI7R0FDckMifQ=3D=3D */=0A</style>=0A</head>=
+=0A<body style=3D"height: 100% !important; width: 100% !important; min-widt=
+h: 100%; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-s=
+izing: border-box; -webkit-font-smoothing: antialiased !important; -moz-osx=
+-font-smoothing: grayscale !important; -ms-text-size-adjust: 100%; -webkit-=
+text-size-adjust: 100%; color: #444444; font-family: 'Helvetica Neue', Helv=
+etica, Arial, sans-serif; font-weight: normal; padding: 0; margin: 0; Margi=
+n: 0; font-size: 14px; mso-line-height-rule: exactly; line-height: 140%; te=
+xt-align: center; background-color: #e9eaec;">=0A<table border=3D"0" cellpa=
+dding=3D"0" cellspacing=3D"0" width=3D"100%" height=3D"100%" class=3D"body"=
+ style=3D"border-collapse: collapse; border-spacing: 0; vertical-align: top=
+; mso-table-lspace: 0pt; mso-table-rspace: 0pt; -ms-text-size-adjust: 100%;=
+ -webkit-text-size-adjust: 100%; height: 100% !important; width: 100% !impo=
+rtant; min-width: 100%; -moz-box-sizing: border-box; -webkit-box-sizing: bo=
+rder-box; box-sizing: border-box; -webkit-font-smoothing: antialiased !impo=
+rtant; -moz-osx-font-smoothing: grayscale !important; background-color: #e9=
+eaec; color: #444444; font-family: 'Helvetica Neue', Helvetica, Arial, sans=
+-serif; font-weight: normal; padding: 0; margin: 0; Margin: 0; text-align: =
+left; font-size: 14px; mso-line-height-rule: exactly; line-height: 140%;">=
+=0A=09<tr style=3D"padding: 0; vertical-align: top; text-align: left;">=0A=
+=09=09<td align=3D"center" valign=3D"top" class=3D"body-inner" style=3D"wor=
+d-wrap: break-word; -webkit-hyphens: auto; -moz-hyphens: auto; hyphens: aut=
+o; border-collapse: collapse !important; vertical-align: top; mso-table-lsp=
+ace: 0pt; mso-table-rspace: 0pt; -ms-text-size-adjust: 100%; -webkit-text-s=
+ize-adjust: 100%; color: #444444; font-family: 'Helvetica Neue', Helvetica,=
+ Arial, sans-serif; font-weight: normal; padding: 0; margin: 0; Margin: 0; =
+font-size: 14px; mso-line-height-rule: exactly; line-height: 140%; text-ali=
+gn: center;">=0A=09=09=09<table border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0" class=3D"container" style=3D"border-collapse: collapse; border-spaci=
+ng: 0; padding: 0; vertical-align: top; mso-table-lspace: 0pt; mso-table-rs=
+pace: 0pt; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; widt=
+h: 600px; margin: 0 auto 0 auto; Margin: 0 auto 0 auto; text-align: inherit=
+;">=0A=09=09=09=09<tr style=3D"padding: 0; vertical-align: top; text-align:=
+ left;">=0A=09=09=09=09=09<td align=3D"center" valign=3D"middle" class=3D"h=
+eader" style=3D"word-wrap: break-word; -webkit-hyphens: auto; -moz-hyphens:=
+ auto; hyphens: auto; border-collapse: collapse !important; vertical-align:=
+ top; mso-table-lspace: 0pt; mso-table-rspace: 0pt; -ms-text-size-adjust: 1=
+00%; -webkit-text-size-adjust: 100%; color: #444444; font-family: 'Helvetic=
+a Neue', Helvetica, Arial, sans-serif; font-weight: normal; margin: 0; Marg=
+in: 0; font-size: 14px; mso-line-height-rule: exactly; line-height: 140%; t=
+ext-align: center; padding: 30px 30px 22px 30px;">=0A=09=09=09=09=09=09=09=
+=09=09=09=09=09=09<img src=3D"https://dependablelc.com/wp-content/plugins/w=
+pforms-lite/assets/images/logo.png" width=3D"250" alt=3D"DLC" style=3D"outl=
+ine: none; text-decoration: none; width: auto; clear: both; -ms-interpolati=
+on-mode: bicubic; display: inline-block !important; max-width: 45%;">=0A=09=
+=09=09=09=09=09=09=09=09=09=09</td>=0A=09=09=09=09</tr>=0A=09=09=09=09<tr s=
+tyle=3D"padding: 0; vertical-align: top; text-align: left;">=0A=09=09=09=09=
+=09<td align=3D"left" valign=3D"top" class=3D"content" style=3D"word-wrap: =
+break-word; -webkit-hyphens: auto; -moz-hyphens: auto; hyphens: auto; borde=
+r-collapse: collapse !important; vertical-align: top; mso-table-lspace: 0pt=
+; mso-table-rspace: 0pt; -ms-text-size-adjust: 100%; -webkit-text-size-adju=
+st: 100%; color: #444444; font-family: 'Helvetica Neue', Helvetica, Arial, =
+sans-serif; font-weight: normal; margin: 0; Margin: 0; text-align: left; fo=
+nt-size: 14px; mso-line-height-rule: exactly; line-height: 140%; background=
+-color: #ffffff; padding: 60px 75px 45px 75px; border-top: 3px solid #e2773=
+0; border-right: 1px solid #dddddd; border-bottom: 1px solid #dddddd; borde=
+r-left: 1px solid #dddddd;">=0A=0A<table class=3D"summary-container" style=
+=3D"border-collapse: collapse; border-spacing: 0; padding: 0; vertical-alig=
+n: top; text-align: left; mso-table-lspace: 0pt; mso-table-rspace: 0pt; -ms=
+-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; width: 100%;">=0A=
+=09<tbody>=0A=09<tr style=3D"padding: 0; vertical-align: top; text-align: l=
+eft;">=0A=09=09<td style=3D"word-wrap: break-word; -webkit-hyphens: auto; -=
+moz-hyphens: auto; hyphens: auto; border-collapse: collapse !important; ver=
+tical-align: top; mso-table-lspace: 0pt; mso-table-rspace: 0pt; -ms-text-si=
+ze-adjust: 100%; -webkit-text-size-adjust: 100%; font-family: 'Helvetica Ne=
+ue', Helvetica, Arial, sans-serif; font-weight: normal; padding: 0; margin:=
+ 0; Margin: 0; text-align: left; font-size: 14px; mso-line-height-rule: exa=
+ctly; line-height: 140%; color: #777777;">=0A=09=09=09<h6 class=3D"greeting=
+" style=3D"padding: 0; text-align: left; word-wrap: normal; font-family: 'H=
+elvetica Neue', Helvetica, Arial, sans-serif; font-weight: bold; mso-line-h=
+eight-rule: exactly; line-height: 130%; font-size: 18px; color: #444444; ma=
+rgin: 0 0 3px 0; Margin: 0 0 3px 0;">Hi there!</h6>=0A=09=09=09=09=09=09=09=
+<p class=3D"large" style=3D"-ms-text-size-adjust: 100%; -webkit-text-size-a=
+djust: 100%; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; f=
+ont-weight: normal; padding: 0; text-align: left; mso-line-height-rule: exa=
+ctly; line-height: 140%; margin: 0 0 15px 0; Margin: 0 0 15px 0; font-size:=
+ 16px; color: #777777;">Let=E2=80=99s see how your forms performed.</p>=0A=
+=09=09=09=09<p class=3D"lite-disclaimer" style=3D"-ms-text-size-adjust: 100=
+%; -webkit-text-size-adjust: 100%; font-family: 'Helvetica Neue', Helvetica=
+, Arial, sans-serif; font-weight: normal; padding: 0; text-align: left; mso=
+-line-height-rule: exactly; line-height: 140%; color: #777777; font-size: 1=
+4px; margin: 25px 0 25px 0; Margin: 25px 0 25px 0;">=0A=09=09=09=09=09Below=
+ is the total number of submissions for each form. However, form entries ar=
+e not stored by WPForms Lite.=09=09=09=09</p>=0A=0A=09=09=09=09=09=09=09=09=
+=09=09<p class=3D"lite-disclaimer" style=3D"-ms-text-size-adjust: 100%; -we=
+bkit-text-size-adjust: 100%; font-family: 'Helvetica Neue', Helvetica, Aria=
+l, sans-serif; font-weight: normal; padding: 0; text-align: left; mso-line-=
+height-rule: exactly; line-height: 140%; color: #777777; font-size: 14px; m=
+argin: 25px 0 25px 0; Margin: 25px 0 25px 0;">=0A=09=09=09=09=09=09=09<stro=
+ng>Note: Entry backups are not enabled.</strong><br>=0A=09=09=09=09=09=09=
+=09We recommend that you enable entry backups to guard against lost entries=
+.=09=09=09=09=09=09</p>=0A=09=09=09=09=09=09<p class=3D"lite-disclaimer" st=
+yle=3D"-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; font-fam=
+ily: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: normal; p=
+adding: 0; text-align: left; mso-line-height-rule: exactly; line-height: 14=
+0%; color: #777777; font-size: 14px; margin: 25px 0 25px 0; Margin: 25px 0 =
+25px 0;">=0A=09=09=09=09=09=09=09Backups are completely free, 100% secure, =
+and you can turn them on in a few clicks! <a href=3D"https://wpforms.com/do=
+cs/how-to-use-lite-connect-for-wpforms/#backup-with-lite-connect/?utm_sourc=
+e=3DWordPress&amp;utm_medium=3DWeekly%20Summary%20Email&amp;utm_campaign=3D=
+liteplugin&amp;utm_content=3DDocumentation" target=3D"_blank" rel=3D"noopen=
+er noreferrer" style=3D"-ms-text-size-adjust: 100%; -webkit-text-size-adjus=
+t: 100%; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-=
+weight: normal; padding: 0; text-align: left; mso-line-height-rule: exactly=
+; line-height: 140%; Margin: inherit; margin: inherit; color: inherit; text=
+-decoration: underline;">Enable entry backups now.</a>=09=09=09=09=09=09</p=
+>=0A=09=09=09=09=09=09<p class=3D"lite-disclaimer" style=3D"-ms-text-size-a=
+djust: 100%; -webkit-text-size-adjust: 100%; font-family: 'Helvetica Neue',=
+ Helvetica, Arial, sans-serif; font-weight: normal; padding: 0; text-align:=
+ left; mso-line-height-rule: exactly; line-height: 140%; color: #777777; fo=
+nt-size: 14px; margin: 25px 0 25px 0; Margin: 25px 0 25px 0;">=0A=09=09=09=
+=09=09=09=09When you=E2=80=99re ready to manage your entries inside WordPre=
+ss, <a href=3D"https://wpforms.com/lite-upgrade/?utm_source=3DWordPress&amp=
+;utm_medium=3DWeekly%20Summary%20Email&amp;utm_campaign=3Dliteplugin&amp;ut=
+m_content=3DUpgrade" target=3D"_blank" rel=3D"noopener noreferrer" style=3D=
+"-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; font-family: '=
+Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: normal; padding=
+: 0; text-align: left; mso-line-height-rule: exactly; line-height: 140%; Ma=
+rgin: inherit; margin: inherit; color: inherit; text-decoration: underline;=
+">upgrade to Pro</a> to import your entries.=09=09=09=09=09=09</p>=0A=09=09=
+=09=09=0A=09=09=09=09=09=09<table class=3D"email-summaries" style=3D"border=
+-collapse: collapse; border-spacing: 0; padding: 0; vertical-align: top; te=
+xt-align: left; mso-table-lspace: 0pt; mso-table-rspace: 0pt; -ms-text-size=
+-adjust: 100%; -webkit-text-size-adjust: 100%; width: 100%; margin: 38px 0 =
+0 0; Margin: 38px 0 0 0;">=0A=09=09=09=09<thead>=0A=09=09=09=09<tr style=3D=
+"padding: 0; vertical-align: top; text-align: left;">=0A=09=09=09=09=09<th =
+style=3D"font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; margi=
+n: 0; Margin: 0; text-align: left; font-size: 14px; mso-line-height-rule: e=
+xactly; line-height: 140%; font-weight: 700; color: #777777; background: #f=
+1f1f1; border: 1px solid #f1f1f1; padding: 17px 20px 17px 20px;">Form</th>=
+=0A=09=09=09=09=09<th class=3D"entries-column text-center" style=3D"font-fa=
+mily: 'Helvetica Neue', Helvetica, Arial, sans-serif; margin: 0; Margin: 0;=
+ font-size: 14px; mso-line-height-rule: exactly; line-height: 140%; text-al=
+ign: center; font-weight: 700; color: #777777; background: #f1f1f1; border:=
+ 1px solid #f1f1f1; padding: 17px 20px 17px 20px; width: 1px; white-space: =
+nowrap;">Entries</th>=0A=09=09=09=09</tr>=0A=09=09=09=09</thead>=0A=09=09=
+=09=09<tbody>=0A=0A=09=09=09=09=09=09=09=09=09<tr style=3D"padding: 0; vert=
+ical-align: top; text-align: left;">=0A=09=09=09=09=09=09<td class=3D"text-=
+large" style=3D"word-wrap: break-word; -webkit-hyphens: auto; -moz-hyphens:=
+ auto; hyphens: auto; border-collapse: collapse !important; vertical-align:=
+ top; mso-table-lspace: 0pt; mso-table-rspace: 0pt; -ms-text-size-adjust: 1=
+00%; -webkit-text-size-adjust: 100%; font-family: 'Helvetica Neue', Helveti=
+ca, Arial, sans-serif; font-weight: normal; margin: 0; Margin: 0; text-alig=
+n: left; mso-line-height-rule: exactly; line-height: 140%; font-size: 16px;=
+ border-top: none; border-right: none; border-bottom: 1px solid #f1f1f1; bo=
+rder-left: none; color: #444444; padding: 17px 20px 17px 20px;">Contact For=
+m</td>=0A=09=09=09=09=09=09<td class=3D"entry-count text-large" style=3D"wo=
+rd-wrap: break-word; -webkit-hyphens: auto; -moz-hyphens: auto; hyphens: au=
+to; border-collapse: collapse !important; vertical-align: top; mso-table-ls=
+pace: 0pt; mso-table-rspace: 0pt; -ms-text-size-adjust: 100%; -webkit-text-=
+size-adjust: 100%; font-family: 'Helvetica Neue', Helvetica, Arial, sans-se=
+rif; font-weight: normal; margin: 0; Margin: 0; mso-line-height-rule: exact=
+ly; line-height: 140%; font-size: 16px; border-top: none; border-right: non=
+e; border-bottom: 1px solid #f1f1f1; border-left: none; padding: 17px 20px =
+17px 20px; text-align: center; color: #e27730;">=0A=09=09=09=09=09=09=09=09=
+=09=09=09=09=09=09=09<span style=3D"color: #e27730; text-align: center;">=
+=0A=09=09=09=09=09=09=09=09=091150=09=09=09=09=09=09=09=09</span>=0A=09=09=
+=09=09=09=09=09=09=09=09=09=09=09</td>=0A=09=09=09=09=09</tr>=0A=09=09=09=
+=09=0A=09=09=09=09=0A=09=09=09=09</tbody>=0A=09=09=09</table>=0A=0A=0A=09=
+=09=09=09=09</td>=0A=09</tr>=0A=09</tbody>=0A</table>=0A=0A=09=09=09=09=09<=
+/td>=0A=09=09=09=09</tr>=0A=09=09=09=09<tr style=3D"padding: 0; vertical-al=
+ign: top; text-align: left;">=0A=09=09=09=09=09<td align=3D"center" valign=
+=3D"top" class=3D"footer" style=3D"word-wrap: break-word; -webkit-hyphens: =
+auto; -moz-hyphens: auto; hyphens: auto; border-collapse: collapse !importa=
+nt; vertical-align: top; mso-table-lspace: 0pt; mso-table-rspace: 0pt; -ms-=
+text-size-adjust: 100%; -webkit-text-size-adjust: 100%; font-family: 'Helve=
+tica Neue', Helvetica, Arial, sans-serif; font-weight: normal; margin: 0; M=
+argin: 0; mso-line-height-rule: exactly; line-height: 140%; padding: 30px; =
+color: #72777c; font-size: 12px; text-align: center;">=0A=09=09=09=09=09=09=
+This email was auto-generated and sent from <a href=3D"https://dependablelc=
+.com" style=3D"-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; =
+font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: n=
+ormal; padding: 0; margin: 0; Margin: 0; text-align: left; mso-line-height-=
+rule: exactly; line-height: 140%; color: #72777c; text-decoration: underlin=
+e;">DLC</a>. Learn <a href=3D"https://wpforms.com/docs/how-to-use-email-sum=
+maries/#faq" style=3D"-ms-text-size-adjust: 100%; -webkit-text-size-adjust:=
+ 100%; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-we=
+ight: normal; padding: 0; margin: 0; Margin: 0; text-align: left; mso-line-=
+height-rule: exactly; line-height: 140%; color: #72777c; text-decoration: u=
+nderline;">how to disable</a>.=09=09=09=09=09</td>=0A=09=09=09=09</tr>=0A=
+=09=09=09</table>=0A=09=09</td>=0A=09</tr>=0A</table>=0A</body>=0A</html>
+
+--1699281295-eximdsn-1081744578--

@@ -1,0 +1,708 @@
+Return-Path: <dameralan@gmail.com>
+Delivered-To: info@dependablelc.com
+Received: from host59.registrar-servers.com
+	by host59.registrar-servers.com with LMTP
+	id sLSLD7XkumI+rxsA+KyzgQ
+	(envelope-from <dameralan@gmail.com>)
+	for <info@dependablelc.com>; Tue, 28 Jun 2022 07:23:33 -0400
+Return-path: <dameralan@gmail.com>
+Envelope-to: info@dependablelc.com
+Delivery-date: Tue, 28 Jun 2022 07:23:33 -0400
+Received: from [63.250.43.69] (port=33895 helo=asp-relay-shared.jellyfish.systems)
+	by host59.registrar-servers.com with esmtps  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <dameralan@gmail.com>)
+	id 1o69Jd-007qHG-6F
+	for info@dependablelc.com;
+	Tue, 28 Jun 2022 07:23:33 -0400
+Received: from mail-wr1-f46.google.com (mail-wr1-f46.google.com [209.85.221.46])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by asp-relay-shared.jellyfish.systems (Postfix) with ESMTPS id 4LXMfX2SGTzyS9
+	for <info@dependablelc.com>; Tue, 28 Jun 2022 11:23:27 +0000 (UTC)
+Received: by mail-wr1-f46.google.com with SMTP id e28so12037614wra.0
+        for <info@dependablelc.com>; Tue, 28 Jun 2022 04:23:27 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20210112;
+        h=from:to:references:in-reply-to:subject:date:message-id:mime-version
+         :thread-index:content-language;
+        bh=QkBfp+qMFBgqB+56ObfiuR0aD4esF3eVqCuora2CzDM=;
+        b=pE/6KbEfCdlW1xMek6RegE0CYKewytsVVX0zlxzZOa8KCmAgR3lUWh5K65eE5W7Df3
+         9dKOgPusoAMYo/4Xbjeh6dUFhKVWwkPWFLCSq7Ba9k62DY7W6XxqtpWTQK85N0P7txaW
+         45CauptIK4uy8QJXEHqbaB6YhBHYkOJzDCngPY+FHBC7GfSsON4Y1fNxMwgkhVkPfrJA
+         SPxu/hQLuqv+Lfhr+JQjW6gLyIIDyrLHN6cxK7W3jdL5A5wvIm/njIj9/UiFGDqaAlut
+         5AEq7UcGR8C4sjT5hYwkWYuH2m5fFjJkKrbfw2pbqILC3t5O8zdQAxUbbet6Opv2k6qR
+         Rm+g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=x-gm-message-state:from:to:references:in-reply-to:subject:date
+         :message-id:mime-version:thread-index:content-language;
+        bh=QkBfp+qMFBgqB+56ObfiuR0aD4esF3eVqCuora2CzDM=;
+        b=pDP0/Ck2+RlYogVs/GO3mQkCULq/yit9TAzC9eCYaNQGa0LUIjGs9jS/R3rfnK3I6v
+         ODcbLtaNaa5l+qgv6M+Zlk/35vLAGEk6kv8nMxQitdyMVQBI7y0BiuQEyFW/yotZEnC1
+         N9df0oUn0L3ZyvY60cr9PtekreCKLXKJWRg74XCt6M604isrE6fIoQ3Rto1MNloS3HJ0
+         B3ktBp60uLZyMjjCvfW5FznCzTztyxlYHdDAnlHu0zKq5w/2e2HWoayqCFPzHn6gca6g
+         e4pmCd9bDyWsG7z+1Zqh6uM35de3SMiFk/U4mG+VQZwmor/yGSkryTvdq/To1KcHGztb
+         6auw==
+X-Gm-Message-State: AJIora9PVwAh574oJiGY0Wbwd8KxFkD5SiYbEtFpLzbwS/yG/3q5NKTY
+	MdjHVI22DnTBZYUvNfCUNtYNgtHn368=
+X-Google-Smtp-Source: AGRyM1sSgGMP1pW0eR/nBIT91wXovKokyMx1m4Ffq5ApEmuAaCp3aMs39fZ3g6Zla2bT59gtHi5CRA==
+X-Received: by 2002:a5d:428d:0:b0:21b:a1c1:2b04 with SMTP id k13-20020a5d428d000000b0021ba1c12b04mr16978440wrq.106.1656415405249;
+        Tue, 28 Jun 2022 04:23:25 -0700 (PDT)
+Received: from DESKTOPESNQ5L1 ([41.141.164.91])
+        by smtp.gmail.com with ESMTPSA id r11-20020a05600c35cb00b0039c4ba160absm3767378wmq.2.2022.06.28.04.23.24
+        for <info@dependablelc.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Tue, 28 Jun 2022 04:23:24 -0700 (PDT)
+From: <dameralan@gmail.com>
+To: <info@dependablelc.com>
+References: <002d01d88a55$6b1940e0$414bc2a0$@dependablelc.com> <056301d88ad6$ec29b3a0$c47d1ae0$@gmail.com> <004c01d88ade$134c7420$39e55c60$@dependablelc.com>
+In-Reply-To: <004c01d88ade$134c7420$39e55c60$@dependablelc.com>
+Subject: RE: Second letter to OPTI-TRONICS sarl
+Date: Tue, 28 Jun 2022 12:23:23 +0100
+Message-ID: <06e101d88ae1$7b49abd0$71dd0370$@gmail.com>
+MIME-Version: 1.0
+Content-Type: multipart/related;
+	boundary="----=_NextPart_000_06E2_01D88AE9.DD12CEC0"
+X-Mailer: Microsoft Outlook 16.0
+Thread-Index: AQLI6iBFlwn6atli/VwaN2FWXxUi3gEoSL10Ad0FUnSra8Qf8A==
+Content-Language: en-us
+X-NCJF-Result: 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
+X-NCJF-Version: 8
+Authentication-Results: asp-relay-shared.jellyfish.systems;
+	dkim=pass header.d=gmail.com header.s=20210112 header.b="pE/6KbEf";
+	dmarc=pass (policy=none) header.from=gmail.com;
+	spf=pass (asp-relay-shared.jellyfish.systems: domain of dameralan@gmail.com designates 209.85.221.46 as permitted sender) smtp.mailfrom=dameralan@gmail.com
+
+This is a multipart message in MIME format.
+
+------=_NextPart_000_06E2_01D88AE9.DD12CEC0
+Content-Type: multipart/alternative;
+	boundary="----=_NextPart_001_06E3_01D88AE9.DD12CEC0"
+
+
+------=_NextPart_001_06E3_01D88AE9.DD12CEC0
+Content-Type: text/plain;
+	charset="us-ascii"
+Content-Transfer-Encoding: 7bit
+
+Ok change it to USA pls
+
+ 
+
+From: info@dependablelc.com <info@dependablelc.com> 
+Sent: Tuesday, June 28, 2022 11:59 AM
+To: dameralan@gmail.com
+Subject: RE: Second letter to OPTI-TRONICS sarl
+
+ 
+
+Dear Ammar
+
+Your comments are noted but I do not agree to say (in Washington) we can say
+in the USA. 
+
+Please inform me when I will send it by email. 
+
+ 
+
+ 
+
+Best Regards.
+
+
+
+Dependable Legal Consultants LLC
+
+www.dependablelc.com <http://www.dependablelc.com/>  
+
+ 
+
+ 
+
+ 
+
+From: dameralan@gmail.com <mailto:dameralan@gmail.com>  <dameralan@gmail.com
+<mailto:dameralan@gmail.com> > 
+Sent: 28 June 2022 14:08
+To: info@dependablelc.com <mailto:info@dependablelc.com> 
+Subject: RE: Second letter to OPTI-TRONICS sarl
+
+ 
+
+Hi Amer,
+
+ 
+
+The last sentence need to be changed,
+
+ 
+
+After 2018, starting with forwarding the file to the American Arbitration
+Society in Washington to start proceed as you are not .......
+
+ 
+
+PLS DO NOT COPY ME OR MENTION MY NAME
+
+ 
+
+I got a deal with DHL I will inform you for the details
+
+ 
+
+BR
+
+ 
+
+From: info@dependablelc.com <mailto:info@dependablelc.com>
+<info@dependablelc.com <mailto:info@dependablelc.com> > 
+Sent: Monday, June 27, 2022 7:41 PM
+To: 'Alan Damer' <dameralan@gmail.com <mailto:dameralan@gmail.com> >
+Cc: ceo@dependablelc.com <mailto:ceo@dependablelc.com> 
+Subject: Second letter to OPTI-TRONICS sarl
+
+ 
+
+Dear Ammar
+
+ 
+
+Please find the attachment, the letter to be sent to OPTI- TRONICS, for your
+review and approval. 
+
+ 
+
+Let me also know if you want to send it by courier???
+
+ 
+
+ 
+
+Best Regards.
+
+
+
+Dependable Legal Consultants LLC
+
+www.dependablelc.com <http://www.dependablelc.com/>  
+
+ 
+
+ 
+
+ 
+
+
+------=_NextPart_001_06E3_01D88AE9.DD12CEC0
+Content-Type: text/html;
+	charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
+
+<html xmlns:v=3D"urn:schemas-microsoft-com:vml" =
+xmlns:o=3D"urn:schemas-microsoft-com:office:office" =
+xmlns:w=3D"urn:schemas-microsoft-com:office:word" =
+xmlns:m=3D"http://schemas.microsoft.com/office/2004/12/omml" =
+xmlns=3D"http://www.w3.org/TR/REC-html40"><head><meta =
+http-equiv=3DContent-Type content=3D"text/html; =
+charset=3Dus-ascii"><meta name=3DGenerator content=3D"Microsoft Word 15 =
+(filtered medium)"><!--[if !mso]><style>v\:* =
+{behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+w\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+</style><![endif]--><style><!--
+/* Font Definitions */
+@font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+@font-face
+	{font-family:"Bell MT";
+	panose-1:2 2 5 3 6 3 5 2 3 3;}
+/* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin:0in;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+a:link, span.MsoHyperlink
+	{mso-style-priority:99;
+	color:#0563C1;
+	text-decoration:underline;}
+span.EmailStyle20
+	{mso-style-type:personal-reply;
+	font-family:"Calibri",sans-serif;
+	color:windowtext;}
+.MsoChpDefault
+	{mso-style-type:export-only;
+	font-size:10.0pt;}
+@page WordSection1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.0in 1.0in 1.0in;}
+div.WordSection1
+	{page:WordSection1;}
+--></style><!--[if gte mso 9]><xml>
+<o:shapedefaults v:ext=3D"edit" spidmax=3D"1026" />
+</xml><![endif]--><!--[if gte mso 9]><xml>
+<o:shapelayout v:ext=3D"edit">
+<o:idmap v:ext=3D"edit" data=3D"1" />
+</o:shapelayout></xml><![endif]--></head><body lang=3DEN-US =
+link=3D"#0563C1" vlink=3D"#954F72" style=3D'word-wrap:break-word'><div =
+class=3DWordSection1><p class=3DMsoNormal><span =
+style=3D'font-size:12.0pt'>Ok change it to USA =
+pls<o:p></o:p></span></p><p class=3DMsoNormal><span =
+style=3D'font-size:12.0pt'><o:p>&nbsp;</o:p></span></p><div><div =
+style=3D'border:none;border-top:solid #E1E1E1 1.0pt;padding:3.0pt 0in =
+0in 0in'><p class=3DMsoNormal><b>From:</b> info@dependablelc.com =
+&lt;info@dependablelc.com&gt; <br><b>Sent:</b> Tuesday, June 28, 2022 =
+11:59 AM<br><b>To:</b> dameralan@gmail.com<br><b>Subject:</b> RE: Second =
+letter to OPTI-TRONICS sarl<o:p></o:p></p></div></div><p =
+class=3DMsoNormal><o:p>&nbsp;</o:p></p><p class=3DMsoNormal><span =
+style=3D'font-size:16.0pt;font-family:"Bell =
+MT",serif;color:#323E4F'>Dear Ammar<o:p></o:p></span></p><p =
+class=3DMsoNormal><span style=3D'font-size:16.0pt;font-family:"Bell =
+MT",serif;color:#323E4F'>Your comments are noted but I do not agree to =
+say (in Washington) we can say in the USA. <o:p></o:p></span></p><p =
+class=3DMsoNormal><span style=3D'font-size:16.0pt;font-family:"Bell =
+MT",serif;color:#323E4F'>Please inform me when I will send it by email. =
+<o:p></o:p></span></p><p class=3DMsoNormal><span =
+style=3D'font-size:16.0pt;font-family:"Bell =
+MT",serif;color:#323E4F'><o:p>&nbsp;</o:p></span></p><p =
+class=3DMsoNormal><span lang=3DEN-GB =
+style=3D'font-size:12.0pt;font-family:"Bell =
+MT",serif;color:#002060'><o:p>&nbsp;</o:p></span></p><p =
+class=3DMsoNormal><span style=3D'font-size:12.0pt;font-family:"Bell =
+MT",serif;color:#002060'>Best Regards.<o:p></o:p></span></p><p =
+class=3DMsoNormal><span style=3D'font-size:12.0pt;font-family:"Bell =
+MT",serif;color:#002060'><img width=3D64 height=3D71 =
+style=3D'width:.6666in;height:.743in' id=3D"Picture_x0020_2" =
+src=3D"cid:image001.jpg@01D88AE9.DC51C8B0"></span><span =
+style=3D'font-size:12.0pt;font-family:"Bell =
+MT",serif;color:#002060'><o:p></o:p></span></p><p =
+class=3DMsoNormal><span style=3D'font-size:12.0pt;font-family:"Bell =
+MT",serif;color:#002060'>Dependable Legal Consultants =
+LLC<o:p></o:p></span></p><p class=3DMsoNormal><span =
+style=3D'font-size:12.0pt;font-family:"Bell MT",serif;color:#002060'><a =
+href=3D"http://www.dependablelc.com/">www.dependablelc.com</a> =
+<o:p></o:p></span></p><p class=3DMsoNormal><span =
+style=3D'font-size:16.0pt;font-family:"Bell =
+MT",serif;color:#323E4F'><o:p>&nbsp;</o:p></span></p><p =
+class=3DMsoNormal><span style=3D'font-size:16.0pt;font-family:"Bell =
+MT",serif;color:#323E4F'><o:p>&nbsp;</o:p></span></p><p =
+class=3DMsoNormal><span style=3D'font-size:16.0pt;font-family:"Bell =
+MT",serif;color:#323E4F'><o:p>&nbsp;</o:p></span></p><div><div =
+style=3D'border:none;border-top:solid #E1E1E1 1.0pt;padding:3.0pt 0in =
+0in 0in'><p class=3DMsoNormal><b>From:</b> <a =
+href=3D"mailto:dameralan@gmail.com">dameralan@gmail.com</a> &lt;<a =
+href=3D"mailto:dameralan@gmail.com">dameralan@gmail.com</a>&gt; =
+<br><b>Sent:</b> 28 June 2022 14:08<br><b>To:</b> <a =
+href=3D"mailto:info@dependablelc.com">info@dependablelc.com</a><br><b>Sub=
+ject:</b> RE: Second letter to OPTI-TRONICS =
+sarl<o:p></o:p></p></div></div><p =
+class=3DMsoNormal><o:p>&nbsp;</o:p></p><p class=3DMsoNormal><span =
+style=3D'font-size:12.0pt'>Hi Amer,<o:p></o:p></span></p><p =
+class=3DMsoNormal><span =
+style=3D'font-size:12.0pt'><o:p>&nbsp;</o:p></span></p><p =
+class=3DMsoNormal><span style=3D'font-size:12.0pt'>The last sentence =
+need to be changed,<o:p></o:p></span></p><p class=3DMsoNormal><span =
+style=3D'font-size:12.0pt'><o:p>&nbsp;</o:p></span></p><p =
+class=3DMsoNormal><span style=3D'font-size:12.0pt'>After 2018, =
+<i>starting with forwarding the file to the American Arbitration Society =
+in Washington to start proceed</i> as you are not =
+&#8230;&#8230;&#8230;&#8230;&#8230;..<o:p></o:p></span></p><p =
+class=3DMsoNormal><span =
+style=3D'font-size:12.0pt'><o:p>&nbsp;</o:p></span></p><p =
+class=3DMsoNormal><span style=3D'font-size:12.0pt'>PLS DO NOT COPY ME OR =
+MENTION MY NAME<o:p></o:p></span></p><p class=3DMsoNormal><span =
+style=3D'font-size:12.0pt'><o:p>&nbsp;</o:p></span></p><p =
+class=3DMsoNormal><span style=3D'font-size:12.0pt'>I got a deal with DHL =
+I will inform you for the details<o:p></o:p></span></p><p =
+class=3DMsoNormal><span =
+style=3D'font-size:12.0pt'><o:p>&nbsp;</o:p></span></p><p =
+class=3DMsoNormal><span =
+style=3D'font-size:12.0pt'>BR<o:p></o:p></span></p><p =
+class=3DMsoNormal><span =
+style=3D'font-size:12.0pt'><o:p>&nbsp;</o:p></span></p><div><div =
+style=3D'border:none;border-top:solid #E1E1E1 1.0pt;padding:3.0pt 0in =
+0in 0in'><p class=3DMsoNormal><b>From:</b> <a =
+href=3D"mailto:info@dependablelc.com">info@dependablelc.com</a> &lt;<a =
+href=3D"mailto:info@dependablelc.com">info@dependablelc.com</a>&gt; =
+<br><b>Sent:</b> Monday, June 27, 2022 7:41 PM<br><b>To:</b> 'Alan =
+Damer' &lt;<a =
+href=3D"mailto:dameralan@gmail.com">dameralan@gmail.com</a>&gt;<br><b>Cc:=
+</b> <a =
+href=3D"mailto:ceo@dependablelc.com">ceo@dependablelc.com</a><br><b>Subje=
+ct:</b> Second letter to OPTI-TRONICS sarl<o:p></o:p></p></div></div><p =
+class=3DMsoNormal><o:p>&nbsp;</o:p></p><p class=3DMsoNormal><span =
+lang=3DEN-GB style=3D'font-size:16.0pt;font-family:"Bell =
+MT",serif;color:#323E4F'>Dear Ammar<o:p></o:p></span></p><p =
+class=3DMsoNormal><span lang=3DEN-GB =
+style=3D'font-size:12.0pt'><o:p>&nbsp;</o:p></span></p><p =
+class=3DMsoNormal><span lang=3DEN-GB =
+style=3D'font-size:16.0pt;font-family:"Bell =
+MT",serif;color:#323E4F'>Please find the attachment, the letter to be =
+sent to OPTI- TRONICS, for your review and approval. =
+<o:p></o:p></span></p><p class=3DMsoNormal><span lang=3DEN-GB =
+style=3D'font-size:12.0pt'><o:p>&nbsp;</o:p></span></p><p =
+class=3DMsoNormal><span lang=3DEN-GB =
+style=3D'font-size:16.0pt;font-family:"Bell MT",serif;color:#323E4F'>Let =
+me also know if you want to send it by =
+courier???<o:p></o:p></span></p><p class=3DMsoNormal><span =
+style=3D'font-size:16.0pt;font-family:"Bell =
+MT",serif;color:#323E4F'><o:p>&nbsp;</o:p></span></p><p =
+class=3DMsoNormal><span lang=3DEN-GB =
+style=3D'font-size:12.0pt;font-family:"Bell =
+MT",serif;color:#002060'><o:p>&nbsp;</o:p></span></p><p =
+class=3DMsoNormal><span style=3D'font-size:12.0pt;font-family:"Bell =
+MT",serif;color:#002060'>Best Regards.<o:p></o:p></span></p><p =
+class=3DMsoNormal><span style=3D'font-size:12.0pt;font-family:"Bell =
+MT",serif;color:#002060'><img border=3D0 width=3D64 height=3D71 =
+style=3D'width:.6666in;height:.743in' id=3D"Picture_x0020_1" =
+src=3D"cid:image002.jpg@01D88AE9.DC51C8B0"></span><span =
+style=3D'font-size:12.0pt;font-family:"Bell =
+MT",serif;color:#002060'><o:p></o:p></span></p><p =
+class=3DMsoNormal><span style=3D'font-size:12.0pt;font-family:"Bell =
+MT",serif;color:#002060'>Dependable Legal Consultants =
+LLC<o:p></o:p></span></p><p class=3DMsoNormal><span =
+style=3D'font-size:12.0pt;font-family:"Bell MT",serif;color:#002060'><a =
+href=3D"http://www.dependablelc.com/">www.dependablelc.com</a> =
+<o:p></o:p></span></p><p class=3DMsoNormal><span =
+style=3D'font-size:16.0pt;font-family:"Bell =
+MT",serif;color:#323E4F'><o:p>&nbsp;</o:p></span></p><p =
+class=3DMsoNormal><span lang=3DEN-GB =
+style=3D'font-size:16.0pt;font-family:"Bell =
+MT",serif;color:#323E4F'><o:p>&nbsp;</o:p></span></p><p =
+class=3DMsoNormal><span lang=3DEN-GB =
+style=3D'font-size:16.0pt;font-family:"Bell =
+MT",serif;color:#323E4F'><o:p>&nbsp;</o:p></span></p></div></body></html>
+------=_NextPart_001_06E3_01D88AE9.DD12CEC0--
+
+------=_NextPart_000_06E2_01D88AE9.DD12CEC0
+Content-Type: image/jpeg;
+	name="image001.jpg"
+Content-Transfer-Encoding: base64
+Content-ID: <image001.jpg@01D88AE9.DC51C8B0>
+
+/9j/4AAQSkZJRgABAQEAkACQAAD/2wBDAAoHBwgHBgoICAgLCgoLDhgQDg0NDh0VFhEYIx8lJCIf
+IiEmKzcvJik0KSEiMEExNDk7Pj4+JS5ESUM8SDc9Pjv/2wBDAQoLCw4NDhwQEBw7KCIoOzs7Ozs7
+Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozv/wAARCABrAGADASIA
+AhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQA
+AAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3
+ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWm
+p6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEA
+AwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSEx
+BhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElK
+U1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3
+uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD2aiik
+JCgkkAAck0ALVDVdb0vRIPO1O+htU7eY2C30HU/hXnnjP4srbySaf4bKSyL8sl6wyqn0Qd/qePrX
+nVlpXiHxffvNbwXWozsfnnc5UfVzwPpW0aTavLQhz6I9S1H4z6HbsVsLO7vSP4iBGp/Pn9KxJPjd
+eE/utDgUf7dwT/Sqtn8HNQEQm1fWLOwTuFG8j8TgVqW3wf0S5ysPiWSdh18oRn+RNVakiffZFb/G
++UMPtWgqV7mK45/Va6PSvi14Z1BljuZJtPkP/Pwny/8AfQyPzxXO3fwRYKTZa7luyzwcfmD/AErk
+ta+HXibQ1aWSx+1QL1ltT5gA9SOo/KjlpS2C80fQVvcwXcKzW00c0TDKvGwZT+IqWvmPQ/EmreHL
+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
+FAH/2Q==
+
+------=_NextPart_000_06E2_01D88AE9.DD12CEC0
+Content-Type: image/jpeg;
+	name="image002.jpg"
+Content-Transfer-Encoding: base64
+Content-ID: <image002.jpg@01D88AE9.DC51C8B0>
+
+/9j/4AAQSkZJRgABAQEAkACQAAD/2wBDAAoHBwgHBgoICAgLCgoLDhgQDg0NDh0VFhEYIx8lJCIf
+IiEmKzcvJik0KSEiMEExNDk7Pj4+JS5ESUM8SDc9Pjv/2wBDAQoLCw4NDhwQEBw7KCIoOzs7Ozs7
+Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozv/wAARCABrAGADASIA
+AhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQA
+AAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3
+ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWm
+p6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEA
+AwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSEx
+BhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElK
+U1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3
+uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD2aiim
+khQSSAAOSaAFrP1XW9L0WDztSv4bVO3mNgt9B1P4V554y+LC27yaf4cKSyL8sl6wyqn0Qd/qePrX
+nllpXiDxdfvNbwXWozsfnnc5UfVzwPpW0aTavLQhz6I9R1D4zaHbkrY2d3ekfxECNT+fP6ViSfG2
+8P8AqtEgUf7dwT/Sqtn8HdQEYm1fV7OwTuFG8j8TgVqWvwg0W6yIfEkk7Dr5QjP8iaq1JE++yKD4
+3Shh9p0FSvcxXHP6rXR6X8WfDWoMsdxJNp8h/wCfhPl/76GR+eK567+CLBSbLXct2WeDj8wf6VyO
+tfDvxLoatJJY/aoF6y2p8wAepHUflRy0pbBeaPoG3uYLuFZraaOaJhlXjYMp/EVNXzJoniPVvDtx
+52mXjw8/PEeY39mXp/WvavBnxBsPFKC1lAtNRUZaAniT1KHv9OorOdNxKjNM7KiiisyxteQfE/x2
+9xPL4e0mUiFDsu5kPLt/zzHt6+p4rtviF4l/4Rrw1JLC+28uD5Nv6gkct+A5+uK434VeCluNviTV
+I96hs2cbjOT3kP49Pz9K0gklzMiTbdkN8FfCo3EcepeI0ZUOGisuhI9XPb/d/P0rs5r+ae7OgeGh
+DZQ2x8u4vfLBjhbGfLjXo0mOTnge54rT8TajNpuhTzWu03UhWC2B/wCersFX8ic/hTdP0v8AsnSI
+dMW386KNeZEb52bqXOf4icnOetJyctWNJLRGDcaBp9nfNHqGnPqkjFXjvLyXzmfnldrfKMdOMdRx
+WnN4V8P3fmTpolqVEYCeRGIm3ZOeVwQela0oVZ7WGZmk8xHQkr14HXFQ2ZaCWDbGds6kSt2LjOD9
+Tg5/Cpux2MeT+1PCIjl+0z6tpn/LWGX57iAAcujdXUdweQOhPSunt7mG8to7m3lWWGVQ6OhyGB6E
+VXVZY5nZIGllbrI7BVA7Ad8fhWP4eR9I1q/0FtogKi9tFUfKiuSHQewcZ/4FRuBU8WfDrSvEqPcQ
+otlqGOLiNeHP+2vf69a8T1LTNU8M6v8AZ7pXtbuBg8ciHr6MrdxX07XOeMfCVr4r0hreQKl1GC1v
+PjlG9D/snuK0hUa0exMo32M/4eeNF8U6e0F2VXU7VR5oHAlXs4H8x2P1rs6+ZtNv9Q8I+JUudjRX
+VjMUmiP8Q6Mp9iP6Gvo/T76DUbCC+t23w3CCRD7EZpVIcrutghK61PKfHEcvi74m2Ph2Nj5FsqrI
+V/hyN8h+u3Ar1q3t4rW3jt4FEcUShEQdFAGAK84+Htv/AGj498T604B8udoYz6Zc5/RQK9NpT6RH
+Huc74tVWXR9/+r/taDfzj+8B+uKtTXml2es2elyPIt5dq7wpucghOTk5xUniLTX1fQ7m1hYJcYEk
+Dn+GRSGQ/mBXIa9c3upWOl+MtFthLqGlGRLmycfMMjEiEdcqR+XNJK4PQ7S9EL3dvHMQA4cKehDf
+LjB7GqyFh9jhaVnkWdi21Ooy2CfTvXm0fxPl1vxXo22y+z2oLQzQs+/zGkwPboQMVe8Z+M30HV9K
+js4pG8m6kublXyvmjLJtyfQE+2QKr2cr2DmVrne6rqGm2V1YwX0jLLfTeRbhd3zNjODjp9TVF4Y4
+vHtisIIb+zZzJliePMjx1981y2j6pffEPxDY6pJY/YdH0aVpld3yZZcYAz046nHSup8OMdW1S+8R
+Ef6POFtrIn+KFCSX+jMSR7AVLXKF7nS0UUVJR4/8ZPD6wXNt4ggTAnPkXOB/EB8rfiAR+Arc+Dur
+teeGp9NkbL2E3yZP8D8j9d1dF4600ar4M1O32gusBlT2ZPmH8q81+C90U8S3tvn5Z7Tdj3Vhj/0I
+1unzU/Qz2mdf8LYfKt9dYjDtq0qt+FdhqCXUthMllMsN0UPkuy7gG7ZHp2Nc54NiNl4h8U6e3GL8
+XKD/AGZVz/MGuvrKT965cdjk/BvjW38SCSyuoRZ6rakrPbk8HBwSvqM9u1W9R0W8ttQfWNBkjjvJ
+ABc2s2RDdAdCcfdcDgMPoc15f8QUuPCvxHTWNPPlvMFukx0LfdcH2OOfrXsul6hDqumW2oQHMVxE
+si/iOlOUbWa6kp30Z498QrG1YQ39r4fv9L1Uzfv1ERMbDB+ZWXKk5xyMH2rH0UDX/E1vNr9rqN7b
+rDiQRxu7yOBx0Hc9en1r3u91Cz063a4vrqK2hXq8rhR+tcNrHxh0OyLR6bbzai4/iA8uP8zyfyrS
+M5NWSE0r3Zqw6Ve63bx2c9kNF0KMYFihAmuF/uvt4RPUAknuRXUxxpDGscaKiIAqqowFA6ACvDtR
++Lnie9O20+zWKtwBFHvb82z/ACpLXTPiP4nw5m1JYm533E5gT8Bx+gqXTfV2DnXQ91Z1UZZgo9zi
+mC6gJwJ4yf8AfFeU2fwZ1Cf59W1/BPVYVZz/AN9Mf6Vu2vwd8NQ4M0l9cN3LTbR/46BUtRXUq77H
+bzxLc20kOQVkQqT16jFcF4M+G974T8Rf2g+oQ3MHkNHhUKNkkY45Hb1rdtfh34ZtCGhsZlI7/a5c
+/wDoVblnpttp6lbfzQpGMPM7gf8AfRNLmsrILX3Ma/i/svxrZakABDqUJsZz2Egy8RP1+dfxFdJV
+LVNPj1TT5bORim8ApIvWNwcqw9wQD+FM0q8ku7TbcKI7uA+XcIOgYdx/snqPY0hnnHxut1xo91j5
+syxk+3ymsDS/ideaH4RtNH062U3UIcG4m5VQWJG1e55710fxulH2TR4s/MZZWx9AB/WuA8MeEdV8
+VXXl2MeyBDiW5kHyR+3ufYV0QScFzGUm+bQoX2o6nr18JL25uL65kOEDEsc+iqOn0ArtfDnwj1TU
+glxrMh0+A8+UAGmYe/ZfxyfavSPC/gfSPCsQNrD510Rh7qUZdvp/dHsK6SplW6RKUO5g6J4M0Hw8
+oNhYIJR1nk+eQ/8AAj0/DFb1FLWLbe5oFFFFIAooooA58eLbU3moW32O9J05gtzIIgypkZB4OSMc
+8A0y81ywg1LS5YFmnk1FCIHtlV0nQDcQTkdByD9fcVR0C6t4Nf8AGF1PKiQw3cZkdjwoWFc5/WuV
+0O3u5LDwhElw1jJcXN89q5QM0cbI5XCn2P61VkTcXxrEnibxLZzX1tf2+l2Ui2cirGolknkOQgBP
+AI2/N05rr4/EOieH9Klihsp7eHTpI4ZrWOIb4S+NhIzyGz1BP86zfE8ynRNIsDexyX9rqdjFcyD5
+sS8cn1PfFReLdEXSfDWrXst69xe6hdWplmkAUDbIoVVUdAB+dVe6SA6S58U21kl01xZX0TWsAuHQ
+wgkx5wWXBwcdx1qabxFaRW+n3EUc11BqDqkElugYZYZGeeBjP5Vm3DNp2iarY6pqSXV28NzcKWwG
+8nHcdABkD0rJs4pfD+vadpMcZbSL+4FzYsORbvsYvF9Dncv41NlYdzeTxfZPJfZtb1I9OlMV1KYg
+UiIGSTgkkYIOQOlX9Q13T9NtLa7uJh5FzNHFFInzAlzhT9Peub0G7s7SHxheXTosEepzGVmIxgRq
+P/rVhabpuoav4Fs9HSOHzYNNeVknZg0PmMTDjH8QVeM+tFkK53ur69Bos1lDLbXMz303kwiFVOXx
+nByRjgH8qpXHjPTrayS5NveOGu/sTxpEC8c+cbGGep9Rke9YOp6m2u6d4KvIp/Klu71GLgAlXEb7
+uDxwcisxpYo9PNjkySW3imFZbpmz9qcsGLHsCOhA4GKLDueg6zrlvoWni+u4p2iLqh8pAzKWOBkZ
+9SBS2erRXV/JZNbXNtPHGJNsyABlJxkEEg89fwrm/iBqtncaLeaZDcKbm3mtHkxgiPdMoXPvwTj0
+re0gyWMradqGoreX8jyzoSAG8rcMcDoBkClbQDGktNNa58QhtD05v7OCyqTF/rmMe/5x39KhbUYN
+abSPN0mxubi9yIZJI2xAqpuk6jPGQBjrnPareoaTZ3GsXQkSQi4lRpQJnUORFgZAPpUlnp9sbKeU
+iQvZKv2djK5MW1WUbeeOCQfXvmmBS8/QLeDTYf7J0ySG8vmRzFtZVfJQSDI5O7aD3GfatazeDxFb
+X0eqWFrLFZXskKKybwQn8WD35qOfRNPj0+e2SFlhNujFBK+M+Yz569dxJzTdI021TVROqyB97zY8
+59u9x8zbc4yfpx2xSAxYbiz/ALKtNTTw5p/la06W8aEfMNzjYJCRyuAWIHQgD3rQXxDHZTfY5NPg
+jtrC4a3mdB8lu21SjgdkIkAPdc+laMekWAF7bCDEMDrJFHvbEbZ3ZUZ+X5ueKINJsUntlEAK3Cyt
+MCxIlLgbiwJ+bOB19KNAOauZ7GztriWfw9pcU8Vu11GjxkLcER79ynGGwcgj7wxmta+vDZ6hFIum
+2LPqD2sE8m0hnEu4HJ7gbeM+tX00HTDcNZtah7dFG2J3ZlH7vZ0J/u8VTbTbaTTbfeJGKXilWMz5
+BQHbznPFMCCSyij1uLSf7D0gRLHJdRfuyNiB1U44wGIOePT8ar/b9KudEjmXw/aT21lfPDJAkYby
+05bzEGOTtwxHXr3q/baVaLFHKFk8w2kkO7znztZizDOe55z1qydPtk1Y3CoyyNJbuxEjYJCsoOM4
+6cUAYskVusVvJDoehS2uo3qwxuseQ5+fa5454H6mtDw99mj1i4hfSbPTr7yyHEYIkdARgqxGHQ9e
+OnAIrRudG0+KOwt4rfy4be786JEdlCPk8gA/7R46c1JZWNsmqSyLGd0O/wAslidm85bGTxkgUAf/
+2Q==
+
+------=_NextPart_000_06E2_01D88AE9.DD12CEC0--
+

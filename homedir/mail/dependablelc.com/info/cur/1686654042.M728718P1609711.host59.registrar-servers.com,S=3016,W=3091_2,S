@@ -1,0 +1,75 @@
+Return-Path: <>
+Delivered-To: info@dependablelc.com
+Received: from host59.registrar-servers.com
+	by host59.registrar-servers.com with LMTP
+	id 6ExUK1pMiGTvjxgA+KyzgQ
+	(envelope-from <>)
+	for <info@dependablelc.com>; Tue, 13 Jun 2023 07:00:42 -0400
+Return-path: <>
+Envelope-to: info@dependablelc.com
+Delivery-date: Tue, 13 Jun 2023 07:00:42 -0400
+Received: from mailnull by host59.registrar-servers.com with local (Exim 4.95)
+	id 1q91lS-006qmo-GP
+	for info@dependablelc.com;
+	Tue, 13 Jun 2023 07:00:42 -0400
+X-Failed-Recipients: custservice@gulf-banquemisr.ae
+Auto-Submitted: auto-replied
+From: Mail Delivery System <Mailer-Daemon@host59.registrar-servers.com>
+To: info@dependablelc.com
+References: <003901d99de6$47493800$d5dba800$@dependablelc.com>
+Content-Type: multipart/report; report-type=delivery-status; boundary=1686654042-eximdsn-763600086
+MIME-Version: 1.0
+Subject: Mail delivery failed: returning message to sender
+Message-Id: <E1q91lS-006qmo-GP@host59.registrar-servers.com>
+Date: Tue, 13 Jun 2023 07:00:42 -0400
+
+--1686654042-eximdsn-763600086
+Content-type: text/plain; charset=us-ascii
+
+This message was created automatically by mail delivery software.
+
+A message that you sent could not be delivered to one or more of its
+recipients. This is a permanent error. The following address(es) failed:
+
+  custservice@gulf-banquemisr.ae
+    host mx1-emailcloud2.z-services.com [217.165.205.14]
+    SMTP error from remote mail server after RCPT TO:<custservice@gulf-banquemisr.ae>:
+    554 5.7.1 Service unavailable; Client host [198.54.126.40] blocked using truncate.gbudb.net; http://www.gbudb.com/truncate/ [198.54.126.40]
+
+--1686654042-eximdsn-763600086
+Content-type: message/delivery-status
+
+Reporting-MTA: dns; host59.registrar-servers.com
+
+Action: failed
+Final-Recipient: rfc822;custservice@gulf-banquemisr.ae
+Status: 5.0.0
+Remote-MTA: dns; mx1-emailcloud2.z-services.com
+Diagnostic-Code: smtp; 554 5.7.1 Service unavailable; Client host [198.54.126.40] blocked using truncate.gbudb.net; http://www.gbudb.com/truncate/ [198.54.126.40]
+
+--1686654042-eximdsn-763600086
+Content-type: text/rfc822-headers
+
+Return-path: <info@dependablelc.com>
+Received: from [151.253.233.197] (port=17265 helo=LAPTOP2T90H7MC)
+	by host59.registrar-servers.com with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <info@dependablelc.com>)
+	id 1q91lM-006qaY-3p
+	for custservice@gulf-banquemisr.ae;
+	Tue, 13 Jun 2023 07:00:38 -0400
+From: <info@dependablelc.com>
+To: <custservice@gulf-banquemisr.ae>
+Subject: Dependable Legal Consultants LLC - Updated Trade License 
+Date: Tue, 13 Jun 2023 15:00:31 +0400
+Message-ID: <003901d99de6$47493800$d5dba800$@dependablelc.com>
+MIME-Version: 1.0
+Content-Type: multipart/mixed;
+	boundary="----=_NextPart_000_003A_01D99E07.CE5B9B50"
+X-Mailer: Microsoft Outlook 16.0
+Thread-Index: Admd5jokSTZDFBxcRDWnLc3FTi3aUw==
+Content-Language: en-gb
+X-Exim-DSN-Information: Due to administrative limits only headers are returned
+
+
+--1686654042-eximdsn-763600086--

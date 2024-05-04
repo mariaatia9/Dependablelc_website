@@ -1,0 +1,1103 @@
+Return-Path: <alber.alset@footage.ae>
+Delivered-To: info@dependablelc.com
+Received: from host59.registrar-servers.com
+	by host59.registrar-servers.com with LMTP
+	id 2BmvMQmkJ2WALSEA+KyzgQ
+	(envelope-from <alber.alset@footage.ae>)
+	for <info@dependablelc.com>; Thu, 12 Oct 2023 03:45:13 -0400
+Return-path: <alber.alset@footage.ae>
+Envelope-to: info@dependablelc.com
+Delivery-date: Thu, 12 Oct 2023 03:45:13 -0400
+Received: from [63.250.43.69] (port=9962 helo=asp-relay-shared.jellyfish.systems)
+	by host59.registrar-servers.com with esmtps  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96.1)
+	(envelope-from <alber.alset@footage.ae>)
+	id 1qqqNd-009wk9-1z
+	for info@dependablelc.com;
+	Thu, 12 Oct 2023 03:45:13 -0400
+Authentication-Results: asp-relay-shared.jellyfish.systems;
+	dkim=pass header.d=footage.ae header.s=default header.b="TwfjoE/q";
+	arc=reject ("signature check failed: fail, {[1] = sig:mailchannels.net:reject}");
+	dmarc=none;
+	spf=pass (asp-relay-shared.jellyfish.systems: domain of alber.alset@footage.ae designates 23.83.223.160 as permitted sender) smtp.mailfrom=alber.alset@footage.ae
+Received: from seagreen.cherry.relay.mailchannels.net (seagreen.cherry.relay.mailchannels.net [23.83.223.160])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by asp-relay-shared.jellyfish.systems (Postfix) with ESMTPS id 4S5hWB6CVRz55cK
+	for <info@dependablelc.com>; Thu, 12 Oct 2023 07:45:10 +0000 (UTC)
+X-Sender-Id: 55jbsb1wk8|x-authuser|alber.alset@footage.ae
+Received: from relay.mailchannels.net (localhost [127.0.0.1])
+	by relay.mailchannels.net (Postfix) with ESMTP id 0A046100E6A
+	for <info@dependablelc.com>; Thu, 12 Oct 2023 07:45:09 +0000 (UTC)
+Received: from host23.server.ae (unknown [127.0.0.6])
+	(Authenticated sender: 55jbsb1wk8)
+	by relay.mailchannels.net (Postfix) with ESMTPA id 10520100B1D
+	for <info@dependablelc.com>; Thu, 12 Oct 2023 07:45:07 +0000 (UTC)
+ARC-Seal: i=1; s=arc-2022; d=mailchannels.net; t=1697096708; a=rsa-sha256;
+	cv=none;
+	b=5nmaZLttQFjksXZ+ZB80AA4OyFJqjrCVMNCf5vn8OSER2x40FwMOFErdr0QOocDfbDwe7e
+	rn0JRHO4T/JQGDB9SYfm51p4ng/ZwOT0GQHrrp/vOL0GK8jzxrk2rEU6sOeOahE6gxnwJC
+	YPBaQlziciNkcWoobMNsnvesgm/mwIWPnBVssLokUFzRBUIafoCDCjqmWMuanTkKH95feH
+	j5l6a0s7gJbfNWed4CjuOVNyBT+V0TmcDIbsQCJJ6VLia3mMeIVSqrmDG3K1IJG6KI5Irc
+	Dp3bE20pG2vNitB/GoS7ygSkockUqlcQktD4pEu9z5tm/TvDsssoeIF9lVz6aA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=mailchannels.net;
+	s=arc-2022; t=1697096708;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references:dkim-signature;
+	bh=gSnYrZMLC3mon2eBrr/vFKg/K7ZFXuUA+wErq/VvsGk=;
+	b=lmbMaw57NOFl8oh8cly1XEQLuc8olq+vuATD8knOkrDPU06efA0GpIQCedJaMXGx4Hgljr
+	lYyqVyrPlAz8j/Kr1ur2T71woWL64EOHvprXCW/ATT4SgolA3yugyPqJbJYNj4nOTQxine
+	7jT/SBjCmWZyg1NmXlVDprEdFLhldF3XA+Y74CpQ+YhHF4PTJgUzP1w32B+edlGKJMCuTg
+	8MblXB47V1q018tjxUlU/bC/S4a3dXgDC+IsvKkgLgaIcewX+tLYB5a9NBJVwjsxJ9s6xs
+	i/AdutRN45nsVIUCV4m9VOixabZwRqI1vfceV/7I64YMOnC8hyKQbFZTZbCN0w==
+ARC-Authentication-Results: i=1;
+	rspamd-7c449d4847-bb2bk;
+	auth=pass smtp.auth=55jbsb1wk8 smtp.mailfrom=alber.alset@footage.ae
+X-Sender-Id: 55jbsb1wk8|x-authuser|alber.alset@footage.ae
+X-MC-Relay: Neutral
+X-MailChannels-SenderId: 55jbsb1wk8|x-authuser|alber.alset@footage.ae
+X-MailChannels-Auth-Id: 55jbsb1wk8
+X-Glossy-White: 49db0218135b2b17_1697096708917_383655750
+X-MC-Loop-Signature: 1697096708917:1560719899
+X-MC-Ingress-Time: 1697096708916
+Received: from host23.server.ae (host23.server.ae [84.16.234.35])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384)
+	by 100.99.108.167 (trex/6.9.1);
+	Thu, 12 Oct 2023 07:45:08 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=footage.ae;
+	s=default; h=Content-Type:MIME-Version:Message-ID:Date:Subject:In-Reply-To:
+	References:To:From:Sender:Reply-To:Cc:Content-Transfer-Encoding:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
+	List-Post:List-Owner:List-Archive;
+	bh=priwWBWeUXigDn9X/Y9f7a/mOJyRj/4ntcu+Ip+p2yM=; b=TwfjoE/q3RWBWZh4W5iUum8Koj
+	3+LCN1KAw21tzQEIRMhIArpRIKQFGX8P9tXjeGTUtF/WrvxOKT9/YbHlE60SDL3fqfbDHl+iaGDnD
+	flr62Qh2XNMERCDVUFECIJRxjLP+hTbbp8wgvfqwMdKCTqzJOBeG2EOYRYx4B3DYAtK9jmF+KRfND
+	PjDqZm6EMBTMv2CUnsQ8wyovODbw5gFtUtRH0UjFZ+WjQlHjLzZ0m+tg6a7+GiFbYr02x4KMaJ9zi
+	C2HpUk45wghDJde4ORUmb3Ipci9W5mtQHIJsh/NRjxsNx5VHhQ6UH+94V7LhP/SmJtS2q6n0N4p8B
+	/HP9N6ow==;
+Received: from bba-86-98-222-4.alshamil.net.ae ([86.98.222.4]:51324 helo=DESKTOP6SB9PFT)
+	by host23.server.ae with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96.1)
+	(envelope-from <alber.alset@footage.ae>)
+	id 1qqqNW-001WIb-0Z
+	for info@dependablelc.com;
+	Thu, 12 Oct 2023 11:45:05 +0400
+From: <alber.alset@footage.ae>
+To: <info@dependablelc.com>
+References: <000601d9fb4f$507edda0$f17c98e0$@footage.ae> <7D5C4B1F-15E7-4819-B763-089BC3809A2F@gmail.com>
+In-Reply-To: <7D5C4B1F-15E7-4819-B763-089BC3809A2F@gmail.com>
+Subject: FW: Pending Payment Legal Action
+Date: Thu, 12 Oct 2023 11:45:03 +0400
+Message-ID: <003801d9fce0$03bb7130$0b325390$@footage.ae>
+MIME-Version: 1.0
+Content-Type: multipart/related;
+	boundary="----=_NextPart_000_0039_01D9FD01.8ACE70C0"
+X-Mailer: Microsoft Outlook 16.0
+Thread-Index: AQI5rgSZxaSqPMYvwOQXeT1VFxvnXQIEWf37r3ZA9qA=
+Content-Language: en-us
+X-AuthUser: alber.alset@footage.ae
+X-NCJF-Result: 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
+ 
+	sXYPuyXCXAXQd/QkbiPXcXFUBbfbRXQhwBK3o
+X-NCJF-Version: 12
+
+This is a multipart message in MIME format.
+
+------=_NextPart_000_0039_01D9FD01.8ACE70C0
+Content-Type: multipart/alternative;
+	boundary="----=_NextPart_001_003A_01D9FD01.8ACE70C0"
+
+
+------=_NextPart_001_003A_01D9FD01.8ACE70C0
+Content-Type: text/plain;
+	charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+FYI
+
+=20
+
+Alber Alset
+
+DOP
+
+Mob: +971 55 990 4075
+
+ =
+<https://eur03.safelinks.protection.outlook.com/?url=3Dhttp%3A%2F%2Fwww.f=
+ootage.ae%2F&data=3D05%7C01%7CNiza.Miranda%40jumeirah.com%7C2a383d1079f44=
+2af4aa308da6ede86f4%7Ceee3385e742f4e2eb130e496ed7d6a49%7C0%7C0%7C63794419=
+9315088397%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLC=
+JBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C3000%7C%7C%7C&sdata=3D9ErL0f%2FEHH0CfCc5Dy=
+uCfw6u8RTqBMPmDg1WQT7UESY%3D&reserved=3D0> www.footage.ae
+
+Crystal Tower-Business Bay-Dubai-UAE
+
+
+
+=20
+
+From: Kzee Jibran <jibrannagarmath@gmail.com>=20
+Sent: Thursday, October 12, 2023 1:46 AM
+To: alber.alset@footage.ae
+Cc: kemo_kemo22287@yahoo.com; jibran@tuyuraljamal.com; =
+accounts@tuyuraljamal.com
+Subject: Re: Pending Payment Legal Action
+
+=20
+
+Dear Alber
+
+=20
+
+Please note the below comments further to your trial email:
+
+=20
+
+1. Website sub content has been given long back and approved as well, =
+addition to that necessary comments has been passed as well, till date =
+no heed has been paid.
+
+Please do note that we have paid full payment against the initial =
+proposal
+
+2.  We have not received invoices for the months except the recent =
+months hence it=E2=80=99s our rights to reduce the amount for the =
+services which you have not provided to us. We only know it from the =
+initial proposal shared
+
+=20
+
+Hence Kindly update our works and revise the SOA and we can discuss =
+further
+
+=20
+
+Warm regards
+
+Jibran
+
+Thank you=20
+
+Sent from my iPhone
+
+
+
+
+
+On 10 Oct 2023, at 11:56 AM, alber.alset@footage.ae =
+<mailto:alber.alset@footage.ae>  wrote:
+
+=EF=BB=BF
+
+Dear Tuyur Al Jamal Clinic Management,
+
+=20
+
+Regarding the below email
+
+=20
+
+For the website you delayed the written content then we created the =
+pages and sent for approval and so far till today there is no approval =
+or comment yet.
+
+For the proposal approval we have not received and request to revise the =
+proposal so you can ask a revise in the future not in the past.
+
+Branding will be handed over after closing the pending payments.
+
+=20
+
+For the statement we can not revise as you have been delaying the =
+payment and causing us many financial damages in the company,
+
+=20
+
+Please be noted that not closing the pending payment will put you =
+reliable for any legal action.
+
+=20
+
+Alber Alset
+
+DOP
+
+Mob: +971 55 990 4075
+
+ =
+<https://eur03.safelinks.protection.outlook.com/?url=3Dhttp%3A%2F%2Fwww.f=
+ootage.ae%2F&data=3D05%7C01%7CNiza.Miranda%40jumeirah.com%7C2a383d1079f44=
+2af4aa308da6ede86f4%7Ceee3385e742f4e2eb130e496ed7d6a49%7C0%7C0%7C63794419=
+9315088397%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLC=
+JBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C3000%7C%7C%7C&sdata=3D9ErL0f%2FEHH0CfCc5Dy=
+uCfw6u8RTqBMPmDg1WQT7UESY%3D&reserved=3D0> www.footage.ae
+
+Churchill Tower-Business Bay-Dubai-UAE
+
+<image001.png>
+
+=20
+
+From: Mohammed Jibran <jibrannagarmath@gmail.com =
+<mailto:jibrannagarmath@gmail.com> >=20
+Sent: Friday, October 6, 2023 5:53 PM
+To: alber.alset@footage.ae <mailto:alber.alset@footage.ae> ; =
+kemo_kemo22287@yahoo.com <mailto:kemo_kemo22287@yahoo.com> ; =
+jibran@tuyuraljamal.com <mailto:jibran@tuyuraljamal.com> ; =
+accounts@tuyuraljamal.com <mailto:accounts@tuyuraljamal.com>=20
+Subject: Re: Pending Payment Legal Action
+
+=20
+
+Dear Alber,
+
+=20
+
+Thank you for sharing the SOA.
+
+=20
+
+Kindly note that from the above SOA only the signage work has been =
+completed and to the others please find my remarks below:
+
+=20
+
+1. Website still remains incomplete despite several reminders and follow =
+ups since the year 2022( Kindly note we agreed on the website work as =
+you promised us to do the website similar to www.biolitedubai.com =
+<http://www.biolitedubai.com> )
+
+2. We had agreed for a Diamond package which includes paid promotions, =
+managing stories and monthly report which till date was not done so i =
+believe we must be charged much lesser amount than what you have quoted.
+
+3. Branding- we have not received our company profile, official logo in =
+high resolution in various formats.
+
+=20
+
+Kindly revise the statement as per the above points.
+
+=20
+
+should you have any concerns feel free to revert back.
+
+=20
+
+Warm Regards,
+
+Jibran
+
+=20
+
+=20
+
+On Sun, Oct 1, 2023 at 7:32=E2=80=AFPM <alber.alset@footage.ae =
+<mailto:alber.alset@footage.ae> > wrote:
+
+Dear Tuyur Aljamal / Maha Sulaiman
+
+=20
+
+=20
+
+I hope this email finds you well. I am writing to address an urgent =
+matter concerning a pending payment statement with your esteemed =
+organization. As of today, 01/10/2023, the outstanding payment of =
+remains unresolved. We kindly request immediate attention to this matter =
+with a firm deadline of the end of 12/10/2023 for its closure.
+
+=20
+
+Please be advised that this pending payment has been a cause of concern =
+for us, and it is essential to resolve it promptly to ensure the smooth =
+financial operations of our business. As per the terms and conditions =
+outlined in in the invoices, timely payment is vital to maintaining a =
+professional working relationship between our companies.
+
+=20
+
+While we understand that unforeseen circumstances may arise, we must =
+stress the importance of adhering to the agreed-upon payment schedule. =
+We expect the outstanding amount to be processed and reflected in our =
+records by the specified deadline without further delay.
+
+=20
+
+We appreciate your understanding of the urgency surrounding this matter =
+and your cooperation in promptly resolving the pending payment =
+statement. Failure to meet the specified deadline may result in the =
+implementation of appropriate actions to protect our interests.
+
+=20
+
+Thank you for your immediate attention to this request. We look forward =
+to receiving confirmation of the payment closure by the end of =
+12/10/2023.
+
+=20
+
+=20
+
+Alber Alset
+
+DOP
+
+Mob: +971 55 990 4075
+
+ =
+<https://eur03.safelinks.protection.outlook.com/?url=3Dhttp%3A%2F%2Fwww.f=
+ootage.ae%2F&data=3D05%7C01%7CNiza.Miranda%40jumeirah.com%7C2a383d1079f44=
+2af4aa308da6ede86f4%7Ceee3385e742f4e2eb130e496ed7d6a49%7C0%7C0%7C63794419=
+9315088397%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLC=
+JBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C3000%7C%7C%7C&sdata=3D9ErL0f%2FEHH0CfCc5Dy=
+uCfw6u8RTqBMPmDg1WQT7UESY%3D&reserved=3D0> www.footage.ae
+
+Crystal Tower-Business Bay-Dubai-UAE
+
+
+
+=20
+
+
+
+
+=20
+
+--=20
+
+With thanks and regards,
+
+Mohammed Jibran
+
++971563727860
+
+
+------=_NextPart_001_003A_01D9FD01.8ACE70C0
+Content-Type: text/html;
+	charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+<html xmlns:v=3D"urn:schemas-microsoft-com:vml" =
+xmlns:o=3D"urn:schemas-microsoft-com:office:office" =
+xmlns:w=3D"urn:schemas-microsoft-com:office:word" =
+xmlns:m=3D"http://schemas.microsoft.com/office/2004/12/omml" =
+xmlns=3D"http://www.w3.org/TR/REC-html40"><head><meta =
+http-equiv=3DContent-Type content=3D"text/html; charset=3Dutf-8"><meta =
+name=3DGenerator content=3D"Microsoft Word 15 (filtered medium)"><!--[if =
+!mso]><style>v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+w\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+</style><![endif]--><style><!--
+/* Font Definitions */
+@font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+/* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin:0in;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+a:link, span.MsoHyperlink
+	{mso-style-priority:99;
+	color:blue;
+	text-decoration:underline;}
+p.m5227513733989630872xxxxxmsonormal, =
+li.m5227513733989630872xxxxxmsonormal, =
+div.m5227513733989630872xxxxxmsonormal
+	{mso-style-name:m5227513733989630872xxxxxmsonormal;
+	mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+span.gmailsignatureprefix
+	{mso-style-name:gmailsignatureprefix;}
+span.EmailStyle24
+	{mso-style-type:personal-reply;
+	font-family:"Calibri",sans-serif;
+	color:windowtext;}
+.MsoChpDefault
+	{mso-style-type:export-only;
+	font-size:10.0pt;
+	mso-ligatures:none;}
+@page WordSection1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.0in 1.0in 1.0in;}
+div.WordSection1
+	{page:WordSection1;}
+--></style><!--[if gte mso 9]><xml>
+<o:shapedefaults v:ext=3D"edit" spidmax=3D"1026" />
+</xml><![endif]--><!--[if gte mso 9]><xml>
+<o:shapelayout v:ext=3D"edit">
+<o:idmap v:ext=3D"edit" data=3D"1" />
+</o:shapelayout></xml><![endif]--></head><body lang=3DEN-US link=3Dblue =
+vlink=3Dpurple style=3D'word-wrap:break-word'><div =
+class=3DWordSection1><p class=3DMsoNormal>FYI<o:p></o:p></p><p =
+class=3DMsoNormal><o:p>&nbsp;</o:p></p><div><p class=3DMsoNormal><span =
+lang=3Den-AE =
+style=3D'font-size:10.0pt;color:#767171;mso-ligatures:standardcontextual'=
+>Alber Alset</span><span lang=3Den-AE =
+style=3D'color:#767171;mso-ligatures:standardcontextual'><o:p></o:p></spa=
+n></p><p class=3DMsoNormal><span lang=3Den-AE =
+style=3D'font-size:10.0pt;color:#767171;mso-ligatures:standardcontextual'=
+>DOP</span><span lang=3Den-AE =
+style=3D'color:#767171;mso-ligatures:standardcontextual'><o:p></o:p></spa=
+n></p><p class=3DMsoNormal><span lang=3Den-AE =
+style=3D'font-size:10.0pt;color:#767171;mso-ligatures:standardcontextual'=
+>Mob: +971 55 990 4075</span><span lang=3Den-AE =
+style=3D'color:#767171;mso-ligatures:standardcontextual'><o:p></o:p></spa=
+n></p><p class=3DMsoNormal><span lang=3Den-AE =
+style=3D'font-size:10.0pt;color:#767171;mso-ligatures:standardcontextual'=
+><a =
+href=3D"https://eur03.safelinks.protection.outlook.com/?url=3Dhttp%3A%2F%=
+2Fwww.footage.ae%2F&amp;data=3D05%7C01%7CNiza.Miranda%40jumeirah.com%7C2a=
+383d1079f442af4aa308da6ede86f4%7Ceee3385e742f4e2eb130e496ed7d6a49%7C0%7C0=
+%7C637944199315088397%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjo=
+iV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C3000%7C%7C%7C&amp;sdata=3D9ErL0=
+f%2FEHH0CfCc5DyuCfw6u8RTqBMPmDg1WQT7UESY%3D&amp;reserved=3D0"><span =
+style=3D'color:#767171'>www.footage.ae</span></a></span><span =
+lang=3Den-AE =
+style=3D'color:#767171;mso-ligatures:standardcontextual'><o:p></o:p></spa=
+n></p><p class=3DMsoNormal><i><span lang=3Den-AE =
+style=3D'font-size:10.0pt;color:#767171;mso-ligatures:standardcontextual'=
+>Crystal Tower-Business Bay-Dubai-UAE</span></i><span lang=3Den-AE =
+style=3D'color:#767171;mso-ligatures:standardcontextual'><o:p></o:p></spa=
+n></p><p class=3DMsoNormal><span lang=3Den-AE =
+style=3D'font-size:10.0pt'><img border=3D0 width=3D421 height=3D84 =
+style=3D'width:4.3854in;height:.875in' id=3D"Picture_x0020_2" =
+src=3D"cid:image001.png@01D9FD01.748F4000"></span><span =
+style=3D'mso-ligatures:standardcontextual'><o:p></o:p></span></p></div><p=
+ class=3DMsoNormal><o:p>&nbsp;</o:p></p><div><div =
+style=3D'border:none;border-top:solid #E1E1E1 1.0pt;padding:3.0pt 0in =
+0in 0in'><p class=3DMsoNormal><b>From:</b> Kzee Jibran =
+&lt;jibrannagarmath@gmail.com&gt; <br><b>Sent:</b> Thursday, October 12, =
+2023 1:46 AM<br><b>To:</b> alber.alset@footage.ae<br><b>Cc:</b> =
+kemo_kemo22287@yahoo.com; jibran@tuyuraljamal.com; =
+accounts@tuyuraljamal.com<br><b>Subject:</b> Re: Pending Payment Legal =
+Action<o:p></o:p></p></div></div><p =
+class=3DMsoNormal><o:p>&nbsp;</o:p></p><p class=3DMsoNormal>Dear =
+Alber<o:p></o:p></p><div><p =
+class=3DMsoNormal><o:p>&nbsp;</o:p></p></div><div><p =
+class=3DMsoNormal>Please note the below comments further to your trial =
+email:<o:p></o:p></p></div><div><p =
+class=3DMsoNormal><o:p>&nbsp;</o:p></p></div><div><p =
+class=3DMsoNormal>1. Website sub content has been given long back and =
+approved as well, addition to that necessary comments has been passed as =
+well, till date no heed has been paid.<o:p></o:p></p></div><div><p =
+class=3DMsoNormal>Please do note that we have paid full payment against =
+the initial proposal<o:p></o:p></p></div><div><p class=3DMsoNormal>2. =
+&nbsp;We have not received invoices for the months except the recent =
+months hence it=E2=80=99s our rights to reduce the amount for the =
+services which you have not provided to us. We only know it from the =
+initial proposal shared<o:p></o:p></p></div><div><p =
+class=3DMsoNormal><o:p>&nbsp;</o:p></p></div><div><p =
+class=3DMsoNormal>Hence Kindly update our works and revise the SOA and =
+we can discuss further<o:p></o:p></p></div><div><p =
+class=3DMsoNormal><o:p>&nbsp;</o:p></p></div><div><p =
+class=3DMsoNormal>Warm regards<o:p></o:p></p></div><div><p =
+class=3DMsoNormal>Jibran<o:p></o:p></p></div><div><p =
+class=3DMsoNormal>Thank you&nbsp;<o:p></o:p></p><div><p =
+class=3DMsoNormal>Sent from my iPhone<o:p></o:p></p></div><div><p =
+class=3DMsoNormal><br><br><o:p></o:p></p><blockquote =
+style=3D'margin-top:5.0pt;margin-bottom:5.0pt'><p class=3DMsoNormal =
+style=3D'margin-bottom:12.0pt'>On 10 Oct 2023, at 11:56 AM, <a =
+href=3D"mailto:alber.alset@footage.ae">alber.alset@footage.ae</a> =
+wrote:<o:p></o:p></p></blockquote></div><blockquote =
+style=3D'margin-top:5.0pt;margin-bottom:5.0pt'><div><p =
+class=3DMsoNormal>=EF=BB=BF<o:p></o:p></p><p class=3DMsoNormal>Dear =
+Tuyur Al Jamal Clinic Management,<o:p></o:p></p><p =
+class=3DMsoNormal>&nbsp;<o:p></o:p></p><p class=3DMsoNormal>Regarding =
+the below email<o:p></o:p></p><p =
+class=3DMsoNormal>&nbsp;<o:p></o:p></p><p class=3DMsoNormal>For the =
+website you delayed the written content then we created the pages and =
+sent for approval and so far till today there is no approval or comment =
+yet.<o:p></o:p></p><p class=3DMsoNormal>For the proposal approval we =
+have not received and request to revise the proposal so you can ask a =
+revise in the future not in the past.<o:p></o:p></p><p =
+class=3DMsoNormal>Branding will be handed over after closing the pending =
+payments.<o:p></o:p></p><p class=3DMsoNormal>&nbsp;<o:p></o:p></p><p =
+class=3DMsoNormal>For the statement we can not revise as you have been =
+delaying the payment and causing us many financial damages in the =
+company,<o:p></o:p></p><p class=3DMsoNormal>&nbsp;<o:p></o:p></p><p =
+class=3DMsoNormal>Please be noted that not closing the pending payment =
+will put you reliable for any legal action.<o:p></o:p></p><p =
+class=3DMsoNormal>&nbsp;<o:p></o:p></p><p class=3DMsoNormal><span =
+lang=3Den-AE style=3D'font-size:10.0pt;color:#767171'>Alber =
+Alset</span><o:p></o:p></p><p class=3DMsoNormal><span lang=3Den-AE =
+style=3D'font-size:10.0pt;color:#767171'>DOP</span><o:p></o:p></p><p =
+class=3DMsoNormal><span lang=3Den-AE =
+style=3D'font-size:10.0pt;color:#767171'>Mob: +971 55 990 =
+4075</span><o:p></o:p></p><p class=3DMsoNormal><span lang=3Den-AE =
+style=3D'font-size:10.0pt;color:#767171'><a =
+href=3D"https://eur03.safelinks.protection.outlook.com/?url=3Dhttp%3A%2F%=
+2Fwww.footage.ae%2F&amp;data=3D05%7C01%7CNiza.Miranda%40jumeirah.com%7C2a=
+383d1079f442af4aa308da6ede86f4%7Ceee3385e742f4e2eb130e496ed7d6a49%7C0%7C0=
+%7C637944199315088397%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjo=
+iV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C3000%7C%7C%7C&amp;sdata=3D9ErL0=
+f%2FEHH0CfCc5DyuCfw6u8RTqBMPmDg1WQT7UESY%3D&amp;reserved=3D0"><span =
+style=3D'color:#767171'>www.footage.ae</span></a></span><o:p></o:p></p><p=
+ class=3DMsoNormal><i><span lang=3Den-AE =
+style=3D'font-size:10.0pt;color:#767171'>Churchill Tower-Business =
+Bay-Dubai-UAE</span></i><o:p></o:p></p><div><p class=3DMsoNormal><span =
+lang=3Den-AE =
+style=3D'font-size:10.0pt'>&lt;image001.png&gt;<o:p></o:p></span></p></di=
+v><p class=3DMsoNormal>&nbsp;<o:p></o:p></p><div =
+style=3D'border:none;border-top:solid #E1E1E1 1.0pt;padding:3.0pt 0in =
+0in 0in'><p class=3DMsoNormal><b>From:</b> Mohammed Jibran &lt;<a =
+href=3D"mailto:jibrannagarmath@gmail.com">jibrannagarmath@gmail.com</a>&g=
+t; <br><b>Sent:</b> Friday, October 6, 2023 5:53 PM<br><b>To:</b> <a =
+href=3D"mailto:alber.alset@footage.ae">alber.alset@footage.ae</a>; <a =
+href=3D"mailto:kemo_kemo22287@yahoo.com">kemo_kemo22287@yahoo.com</a>; =
+<a href=3D"mailto:jibran@tuyuraljamal.com">jibran@tuyuraljamal.com</a>; =
+<a =
+href=3D"mailto:accounts@tuyuraljamal.com">accounts@tuyuraljamal.com</a><b=
+r><b>Subject:</b> Re: Pending Payment Legal =
+Action<o:p></o:p></p></div><p =
+class=3DMsoNormal>&nbsp;<o:p></o:p></p><div><p class=3DMsoNormal>Dear =
+Alber,<o:p></o:p></p><div><p =
+class=3DMsoNormal>&nbsp;<o:p></o:p></p></div><div><p =
+class=3DMsoNormal>Thank you for sharing the =
+SOA.<o:p></o:p></p></div><div><p =
+class=3DMsoNormal>&nbsp;<o:p></o:p></p></div><div><p =
+class=3DMsoNormal>Kindly note that from the above SOA only the signage =
+work has been completed and to the others please&nbsp;find&nbsp;my =
+remarks below:<o:p></o:p></p></div><div><p =
+class=3DMsoNormal>&nbsp;<o:p></o:p></p></div><div><p =
+class=3DMsoNormal>1. Website still remains incomplete despite =
+several&nbsp;reminders and follow ups since the year 2022( Kindly note =
+we agreed on the website work as you promised us to do the website =
+similar to <a =
+href=3D"http://www.biolitedubai.com">www.biolitedubai.com</a>)<o:p></o:p>=
+</p></div><div><p class=3DMsoNormal>2. We had agreed for a Diamond =
+package which includes&nbsp;paid promotions, managing stories and =
+monthly&nbsp;report which till date was not done so i believe we must be =
+charged much lesser amount than what you have =
+quoted.<o:p></o:p></p></div><div><p class=3DMsoNormal>3. Branding- we =
+have not received our company&nbsp;profile, official logo in high =
+resolution in various&nbsp;formats.<o:p></o:p></p></div><div><p =
+class=3DMsoNormal>&nbsp;<o:p></o:p></p></div><div><p =
+class=3DMsoNormal>Kindly revise the statement as per the above =
+points.<o:p></o:p></p></div><div><p =
+class=3DMsoNormal>&nbsp;<o:p></o:p></p></div><div><p =
+class=3DMsoNormal>should you have any concerns feel free to =
+revert&nbsp;back.<o:p></o:p></p></div><div><p =
+class=3DMsoNormal>&nbsp;<o:p></o:p></p></div><div><p =
+class=3DMsoNormal>Warm&nbsp;Regards,<o:p></o:p></p></div><div><p =
+class=3DMsoNormal>Jibran<o:p></o:p></p></div><div><p =
+class=3DMsoNormal>&nbsp;<o:p></o:p></p></div></div><p class=3DMsoNormal =
+dir=3DRTL =
+style=3D'text-align:right;direction:rtl;unicode-bidi:embed'><span =
+dir=3DLTR>&nbsp;<o:p></o:p></span></p><div><div><p class=3DMsoNormal>On =
+Sun, Oct 1, 2023 at 7:32=E2=80=AFPM &lt;<a =
+href=3D"mailto:alber.alset@footage.ae">alber.alset@footage.ae</a>&gt; =
+wrote:<span lang=3DAR-SA =
+dir=3DRTL><o:p></o:p></span></p></div><blockquote =
+style=3D'border:none;border-left:solid #CCCCCC 1.0pt;padding:0in 0in 0in =
+6.0pt;margin-left:4.8pt;margin-top:5.0pt;margin-right:0in;margin-bottom:5=
+.0pt'><div><div><div><p class=3DMsoNormal =
+style=3D'mso-margin-top-alt:auto;mso-margin-bottom-alt:auto'>Dear Tuyur =
+Aljamal / Maha Sulaiman<o:p></o:p></p><p class=3DMsoNormal =
+style=3D'mso-margin-top-alt:auto;mso-margin-bottom-alt:auto'>&nbsp;<o:p><=
+/o:p></p><p =
+class=3Dm5227513733989630872xxxxxmsonormal>&nbsp;<o:p></o:p></p><p =
+class=3Dm5227513733989630872xxxxxmsonormal>I hope this email finds you =
+well. I am writing to address an urgent matter concerning a pending =
+payment statement with your esteemed organization. As of today, =
+01/10/2023, the outstanding payment of remains unresolved. We kindly =
+request immediate attention to this matter with a firm deadline of the =
+end of 12/10/2023 for its closure.<o:p></o:p></p><p =
+class=3Dm5227513733989630872xxxxxmsonormal>&nbsp;<o:p></o:p></p><p =
+class=3Dm5227513733989630872xxxxxmsonormal>Please be advised that this =
+pending payment has been a cause of concern for us, and it is essential =
+to resolve it promptly to ensure the smooth financial operations of our =
+business. As per the terms and conditions outlined in in the invoices, =
+timely payment is vital to maintaining a professional working =
+relationship between our companies.<o:p></o:p></p><p =
+class=3Dm5227513733989630872xxxxxmsonormal>&nbsp;<o:p></o:p></p><p =
+class=3Dm5227513733989630872xxxxxmsonormal>While we understand that =
+unforeseen circumstances may arise, we must stress the importance of =
+adhering to the agreed-upon payment schedule. We expect the outstanding =
+amount to be processed and reflected in our records by the specified =
+deadline without further delay.<o:p></o:p></p><p =
+class=3Dm5227513733989630872xxxxxmsonormal>&nbsp;<o:p></o:p></p><p =
+class=3Dm5227513733989630872xxxxxmsonormal>We appreciate your =
+understanding of the urgency surrounding this matter and your =
+cooperation in promptly resolving the pending payment statement. Failure =
+to meet the specified deadline may result in the implementation of =
+appropriate actions to protect our interests.<o:p></o:p></p><p =
+class=3Dm5227513733989630872xxxxxmsonormal>&nbsp;<o:p></o:p></p><p =
+class=3Dm5227513733989630872xxxxxmsonormal>Thank you for your immediate =
+attention to this request. We look forward to receiving confirmation of =
+the payment closure by the end&nbsp;of&nbsp;12/10/2023.<o:p></o:p></p><p =
+class=3DMsoNormal =
+style=3D'mso-margin-top-alt:auto;mso-margin-bottom-alt:auto'>&nbsp;<o:p><=
+/o:p></p><p class=3DMsoNormal =
+style=3D'mso-margin-top-alt:auto;mso-margin-bottom-alt:auto'>&nbsp;<o:p><=
+/o:p></p><p class=3DMsoNormal =
+style=3D'mso-margin-top-alt:auto;mso-margin-bottom-alt:auto'><span =
+lang=3Den-AE style=3D'font-size:10.0pt;color:#767171'>Alber =
+Alset</span><o:p></o:p></p><p class=3DMsoNormal =
+style=3D'mso-margin-top-alt:auto;mso-margin-bottom-alt:auto'><span =
+lang=3Den-AE =
+style=3D'font-size:10.0pt;color:#767171'>DOP</span><o:p></o:p></p><p =
+class=3DMsoNormal =
+style=3D'mso-margin-top-alt:auto;mso-margin-bottom-alt:auto'><span =
+lang=3Den-AE style=3D'font-size:10.0pt;color:#767171'>Mob: +971 55 990 =
+4075</span><o:p></o:p></p><p class=3DMsoNormal =
+style=3D'mso-margin-top-alt:auto;mso-margin-bottom-alt:auto'><span =
+lang=3Den-AE style=3D'font-size:10.0pt;color:#767171'><a =
+href=3D"https://eur03.safelinks.protection.outlook.com/?url=3Dhttp%3A%2F%=
+2Fwww.footage.ae%2F&amp;data=3D05%7C01%7CNiza.Miranda%40jumeirah.com%7C2a=
+383d1079f442af4aa308da6ede86f4%7Ceee3385e742f4e2eb130e496ed7d6a49%7C0%7C0=
+%7C637944199315088397%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjo=
+iV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C3000%7C%7C%7C&amp;sdata=3D9ErL0=
+f%2FEHH0CfCc5DyuCfw6u8RTqBMPmDg1WQT7UESY%3D&amp;reserved=3D0" =
+target=3D"_blank"><span =
+style=3D'color:#767171'>www.footage.ae</span></a></span><o:p></o:p></p><p=
+ class=3DMsoNormal =
+style=3D'mso-margin-top-alt:auto;mso-margin-bottom-alt:auto'><i><span =
+lang=3Den-AE style=3D'font-size:10.0pt;color:#767171'>Crystal =
+Tower-Business Bay-Dubai-UAE</span></i><o:p></o:p></p><p =
+class=3DMsoNormal =
+style=3D'mso-margin-top-alt:auto;mso-margin-bottom-alt:auto'><span =
+lang=3Den-AE style=3D'font-size:10.0pt'><img border=3D0 width=3D421 =
+height=3D84 style=3D'width:4.3854in;height:.875in' id=3D"_x0000_i1025" =
+src=3D"cid:image001.png@01D9F49D.C19C5070"></span><o:p></o:p></p><p =
+class=3DMsoNormal dir=3DRTL =
+style=3D'mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;text-align:ri=
+ght;direction:rtl;unicode-bidi:embed'><span =
+dir=3DLTR>&nbsp;<o:p></o:p></span></p></div></div></div></blockquote></di=
+v><p class=3DMsoNormal dir=3DRTL =
+style=3D'text-align:right;direction:rtl;unicode-bidi:embed'><span =
+dir=3DLTR><br clear=3Dall></span><span =
+lang=3DAR-SA><o:p></o:p></span></p><div><p class=3DMsoNormal dir=3DRTL =
+style=3D'text-align:right;direction:rtl;unicode-bidi:embed'><span =
+dir=3DLTR></span><span dir=3DLTR></span><span dir=3DLTR><span =
+dir=3DLTR></span><span dir=3DLTR></span>&nbsp;</span><span =
+lang=3DAR-SA><o:p></o:p></span></p></div><p class=3DMsoNormal dir=3DRTL =
+style=3D'text-align:right;direction:rtl;unicode-bidi:embed'><span =
+dir=3DLTR></span><span dir=3DLTR></span><span =
+class=3Dgmailsignatureprefix><span dir=3DLTR><span =
+dir=3DLTR></span><span dir=3DLTR></span>-- </span></span><span =
+lang=3DAR-SA><o:p></o:p></span></p><div><div><p class=3DMsoNormal>With =
+thanks and regards,<span lang=3DAR-SA =
+dir=3DRTL><o:p></o:p></span></p><div><p class=3DMsoNormal>Mohammed =
+Jibran<o:p></o:p></p></div><div><p =
+class=3DMsoNormal>+971563727860<o:p></o:p></p></div></div></div></div></b=
+lockquote></div></div></body></html>
+------=_NextPart_001_003A_01D9FD01.8ACE70C0--
+
+------=_NextPart_000_0039_01D9FD01.8ACE70C0
+Content-Type: image/png;
+	name="image001.png"
+Content-Transfer-Encoding: base64
+Content-ID: <image001.png@01D9FD01.748F4000>
+
+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
+jIARiIXA/wHLtJbx/+bH8wAAAABJRU5ErkJggg==
+
+------=_NextPart_000_0039_01D9FD01.8ACE70C0--
+

@@ -1,0 +1,346 @@
+Return-Path: <3RSIGYxIJBMAjkvktjghrkrkmgriutmsgor.iusotlujkvktjghrkri.ius@doclist.bounces.google.com>
+Delivered-To: info@dependablelc.com
+Received: from host59.registrar-servers.com
+	by host59.registrar-servers.com with LMTP
+	id EBLDKVAiBmOzrTsA+KyzgQ
+	(envelope-from <3RSIGYxIJBMAjkvktjghrkrkmgriutmsgor.iusotlujkvktjghrkri.ius@doclist.bounces.google.com>)
+	for <info@dependablelc.com>; Wed, 24 Aug 2022 09:06:24 -0400
+Return-path: <3RSIGYxIJBMAjkvktjghrkrkmgriutmsgor.iusotlujkvktjghrkri.ius@doclist.bounces.google.com>
+Envelope-to: info@dependablelc.com
+Delivery-date: Wed, 24 Aug 2022 09:06:24 -0400
+Received: from [63.250.43.69] (port=42067 helo=asp-relay-shared.jellyfish.systems)
+	by host59.registrar-servers.com with esmtps  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <3RSIGYxIJBMAjkvktjghrkrkmgriutmsgor.iusotlujkvktjghrkri.ius@doclist.bounces.google.com>)
+	id 1oQq5Q-001fww-KR
+	for info@dependablelc.com;
+	Wed, 24 Aug 2022 09:06:24 -0400
+Received: from mail-qv1-f72.google.com (mail-qv1-f72.google.com [209.85.219.72])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by asp-relay-shared.jellyfish.systems (Postfix) with ESMTPS id 4MCRDq19cRzBrYj
+	for <info@dependablelc.com>; Wed, 24 Aug 2022 13:06:14 +0000 (UTC)
+Received: by mail-qv1-f72.google.com with SMTP id s5-20020ad45005000000b00496db0fd2eeso5820128qvo.23
+        for <info@dependablelc.com>; Wed, 24 Aug 2022 06:06:14 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20210112;
+        h=to:from:subject:date:message-id:references:reply-to:mime-version
+         :from:to:cc;
+        bh=tgwf9zfayQ2T5RIRumWE6NntCxWAtyEW1LWPJlOUKa4=;
+        b=o2FoksTN7hILVAcF5VM9w7Bhs5Qnth1ImKSjgF2PqqFvnJRrhJAnSCSsrMIOu96pDo
+         4PFWHBetgvg/nt34B1V9JhgGxE7SUh93qaVYRrKu91W2J5S5crXuKyS1ZX+LvXtguNuL
+         tkXoeFmK5i/fGzQ1pmR5ILzzSaYddmR56D+GD8c5ffJT5ynDM7s3OkG3jnnMmA0J6b5s
+         ocylqqmUqpS3YMRaIt+8U2j0VyPjhdZYXGT9NukyId0cRvDcZTGcxqlHvFGpPAR0AB3Z
+         tXrq8j7/OSSY4gZkZtWG6bpwmy/lMytrFlkAr6fXYUjoJQURALFQ18UE/ciSRkE+bGRZ
+         5jQw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=to:from:subject:date:message-id:references:reply-to:mime-version
+         :x-gm-message-state:from:to:cc;
+        bh=tgwf9zfayQ2T5RIRumWE6NntCxWAtyEW1LWPJlOUKa4=;
+        b=ASYprWkJJtX1SzcN0gRJuHH3ZHIswcIgDuSoW0GD7Z9JT1O/QvMA/8ymRzbT90KbGt
+         UCbuSyhqWe5qOHR6cE8RZm2Bkaf1TL1JEGN2Jc74+jVgI2MTuce0QOEuK/rbnDXVscbH
+         hqDHFWFGTmNCsDis+UZMXTdyEYrl7uaGGxnfB8hkKxm8HJu0hON8fqnNcqPx7sdA86C/
+         t6pnxN46vLAr9Y7kVFBzusYDoZThAvChhYOnM1U0itW/xIyJqADISBMEh1Et1L4NJc82
+         zUZ11udlsuQ6ofa+6+b2IGb21inU1MG6KFXg0EQNV9WdP7JeneagCkJCVjXNNzK7idpR
+         V86w==
+X-Gm-Message-State: ACgBeo0bK4Qs50PPEMRaU1FQF+81ALlJ26IVo10ck6hpGu4kMfi2U+Uw
+	uCJohRvayw7iYNqINY6/eXxE45asnFE=
+X-Google-Smtp-Source: AA6agR6N2wbp2gKX3pXw/SptaP9abloP6yYKn68GTEYDKH1w1DfVlkHinJ3Mqpglko7u7sSf0ScIj3JQmHo=
+MIME-Version: 1.0
+X-Received: by 2002:a05:6214:29c2:b0:497:8b2:442 with SMTP id
+ gh2-20020a05621429c200b0049708b20442mr5639026qvb.97.1661346373203; Wed, 24
+ Aug 2022 06:06:13 -0700 (PDT)
+Reply-To: Dependable Consultants <dependablelegalcon@gmail.com>
+X-No-Auto-Attachment: 1
+References: <b1366382-2798-48d9-84b8-206b4083369c@docs-share.google.com>
+Message-ID: <0000000000006c7ce705e6fc588d@google.com>
+Date: Wed, 24 Aug 2022 13:06:13 +0000
+Subject: Spreadsheet shared with you: "Dependable clients "
+From: "Dependable Consultants (via Google Sheets)" <dependablelegalcon@gmail.com>
+To: info@dependablelc.com
+Content-Type: multipart/alternative; boundary="0000000000006c7cd805e6fc588a"
+X-NCJF-Result: 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
+ 
+	xLAFwCRRsz7Et0=
+X-NCJF-Version: 1
+Authentication-Results: asp-relay-shared.jellyfish.systems;
+	dkim=pass header.d=gmail.com header.s=20210112 header.b=o2FoksTN;
+	dmarc=pass (policy=none) header.from=gmail.com;
+	spf=pass (asp-relay-shared.jellyfish.systems: domain of 3RSIGYxIJBMAjkvktjghrkrkmgriutmsgor.iusotlujkvktjghrkri.ius@doclist.bounces.google.com designates 209.85.219.72 as permitted sender) smtp.mailfrom=3RSIGYxIJBMAjkvktjghrkrkmgriutmsgor.iusotlujkvktjghrkri.ius@doclist.bounces.google.com
+
+--0000000000006c7cd805e6fc588a
+Content-Type: text/plain; charset="UTF-8"; format=flowed; delsp=yes
+
+I've shared an item with you:
+
+Dependable clients
+https://docs.google.com/spreadsheets/d/1aBtFnzzYwFYVKjMpfiqyn-8l8O4pfNJkUjk0vz4PLnA/edit?usp=sharing&invite=CPqtx-UG&ts=63062245
+
+It's not an attachment -- it's stored online. To open this item, just click  
+the link above.
+
+
+--0000000000006c7cd805e6fc588a
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<html><head></head><body><table style=3D"border-collapse: collapse; width: =
+100%; background-color: white; text-align: center;" role=3D"presentation"><=
+tr><td style=3D"padding: 24px 0 16px 0;"><table style=3D"border-collapse: c=
+ollapse;font-family: Roboto, Arial, Helvetica, sans-serif;hyphens: auto; ov=
+erflow-wrap: break-word; word-wrap: break-word; word-break: break-word;disp=
+lay: inline-block; width: 90%;max-width: 700px;min-width: 280px; text-align=
+: left;" role=3D"presentation"><tr><td style=3D"padding: 0;"><table style=
+=3D"width:100%; border: 1px solid #dadce0; border-radius: 8px; border-spaci=
+ng: 0; table-layout:fixed; border-collapse: separate;" role=3D"presentation=
+"><tr><td style=3D"padding: 4.5%;" dir=3D"ltr"><div style=3D"margin-bottom:=
+32px;font-family: Google Sans, Roboto, Arial, Helvetica, sans-serif; font-s=
+tyle: normal; font-size: 28px; line-height: 36px; color: #3c4043;">Dependab=
+le Consultants shared a spreadsheet</div><table style=3D"border-collapse: c=
+ollapse;font-family: Roboto, Arial, Helvetica, sans-serif; font-size:16px; =
+line-height:24px; color:#202124; letter-spacing:0.1px; table-layout:fixed; =
+width:100%; overflow-wrap: break-word;" role=3D"presentation"><tr><td style=
+=3D"padding: 0; vertical-align:top; width:50px;"><!--[if mso]><v:oval xmlns=
+:v=3D"urn:schemas-microsoft-com:vml" xmlns:w=3D"urn:schemas-microsoft-com:o=
+ffice:word" style=3D"height:50px;width:50px;" fill=3D"t" stroke=3D"f"><v:fi=
+ll type=3D"frame" src=3D"https://ssl.gstatic.com/s2/profiles/images/silhoue=
+tte64.png" alt=3D"Unknown profile photo" style=3D"height:50px;width:50px;"/=
+></v:oval><![endif]--><div style=3D"mso-hide:all;"><img style=3D"border-rad=
+ius:50%; display:block;" width=3D"50" height=3D"50" src=3D"https://ssl.gsta=
+tic.com/s2/profiles/images/silhouette64.png" alt=3D"Unknown profile photo">=
+</div></td><td style=3D"padding: 0; vertical-align:top; padding-left:12px;"=
+><div style=3D"padding-top:12px;">Dependable Consultants (<a href=3D"mailto=
+:dependablelegalcon@gmail.com" style=3D"color:inherit;text-decoration:none"=
+>dependablelegalcon@gmail.com</a>) has invited you to <b>edit</b> the follo=
+wing spreadsheet:</div></td></tr></table><table style=3D"border-spacing:0 4=
+px; table-layout:fixed; width:100%; overflow-wrap: break-word;" role=3D"pre=
+sentation"><tr style=3D"height:28px;"></tr><tr><td style=3D"padding: 0;"><a=
+ href=3D"https://docs.google.com/spreadsheets/d/1aBtFnzzYwFYVKjMpfiqyn-8l8O=
+4pfNJkUjk0vz4PLnA/edit?usp=3Dsharing_eil_m&amp;invite=3DCPqtx-UG&amp;ts=3D6=
+3062245" target=3D"_blank" style=3D"color: #3c4043; display: inline-block; =
+max-width: 100%; text-decoration: none; vertical-align: top;border: 1px sol=
+id #DADCE0; border-radius: 16px; white-space: nowrap;"><div style=3D"line-h=
+eight: 18px; overflow: hidden; text-overflow: ellipsis;padding: 6px 12px;">=
+<span style=3D"display: inline-block; vertical-align: top; min-width: 26px;=
+ width: 26px;"><img src=3D"https://ssl.gstatic.com/docs/doclist/images/medi=
+atype/icon_1_spreadsheet_x64.png" width=3D"18" height=3D"18" style=3D"verti=
+cal-align: top;" role=3D"presentation"></span><span style=3D"font: 500 14px=
+/18px Google Sans, Roboto, Arial, Helvetica, sans-serif; display: inline; l=
+etter-spacing: 0.2px;">Dependable clients </span></div></a></td></tr></tabl=
+e><table style=3D"border-collapse: collapse;" role=3D"presentation"><tr sty=
+le=3D"height: 24px"><td></td></tr></table><div style=3D"background: #fef7e0=
+; border-radius: 4px; padding:12px 16px;"><div style=3D"display: table-cell=
+; vertical-align: middle;"><img src=3D"https://ssl.gstatic.com/docs/documen=
+ts/share/images/warning_callout_outline_yellow.png" width=3D"24px" height=
+=3D"24px" style=3D"margin-left: 7px; margin-right: 19px; vertical-align: mi=
+ddle;"></div><div style=3D"color: #3c4043; display: table-cell; font-size: =
+14px; line-height: 20px; vertical-align: middle;">This email grants access =
+to this item without logging in. Only forward it to people you trust.</div>=
+</div><table style=3D"border-collapse: collapse;" role=3D"presentation"><tr=
+ style=3D"height: 32px"><td></td></tr></table><div><!--[if mso]><v:roundrec=
+t xmlns:v=3D"urn:schemas-microsoft-com:vml" xmlns:w=3D"urn:schemas-microsof=
+t-com:office:word" href=3D"https://docs.google.com/spreadsheets/d/1aBtFnzzY=
+wFYVKjMpfiqyn-8l8O4pfNJkUjk0vz4PLnA/edit?usp=3Dsharing_eip_m&amp;invite=3DC=
+Pqtx-UG&amp;ts=3D63062245" style=3D"height:36px;v-text-anchor:middle;width:=
+100px;" arcsize=3D"50%" stroke=3D"f" fillcolor=3D"#1a73e8"><w:anchorlock/><=
+center style=3D"color:#ffffff;font-family:Arial,Helvetica,sans-serif;font-w=
+eight:500;font-size:14px;">Open </center></v:roundrect><![endif]--><a href=
+=3D"https://docs.google.com/spreadsheets/d/1aBtFnzzYwFYVKjMpfiqyn-8l8O4pfNJ=
+kUjk0vz4PLnA/edit?usp=3Dsharing_eip_m&amp;invite=3DCPqtx-UG&amp;ts=3D630622=
+45" class=3D"material-button material-button-filled" target=3D"_blank" tabi=
+ndex=3D"0" role=3D"button" style=3D"mso-hide:all;padding: 0 24px;font: 500 =
+14px/36px Google Sans, Roboto, Arial, Helvetica, sans-serif; border: none; =
+border-radius: 18px; box-sizing: border-box; display: inline-block; letter-=
+spacing: .25px; min-height: 36px; text-align: center; text-decoration: none=
+;background-color: #1a73e8; color: #fff; cursor: pointer;">Open</a></div></=
+td></tr></table><table style=3D"border-collapse: collapse; width: 100%;" ro=
+le=3D"presentation"><tr><td style=3D"padding: 24px 4.5%"><table style=3D"bo=
+rder-collapse: collapse; width: 100%;" dir=3D"ltr"><tr><td style=3D"padding=
+: 0;font-family: Roboto, Arial, Helvetica, sans-serif; color: #5F6368; widt=
+h: 100%; font-size: 12px; line-height: 16px; min-height: 40px; letter-spaci=
+ng: .3px;">Google LLC, 1600 Amphitheatre Parkway, Mountain View, CA 94043, =
+USA<br/> You have received this email because <a href=3D"mailto:dependablel=
+egalcon@gmail.com" style=3D"color:inherit;text-decoration:none">dependablel=
+egalcon@gmail.com</a> shared a spreadsheet with you from Google Sheets.</td=
+><td style=3D"padding: 0;padding-left: 20px; min-width: 96px"><a href=3D"ht=
+tps://www.google.com/" target=3D"_blank"><img src=3D"https://www.gstatic.co=
+m/images/branding/googlelogo/2x/googlelogo_grey_tm_color_96x40dp.png" width=
+=3D"96" height=3D"40" alt=3D"Google logo"></a></td></tr></table></td></tr><=
+/table></td></tr></table></td></tr></table></body></html>
+--0000000000006c7cd805e6fc588a--

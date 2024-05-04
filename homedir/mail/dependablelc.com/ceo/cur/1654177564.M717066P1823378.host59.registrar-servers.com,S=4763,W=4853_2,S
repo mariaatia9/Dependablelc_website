@@ -1,0 +1,90 @@
+Return-Path: <BPMSystemalerts@rakbank.ae>
+Delivered-To: ceo@dependablelc.com
+Received: from server1.parahost.co
+	by server1.parahost.co with LMTP
+	id 6gqiG4QIdWH3IQAAYK0uVw
+	(envelope-from <BPMSystemalerts@rakbank.ae>)
+	for <ceo@dependablelc.com>; Sun, 24 Oct 2021 10:17:24 +0300
+Return-path: <BPMSystemalerts@rakbank.ae>
+Envelope-to: ceo@dependablelc.com
+Delivery-date: Sun, 24 Oct 2021 10:17:24 +0300
+Received: from mail9.rakbank.ae ([83.111.153.28]:50988)
+	by server1.parahost.co with esmtps  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <BPMSystemalerts@rakbank.ae>)
+	id 1meXkw-0002Bg-GN
+	for ceo@dependablelc.com; Sun, 24 Oct 2021 10:17:24 +0300
+Received: from mail9.rakbank.ae (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id ACB347226A
+	for <ceo@dependablelc.com>; Sun, 24 Oct 2021 10:41:38 +0400 (+04)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=rakbank.ae; s=roc;
+	t=1635057698; x=1635144098;
+	bh=DgUSA8ewh6GTemUC8KTJEsdv0FiYD7/Suw03yBERwXs=; h=Date:From:To;
+	b=ESqHvLDLwU6OUEXwIA63T0pNoTmLrJSUy1IEuZqsWOEWxM0GOmN5ikWnAuBPupQlh
+	 lYM0rO/2WWqY5ckpNw9/zBsu1hNMIiIRmJ4xbTzx+bnIBTGlE6m65KRHNfu/NMQPwb
+	 4wLCvC0+D9vrJGHz0N3MALwRNt4UdEIL+DGQ6WRsDeos97tn9E9/egF18hX2rUHG2V
+	 8PtN/bGSR2TPD04fj+3m7sf6BaNp6tq+fegv3xwO/YUU1g2PJD9DlQ57r6+AFP5BDa
+	 cs9Ty/VWvg/Fhc5AItRqhkn8AVZH5Rc7ZXFeQ4obaguHjYZfudGV7zEtX/2nw6lkyv
+	 1ybjwXG+s1kPQ==
+Received: from DSPOMNISVCS01.rakbank.co.ae (unknown [10.17.2.33])
+	by mail9.rakbank.ae (Postfix) with ESMTP id A176972260
+	for <ceo@dependablelc.com>; Sun, 24 Oct 2021 10:41:38 +0400 (+04)
+Date: Sun, 24 Oct 2021 10:57:26 +0400 (GST)
+From: Alerts@rakbank.ae
+To: ceo@dependablelc.com
+Message-ID: <306815807.3583.1635058646831.JavaMail.omnidocsuser@DSPOMNISVCS01>
+Subject: RAKBANK QuickApply - Application not approved
+MIME-Version: 1.0
+Content-Type: multipart/mixed; 
+	boundary="----=_Part_3582_1753613113.1635058646831"
+X-Priority: 3
+X-TM-AS-GCONF: 00
+X-TM-AS-Product-Ver: IMSVA-9.1.0.2034-8.6.0.1017-26236.006
+X-TM-AS-Result: No--5.834-5.0-31-10
+X-imss-scan-details: No--5.834-5.0-31-10
+X-TMASE-Version: IMSVA-9.1.0.2034-8.6.1017-26236.006
+X-TMASE-Result: 10--5.834100-10.000000
+X-TMASE-MatchedRID: h035aTvNxe2GcSQXNDcMzGg4D2QV/2zLPNtw/6FaNPw2PObui8pABs57
+	o4xfg4HZUmzMTTke63U3htlbdE4fbXdcpuk3AlAuwY28o+cGA5rDx2NobQWtm42cB1+t/hleXaq
+	Md2Tc3yvpjBjB1auUJmUwPzDGi5Jj319rGX8jiaGeAiCmPx4NwLTrdaH1ZWqC33VyJQNQNsoyBf
+	DAF0YHCCkSJr1Lfbzk55+6mAie+MehwWyVQcpM2vj+WU/W+A9xU2xTMpSLOVo=
+X-TMASE-SNAP-Result: 1.821001.0001-0-1-12:0,22:0,33:0,34:0-0
+X-Spam-Status: No, score=-0.1
+X-Spam-Score: 0
+X-Spam-Bar: /
+X-Ham-Report: Spam detection software, running on the system "server1.parahost.co",
+ has NOT identified this incoming email as spam.  The original
+ message has been attached to this so you can view it or label
+ similar future email.  If you have any questions, see
+ root\@localhost for details.
+ Content preview:  Dear Valued Customer, We regret to inform you that your RAKBANK
+    Account application for Dependable Legal Consultants LLC has not been approved
+    as it did not meet the requirements. Thank you for your interest in RAKBANK.
+    
+ Content analysis details:   (-0.1 points, 5.0 required)
+  pts rule name              description
+ ---- ---------------------- --------------------------------------------------
+  0.0 URIBL_BLOCKED          ADMINISTRATOR NOTICE: The query to URIBL was
+                             blocked.  See
+                             http://wiki.apache.org/spamassassin/DnsBlocklists#dnsbl-block
+                              for more information.
+                             [URIs: rakbank.ae]
+ -0.0 SPF_PASS               SPF: sender matches SPF record
+  0.0 HTML_MESSAGE           BODY: HTML included in message
+  0.1 MIME_HTML_ONLY         BODY: Message only has text/html MIME parts
+  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
+                             valid
+ -0.1 DKIM_VALID             Message has at least one valid DKIM or DK signature
+ -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
+                             author's domain
+ -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
+                             envelope-from domain
+X-Spam-Flag: NO
+
+------=_Part_3582_1753613113.1635058646831
+Content-Type: text/html;charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<html><body>Dear Valued Customer,<br><br>We regret to inform you that your RAKBANK Account application for Dependable Legal Consultants LLC has not been approved as it did not meet the requirements. Thank you for your interest in RAKBANK.<br><br>Regards <br>RAKBANK<br><br>This is an automated email, please do not reply.</body></html>
+------=_Part_3582_1753613113.1635058646831--
+

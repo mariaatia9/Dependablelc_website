@@ -1,0 +1,123 @@
+Return-Path: <alerts@rakbank.ae>
+Delivered-To: ceo@dependablelc.com
+Received: from server1.parahost.co
+	by server1.parahost.co with LMTP
+	id 37VGD/Ddc2H+NAAAYK0uVw
+	(envelope-from <alerts@rakbank.ae>)
+	for <ceo@dependablelc.com>; Sat, 23 Oct 2021 13:03:28 +0300
+Return-path: <alerts@rakbank.ae>
+Envelope-to: ceo@dependablelc.com
+Delivery-date: Sat, 23 Oct 2021 13:03:28 +0300
+Received: from mail9.rakbank.ae ([83.111.153.28]:58736)
+	by server1.parahost.co with esmtps  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <alerts@rakbank.ae>)
+	id 1meDs7-0003RT-TY
+	for ceo@dependablelc.com; Sat, 23 Oct 2021 13:03:28 +0300
+Received: from mail9.rakbank.ae (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 5F202721DC
+	for <ceo@dependablelc.com>; Sat, 23 Oct 2021 13:46:55 +0400 (+04)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=rakbank.ae; s=roc;
+	t=1634982415; x=1635068815;
+	bh=WkFlBqW7bHw57+JoPNwGCofKg0u0V2bgQMnSxJoNkBU=; h=Date:From:To;
+	b=gmyRrt4gzYGsSpg/VHDzJnmtXJAeUWHQRS9WlfWX3ffdy3IxzermsFW1dyeKVxonJ
+	 paRBwcQTRP5Z9RZ5a1lHlCg18XfB3+VGM+7L18o8PO86h7SINqNj6+jO8/O/Keav88
+	 R0kWnAfVusNMetfjf30FlxWfqAIsmokzRiK+U9jZBP2vLUsmpUU0mMjL+FOGNaVYyv
+	 KeIDVri7KEtcWQcNYHpy7dwemPH82idyNhcacJmlgjMM7ehoN+dHlkwKrSfDGmT2xU
+	 DZf00RDlw52gubieSO8J+Oazwu0HonuH3rrEFW8WC/n165sLRVl3RJtvs1U/RadjjJ
+	 gXuAYceMv/kdA==
+Received: from DSDEHAPPS02 (unknown [192.168.33.166])
+	by mail9.rakbank.ae (Postfix) with SMTP id 539B6721CD
+	for <ceo@dependablelc.com>; Sat, 23 Oct 2021 13:46:55 +0400 (+04)
+Date: Sat, 23 Oct 2021 14:02:43 +0400 (GST)
+From: RAKBANK <alerts@rakbank.ae>
+To: ceo@dependablelc.com
+Message-ID: <2012573184.49.1634983363468@DSDEHAPPS02>
+Subject: Application submission successful at RAKBANK QuickApply
+MIME-Version: 1.0
+Content-Type: multipart/mixed; 
+	boundary="----=_Part_48_624889779.1634983363466"
+X-TM-AS-GCONF: 00
+X-TM-AS-Product-Ver: IMSVA-9.1.0.2034-8.6.0.1017-26236.006
+X-TM-AS-Result: No--8.100-5.0-31-10
+X-imss-scan-details: No--8.100-5.0-31-10
+X-TMASE-Version: IMSVA-9.1.0.2034-8.6.1017-26236.006
+X-TMASE-Result: 10--8.100500-10.000000
+X-TMASE-MatchedRID: 70d9LQotH2XoJ7ZHxnJI6w6aXdNaCLn9g2g30H0k/gKkRgEg7nrRyq/x
+	MC8mu+5XRSxMqk4vm7ffSQNpZkETVNBO21OxlsovbNi6X5rRknRNxb9QhDWix5fr3281qUXdD4t
+	jkqgnwmUcSvcSkOdxf3vf3q4k1K+q82SgwNf6SK7TxP3fsz7RuG16MylS17KBsTsMBxCyER0Kdx
+	ceKmUcJxoBFrtwBubtr8sqgXLsR6IUtc+xbCP9hp1Hr79yIZkBXuc3l0S22ReCRs05n+R8u2UvQ
+	2NINyiTCpTi2aaDcchZNYSHk3Zr0d/7Mmw7dt/+4ilGqCIXmu0ZOSiuP88FTIMzgfX8h6LTt59v
+	pGwkUnMR3RjJbq0tuam4PbloS2C3KQNhMboqZlrMUvVl9n+cd4pbwG9fIuITCSSurtdVPX3L9tG
+	m0kGUM46EeQ8JcAVHZjQijgrFvzpqZ4nWssFp2A+8ritGY4+5XaqMd2Tc3ys6Yxfvo1EN4/++gj
+	OGfzBmK0SjcyeEZzaeAiCmPx4NwCQ/NKddGHF50+iQwApCn9vX26TqGg1ecYyVYQyFpspCX2MPn
+	HofQv+pygCGKFPC+Pxz3QnD0N8FGfNjxMiJ9SMP/0kvdppmz1Eqk6OMoNhZ7vL6TDYJh8A=
+X-TMASE-SNAP-Result: 1.821001.0001-0-1-12:0,22:0,33:0,34:0-0
+X-Spam-Status: No, score=-0.1
+X-Spam-Score: 0
+X-Spam-Bar: /
+X-Ham-Report: Spam detection software, running on the system "server1.parahost.co",
+ has NOT identified this incoming email as spam.  The original
+ message has been attached to this so you can view it or label
+ similar future email.  If you have any questions, see
+ root\@localhost for details.
+ Content preview:  Insert title here Dear Valued Customer, You have successfully
+    submitted your online application to open a RAKBANK Account for Dependable
+    Legal Consultants LLC and we thank you for choosing RAKBANK. 
+ Content analysis details:   (-0.1 points, 5.0 required)
+  pts rule name              description
+ ---- ---------------------- --------------------------------------------------
+  0.0 URIBL_BLOCKED          ADMINISTRATOR NOTICE: The query to URIBL was
+                             blocked.  See
+                             http://wiki.apache.org/spamassassin/DnsBlocklists#dnsbl-block
+                              for more information.
+                             [URIs: rakbank.ae]
+ -0.0 SPF_PASS               SPF: sender matches SPF record
+  0.0 HTML_MESSAGE           BODY: HTML included in message
+  0.1 MIME_HTML_ONLY         BODY: Message only has text/html MIME parts
+  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
+                             valid
+ -0.1 DKIM_VALID             Message has at least one valid DKIM or DK signature
+ -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
+                             author's domain
+ -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
+                             envelope-from domain
+X-Spam-Flag: NO
+
+------=_Part_48_624889779.1634983363466
+Content-Type: text/html; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+<!doctype html>
+<html>
+ <head>=20
+  <meta charset=3D"ISO-8859-1">=20
+  <title>Insert title here</title>=20
+  <style>.emailfont {font-size: 11.0pt;  font-family: Calibri; } .emailfont=
+1 {  font-size: 9.0pt;  font-family: Calibri;  font-style:italic; } </style=
+>
+ </head> =20
+ <body>=20
+  <p> <font class=3D"emailfont"> Dear Valued Customer,<br><br> You have suc=
+cessfully submitted your online application to open a RAKBANK Account for D=
+ependable Legal Consultants LLC and we thank you for choosing RAKBANK.<br><=
+br> Your provisional account details are as below:<br><br> 1 . Account Numb=
+er 0032945140001 opened in AED<br><br> Our representative will contact you =
+in 1 working day to obtain your signature and collect the documents uploade=
+d/declared on your application for your company/stakeholders. Kindly note t=
+hat there may be additional documents or clarifications required and we wil=
+l update you on the requirements.<br><br> Should you wish to check the stat=
+us of your application, please <a href=3D"https://quickapply.rakbank.ae/bus=
+iness/ComeBackLogin">click</a> here.<br><br> Please find the <a href=3D"htt=
+ps://rakbank.ae/wps/wcm/connect/3f9d99b1-d7a2-4634-82b5-08f03e734295/%28A%2=
+9+J00781+RAK++Debit+Card+-+Business+A4-T%26C-New+Guide-EN%26AR%28withe+out+=
+c....pdf?MOD=3DAJPERES&CVID=3DlTLVCHV">Terms &amp; Conditions</a> for your =
+reference.<br><br> Enjoy "Simply Better" banking with RAKBANK.<br><br> </fo=
+nt> </p>=20
+  <p> Regards<br> RAKBANK<br> </p>=20
+  <font class=3D"emailfont" style=3D"font-style:italic">This is an automate=
+d mail; please do not reply.</font> =20
+ </body>
+</html>
+------=_Part_48_624889779.1634983363466--
+

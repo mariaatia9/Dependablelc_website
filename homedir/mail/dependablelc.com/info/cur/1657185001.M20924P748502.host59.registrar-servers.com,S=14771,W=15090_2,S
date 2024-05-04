@@ -1,0 +1,319 @@
+Return-Path: <neharajput.1548@gmail.com>
+Delivered-To: info@dependablelc.com
+Received: from host59.registrar-servers.com
+	by host59.registrar-servers.com with LMTP
+	id YF8mAemixmLWawsA+KyzgQ
+	(envelope-from <neharajput.1548@gmail.com>)
+	for <info@dependablelc.com>; Thu, 07 Jul 2022 05:10:01 -0400
+Return-path: <neharajput.1548@gmail.com>
+Envelope-to: info@dependablelc.com
+Delivery-date: Thu, 07 Jul 2022 05:10:01 -0400
+Received: from [63.250.43.69] (port=42787 helo=asp-relay-shared.jellyfish.systems)
+	by host59.registrar-servers.com with esmtps  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <neharajput.1548@gmail.com>)
+	id 1o9NWK-003npc-Uk
+	for info@dependablelc.com;
+	Thu, 07 Jul 2022 05:10:00 -0400
+Received: from mail-lf1-f42.google.com (mail-lf1-f42.google.com [209.85.167.42])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by asp-relay-shared.jellyfish.systems (Postfix) with ESMTPS id 4LdrGJ3RCMz4vyl
+	for <info@dependablelc.com>; Thu,  7 Jul 2022 09:10:00 +0000 (UTC)
+Received: by mail-lf1-f42.google.com with SMTP id f39so30039341lfv.3
+        for <info@dependablelc.com>; Thu, 07 Jul 2022 02:10:00 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20210112;
+        h=mime-version:sender:from:date:message-id:subject:to;
+        bh=LaEu4VwLYNy1AEftbJeb667mogvCYzAbWwxXC0sOQss=;
+        b=B37/nB15uKClBxhiGQ14nkLAcRyhAjpheDR7VSsv8Mptk6USU15NFBzv2b06RuhKtQ
+         +a6GIttNyLWmIRZiK9Q1hIpLVEjucwehY27fPw9qbaxG/uRmHSlA2aJWVkGoFDszzaeV
+         yIp3gag9DfiLIezEJgq6OToNI8Y0rRNIBD6+OFTs0c0UnqYsblWJN7quMfl1khmLHn8V
+         Z6b8NzkZzGOSMJWrjFViQjGHYWEZGIe1VS9WotAB7dn7yG7X12xQKBR+zoPeWxhW4u2c
+         xGyBVBZRMQH3cQ+pk0r6JSyXt76RU6S8PyL8NgRCic5VzCHGloXB4/Rl6U6EtZ6F7PTl
+         lOgg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=x-gm-message-state:mime-version:sender:from:date:message-id:subject
+         :to;
+        bh=LaEu4VwLYNy1AEftbJeb667mogvCYzAbWwxXC0sOQss=;
+        b=RiBoZpya+cdywnvhmvS2Oqf0n8WKKhugOuri+FeEmMSqLHCHGqVDv9NhmXG6mHhhow
+         hYn+ww2r6gMLdb/0fZxWUORIEwMqj/X7+itKViO+g0LTUoYc0eJ2KrdbS7Kv4+pPEPY5
+         cDqnT31djyfschVDAkWBTbAPdNrybwgs+WKCr5MwZojk1UFXQITJZKZVzS/eNrY66ikZ
+         jGXtt56oJ01isJa+VJkn/AOsQLJD1SkU0KW9wdpg2YxN2lv7ax3YE69J67xImFrY6Y2f
+         DfssmC5jaq/h999quam3grwP5ZYwd42JtrOA7AGsml2hCU64JFKrxMs5tSLxHNOF84vv
+         Y+VQ==
+X-Gm-Message-State: AJIora9g1VXpbCyRa3owUK7ccyzbqopCtQpGx5KYS/ih8VAl5spF7SOb
+	rOVXZTwhebq2sreFDEIOPZ4FbxcA2SM+L1t+DWF+CoX6yWU=
+X-Google-Smtp-Source: AGRyM1trBlSSYNpoatjQoJXPIiCRX7l/oE6CRueSm5v2/RwLwQxVJsFICPYHn0KM+KwC9tbBdQ9axGm1lOIU03gArI0=
+X-Received: by 2002:a05:6512:3b11:b0:481:595:5d8d with SMTP id
+ f17-20020a0565123b1100b0048105955d8dmr26965464lfv.101.1657184998128; Thu, 07
+ Jul 2022 02:09:58 -0700 (PDT)
+Received: from 52669349336 named unknown by gmailapi.google.com with HTTPREST;
+ Thu, 7 Jul 2022 02:09:57 -0700
+Received: from 52669349336 named unknown by gmailapi.google.com with HTTPREST;
+ Thu, 7 Jul 2022 02:09:56 -0700
+MIME-Version: 1.0
+Sender: Neha Rajput <neharajput.1548@gmail.com>
+From: Neha Rajput <neharajput.1548@gmail.com>
+Date: Thu, 7 Jul 2022 02:09:57 -0700
+X-Google-Sender-Auth: 44OvyOiqMx4W7WEA08YdLnRI_Mw
+Message-ID: <CAJcnj775z+N915vtDwO8nKEyYLTEkq+6CfFpEa8G+C1Uoe9=NA@mail.gmail.com>
+Subject: Re: Best SEO Service for Website Ranking.!!
+To: Info <info@dependablelc.com>
+Content-Type: multipart/alternative; boundary="00000000000023ffca05e333739f"
+X-NCJF-Result: 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
+ 
+	SkOdRDMT4Jte4aqgH01DHd/rQrYySEW0vA=
+X-NCJF-Version: 8
+Authentication-Results: asp-relay-shared.jellyfish.systems;
+	dkim=pass header.d=gmail.com header.s=20210112 header.b="B37/nB15";
+	dmarc=pass (policy=none) header.from=gmail.com;
+	spf=pass (asp-relay-shared.jellyfish.systems: domain of neharajput.1548@gmail.com designates 209.85.167.42 as permitted sender) smtp.mailfrom=neharajput.1548@gmail.com
+
+--00000000000023ffca05e333739f
+Content-Type: text/plain; charset="UTF-8"
+
+*Hi*,
+
+Get smart and custom websites designed according to your requirements. I
+can help your website to rank on first page on Google and increase the
+number of leads and sales you are getting from your website.
+
+The following are the services we offering:
+
+*1) Digital Marketing Services (SEO+SMO+PPC)*
+
+*2) Website Design and Development (Static+Dynamic+E-commerce)*
+
+I can help you with above services, please send me your requirements, I
+will be sharing a quote with exciting offers going forward.
+
+Best Regards,
+
+*Neha Rajput**,*
+[image: beacon]
+
+--00000000000023ffca05e333739f
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"ltr"><p class=3D"MsoNormal" style=3D"line-height:normal;margin:=
+0in 0in 10pt;font-size:11pt;font-family:Calibri,&quot;sans-serif&quot;"><b>=
+<span style=3D"font-size:12pt;font-family:&quot;Times New Roman&quot;,&quot=
+;serif&quot;">Hi</span></b><span style=3D"font-size:12pt;font-family:&quot;=
+Times New Roman&quot;,&quot;serif&quot;">,=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0</span></p><p class=3D"MsoNormal" style=3D"line-height=
+:normal;margin:0in 0in 10pt;font-size:11pt;font-family:Calibri,&quot;sans-s=
+erif&quot;"><span style=3D"font-size:12pt;font-family:&quot;Times New Roman=
+&quot;,&quot;serif&quot;">Get smart and custom websites
+designed according to your requirements. I can help your website to rank on
+first page on Google and increase the number of leads and sales you are get=
+ting
+from your website.</span></p><p class=3D"MsoNormal" style=3D"line-height:no=
+rmal;margin:0in 0in 10pt;font-size:11pt;font-family:Calibri,&quot;sans-seri=
+f&quot;"><span style=3D"font-size:12pt;font-family:&quot;Times New Roman&qu=
+ot;,&quot;serif&quot;">The following are the services we offering:</span></=
+p><p class=3D"MsoNormal" style=3D"margin:0in 0in 10pt 0.5in;line-height:nor=
+mal;font-size:11pt;font-family:Calibri,&quot;sans-serif&quot;"><b><span sty=
+le=3D"font-size:12pt;font-family:&quot;Times New Roman&quot;,&quot;serif&qu=
+ot;">1)
+Digital Marketing Services (SEO+SMO+PPC)</span></b><span style=3D"font-size=
+:12pt;font-family:&quot;Times New Roman&quot;,&quot;serif&quot;"></span></p=
+><p class=3D"MsoNormal" style=3D"margin:0in 0in 10pt 0.5in;line-height:norm=
+al;font-size:11pt;font-family:Calibri,&quot;sans-serif&quot;"><b><span styl=
+e=3D"font-size:12pt;font-family:&quot;Times New Roman&quot;,&quot;serif&quo=
+t;">2)
+Website Design and Development (Static+Dynamic+E-commerce)</span></b><span =
+style=3D"font-size:12pt;font-family:&quot;Times New Roman&quot;,&quot;serif=
+&quot;"></span></p><p class=3D"MsoNormal" style=3D"line-height:normal;margi=
+n:0in 0in 10pt;font-size:11pt;font-family:Calibri,&quot;sans-serif&quot;"><=
+span style=3D"font-size:12pt;font-family:&quot;Times New Roman&quot;,&quot;=
+serif&quot;">I can help you with above services,
+please send me your requirements, I will be sharing a quote with exciting
+offers going=C2=A0forward.</span></p><p class=3D"MsoNormal" style=3D"line-h=
+eight:normal;margin:0in 0in 10pt;font-size:11pt;font-family:Calibri,&quot;s=
+ans-serif&quot;"><span style=3D"font-size:12pt;font-family:&quot;Times New =
+Roman&quot;,&quot;serif&quot;">Best Regards,</span></p><p class=3D"MsoNorma=
+l" style=3D"line-height:normal;background-image:initial;background-position=
+:initial;background-size:initial;background-repeat:initial;background-origi=
+n:initial;background-clip:initial;margin:0in 0in 10pt;font-size:11pt;font-f=
+amily:Calibri,&quot;sans-serif&quot;">
+
+
+
+
+
+
+
+
+
+
+
+
+
+</p><p class=3D"MsoNormal" style=3D"line-height:normal;margin:0in 0in 10pt;=
+font-size:11pt;font-family:Calibri,&quot;sans-serif&quot;"><span style=3D"c=
+olor:rgb(32,33,36);font-family:&quot;Google Sans&quot;,Roboto,RobotoDraft,H=
+elvetica,Arial,sans-serif;font-size:16px;letter-spacing:0.1px;text-align:ce=
+nter;white-space:nowrap"><b>Neha Rajput</b></span><b><span style=3D"font-si=
+ze:12pt;font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">,</span>=
+</b><span style=3D"font-size:12pt;font-family:&quot;Times New Roman&quot;,&=
+quot;serif&quot;"></span></p></div>
+<img src=3D"https://neharajput-1548-dot-yamm-track.appspot.com/1ZmOBTKKx9T-=
+4K3dL99xH4HPBkJk2-MU0WUfcuA1BYstLTOzXgQElBQUlDxumZhNoI-kZu8jAp2HLaYN-MDgfeo=
+8MNX86bou1XNYu9bYKFRyDDvqjXjsjcYs" width=3D"1" height=3D"1" alt=3D"beacon" =
+style=3D"display:none; display:none!important;">
+
+--00000000000023ffca05e333739f--

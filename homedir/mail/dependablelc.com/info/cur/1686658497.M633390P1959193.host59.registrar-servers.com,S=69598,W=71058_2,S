@@ -1,0 +1,1460 @@
+Return-Path: <shayma.ibrahim@gmail.com>
+Delivered-To: info@dependablelc.com
+Received: from host59.registrar-servers.com
+	by host59.registrar-servers.com with LMTP
+	id MKM+JcFdiGQZ5R0A+KyzgQ
+	(envelope-from <shayma.ibrahim@gmail.com>)
+	for <info@dependablelc.com>; Tue, 13 Jun 2023 08:14:57 -0400
+Return-path: <shayma.ibrahim@gmail.com>
+Envelope-to: info@dependablelc.com
+Delivery-date: Tue, 13 Jun 2023 08:14:57 -0400
+Received: from [63.250.43.69] (port=22892 helo=asp-relay-shared.jellyfish.systems)
+	by host59.registrar-servers.com with esmtps  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <shayma.ibrahim@gmail.com>)
+	id 1q92vJ-008bTM-DY
+	for info@dependablelc.com;
+	Tue, 13 Jun 2023 08:14:57 -0400
+Received: from asp-relay-shared.jellyfish.systems (localhost [127.0.0.1])
+	by asp-relay-shared.jellyfish.systems (Postfix) with ESMTP id 4QgSDD740Lz4xM4
+	for <info@dependablelc.com>; Tue, 13 Jun 2023 12:14:52 +0000 (UTC)
+Received: from mail-lf1-f51.google.com (mail-lf1-f51.google.com [209.85.167.51])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by asp-relay-shared.jellyfish.systems (Postfix) with ESMTPS id 4QgSD71h4Yz4xMZ
+	for <info@dependablelc.com>; Tue, 13 Jun 2023 12:14:47 +0000 (UTC)
+Received: by mail-lf1-f51.google.com with SMTP id 2adb3069b0e04-4f63ab1ac4aso6641617e87.0
+        for <info@dependablelc.com>; Tue, 13 Jun 2023 05:14:47 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20221208; t=1686658485; x=1689250485;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=feI/pVRJuWgPCM3jj1gxIhSQyl27GcVWAua6f70VaYg=;
+        b=rrbOQpwFe1qcAMp5BhqwBz7NLFAr7Xlvt2HGCY/NXVKi6Cwc2YTTFGnP0iY/0+RwNG
+         4K91WTZAzXA694ONXaDQCNF2yhjsOje3L/sXQ/isuUbXqiQ05l0XAO6dwTvsdZFkBKfs
+         A9X7sRHRYA8e9FCVpWN6AQMR7nlzPUvLPLKHnlISbAf18poARrLB3OMxBfKMnmD7CXBn
+         3+LrvIxVxhpjKNcUFYW1x9S16a3KjRSgggKfjuYAQh3IZ2dL1pjMoznNeCBljwvt22FG
+         KX7Jt7fKfS8rLBeTwn1dKPWez0ocFjil9E3NaOiEnuDyvOKTsuRmsaoY9GY+BoYFK4bV
+         4GpA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1686658485; x=1689250485;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=feI/pVRJuWgPCM3jj1gxIhSQyl27GcVWAua6f70VaYg=;
+        b=QFwKOLq95pMf0TU74IXDYi+D6oejmvKt0UNR5zjC37LFF7MO6l5a0m4YUCTS74ZM1C
+         Pr3eYRAS069ipJrfKhgxO582jR76cQe+Dlr1E++0dRJP9E7Pn7WYZGmqEJySQqVe3dDp
+         1YnGu646FZI2/agyQnIWayWmozu2ZKLs3uYz5mpyskK3RdWraopAqaTrOzjcHaho63pi
+         iSWpoLmkw62PQFYfYdjvi8UN3FlCPng+ewt0Lwr1EPf0yv4LTztejhTIXCiAday1pXEr
+         9FVgsC+D3RAUoeIk8SPyG6QK3OyLUdS1xddonYjqWWhK3mDMrMlx0RXL6HlmSITWIfSp
+         1+Bg==
+X-Gm-Message-State: AC+VfDxlUUvAQhanEHlabosBM+NlyBJYgfJUSTGNRruR/EoiE8SX74I+
+	b8Yl4C1ogSMNCyUACOXBWfTiumD8mTFyw9/zU3aaYu//
+X-Google-Smtp-Source: ACHHUZ5OWktjcAUlm9OxMKYyJhQRoTfluOiFyACOaFqsv7WL62azGvaM/QW8wHXDgIV7b+z7TLsaE26Pbn+2uirFOgk=
+X-Received: by 2002:a19:e04b:0:b0:4f3:895f:f3f8 with SMTP id
+ g11-20020a19e04b000000b004f3895ff3f8mr4787097lfj.16.1686658482536; Tue, 13
+ Jun 2023 05:14:42 -0700 (PDT)
+MIME-Version: 1.0
+References: <HE1PR0102MB2763969E0D44D66E9EF2599EBD790@HE1PR0102MB2763.eurprd01.prod.exchangelabs.com>
+ <HE1PR0102MB27636BBF35AF0CE6DE6EE071BD2A0@HE1PR0102MB2763.eurprd01.prod.exchangelabs.com>
+ <VI1PR07MB3885ECEB7A08CAA3F72C2C819D2B0@VI1PR07MB3885.eurprd07.prod.outlook.com>
+In-Reply-To: <VI1PR07MB3885ECEB7A08CAA3F72C2C819D2B0@VI1PR07MB3885.eurprd07.prod.outlook.com>
+From: Shayma Ramy Ibrahim <shayma.ibrahim@gmail.com>
+Date: Tue, 13 Jun 2023 16:14:29 +0400
+Message-ID: <CAFPe+GW0C0bS1h+RQaqs4JpYEDF+7Vg0ga7TptvyKfoR8DtACw@mail.gmail.com>
+Subject: Fwd: FW: Chq No. 293 dated 30/10/2019/Ch No 435 dtd 27/04/2020
+To: info@dependablelc.com
+Content-Type: multipart/related; boundary="000000000000b846a505fe01c7d0"
+X-NCJF-Result: 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
+ 
+	+jVSBnP0=
+X-NCJF-Version: 6
+Authentication-Results: asp-relay-shared.jellyfish.systems;
+	dkim=pass header.d=gmail.com header.s=20221208 header.b=rrbOQpwF;
+	dmarc=pass (policy=none) header.from=gmail.com;
+	spf=pass (asp-relay-shared.jellyfish.systems: domain of shayma.ibrahim@gmail.com designates 209.85.167.51 as permitted sender) smtp.mailfrom=shayma.ibrahim@gmail.com
+
+--000000000000b846a505fe01c7d0
+Content-Type: multipart/alternative; boundary="000000000000b846a205fe01c7cf"
+
+--000000000000b846a205fe01c7cf
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+---------- Forwarded message ---------
+From: Shayma Ibrahim <s.ibrahim@stantonchase.com>
+Date: Sun, Sep 6, 2020 at 9:30=E2=80=AFAM
+Subject: FW: Chq No. 293 dated 30/10/2019/Ch No 435 dtd 27/04/2020
+To: shayma.ibrahim@gmail.com <shayma.ibrahim@gmail.com>
+
+
+
+
+
+
+*Shayma Ibrahim*
+
+Director, Middle East
+
+*Tel:* +971 4 369 3529
+
+*Mob/Cell:* +971 50 554 3909
+
+*Email:* s.ibrahim@stantonchase.com
+
+Knowledge Village Block 17, S06
+
+Dubai
+
+<https://www.stantonchase.com/>
+
+<https://www.stantonchase.com/>
+
+
+Stanton Chase is ranked within the top 10 global retained executive search
+firms. With proven expertise in key sectors of the global economy, it has
+16 specialist practice groups that operate as international teams. Stanton
+Chase is owned by its partners who take individual responsibility for
+delivering outstanding quality for each assignment. Stanton Chase is a
+member of the Association of Executive Search and Leadership Consultants.
+Further information can be found at www.stantonchase.com.
+
+
+
+*Follow us:*
+
+<https://www.facebook.com/stantonchaseinternational/>
+
+<https://www.linkedin.com/company/7042/>
+
+<https://twitter.com/StantonChase>
+
+
+
+*From:* Accounts OSC <accounts@osc.ae>
+*Sent:* Saturday, September 5, 2020 10:51 AM
+*To:* Eva Vouraki <evavouraki73@gmail.com>
+*Cc:* Panos Manolopoulos <p.manolopoulos@stantonchase.com>; Shayma Ibrahim =
+<
+s.ibrahim@stantonchase.com>; Meliza Colaco <m.colaco@stantonchase.com>
+*Subject:* RE: Chq No. 293 dated 30/10/2019/Ch No 435 dtd 27/04/2020
+
+
+
+Dear Eva,
+
+
+
+Even with many follow ups and promises, you are not properly reverting for
+the settlement of pending Aed 180,000 even though we are facing  severe
+fund issues. For your information the cheque has been endorsed to one of
+our supplier he shalll encash it directly. In the event of dishonor, we
+shall not be held responsible for the legal consequences.
+
+
+
+Reagrds
+
+
+
+Joshy
+
+
+
+
+
+
+
+*From:* Accounts OSC
+*Sent:* Wednesday, July 22, 2020 12:19 PM
+*To:* 'Eva Vouraki' <evavouraki73@gmail.com>
+*Cc:* 'Panos Manolopoulos' <p.manolopoulos@stantonchase.com>; 'Shayma
+Ibrahim' <s.ibrahim@stantonchase.com>; 'Meliza Colaco' <
+m.colaco@stantonchase.com>
+*Subject:* RE: Chq No. 293 dated 30/10/2019/Ch No 435 dtd 27/04/2020
+
+
+
+*FINAL REMINDER*
+
+
+
+Dear Eva,
+
+
+
+Despite of various reminders, you are not honoring the long due outstanding
+payment. If you are not settling the payment on or before 31/07/2020, we
+shall deposit the cheque and in the event of dishonoring we shall enforce
+legal actions as per UAE laws.
+
+
+
+
+
+Regards
+
+
+
+Joshy
+
+
+
+
+
+*From:* Accounts OSC
+*Sent:* Thursday, March 12, 2020 11:13 AM
+*To:* 'Eva Vouraki' <evavouraki73@gmail.com>
+*Cc:* 'Panos Manolopoulos' <p.manolopoulos@stantonchase.com>; 'Shayma
+Ibrahim' <s.ibrahim@stantonchase.com>; 'Meliza Colaco' <
+m.colaco@stantonchase.com>
+*Subject:* RE: Chq No. 293 dated 30/10/2019
+
+
+
+Dear Eva,
+
+
+
+Despite of repeated demands, you are not honoring the said  cheque for a
+quite long period. As we have serious issue with our cash flow, we need an
+urgent revert on the exact date of its payment.
+
+
+
+Thanks
+
+
+
+Joshy
+
+
+
+*From:* Accounts OSC
+*Sent:* Monday, June 17, 2019 9:39 AM
+*To:* Eva Vouraki <evavouraki73@gmail.com>
+*Cc:* Panos Manolopoulos <p.manolopoulos@stantonchase.com>; Shayma Ibrahim =
+<
+s.ibrahim@stantonchase.com>; Meliza Colaco <m.colaco@stantonchase.com>
+*Subject:* RE: Chq No. 569 dated 15/05/2019
+
+
+
+Dear Eva,
+
+
+
+Waiting for your reply.
+
+
+
+As discussed, please let me know the  date of the cheque as we need to
+schedule our forthcoming payments
+
+
+
+Regards
+
+
+
+Joshy
+
+
+
+*From:* Accounts OSC
+*Sent:* 12 June 2019 10:39
+*To:* 'Eva Vouraki' <evavouraki73@gmail.com>
+*Cc:* 'Panos Manolopoulos' <p.manolopoulos@stantonchase.com>; 'Shayma
+Ibrahim' <s.ibrahim@stantonchase.com>; 'Meliza Colaco' <
+m.colaco@stantonchase.com>
+*Subject:* RE: Chq No. 569 dated 15/05/2019
+
+
+
+Dear Eva,
+
+
+
+Please revert
+
+
+
+Regards
+
+
+
+Joshy
+
+
+
+*From:* Accounts OSC
+*Sent:* 10 June 2019 12:22
+*To:* 'Eva Vouraki' <evavouraki73@gmail.com>
+*Cc:* 'Panos Manolopoulos' <p.manolopoulos@stantonchase.com>; 'Shayma
+Ibrahim' <s.ibrahim@stantonchase.com>; 'Meliza Colaco' <
+m.colaco@stantonchase.com>
+*Subject:* RE: Chq No. 569 dated 15/05/2019
+
+
+
+Dear Eva,
+
+
+
+Please confirm the date to deposit the cheque as we are holding for nearly
+a month. Please note we need to schedule our forthcoming payments.
+
+
+
+Regards
+
+
+
+Joshy
+
+
+
+*From:* Accounts OSC
+*Sent:* 14 May 2019 10:47
+*To:* Eva Vouraki <evavouraki73@gmail.com>
+*Cc:* Panos Manolopoulos <p.manolopoulos@stantonchase.com>; Shayma Ibrahim =
+<
+s.ibrahim@stantonchase.com>; Meliza Colaco <m.colaco@stantonchase.com>
+*Subject:* RE: Chq No. 569 dated 15/05/2019
+
+
+
+
+
+We need a specific date when to deposit the cheque.
+
+
+
+*From:* Eva Vouraki <evavouraki73@gmail.com>
+*Sent:* 12 May 2019 13:26
+*To:* Accounts OSC <accounts@osc.ae>
+*Cc:* Panos Manolopoulos <p.manolopoulos@stantonchase.com>; Shayma Ibrahim =
+<
+s.ibrahim@stantonchase.com>; Meliza Colaco <m.colaco@stantonchase.com>
+*Subject:* Re: Chq No. 569 dated 15/05/2019
+
+
+
+*We will inform you the time for the pick up  asap *
+
+*Not on 15 May  2019 *
+
+*It will be on another date *
+
+
+*Best Regards*
+
+
+
+*Mrs Vouraki Eva *
+
+*CEO *
+
+*G and D Natural Products DWC LLC *
+
+*Food and Beverage Trading *
+
+*Dubai World Central *
+
+*Dubai- UAE *
+
+
+
+*Mob UAE       +971 52 3976 286 *
+
+*Mob Greece   +30 690 9131 276*
+
+
+
+*Email    e.vouraki@gnd-natural-products.com
+<e.vouraki@gnd-natural-products.com>*
+
+*Web      http://www.gnd-natural-products.com/
+<https://eur03.safelinks.protection.outlook.com/?url=3Dhttp%3A%2F%2Fwww.gnd=
+-natural-products.com%2F&data=3D02%7C01%7Cs.ibrahim%40stantonchase.com%7C15=
+1ac8d830854c331f7808d8516816b1%7Ce429cf49ae48418987d36fe1fecbd531%7C1%7C0%7=
+C637348854801008578&sdata=3D5uCRxJGE9DBZoSAEqsAj1lXSxSQoiczwiIUKbBvxzMo%3D&=
+reserved=3D0>*
+
+
+
+
+
+=CE=A3=CF=84=CE=B9=CF=82 =CE=9A=CF=85=CF=81, 12 =CE=9C=CE=B1=CE=90 2019 =CF=
+=83=CF=84=CE=B9=CF=82 12:14 =CE=BC.=CE=BC., =CE=BF/=CE=B7 Accounts OSC <acc=
+ounts@osc.ae>
+=CE=AD=CE=B3=CF=81=CE=B1=CF=88=CE=B5:
+
+Dear all,
+
+
+
+The above cheque is due for payment on 15/05/2019.
+
+
+
+FYI
+
+
+
+Regards
+
+
+
+Joshy
+
+--000000000000b846a205fe01c7cf
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"ltr"><br><br><div class=3D"gmail_quote"><div dir=3D"ltr" class=
+=3D"gmail_attr">---------- Forwarded message ---------<br>From: <strong cla=
+ss=3D"gmail_sendername" dir=3D"auto">Shayma Ibrahim</strong> <span dir=3D"a=
+uto">&lt;<a href=3D"mailto:s.ibrahim@stantonchase.com">s.ibrahim@stantoncha=
+se.com</a>&gt;</span><br>Date: Sun, Sep 6, 2020 at 9:30=E2=80=AFAM<br>Subje=
+ct: FW: Chq No. 293 dated 30/10/2019/Ch No 435 dtd 27/04/2020<br>To: <a hre=
+f=3D"mailto:shayma.ibrahim@gmail.com">shayma.ibrahim@gmail.com</a> &lt;<a h=
+ref=3D"mailto:shayma.ibrahim@gmail.com">shayma.ibrahim@gmail.com</a>&gt;<br=
+></div><br><br><div class=3D"msg-4308757868863116109">
+
+
+
+
+
+<div lang=3D"EN-US" link=3D"blue" vlink=3D"purple">
+<div class=3D"m_-4308757868863116109WordSection1">
+<p class=3D"MsoNormal"><u></u>=C2=A0<u></u></p>
+<p class=3D"MsoNormal"><u></u>=C2=A0<u></u></p>
+<div>
+<table border=3D"0" cellspacing=3D"0" cellpadding=3D"0" summary=3D"Email si=
+gnature" width=3D"100%" style=3D"width:100.0%;border-collapse:collapse">
+<tbody>
+<tr>
+<td width=3D"100%" style=3D"width:100.0%;padding:0in 0in 0in 0in">
+<div>
+<div>
+<p class=3D"MsoNormal" style=3D"line-height:12.0pt"><b><span style=3D"font-=
+size:10.0pt;font-family:&quot;Arial&quot;,sans-serif;color:#184797">Shayma =
+Ibrahim</span></b><span style=3D"font-size:10.0pt;font-family:&quot;Arial&q=
+uot;,sans-serif;color:#184797"><u></u><u></u></span></p>
+<p class=3D"MsoNormal" style=3D"line-height:12.0pt"><span style=3D"font-siz=
+e:10.0pt;font-family:&quot;Arial&quot;,sans-serif;color:black">Director, Mi=
+ddle East
+<u></u><u></u></span></p>
+<p class=3D"MsoNormal" style=3D"margin-top:12.0pt;line-height:12.0pt"><b><s=
+pan style=3D"font-size:10.0pt;font-family:&quot;Arial&quot;,sans-serif;colo=
+r:black">Tel:</span></b><span style=3D"font-size:10.0pt;font-family:&quot;A=
+rial&quot;,sans-serif;color:black"> +971 4 369 3529<u></u><u></u></span></p=
+>
+<p class=3D"MsoNormal" style=3D"line-height:12.0pt"><b><span style=3D"font-=
+size:10.0pt;font-family:&quot;Arial&quot;,sans-serif;color:black">Mob/Cell:=
+</span></b><span style=3D"font-size:10.0pt;font-family:&quot;Arial&quot;,sa=
+ns-serif;color:black"> +971 50 554 3909<u></u><u></u></span></p>
+<p class=3D"MsoNormal" style=3D"line-height:12.0pt"><b><span style=3D"font-=
+size:10.0pt;font-family:&quot;Arial&quot;,sans-serif;color:black">Email:</s=
+pan></b><span style=3D"font-size:10.0pt;font-family:&quot;Arial&quot;,sans-=
+serif;color:black"> <a href=3D"mailto:s.ibrahim@stantonchase.com" target=3D=
+"_blank">s.ibrahim@stantonchase.com</a><u></u><u></u></span></p>
+<p class=3D"MsoNormal" style=3D"margin-top:9.75pt;line-height:12.0pt"><span=
+ style=3D"font-size:10.0pt;font-family:&quot;Arial&quot;,sans-serif;color:b=
+lack">Knowledge Village Block 17, S06<u></u><u></u></span></p>
+<p class=3D"MsoNormal" style=3D"line-height:12.0pt"><span style=3D"font-siz=
+e:10.0pt;font-family:&quot;Arial&quot;,sans-serif;color:black">Dubai<u></u>=
+<u></u></span></p>
+</div>
+<div style=3D"margin-top:15.0pt;margin-bottom:9.75pt">
+<p class=3D"MsoNormal"><a href=3D"https://www.stantonchase.com/" target=3D"=
+_blank"><span style=3D"text-decoration:none"><img border=3D"0" width=3D"212=
+" height=3D"27" style=3D"width:2.2083in;height:.2812in" id=3D"m_-4308757868=
+863116109Picture_x0020_0" src=3D"cid:188b4ad8dbb4cff311"></span></a><br>
+<br>
+<a href=3D"https://www.stantonchase.com/" target=3D"_blank"><span style=3D"=
+text-decoration:none"><img border=3D"0" width=3D"127" height=3D"53" style=
+=3D"width:1.3229in;height:.552in" id=3D"m_-4308757868863116109Picture_x0020=
+_1" src=3D"cid:188b4ad8dbb5b16b22"></span></a><br>
+=C2=A0 <u></u><u></u></p>
+</div>
+<table border=3D"0" cellspacing=3D"0" cellpadding=3D"0" width=3D"100%" styl=
+e=3D"width:100.0%">
+<tbody>
+<tr>
+<td width=3D"777" style=3D"width:582.75pt;padding:.75pt .75pt .75pt .75pt">
+<p class=3D"MsoNormal" style=3D"margin-bottom:3.0pt;line-height:13.0pt"><sp=
+an style=3D"font-size:8.0pt;font-family:&quot;Times New Roman&quot;,serif;c=
+olor:#676767">Stanton Chase is ranked within the top 10 global retained exe=
+cutive search firms. With proven expertise in key
+ sectors of the global economy, it has 16 specialist practice groups that o=
+perate as international teams. Stanton Chase is owned by its partners who t=
+ake individual responsibility for delivering outstanding quality for each a=
+ssignment. Stanton Chase is a member
+ of the Association of Executive Search and Leadership Consultants. Further=
+ information can be found at <a href=3D"http://www.stantonchase.com" target=
+=3D"_blank">www.stantonchase.com</a>.
+<u></u><u></u></span></p>
+</td>
+<td style=3D"padding:.75pt .75pt .75pt .75pt"></td>
+</tr>
+</tbody>
+</table>
+<p class=3D"MsoNormal"><u></u>=C2=A0<u></u></p>
+<table border=3D"0" cellspacing=3D"0" cellpadding=3D"0" style=3D"border-col=
+lapse:collapse">
+<tbody>
+<tr>
+<td width=3D"80" style=3D"width:60.0pt;padding:0in 0in 0in 0in">
+<p class=3D"MsoNormal"><b><span style=3D"font-size:10.0pt;font-family:&quot=
+;Arial&quot;,sans-serif">Follow us:</span></b><span style=3D"font-size:10.0=
+pt;font-family:&quot;Arial&quot;,sans-serif"><u></u><u></u></span></p>
+</td>
+<td width=3D"45" style=3D"width:33.75pt;padding:0in 0in 0in 0in">
+<p class=3D"MsoNormal"><a href=3D"https://www.facebook.com/stantonchaseinte=
+rnational/" target=3D"_blank"><span style=3D"text-decoration:none"><img bor=
+der=3D"0" width=3D"40" height=3D"40" style=3D"width:.4166in;height:.4166in"=
+ id=3D"m_-4308757868863116109Picture_x0020_2" src=3D"cid:188b4ad8dbb692e333=
+"></span></a><u></u><u></u></p>
+</td>
+<td width=3D"45" style=3D"width:33.75pt;padding:0in 0in 0in 0in">
+<p class=3D"MsoNormal"><a href=3D"https://www.linkedin.com/company/7042/" t=
+arget=3D"_blank"><span style=3D"text-decoration:none"><img border=3D"0" wid=
+th=3D"40" height=3D"40" style=3D"width:.4166in;height:.4166in" id=3D"m_-430=
+8757868863116109Picture_x0020_3" src=3D"cid:188b4ad8dbb7745b44"></span></a>=
+<u></u><u></u></p>
+</td>
+<td width=3D"45" style=3D"width:33.75pt;padding:0in 0in 0in 0in">
+<p class=3D"MsoNormal"><a href=3D"https://twitter.com/StantonChase" target=
+=3D"_blank"><span style=3D"text-decoration:none"><img border=3D"0" width=3D=
+"40" height=3D"40" style=3D"width:.4166in;height:.4166in" id=3D"m_-43087578=
+68863116109Picture_x0020_4" src=3D"cid:188b4ad8dbb855d355"></span></a><u></=
+u><u></u></p>
+</td>
+<td style=3D"padding:0in 0in 0in 0in"></td>
+</tr>
+</tbody>
+</table>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p class=3D"MsoNormal"><u></u>=C2=A0<u></u></p>
+<div>
+<div style=3D"border:none;border-top:solid #e1e1e1 1.0pt;padding:3.0pt 0in =
+0in 0in">
+<p class=3D"MsoNormal"><b>From:</b> Accounts OSC &lt;<a href=3D"mailto:acco=
+unts@osc.ae" target=3D"_blank">accounts@osc.ae</a>&gt; <br>
+<b>Sent:</b> Saturday, September 5, 2020 10:51 AM<br>
+<b>To:</b> Eva Vouraki &lt;<a href=3D"mailto:evavouraki73@gmail.com" target=
+=3D"_blank">evavouraki73@gmail.com</a>&gt;<br>
+<b>Cc:</b> Panos Manolopoulos &lt;<a href=3D"mailto:p.manolopoulos@stantonc=
+hase.com" target=3D"_blank">p.manolopoulos@stantonchase.com</a>&gt;; Shayma=
+ Ibrahim &lt;<a href=3D"mailto:s.ibrahim@stantonchase.com" target=3D"_blank=
+">s.ibrahim@stantonchase.com</a>&gt;; Meliza Colaco &lt;<a href=3D"mailto:m=
+.colaco@stantonchase.com" target=3D"_blank">m.colaco@stantonchase.com</a>&g=
+t;<br>
+<b>Subject:</b> RE: Chq No. 293 dated 30/10/2019/Ch No 435 dtd 27/04/2020<u=
+></u><u></u></p>
+</div>
+</div>
+<p class=3D"MsoNormal"><u></u>=C2=A0<u></u></p>
+<p class=3D"MsoNormal">Dear Eva,<u></u><u></u></p>
+<p class=3D"MsoNormal"><u></u>=C2=A0<u></u></p>
+<p class=3D"MsoNormal">Even with many follow ups and promises, you are not =
+properly reverting for the settlement of pending Aed 180,000 even though we=
+ are facing =C2=A0severe fund issues. For your information the cheque has b=
+een endorsed to one of our supplier he
+ shalll encash it directly. In the event of dishonor, we shall not be held =
+responsible for the legal consequences.
+<u></u><u></u></p>
+<p class=3D"MsoNormal"><u></u>=C2=A0<u></u></p>
+<p class=3D"MsoNormal">Reagrds<u></u><u></u></p>
+<p class=3D"MsoNormal"><u></u>=C2=A0<u></u></p>
+<p class=3D"MsoNormal">Joshy<u></u><u></u></p>
+<p class=3D"MsoNormal"><u></u>=C2=A0<u></u></p>
+<p class=3D"MsoNormal"><u></u>=C2=A0<u></u></p>
+<p class=3D"MsoNormal"><u></u>=C2=A0<u></u></p>
+<div>
+<div style=3D"border:none;border-top:solid #e1e1e1 1.0pt;padding:3.0pt 0in =
+0in 0in">
+<p class=3D"MsoNormal"><b>From:</b> Accounts OSC <br>
+<b>Sent:</b> Wednesday, July 22, 2020 12:19 PM<br>
+<b>To:</b> &#39;Eva Vouraki&#39; &lt;<a href=3D"mailto:evavouraki73@gmail.c=
+om" target=3D"_blank">evavouraki73@gmail.com</a>&gt;<br>
+<b>Cc:</b> &#39;Panos Manolopoulos&#39; &lt;<a href=3D"mailto:p.manolopoulo=
+s@stantonchase.com" target=3D"_blank">p.manolopoulos@stantonchase.com</a>&g=
+t;; &#39;Shayma Ibrahim&#39; &lt;<a href=3D"mailto:s.ibrahim@stantonchase.c=
+om" target=3D"_blank">s.ibrahim@stantonchase.com</a>&gt;; &#39;Meliza Colac=
+o&#39; &lt;<a href=3D"mailto:m.colaco@stantonchase.com" target=3D"_blank">m=
+.colaco@stantonchase.com</a>&gt;<br>
+<b>Subject:</b> RE: Chq No. 293 dated 30/10/2019/Ch No 435 dtd 27/04/2020<u=
+></u><u></u></p>
+</div>
+</div>
+<p class=3D"MsoNormal"><u></u>=C2=A0<u></u></p>
+<p class=3D"MsoNormal"><b><u><span style=3D"font-size:12.0pt">FINAL REMINDE=
+R<u></u><u></u></span></u></b></p>
+<p class=3D"MsoNormal"><u></u>=C2=A0<u></u></p>
+<p class=3D"MsoNormal">Dear Eva,<u></u><u></u></p>
+<p class=3D"MsoNormal"><u></u>=C2=A0<u></u></p>
+<p class=3D"MsoNormal">Despite of various reminders, you are not honoring t=
+he long due outstanding payment. If you are not settling the payment on or =
+before 31/07/2020, we shall deposit the cheque and in the event of dishonor=
+ing we shall enforce legal actions
+ as per UAE laws. <u></u><u></u></p>
+<p class=3D"MsoNormal"><u></u>=C2=A0<u></u></p>
+<p class=3D"MsoNormal"><u></u>=C2=A0<u></u></p>
+<p class=3D"MsoNormal">Regards<u></u><u></u></p>
+<p class=3D"MsoNormal"><u></u>=C2=A0<u></u></p>
+<p class=3D"MsoNormal">Joshy<u></u><u></u></p>
+<p class=3D"MsoNormal"><u></u>=C2=A0<u></u></p>
+<p class=3D"MsoNormal"><u></u>=C2=A0<u></u></p>
+<div>
+<div style=3D"border:none;border-top:solid #e1e1e1 1.0pt;padding:3.0pt 0in =
+0in 0in">
+<p class=3D"MsoNormal"><b>From:</b> Accounts OSC <br>
+<b>Sent:</b> Thursday, March 12, 2020 11:13 AM<br>
+<b>To:</b> &#39;Eva Vouraki&#39; &lt;<a href=3D"mailto:evavouraki73@gmail.c=
+om" target=3D"_blank">evavouraki73@gmail.com</a>&gt;<br>
+<b>Cc:</b> &#39;Panos Manolopoulos&#39; &lt;<a href=3D"mailto:p.manolopoulo=
+s@stantonchase.com" target=3D"_blank">p.manolopoulos@stantonchase.com</a>&g=
+t;; &#39;Shayma Ibrahim&#39; &lt;<a href=3D"mailto:s.ibrahim@stantonchase.c=
+om" target=3D"_blank">s.ibrahim@stantonchase.com</a>&gt;; &#39;Meliza Colac=
+o&#39; &lt;<a href=3D"mailto:m.colaco@stantonchase.com" target=3D"_blank">m=
+.colaco@stantonchase.com</a>&gt;<br>
+<b>Subject:</b> RE: Chq No. 293 dated 30/10/2019<u></u><u></u></p>
+</div>
+</div>
+<p class=3D"MsoNormal"><u></u>=C2=A0<u></u></p>
+<p class=3D"MsoNormal">Dear Eva,<u></u><u></u></p>
+<p class=3D"MsoNormal"><u></u>=C2=A0<u></u></p>
+<p class=3D"MsoNormal">Despite of repeated demands, you are not honoring th=
+e said =C2=A0cheque for a quite long period. As we have serious issue with =
+our cash flow, we need an urgent revert on the exact date of its payment.
+<u></u><u></u></p>
+<p class=3D"MsoNormal"><u></u>=C2=A0<u></u></p>
+<p class=3D"MsoNormal">Thanks <u></u><u></u></p>
+<p class=3D"MsoNormal"><u></u>=C2=A0<u></u></p>
+<p class=3D"MsoNormal">Joshy<u></u><u></u></p>
+<p class=3D"MsoNormal"><u></u>=C2=A0<u></u></p>
+<div>
+<div style=3D"border:none;border-top:solid #e1e1e1 1.0pt;padding:3.0pt 0in =
+0in 0in">
+<p class=3D"MsoNormal"><b>From:</b> Accounts OSC <br>
+<b>Sent:</b> Monday, June 17, 2019 9:39 AM<br>
+<b>To:</b> Eva Vouraki &lt;<a href=3D"mailto:evavouraki73@gmail.com" target=
+=3D"_blank">evavouraki73@gmail.com</a>&gt;<br>
+<b>Cc:</b> Panos Manolopoulos &lt;<a href=3D"mailto:p.manolopoulos@stantonc=
+hase.com" target=3D"_blank">p.manolopoulos@stantonchase.com</a>&gt;; Shayma=
+ Ibrahim &lt;<a href=3D"mailto:s.ibrahim@stantonchase.com" target=3D"_blank=
+">s.ibrahim@stantonchase.com</a>&gt;; Meliza Colaco &lt;<a href=3D"mailto:m=
+.colaco@stantonchase.com" target=3D"_blank">m.colaco@stantonchase.com</a>&g=
+t;<br>
+<b>Subject:</b> RE: Chq No. 569 dated 15/05/2019<u></u><u></u></p>
+</div>
+</div>
+<p class=3D"MsoNormal"><u></u>=C2=A0<u></u></p>
+<p class=3D"MsoNormal"><span lang=3D"EN-GB">Dear Eva,<u></u><u></u></span><=
+/p>
+<p class=3D"MsoNormal"><span lang=3D"EN-GB"><u></u>=C2=A0<u></u></span></p>
+<p class=3D"MsoNormal"><span lang=3D"EN-GB">Waiting for your reply. <u></u>=
+<u></u></span></p>
+<p class=3D"MsoNormal"><span lang=3D"EN-GB"><u></u>=C2=A0<u></u></span></p>
+<p class=3D"MsoNormal"><span lang=3D"EN-GB">As discussed, please let me kno=
+w the =C2=A0date of the cheque as we need to schedule our forthcoming payme=
+nts<u></u><u></u></span></p>
+<p class=3D"MsoNormal"><span lang=3D"EN-GB"><u></u>=C2=A0<u></u></span></p>
+<p class=3D"MsoNormal"><span lang=3D"EN-GB">Regards<u></u><u></u></span></p=
+>
+<p class=3D"MsoNormal"><span lang=3D"EN-GB"><u></u>=C2=A0<u></u></span></p>
+<p class=3D"MsoNormal"><span lang=3D"EN-GB">Joshy<u></u><u></u></span></p>
+<p class=3D"MsoNormal"><span lang=3D"EN-GB"><u></u>=C2=A0<u></u></span></p>
+<div>
+<div style=3D"border:none;border-top:solid #e1e1e1 1.0pt;padding:3.0pt 0in =
+0in 0in">
+<p class=3D"MsoNormal"><b>From:</b> Accounts OSC <br>
+<b>Sent:</b> 12 June 2019 10:39<br>
+<b>To:</b> &#39;Eva Vouraki&#39; &lt;<a href=3D"mailto:evavouraki73@gmail.c=
+om" target=3D"_blank">evavouraki73@gmail.com</a>&gt;<br>
+<b>Cc:</b> &#39;Panos Manolopoulos&#39; &lt;<a href=3D"mailto:p.manolopoulo=
+s@stantonchase.com" target=3D"_blank">p.manolopoulos@stantonchase.com</a>&g=
+t;; &#39;Shayma Ibrahim&#39; &lt;<a href=3D"mailto:s.ibrahim@stantonchase.c=
+om" target=3D"_blank">s.ibrahim@stantonchase.com</a>&gt;; &#39;Meliza Colac=
+o&#39; &lt;<a href=3D"mailto:m.colaco@stantonchase.com" target=3D"_blank">m=
+.colaco@stantonchase.com</a>&gt;<br>
+<b>Subject:</b> RE: Chq No. 569 dated 15/05/2019<u></u><u></u></p>
+</div>
+</div>
+<p class=3D"MsoNormal"><span lang=3D"EN-GB"><u></u>=C2=A0<u></u></span></p>
+<p class=3D"MsoNormal"><span lang=3D"EN-GB">Dear Eva,<u></u><u></u></span><=
+/p>
+<p class=3D"MsoNormal"><span lang=3D"EN-GB"><u></u>=C2=A0<u></u></span></p>
+<p class=3D"MsoNormal"><span lang=3D"EN-GB">Please revert<u></u><u></u></sp=
+an></p>
+<p class=3D"MsoNormal"><span lang=3D"EN-GB"><u></u>=C2=A0<u></u></span></p>
+<p class=3D"MsoNormal"><span lang=3D"EN-GB">Regards<u></u><u></u></span></p=
+>
+<p class=3D"MsoNormal"><span lang=3D"EN-GB"><u></u>=C2=A0<u></u></span></p>
+<p class=3D"MsoNormal"><span lang=3D"EN-GB">Joshy<u></u><u></u></span></p>
+<p class=3D"MsoNormal"><span lang=3D"EN-GB"><u></u>=C2=A0<u></u></span></p>
+<div>
+<div style=3D"border:none;border-top:solid #e1e1e1 1.0pt;padding:3.0pt 0in =
+0in 0in">
+<p class=3D"MsoNormal"><b>From:</b> Accounts OSC <br>
+<b>Sent:</b> 10 June 2019 12:22<br>
+<b>To:</b> &#39;Eva Vouraki&#39; &lt;<a href=3D"mailto:evavouraki73@gmail.c=
+om" target=3D"_blank">evavouraki73@gmail.com</a>&gt;<br>
+<b>Cc:</b> &#39;Panos Manolopoulos&#39; &lt;<a href=3D"mailto:p.manolopoulo=
+s@stantonchase.com" target=3D"_blank">p.manolopoulos@stantonchase.com</a>&g=
+t;; &#39;Shayma Ibrahim&#39; &lt;<a href=3D"mailto:s.ibrahim@stantonchase.c=
+om" target=3D"_blank">s.ibrahim@stantonchase.com</a>&gt;; &#39;Meliza Colac=
+o&#39; &lt;<a href=3D"mailto:m.colaco@stantonchase.com" target=3D"_blank">m=
+.colaco@stantonchase.com</a>&gt;<br>
+<b>Subject:</b> RE: Chq No. 569 dated 15/05/2019<u></u><u></u></p>
+</div>
+</div>
+<p class=3D"MsoNormal"><span lang=3D"EN-GB"><u></u>=C2=A0<u></u></span></p>
+<p class=3D"MsoNormal"><span lang=3D"EN-GB">Dear Eva,<u></u><u></u></span><=
+/p>
+<p class=3D"MsoNormal"><span lang=3D"EN-GB"><u></u>=C2=A0<u></u></span></p>
+<p class=3D"MsoNormal"><span lang=3D"EN-GB">Please confirm the date to depo=
+sit the cheque as we are holding for nearly a month. Please note we need to=
+ schedule our forthcoming payments.
+<u></u><u></u></span></p>
+<p class=3D"MsoNormal"><span lang=3D"EN-GB"><u></u>=C2=A0<u></u></span></p>
+<p class=3D"MsoNormal"><span lang=3D"EN-GB">Regards<u></u><u></u></span></p=
+>
+<p class=3D"MsoNormal"><span lang=3D"EN-GB"><u></u>=C2=A0<u></u></span></p>
+<p class=3D"MsoNormal"><span lang=3D"EN-GB">Joshy<u></u><u></u></span></p>
+<p class=3D"MsoNormal"><span lang=3D"EN-GB"><u></u>=C2=A0<u></u></span></p>
+<div>
+<div style=3D"border:none;border-top:solid #e1e1e1 1.0pt;padding:3.0pt 0in =
+0in 0in">
+<p class=3D"MsoNormal"><b>From:</b> Accounts OSC <br>
+<b>Sent:</b> 14 May 2019 10:47<br>
+<b>To:</b> Eva Vouraki &lt;<a href=3D"mailto:evavouraki73@gmail.com" target=
+=3D"_blank">evavouraki73@gmail.com</a>&gt;<br>
+<b>Cc:</b> Panos Manolopoulos &lt;<a href=3D"mailto:p.manolopoulos@stantonc=
+hase.com" target=3D"_blank">p.manolopoulos@stantonchase.com</a>&gt;; Shayma=
+ Ibrahim &lt;<a href=3D"mailto:s.ibrahim@stantonchase.com" target=3D"_blank=
+">s.ibrahim@stantonchase.com</a>&gt;; Meliza Colaco &lt;<a href=3D"mailto:m=
+.colaco@stantonchase.com" target=3D"_blank">m.colaco@stantonchase.com</a>&g=
+t;<br>
+<b>Subject:</b> RE: Chq No. 569 dated 15/05/2019<u></u><u></u></p>
+</div>
+</div>
+<p class=3D"MsoNormal"><span lang=3D"EN-GB"><u></u>=C2=A0<u></u></span></p>
+<p class=3D"MsoNormal"><span lang=3D"EN-GB"><u></u>=C2=A0<u></u></span></p>
+<p class=3D"MsoNormal"><span lang=3D"EN-GB">We need a specific date when to=
+ deposit the cheque.<u></u><u></u></span></p>
+<p class=3D"MsoNormal"><span lang=3D"EN-GB"><u></u>=C2=A0<u></u></span></p>
+<p class=3D"MsoNormal"><b>From:</b> Eva Vouraki &lt;<a href=3D"mailto:evavo=
+uraki73@gmail.com" target=3D"_blank">evavouraki73@gmail.com</a>&gt;
+<br>
+<b>Sent:</b> 12 May 2019 13:26<br>
+<b>To:</b> Accounts OSC &lt;<a href=3D"mailto:accounts@osc.ae" target=3D"_b=
+lank">accounts@osc.ae</a>&gt;<br>
+<b>Cc:</b> Panos Manolopoulos &lt;<a href=3D"mailto:p.manolopoulos@stantonc=
+hase.com" target=3D"_blank">p.manolopoulos@stantonchase.com</a>&gt;; Shayma=
+ Ibrahim &lt;<a href=3D"mailto:s.ibrahim@stantonchase.com" target=3D"_blank=
+">s.ibrahim@stantonchase.com</a>&gt;; Meliza Colaco &lt;<a href=3D"mailto:m=
+.colaco@stantonchase.com" target=3D"_blank">m.colaco@stantonchase.com</a>&g=
+t;<br>
+<b>Subject:</b> Re: Chq No. 569 dated 15/05/2019<u></u><u></u></p>
+<p class=3D"MsoNormal"><span lang=3D"EN-GB"><u></u>=C2=A0<u></u></span></p>
+<div>
+<p class=3D"MsoNormal"><b><span lang=3D"EN-GB">We will inform you the time =
+for the pick up=C2=A0 asap=C2=A0</span></b><span lang=3D"EN-GB"><u></u><u><=
+/u></span></p>
+<div>
+<p class=3D"MsoNormal"><b><span lang=3D"EN-GB">Not on 15 May=C2=A0 2019=C2=
+=A0</span></b><span lang=3D"EN-GB"><u></u><u></u></span></p>
+</div>
+<div>
+<p class=3D"MsoNormal"><b><span lang=3D"EN-GB">It will be on another date=
+=C2=A0</span></b><span lang=3D"EN-GB"><u></u><u></u></span></p>
+</div>
+<div>
+<p class=3D"MsoNormal"><span lang=3D"EN-GB"><br clear=3D"all">
+<u></u><u></u></span></p>
+<div>
+<div>
+<div>
+<div>
+<div>
+<div>
+<p class=3D"MsoNormal"><b><span lang=3D"EN-GB" style=3D"font-size:9.5pt;col=
+or:blue">Best Regards</span></b><span lang=3D"EN-GB" style=3D"font-size:9.5=
+pt"><u></u><u></u></span></p>
+</div>
+<div>
+<p class=3D"MsoNormal"><span lang=3D"EN-GB" style=3D"font-size:9.5pt"><u></=
+u>=C2=A0<u></u></span></p>
+<div>
+<p class=3D"MsoNormal"><b><span lang=3D"EN-GB" style=3D"font-size:9.5pt;col=
+or:blue">Mrs Vouraki Eva=C2=A0</span></b><span lang=3D"EN-GB" style=3D"font=
+-size:9.5pt"><u></u><u></u></span></p>
+</div>
+<div>
+<p class=3D"MsoNormal"><b><span lang=3D"EN-GB" style=3D"font-size:9.5pt;col=
+or:blue">CEO=C2=A0</span></b><span lang=3D"EN-GB" style=3D"font-size:9.5pt"=
+><u></u><u></u></span></p>
+</div>
+<div>
+<p class=3D"MsoNormal"><b><span lang=3D"EN-GB" style=3D"font-size:9.5pt;col=
+or:blue">G and D Natural Products DWC LLC=C2=A0</span></b><span lang=3D"EN-=
+GB" style=3D"font-size:9.5pt"><u></u><u></u></span></p>
+</div>
+<div>
+<p class=3D"MsoNormal"><b><span lang=3D"EN-GB" style=3D"font-size:9.5pt;col=
+or:blue">Food and Beverage Trading=C2=A0</span></b><span lang=3D"EN-GB" sty=
+le=3D"font-size:9.5pt"><u></u><u></u></span></p>
+</div>
+<div>
+<p class=3D"MsoNormal"><b><span lang=3D"EN-GB" style=3D"font-size:9.5pt;col=
+or:blue">Dubai World Central=C2=A0</span></b><span lang=3D"EN-GB" style=3D"=
+font-size:9.5pt"><u></u><u></u></span></p>
+</div>
+<div>
+<p class=3D"MsoNormal"><b><span lang=3D"EN-GB" style=3D"font-size:9.5pt;col=
+or:blue">Dubai- UAE=C2=A0</span></b><span lang=3D"EN-GB" style=3D"font-size=
+:9.5pt"><u></u><u></u></span></p>
+</div>
+<div>
+<p class=3D"MsoNormal"><span lang=3D"EN-GB" style=3D"font-size:9.5pt"><u></=
+u>=C2=A0<u></u></span></p>
+</div>
+<div>
+<p class=3D"MsoNormal"><b><span lang=3D"EN-GB" style=3D"font-size:9.5pt;col=
+or:blue">Mob UAE =C2=A0 =C2=A0 =C2=A0 +971 52 3976 286=C2=A0</span></b><spa=
+n lang=3D"EN-GB" style=3D"font-size:9.5pt"><u></u><u></u></span></p>
+</div>
+<div>
+<p class=3D"MsoNormal"><b><span lang=3D"EN-GB" style=3D"font-size:9.5pt;col=
+or:blue">Mob Greece =C2=A0 +30 690 9131 276</span></b><span lang=3D"EN-GB" =
+style=3D"font-size:9.5pt"><u></u><u></u></span></p>
+</div>
+<div>
+<p class=3D"MsoNormal"><span lang=3D"EN-GB" style=3D"font-size:9.5pt"><u></=
+u>=C2=A0<u></u></span></p>
+</div>
+<div>
+<p class=3D"MsoNormal"><b><span lang=3D"EN-GB" style=3D"font-size:9.5pt;col=
+or:blue">Email =C2=A0 =C2=A0<a href=3D"mailto:e.vouraki@gnd-natural-product=
+s.com" target=3D"_blank">e.vouraki@gnd-natural-products.com</a></span></b><=
+span lang=3D"EN-GB" style=3D"font-size:9.5pt"><u></u><u></u></span></p>
+</div>
+<div>
+<p class=3D"MsoNormal"><b><span lang=3D"EN-GB" style=3D"font-size:9.5pt;col=
+or:blue">Web =C2=A0 =C2=A0 =C2=A0<a href=3D"https://eur03.safelinks.protect=
+ion.outlook.com/?url=3Dhttp%3A%2F%2Fwww.gnd-natural-products.com%2F&amp;dat=
+a=3D02%7C01%7Cs.ibrahim%40stantonchase.com%7C151ac8d830854c331f7808d8516816=
+b1%7Ce429cf49ae48418987d36fe1fecbd531%7C1%7C0%7C637348854801008578&amp;sdat=
+a=3D5uCRxJGE9DBZoSAEqsAj1lXSxSQoiczwiIUKbBvxzMo%3D&amp;reserved=3D0" target=
+=3D"_blank">http://www.gnd-natural-products.com/</a></span></b><span lang=
+=3D"EN-GB" style=3D"font-size:9.5pt"><u></u><u></u></span></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p class=3D"MsoNormal"><span lang=3D"EN-GB"><u></u>=C2=A0<u></u></span></p>
+</div>
+</div>
+<p class=3D"MsoNormal"><span lang=3D"EN-GB"><u></u>=C2=A0<u></u></span></p>
+<div>
+<div>
+<p class=3D"MsoNormal"><span lang=3D"EN-GB">=CE=A3=CF=84=CE=B9=CF=82 =CE=9A=
+=CF=85=CF=81, 12 =CE=9C=CE=B1=CE=90 2019 =CF=83=CF=84=CE=B9=CF=82 12:14 =CE=
+=BC.=CE=BC., =CE=BF/=CE=B7 Accounts OSC &lt;<a href=3D"mailto:accounts@osc.=
+ae" target=3D"_blank">accounts@osc.ae</a>&gt; =CE=AD=CE=B3=CF=81=CE=B1=CF=
+=88=CE=B5:<u></u><u></u></span></p>
+</div>
+<blockquote style=3D"border:none;border-left:solid #cccccc 1.0pt;padding:0i=
+n 0in 0in 6.0pt;margin-left:4.8pt;margin-top:5.0pt;margin-right:0in;margin-=
+bottom:5.0pt">
+<div>
+<div>
+<p class=3D"MsoNormal"><span lang=3D"EN-GB">Dear all,<u></u><u></u></span><=
+/p>
+<p class=3D"MsoNormal"><span lang=3D"EN-GB">=C2=A0<u></u><u></u></span></p>
+<p class=3D"MsoNormal"><span lang=3D"EN-GB">The above cheque is due for pay=
+ment on 15/05/2019.
+<u></u><u></u></span></p>
+<p class=3D"MsoNormal"><span lang=3D"EN-GB">=C2=A0<u></u><u></u></span></p>
+<p class=3D"MsoNormal"><span lang=3D"EN-GB">FYI<u></u><u></u></span></p>
+<p class=3D"MsoNormal"><span lang=3D"EN-GB">=C2=A0<u></u><u></u></span></p>
+<p class=3D"MsoNormal"><span lang=3D"EN-GB">Regards<u></u><u></u></span></p=
+>
+<p class=3D"MsoNormal"><span lang=3D"EN-GB">=C2=A0<u></u><u></u></span></p>
+<p class=3D"MsoNormal"><span lang=3D"EN-GB">Joshy<u></u><u></u></span></p>
+</div>
+</div>
+</blockquote>
+</div>
+</div>
+</div>
+
+</div></div></div>
+
+--000000000000b846a205fe01c7cf--
+--000000000000b846a505fe01c7d0
+Content-Type: image/png; name="image001.png"
+Content-Disposition: inline; filename="image001.png"
+Content-Transfer-Encoding: base64
+Content-ID: <188b4ad8dbb4cff311>
+X-Attachment-Id: 188b4ad8dbb4cff311
+
+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
+--000000000000b846a505fe01c7d0
+Content-Type: image/png; name="image002.png"
+Content-Disposition: inline; filename="image002.png"
+Content-Transfer-Encoding: base64
+Content-ID: <188b4ad8dbb5b16b22>
+X-Attachment-Id: 188b4ad8dbb5b16b22
+
+iVBORw0KGgoAAAANSUhEUgAAAH8AAAA1CAYAAABofjQZAAAAAXNSR0IArs4c6QAAAAlwSFlzAAAO
+xAAADsQBlSsOGwAAABl0RVh0U29mdHdhcmUATWljcm9zb2Z0IE9mZmljZX/tNXEAABvDSURBVHhe
+7Z0JnF3zvcB/59xz18wkUQSJrUHIE0sS09QSW9BqgyRPP6qLpYp6VUpLHspx1VKq9RRPpbXzuqCE
+2LVUeIOZYTBEgzRSS1Qik9zM3P2c9/39z8yde+feycwkk34+r53/53Nk7jn/819++/Y/nGQyKUPV
+3MbREYmnJ0hRJoklu4kvu4j42zH+puL79dzLcW+1iP2BWN4SCTmvi3iviSOLkpOyfx+qdQyPMzAI
+OAPr1ncvt60zLtlNvyiW/+8SSR8ofmichCO84INXj3+KXPyrv7XZ9lZcu4gVmiGWHTzLZjPuy7EW
+COQhCRXuT+5ZXLyh6xp+v38IrDfy3SZ/c7Fjp3B9S5zweLEskUJOpFjgyvc9syJbaaG8WXZMbGdf
+CYX3lXz6Evfl6INSLF6XbMg+2/8WhnusLwQGjXz37pVh2WXrMyUk50g4NkYKWQFh6zt/8J4ShI6j
+l2VHJBw+WmzraPcVe74UPBcieHXDJhh+uxYEBoV8tzE0XSZuc62Eo5OlkEFcrx16qCoh5DohAiRJ
+OHEUP76EJLhC5rdckkxOQocMt6GCwICR77aEz5NY5DL0tbVRkN57Rz42Qg7isp2whEdcJEc1zHAb
+O49L7m0tGarN/6uP0y/yjZifOPY2iYz4muHIIqIZs/0f05jHg9mzKZFIYl+kQaPblD4m2eA/84+Z
+/597lnUi310YTcjEcQ8ifmcE3K4WOxb6kLQu67+/seyQcj9T0z9aPwY742m3JXWSPLjjbcnkot6m
+Y3+jDT8vg0CfyDc+eyK9AMQfJNk1ICCsxtjQMb16BIrQvpqDu6hIz6U7xMu9xsRvIXmWixMp4C1s
+LYe01IkkWNhwW18I9M354Y67JFIP4hG5TkzF/VUEbx5HDg+NzLdC1+HaTaxyCwNDD8s/8wZu4/Xi
+Wwuw9t/v2SCupGn0GW4bBIGayHdfDF0oifqvGMRrU9FblOZkQ/5PGzRb2ctus/2pkSTlTX8rxxcy
+V0r2Aze596ZqYAy3jQSBKuQbdy4eu0RyHb2nHFpW8wnqVmIexEdBfPoHyan5n2tEeLhtXAhUIAA9
+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
+--000000000000b846a505fe01c7d0
+Content-Type: image/png; name="image003.png"
+Content-Disposition: inline; filename="image003.png"
+Content-Transfer-Encoding: base64
+Content-ID: <188b4ad8dbb692e333>
+X-Attachment-Id: 188b4ad8dbb692e333
+
+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
+--000000000000b846a505fe01c7d0
+Content-Type: image/png; name="image004.png"
+Content-Disposition: inline; filename="image004.png"
+Content-Transfer-Encoding: base64
+Content-ID: <188b4ad8dbb7745b44>
+X-Attachment-Id: 188b4ad8dbb7745b44
+
+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
+UgAAAABJRU5ErkJggg==
+--000000000000b846a505fe01c7d0
+Content-Type: image/png; name="image005.png"
+Content-Disposition: inline; filename="image005.png"
+Content-Transfer-Encoding: base64
+Content-ID: <188b4ad8dbb855d355>
+X-Attachment-Id: 188b4ad8dbb855d355
+
+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
+--000000000000b846a505fe01c7d0--

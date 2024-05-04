@@ -1,0 +1,660 @@
+Return-Path: <info@palmyra-trans.com>
+Delivered-To: info@dependablelc.com
+Received: from host59.registrar-servers.com
+	by host59.registrar-servers.com with LMTP
+	id 0JfULDt9ZGU/5i4A+KyzgQ
+	(envelope-from <info@palmyra-trans.com>)
+	for <info@dependablelc.com>; Mon, 27 Nov 2023 06:27:55 -0500
+Return-path: <info@palmyra-trans.com>
+Envelope-to: info@dependablelc.com
+Delivery-date: Mon, 27 Nov 2023 06:27:55 -0500
+Received: from [63.250.43.69] (port=21036 helo=asp-relay-shared.jellyfish.systems)
+	by host59.registrar-servers.com with esmtps  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96.1)
+	(envelope-from <info@palmyra-trans.com>)
+	id 1r7ZmN-00Cw7c-1i
+	for info@dependablelc.com;
+	Mon, 27 Nov 2023 06:27:55 -0500
+Authentication-Results: asp-relay-shared.jellyfish.systems;
+	dkim=pass header.d=palmyra-trans-com.20230601.gappssmtp.com header.s=20230601 header.b=kC1DmR3+;
+	dmarc=none;
+	spf=softfail (asp-relay-shared.jellyfish.systems: 209.85.214.181 is neither permitted nor denied by domain of info@palmyra-trans.com) smtp.mailfrom=info@palmyra-trans.com
+Received: from mail-pl1-f181.google.com (mail-pl1-f181.google.com [209.85.214.181])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by asp-relay-shared.jellyfish.systems (Postfix) with ESMTPS id 4Sf3Gy6QNWz1770
+	for <info@dependablelc.com>; Mon, 27 Nov 2023 11:27:54 +0000 (UTC)
+Received: by mail-pl1-f181.google.com with SMTP id d9443c01a7336-1cfc1512df1so7017895ad.2
+        for <info@dependablelc.com>; Mon, 27 Nov 2023 03:27:54 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=palmyra-trans-com.20230601.gappssmtp.com; s=20230601; t=1701084474; x=1701689274; darn=dependablelc.com;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=E3/mrq3kPp21fExLOmh5RashxORFKif7c7g2Tb6DRTw=;
+        b=kC1DmR3+OjqK87tBWT3Rb3mINDP7Gy6zlKX6z1aJsRWieVj7gZeTUW+Ct6UsxEBarz
+         u/rW4Ljd4hGplEsCDGr0RUh5q28zeVb4jdAlHZ6pz3BUM7HCKl+l8ZL6Gp7sTqDOuKV9
+         Iq+RzAxf3C9UH4+wSSERoQaZI6bva7X5EtwB2iGu5BuEt+y84SWW8aHBZxc3DGxlS6OV
+         n2GReA9Nybn7Hyb935AiGmzDjpC49Lb/pZGrBuy5lPzmamdAFTtqJskiT6byFoVnVS7e
+         6zbSAYhrDXP53TI/Qxvtb0Yakf8rPxXD7HHImFMxi1hNOFJBvi8aP5OIF18aTWaHwuF5
+         w8kg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1701084474; x=1701689274;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=E3/mrq3kPp21fExLOmh5RashxORFKif7c7g2Tb6DRTw=;
+        b=i2oX8R6o180ZJLNYRb4t3Kw3apaB3nyyiUptDS21UfNtT+qNpgevXj86tOlF0PdYEn
+         +wuSA5pFds/iUmSTma0aIHYyZx+kKruyOB7aSSS48WxMqX5Bk/rYHOvBaHH1l41sXNq1
+         cHCAdZGOl7tW59kyn0/8gOQ1A3whEsi0ZLza0HFV94AEhJpGxt3yu28MRIsxb4sTCwBi
+         UZizV+TRasIiMRS1PhWLInDOkSWIRnngnzKZ6hqRwFRZo6N6vyr6qAYWdrlCpd4oD5dS
+         GSGWGLHBig+Ag0Q+JLhbV4UTRm95LCratsqqU/U9zk1bYaJ6byvxeTjmBsSaaKJ68OVu
+         /kUQ==
+X-Gm-Message-State: AOJu0YyBU94ZvgSAo9dc2kScOc9XwvWwTgAp0udOVmGiw9mgY09J322G
+	U2hCnuCMQKjiLgDIrzLbaD3rNqiWuyhbO3U7r8R7f1CZOzNFxKG5ibk=
+X-Google-Smtp-Source: AGHT+IELYsdsT6iurOx7sfKYoaZGcZ3AHgHrElAIy3lgfFx6LZhbd3W+cPZLM/afKJNBj5Ebu437F9irDrjVgBMVMRc=
+X-Received: by 2002:a17:90a:1a10:b0:281:35e:82a1 with SMTP id
+ 16-20020a17090a1a1000b00281035e82a1mr8947772pjk.48.1701084473718; Mon, 27 Nov
+ 2023 03:27:53 -0800 (PST)
+MIME-Version: 1.0
+References: <003601da2123$e70530e0$b50f92a0$@dependablelc.com>
+In-Reply-To: <003601da2123$e70530e0$b50f92a0$@dependablelc.com>
+From: Palmyra Legal Translation <info@palmyra-trans.com>
+Date: Mon, 27 Nov 2023 15:27:16 +0400
+Message-ID: <CAHa+MtBHMXks9_OBJSqFkTYyCcwX6GkHpRuC_0ca6hUwbm6r4Q@mail.gmail.com>
+Subject: Re: Translation to Arabic
+To: info@dependablelc.com
+Cc: Ian G Norton <ian.norton@cummins.com>
+Content-Type: multipart/alternative; boundary="000000000000ca10a4060b209783"
+X-NCJF-Result: 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
+ 
+	/us
+X-NCJF-Version: 18
+
+--000000000000ca10a4060b209783
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+Dear all,
+
+
+
+Warm Greetings from Palmyra. Hope all is well,
+
+
+
+Received with thanks, and the file being translated.
+
+
+
+
+For further inquiries, please don=E2=80=99t hesitate to contact us.
+
+As always, it is Palmyra's pleasure be at your Service.
+
+
+
+Thanks & best Regards
+
+*BEST REGARDS,*
+
+
+Mahmoud Alaa
+
+Administrative assistant
+
+0502737636
+
+
+Lovely Sia
+
+Secretary
+
+0504956266
+
+*Amro Shoeib*
+
+*General Manager     *
+*M:* +971 50 2737415
+
+*Please note: our office working times:*
+
+*From 08:30 AM to 06:00 PM (Monday till Thursday)*
+
+*Fridays: from 08:30 AM to 03:00 PM.*
+
+*Sundays: from 08:30 AM to 01:00 PM*
+
+*Palmyra Legal Translation Services L.L.C*
+
+*Deira, Dubai, Behind Nissan Showroom*
+
+*Alkhaima Building, Office No /111*
+
+*Tel: 04-2611300 Fax: 042611299*
+
+*E-mail:info@palmyra-trans.com <nfo@palmyra-trans.com>*
+
+*Web: WWW.palmyra-trans.com <http://palmyra-trans.com/>*
+
+
+
+
+On Mon, Nov 27, 2023 at 3:21=E2=80=AFPM <info@dependablelc.com> wrote:
+
+>
+>
+> Dear all.
+>
+> Please find the attachment below for translation to Arabic as the
+> following names:
+>
+> *=D8=A7=D9=8A=D8=A7=D9=86=D8=A7 =D9=86=D8=AA=D9=8A=D8=AC=D8=A9 =D9=86=D9=
+=88=D8=B1=D8=AA=D9=88=D9=86*
+>
+>
+>
+> *=D8=A7=D8=AF=D9=81=D8=A7=D9=86=D8=B3=D8=AF =D8=A7=D9=86=D8=AC=D9=8A=D9=
+=86=D9=8A=D8=B1=D9=86=D8=AC =D8=B3=D9=88=D9=84=D9=8A=D9=88=D8=B4=D9=86=D8=
+=B2 =D9=84=D9=8A=D9=85=D8=AA=D8=AF.*
+>
+>
+>
+>
+>
+> Best Regards.
+>
+> Dependable Legal Consultants LLC
+>
+> www.dependablelc.com
+>
+>
+>
+
+--000000000000ca10a4060b209783
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"ltr"><div class=3D"gmail_default" style=3D"font-family:arial,sa=
+ns-serif"><p class=3D"MsoNormal" style=3D"margin:0in 0in 0.0001pt;line-heig=
+ht:150%;font-size:11pt;font-family:Calibri,sans-serif"><span style=3D"font-=
+size:12pt;line-height:150%;font-family:&quot;Times New Roman&quot;,serif;co=
+lor:red">Dear all,</span></p>
+
+<p class=3D"MsoNormal" style=3D"margin:0in 0in 0.0001pt;line-height:150%;fo=
+nt-size:11pt;font-family:Calibri,sans-serif"><span style=3D"font-size:12pt;=
+line-height:150%;font-family:&quot;Times New Roman&quot;,serif;color:red">=
+=C2=A0</span></p>
+
+<p class=3D"MsoNormal" style=3D"margin:0in 0in 0.0001pt;line-height:150%;fo=
+nt-size:11pt;font-family:Calibri,sans-serif"><span style=3D"font-size:12pt;=
+line-height:150%;font-family:&quot;Times New Roman&quot;,serif;color:rgb(0,=
+112,192)">Warm Greetings from Palmyra.
+Hope all is well,</span><span style=3D"font-size:12pt;line-height:150%;font=
+-family:&quot;Times New Roman&quot;,serif;color:red">=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0 </span></p>
+
+<p class=3D"MsoNormal" style=3D"margin:0in 0in 0.0001pt;line-height:150%;fo=
+nt-size:11pt;font-family:Calibri,sans-serif"><span style=3D"font-size:12pt;=
+line-height:150%;font-family:&quot;Times New Roman&quot;,serif;color:red">=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0 </span><span style=3D"font-size:12pt;line-height:150%;font-fam=
+ily:&quot;Times New Roman&quot;,serif;color:rgb(51,102,255)">=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0 </span></p>
+
+<p class=3D"MsoNormal" style=3D"margin:0in 0in 0.0001pt;line-height:150%;fo=
+nt-size:11pt;font-family:Calibri,sans-serif"><span style=3D"font-size:12pt;=
+line-height:150%;font-family:&quot;Times New Roman&quot;,serif">Received wi=
+th thanks, and the file being translated. </span></p>
+
+<p class=3D"MsoNormal" style=3D"margin:0in 0in 0.0001pt;line-height:150%;fo=
+nt-size:11pt;font-family:Calibri,sans-serif"><br></p>
+
+<p class=3D"MsoNormal" style=3D"margin:0in 0in 0.0001pt;line-height:150%;fo=
+nt-size:11pt;font-family:Calibri,sans-serif"><span style=3D"font-size:12pt;=
+line-height:150%;font-family:&quot;Times New Roman&quot;,serif">=C2=A0</spa=
+n></p>
+
+<p class=3D"MsoNormal" style=3D"margin:0in 0in 0.0001pt;line-height:150%;fo=
+nt-size:11pt;font-family:Calibri,sans-serif"><span style=3D"font-size:12pt;=
+line-height:150%;font-family:&quot;Times New Roman&quot;,serif;color:rgb(0,=
+112,192)">For further inquiries, please
+don=E2=80=99t hesitate to contact us.</span></p>
+
+<p class=3D"MsoNormal" style=3D"margin:0in 0in 0.0001pt;line-height:150%;fo=
+nt-size:11pt;font-family:Calibri,sans-serif"><span style=3D"font-size:12pt;=
+line-height:150%;font-family:&quot;Times New Roman&quot;,serif;color:rgb(0,=
+112,192)">As always, it is </span><span style=3D"color:rgb(46,116,181)">Pal=
+myra&#39;s
+pleasure</span><span style=3D"font-size:12pt;line-height:150%;font-family:&=
+quot;Times New Roman&quot;,serif;color:rgb(0,112,192)"> be at your Service.=
+</span></p>
+
+<p class=3D"MsoNormal" style=3D"margin:0in 0in 0.0001pt;line-height:150%;fo=
+nt-size:11pt;font-family:Calibri,sans-serif"><span lang=3D"AR-EG" dir=3D"RT=
+L" style=3D"font-size:12pt;line-height:150%;font-family:&quot;Times New Rom=
+an&quot;,serif">=C2=A0</span></p>
+
+<p class=3D"MsoNormal" style=3D"margin:0in 0in 0.0001pt;line-height:150%;fo=
+nt-size:11pt;font-family:Calibri,sans-serif"><span style=3D"font-size:12pt;=
+line-height:150%;font-family:&quot;Times New Roman&quot;,serif;color:red">T=
+hanks &amp; best Regards</span></p></div><div><div dir=3D"ltr" class=3D"gma=
+il_signature" data-smartmail=3D"gmail_signature"><div dir=3D"ltr"><div dir=
+=3D"ltr"><div dir=3D"ltr"><div dir=3D"ltr"><div dir=3D"ltr"><p style=3D"col=
+or:rgb(34,34,34);text-align:left;margin-bottom:0.0001pt"><font color=3D"#f3=
+f3f3" face=3D"monospace"><b><span style=3D"line-height:20.7px;background-co=
+lor:rgb(0,0,255)"></span></b></font></p><p style=3D"text-align:left;margin-=
+bottom:0.0001pt"><font face=3D"monospace" color=3D"#000000" size=3D"4"><b s=
+tyle=3D"background-color:rgb(255,255,255)">BEST REGARDS,</b></font></p><div=
+ style=3D"text-align:center"><p style=3D"color:rgb(0,0,0);font-family:monos=
+pace;text-align:left;margin-bottom:0.0001pt"><br></p><p style=3D"text-align=
+:left;margin:0cm 0cm 0.0001pt;background-image:initial;background-position:=
+initial;background-repeat:initial"><font face=3D"tahoma, sans-serif" size=
+=3D"4">Mahmoud Alaa=C2=A0</font></p><p style=3D"text-align:left;margin:0cm =
+0cm 0.0001pt;background-image:initial;background-position:initial;backgroun=
+d-repeat:initial"><font size=3D"4" face=3D"tahoma, sans-serif" color=3D"#00=
+00ff">Administrative assistant</font></p><p style=3D"text-align:left;margin=
+:0cm 0cm 0.0001pt;background-image:initial;background-position:initial;back=
+ground-repeat:initial"><span style=3D"font-family:tahoma,sans-serif;font-si=
+ze:large">0502737636=C2=A0</span></p><p style=3D"text-align:left;margin:0cm=
+ 0cm 0.0001pt;background-image:initial;background-position:initial;backgrou=
+nd-repeat:initial"><span style=3D"font-family:tahoma,sans-serif;font-size:l=
+arge"><br></span></p><p style=3D"text-align:left;margin:0cm 0cm 0.0001pt;ba=
+ckground-image:initial;background-position:initial;background-repeat:initia=
+l"><span style=3D"font-family:tahoma,sans-serif;font-size:large">Lovely Sia=
+</span></p><p style=3D"text-align:left;margin:0cm 0cm 0.0001pt;background-i=
+mage:initial;background-position:initial;background-repeat:initial"><span s=
+tyle=3D"font-family:tahoma,sans-serif;font-size:large;background-color:rgb(=
+243,243,243)"><font color=3D"#0000ff">Secretary</font></span></p><p style=
+=3D"text-align:left;margin:0cm 0cm 0.0001pt;background-image:initial;backgr=
+ound-position:initial;background-repeat:initial"><span style=3D"font-family=
+:tahoma,sans-serif;font-size:large">0504956266</span></p><p style=3D"text-a=
+lign:left;margin:0cm 0cm 0.0001pt;background-image:initial;background-posit=
+ion:initial;background-repeat:initial"><span style=3D"font-family:&quot;Cal=
+ibri Light&quot;,sans-serif"></span></p><p style=3D"color:rgb(0,0,0);font-f=
+amily:monospace;text-align:left;margin-bottom:0.0001pt"><font size=3D"4"><b=
+ style=3D"font-family:Arial,Helvetica,sans-serif"><span style=3D"font-famil=
+y:Garamond,serif;background:rgb(243,243,243)">Amro Shoeib</span></b><br></f=
+ont></p><div style=3D"text-align:left">
+
+<p class=3D"MsoNormal" style=3D"color:rgb(0,0,0);margin-bottom:0.0001pt;lin=
+e-height:normal;background-image:initial;background-position:initial;backgr=
+ound-repeat:initial"><font size=3D"4"><b><span style=3D"font-family:&quot;C=
+ourier New&quot;;color:blue">General Manager=C2=A0 =C2=A0 =C2=A0</span></b>=
+<span style=3D"font-family:Arial,sans-serif"><span></span></span></font></p=
+>
+
+<div dir=3D"ltr" style=3D"color:rgb(34,34,34)"><font size=3D"4"><b style=3D=
+"font-family:Roboto,RobotoDraft,Helvetica,Arial,sans-serif"><span style=3D"=
+font-family:Arial,sans-serif;color:rgb(4,141,21)">M:</span></b><span style=
+=3D"font-family:Arial,sans-serif;color:rgb(25,8,84)">=C2=A0+971 50 2737415<=
+/span></font></div><div dir=3D"ltr" style=3D"color:rgb(34,34,34)"><br></div=
+><div><div><p class=3D"MsoNormal" style=3D"color:rgb(34,34,34);line-height:=
+14.95px;background-image:initial;background-position:initial;background-rep=
+eat:initial"><font size=3D"4" face=3D"arial, sans-serif"><b><span style=3D"=
+line-height:13.8px;color:black;border:1pt none windowtext;padding:0in">Plea=
+se note: our office working times:</span><u></u><u></u></b></font></p><p cl=
+ass=3D"MsoNormal" style=3D"color:rgb(34,34,34);line-height:14.95px;backgrou=
+nd-image:initial;background-position:initial;background-repeat:initial"><fo=
+nt size=3D"4" face=3D"arial, sans-serif"><b><span style=3D"line-height:13.8=
+px;color:black;border:1pt none windowtext;padding:0in">From 08:30 AM to 06:=
+00 PM (Monday till Thursday)</span><u></u><u></u></b></font></p><div style=
+=3D"color:rgb(34,34,34);border-top:none;border-right:none;border-left:none;=
+border-bottom:1pt solid windowtext;padding:0in 0in 1pt;background-image:ini=
+tial;background-position:initial;background-repeat:initial"><p class=3D"Mso=
+Normal" style=3D"background-image:initial;background-position:initial;backg=
+round-repeat:initial;border:none;padding:0in"><span style=3D"color:black;bo=
+rder:1pt none windowtext;padding:0in"><font size=3D"4" face=3D"arial, sans-=
+serif"><b>Fridays: from 08:30 AM to 03:00 PM.</b></font></span></p><p class=
+=3D"MsoNormal" style=3D"background-image:initial;background-position:initia=
+l;background-repeat:initial;border:none;padding:0in"><font size=3D"4" face=
+=3D"arial, sans-serif"><b><span style=3D"color:black;border:1pt none window=
+text;padding:0in">Sundays: from=C2=A0</span><span style=3D"color:black;bord=
+er:1pt none windowtext;padding:0in">08:30 AM to 01:00 PM</span></b></font><=
+/p></div></div></div><div><div style=3D"color:rgb(34,34,34)"><img src=3D"ht=
+tps://ci3.googleusercontent.com/mail-sig/AIorK4zeu6v73jXiFlSe-ukP9INRD0qWJN=
+9bAXrBt6tHS8frs1Wc2rsChqIqujLsfXbg7X3NjAfQvo4" width=3D"196" height=3D"200"=
+><br></div></div>
+
+<p class=3D"MsoNormal" style=3D"margin-bottom:0.0001pt;line-height:normal;b=
+ackground-image:initial;background-position:initial;background-repeat:initi=
+al"><span style=3D"background-color:rgb(255,255,255)"><font size=3D"4" colo=
+r=3D"#0000ff"><b><i><span style=3D"font-family:&quot;Courier New&quot;;back=
+ground-image:initial;background-position:initial;background-repeat:initial"=
+>Palmyra Legal Translation Services L.L.C</span><span style=3D"font-family:=
+Arial,sans-serif"><span></span></span></i></b></font></span></p>
+
+<p class=3D"MsoNormal" style=3D"color:rgb(0,0,0);margin-bottom:0.0001pt;lin=
+e-height:normal;background-image:initial;background-position:initial;backgr=
+ound-repeat:initial"><b><span style=3D"font-size:12pt;font-family:&quot;Cou=
+rier New&quot;">Deira, Dubai, Behind
+Nissan Showroom</span></b><span style=3D"font-size:12pt;font-family:Arial,s=
+ans-serif;color:rgb(34,34,34)"><span></span></span></p>
+
+<p class=3D"MsoNormal" style=3D"color:rgb(0,0,0);margin-bottom:0.0001pt;lin=
+e-height:normal"><b><span style=3D"font-size:12pt;font-family:&quot;Courier=
+ New&quot;;background-image:initial;background-position:initial;background-=
+repeat:initial">Alkhaima Building, Office No
+/111</span></b><b><span style=3D"font-size:12pt;font-family:&quot;Courier N=
+ew&quot;;color:rgb(34,34,34);background-image:initial;background-position:i=
+nitial;background-repeat:initial"><span></span></span></b></p>
+
+<p class=3D"MsoNormal" style=3D"color:rgb(0,0,0);margin-bottom:0.0001pt;lin=
+e-height:normal"><b><span style=3D"font-size:12pt;font-family:&quot;Courier=
+ New&quot;;background-image:initial;background-position:initial;background-=
+repeat:initial">Tel: 04-2611300=C2=A0Fax:
+042611299</span></b><b><span style=3D"font-size:12pt;font-family:&quot;Cour=
+ier New&quot;;color:rgb(34,34,34);background-image:initial;background-posit=
+ion:initial;background-repeat:initial"><span></span></span></b></p>
+
+<p class=3D"MsoNormal" style=3D"color:rgb(0,0,0);margin-bottom:0.0001pt;lin=
+e-height:normal"><b><span style=3D"font-size:12pt;font-family:&quot;Courier=
+ New&quot;;background-image:initial;background-position:initial;background-=
+repeat:initial">E-mail:i<u><a href=3D"mailto:nfo@palmyra-trans.com" target=
+=3D"_blank"><span style=3D"color:blue">nfo@palmyra-trans.com</span></a></u>=
+</span></b><b><span style=3D"font-size:12pt;font-family:&quot;Courier New&q=
+uot;;color:rgb(34,34,34);background-image:initial;background-position:initi=
+al;background-repeat:initial"><span></span></span></b></p>
+
+<p class=3D"MsoNormal" style=3D"color:rgb(0,0,0);margin-bottom:0.0001pt;lin=
+e-height:normal"><b><span style=3D"font-size:12pt;font-family:&quot;Courier=
+ New&quot;;background-image:initial;background-position:initial;background-=
+repeat:initial">Web:=C2=A0<u>WWW.<a href=3D"http://palmyra-trans.com/" targ=
+et=3D"_blank"><span style=3D"color:blue">palmyra-trans.com</span></a></u></=
+span></b><b><span style=3D"font-size:12pt;font-family:&quot;Courier New&quo=
+t;;color:rgb(34,34,34);background-image:initial;background-position:initial=
+;background-repeat:initial"><span></span></span></b></p>
+
+<p class=3D"MsoNormal" style=3D"color:rgb(0,0,0);margin-bottom:0.0001pt;lin=
+e-height:normal"><span style=3D"font-size:12pt;font-family:&quot;Courier Ne=
+w&quot;;color:rgb(34,34,34);background-image:initial;background-position:in=
+itial;background-repeat:initial"><span>=C2=A0<br></span></span></p></div></=
+div></div></div></div></div></div></div></div><br></div><br><div class=3D"g=
+mail_quote"><div dir=3D"ltr" class=3D"gmail_attr">On Mon, Nov 27, 2023 at 3=
+:21=E2=80=AFPM &lt;<a href=3D"mailto:info@dependablelc.com">info@dependable=
+lc.com</a>&gt; wrote:<br></div><blockquote class=3D"gmail_quote" style=3D"m=
+argin:0px 0px 0px 0.8ex;border-left:1px solid rgb(204,204,204);padding-left=
+:1ex"><div class=3D"msg-7807086084541201498"><div lang=3D"EN-US" style=3D"o=
+verflow-wrap: break-word;"><div class=3D"m_8631348169287381158WordSection1"=
+><p class=3D"MsoNormal"><span style=3D"font-size:16pt;font-family:&quot;Bel=
+l MT&quot;,serif;color:rgb(50,62,79)"><u></u>=C2=A0<u></u></span></p><p cla=
+ss=3D"MsoNormal"><span style=3D"font-size:16pt;font-family:&quot;Bell MT&qu=
+ot;,serif;color:rgb(50,62,79)">Dear all.<u></u><u></u></span></p><p class=
+=3D"MsoNormal"><span style=3D"font-size:16pt;font-family:&quot;Bell MT&quot=
+;,serif;color:rgb(50,62,79)">Please find the attachment below for translati=
+on to Arabic as the following names:<u></u><u></u></span></p><p class=3D"Ms=
+oNormal"><b><span lang=3D"AR-SY" dir=3D"RTL" style=3D"font-size:16pt;font-f=
+amily:&quot;Sakkal Majalla&quot;">=D8=A7=D9=8A=D8=A7=D9=86=D8=A7 =D9=86=D8=
+=AA=D9=8A=D8=AC=D8=A9 =D9=86=D9=88=D8=B1=D8=AA=D9=88=D9=86</span></b><b><sp=
+an style=3D"font-size:16pt;font-family:&quot;Sakkal Majalla&quot;"><u></u><=
+u></u></span></b></p><p class=3D"MsoNormal"><b><span style=3D"font-size:16p=
+t;font-family:&quot;Sakkal Majalla&quot;"><u></u>=C2=A0<u></u></span></b></=
+p><p class=3D"MsoNormal"><b><span lang=3D"AR-SY" dir=3D"RTL" style=3D"font-=
+size:16pt;font-family:&quot;Sakkal Majalla&quot;">=D8=A7=D8=AF=D9=81=D8=A7=
+=D9=86=D8=B3=D8=AF =D8=A7=D9=86=D8=AC=D9=8A=D9=86=D9=8A=D8=B1=D9=86=D8=AC =
+=D8=B3=D9=88=D9=84=D9=8A=D9=88=D8=B4=D9=86=D8=B2 =D9=84=D9=8A=D9=85=D8=AA=
+=D8=AF.</span></b><span style=3D"font-size:16pt;font-family:&quot;Bell MT&q=
+uot;,serif;color:rgb(50,62,79)"><u></u><u></u></span></p><p class=3D"MsoNor=
+mal"><span style=3D"font-size:12pt;font-family:&quot;Bell MT&quot;,serif;co=
+lor:rgb(0,32,96)"><u></u>=C2=A0<u></u></span></p><p class=3D"MsoNormal"><sp=
+an style=3D"font-size:12pt;font-family:&quot;Bell MT&quot;,serif;color:rgb(=
+0,32,96)"><u></u>=C2=A0<u></u></span></p><p class=3D"MsoNormal"><span style=
+=3D"font-size:12pt;font-family:&quot;Bell MT&quot;,serif;color:rgb(0,32,96)=
+">Best Regards.<u></u><u></u></span></p><p class=3D"MsoNormal"><span style=
+=3D"font-size:12pt;font-family:&quot;Bell MT&quot;,serif;color:rgb(0,32,96)=
+"><img width=3D"64" height=3D"71" style=3D"width: 0.6666in; height: 0.7395i=
+n;" id=3D"m_8631348169287381158Picture_x0020_1"><span><u></u><u></u></span>=
+</span></p><p class=3D"MsoNormal"><span style=3D"font-size:12pt;font-family=
+:&quot;Bell MT&quot;,serif;color:rgb(0,32,96)">Dependable Legal Consultants=
+ LLC<u></u><u></u></span></p><p class=3D"MsoNormal"><span style=3D"font-siz=
+e:12pt;font-family:&quot;Bell MT&quot;,serif;color:rgb(0,32,96)"><a><span s=
+tyle=3D"color:rgb(5,99,193)">www.dependablelc.com</span></a> <u></u><u></u>=
+</span></p><p class=3D"MsoNormal"><u></u>=C2=A0<u></u></p></div></div></div=
+></blockquote></div>
+
+--000000000000ca10a4060b209783--

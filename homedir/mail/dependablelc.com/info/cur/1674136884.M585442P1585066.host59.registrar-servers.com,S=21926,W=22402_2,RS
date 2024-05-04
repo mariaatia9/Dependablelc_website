@@ -1,0 +1,476 @@
+Return-Path: <pcabraham@reliabletrpt.ae>
+Delivered-To: info@dependablelc.com
+Received: from host59.registrar-servers.com
+	by host59.registrar-servers.com with LMTP
+	id wElbIjRNyWOqLxgA+KyzgQ
+	(envelope-from <pcabraham@reliabletrpt.ae>)
+	for <info@dependablelc.com>; Thu, 19 Jan 2023 09:01:24 -0500
+Return-path: <pcabraham@reliabletrpt.ae>
+Envelope-to: info@dependablelc.com
+Delivery-date: Thu, 19 Jan 2023 09:01:24 -0500
+Received: from [63.250.43.69] (port=13729 helo=asp-relay-shared.jellyfish.systems)
+	by host59.registrar-servers.com with esmtps  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <pcabraham@reliabletrpt.ae>)
+	id 1pIVTo-006lgK-CY
+	for info@dependablelc.com;
+	Thu, 19 Jan 2023 09:01:24 -0500
+Received: from EUR04-HE1-obe.outbound.protection.outlook.com (mail-he1eur04on2102.outbound.protection.outlook.com [40.107.7.102])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by asp-relay-shared.jellyfish.systems (Postfix) with ESMTPS id 4NyPRs7254zFpjT
+	for <info@dependablelc.com>; Thu, 19 Jan 2023 14:01:13 +0000 (UTC)
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=N8JWCBhSe2qhNhDFcRLxKrB/lTUoaiV3Z1wwV7Kgt9LeGjy9Wnzs1yD3Kv6zEGwJkXV6KNzjcw/IycN5VcVd57gA/46kL3LEaLOIjLUWNaqASu6Cl1J8kr1eKM0/4OYtGfIy6/Ixm55O/bHoyX1DCRCea0vXJQZNSh9PosllHB9a3RXyXcm+xWr8yDgO/4Ixlo1SbV6Tysi7cajBxuRzAHtmJqX8jQnpCLNF55jA9qChC6hBqaBQjfvpMe3n7+R6YOTOE0Q63e7sl6WPSPHyTb27T0hZdIeNVGVVIRR4kbYTOmbVaBW149Mxz/UZ9qxKGc1j1+NfOigHSKzTW/Nkzw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=7b2umjnWyls4MZbsjgjCTgCUGRu/2zO0meEAeYUdGDM=;
+ b=GlvfhuL4fMYYcfkTh6UdsZhKylqlRhd43VxaTRws9Rq8TsSEs3ZFQOUyHM8gNmjPK1dzwem7EYpnXLl9ZU2RrJ0iuPKVvFLiUCGR52j7MdpZS2wwZckVOKBFyceTONz1LvHMnHlhcSF8fo4H+NHwcxqsEr71l3fBaE845Z4bnzyrD5wNYv3Gqi1lenBbmcoWOvKjW5v6RvSEsU8ilNgFdFqqCkwa2lKrFfEHdIjXCcRW+pNU2tWGE0ATorE8K4bCAunuVAuF7ntdLwaqiyxifXxsnd+NnI9+VD5/Zl5c0sIhbyLDjw+An2Kz+iX1al67k87aEMBkNy78K9bNLY7zcA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=reliabletrpt.ae; dmarc=pass action=none
+ header.from=reliabletrpt.ae; dkim=pass header.d=reliabletrpt.ae; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=reliabletransportllc.onmicrosoft.com;
+ s=selector2-reliabletransportllc-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=7b2umjnWyls4MZbsjgjCTgCUGRu/2zO0meEAeYUdGDM=;
+ b=jCk/z0fl+EhzGeZXB0zzdskXo3pmEumtIcIZtNDnN5JFgsxBvvpPNKKbq3xN4+eDHrLL0phLAsAiKcjIjwdfDhjlcKbgVJHcMOYtag+P09WNY54ZAv9N6h1mP/xoO0YEy21hnHCY2cV05KMWhlhZzSZfI1MouYZRgsyysmxJKOI=
+Received: from DB7PR05MB5560.eurprd05.prod.outlook.com (2603:10a6:10:5e::13)
+ by DB3PR05MB10070.eurprd05.prod.outlook.com (2603:10a6:10:43c::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.6002.12; Thu, 19 Jan
+ 2023 14:01:11 +0000
+Received: from DB7PR05MB5560.eurprd05.prod.outlook.com
+ ([fe80::5962:7094:ed17:37c1]) by DB7PR05MB5560.eurprd05.prod.outlook.com
+ ([fe80::5962:7094:ed17:37c1%5]) with mapi id 15.20.5986.023; Thu, 19 Jan 2023
+ 14:01:11 +0000
+From: Peter Abraham - Reliable Transport LLC <pcabraham@reliabletrpt.ae>
+To: "info@dependablelc.com" <info@dependablelc.com>
+CC: "sahal@telcongroup.com" <sahal@telcongroup.com>
+Subject: Introduction 
+Thread-Topic: Introduction 
+Thread-Index: AQHZLA58q5TAUDt7UUyWHhs2DcoTkQ==
+Date: Thu, 19 Jan 2023 14:01:11 +0000
+Message-ID:
+ <DB7PR05MB5560E31B907C2923AED5800BADC49@DB7PR05MB5560.eurprd05.prod.outlook.com>
+References: <000e01d92bcd$58424b50$08c6e1f0$@dependablelc.com>
+In-Reply-To: <000e01d92bcd$58424b50$08c6e1f0$@dependablelc.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach:
+X-MS-TNEF-Correlator:
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: DB7PR05MB5560:EE_|DB3PR05MB10070:EE_
+x-ms-office365-filtering-correlation-id: ad0efa11-a258-4ac9-614e-08dafa259eee
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;
+x-microsoft-antispam-message-info:
+ GhTROTutVhC+TeUZR+R1ySlMiHWNiF1NT9GcSZZzd5SLb7c0XGbIpxpFR6fiMZfZGSK/QZdJU7/e4TS6pCOvLhxElF2gcKObiU6dEaF/V4o13dhkfJr7XDSKtLmV6wax8ONTzwyAtyGBvSB42V35wpPAN+1lzBNlLR/Xiknhu8WkE7MGTeJgmqVPmjR1J9DaJ41wUXj4Y2wLuz7opItEPXRfFGiKz3dp5YYcmZrSfUnP+u2A19bmq4hUZ6oOb/hwodDqxZCnkqlpvpA1HLmR/+IbybU26WsOF/4vIZojpjy/NbATVJKm4XHevRHEWuB/bb0d1eSchJ0BRw+816/EllYgZVt6zzV0S1PQr4Eit77+1vJWM9vssl9Lmz6x2bdBXJnTO716xjUhpVPAl6zL9vrz0XBX0sDcEnUR3u7Jhi8PbfVKWffofjtSoqRgGZBB2mvgE/Xj9bLszSwxa2xGRXEpySmGt5Vp3K+rcLyweGvX+HPt2AXJScdEKqsHThEZWyad7u1pn1MBrDpkggTu5EwzFiUKAV/Q7QhYGANXu2cdqZJpsqJI8xXXa9dU7RkOl09bOnhgIdNWoJX4qUBf6OUG9+AQ5tcgY7IXTe6R+Ik0ycEw4kCgDpZ5rWTSq01eMSFJbOgHZcokdnjjfcZR8YhdwRZO/ukDVaRCVscImo2lbqcpRaQp+OQDc82l+D0Ak5ag3QKUKb6zrlYF79NHvQ==
+x-forefront-antispam-report:
+ CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DB7PR05MB5560.eurprd05.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230022)(366004)(136003)(396003)(39830400003)(376002)(346002)(451199015)(91956017)(7116003)(66556008)(41300700001)(4744005)(186003)(52536014)(5660300002)(64756008)(66476007)(4326008)(76116006)(66446008)(66946007)(38070700005)(8676002)(122000001)(6916009)(8936002)(316002)(86362001)(3480700007)(2906002)(71200400001)(478600001)(7696005)(38100700002)(6506007)(40140700001)(55016003)(4743002)(9686003)(33656002)(83380400001);DIR:OUT;SFP:1102;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0:
+ =?Windows-1252?Q?XJYeUMFg3BwEE3gM+3p3Cc+2UO6QGI734qnWIYMgp+3SfI/sUfUepZcr?=
+ =?Windows-1252?Q?fFIozEt/cyqkp/TjKlbiBhQHjWTaQupR6TOeOJZIGDw9rz9HrzIW6xAm?=
+ =?Windows-1252?Q?EjUKjI5UIOsBRGrKZioYbZebOzEewjlFSi/vp535xoU5ttWWsaqMyWp4?=
+ =?Windows-1252?Q?+zdfmm78NhuwWC3nfqFcny2TRl/WDTdJsSuuUwaxJzGONXthk78J6CFw?=
+ =?Windows-1252?Q?oE7gfodWHZj8OoBkT5lMHM2Gtp99G8CPSHhDTFg8peXo/GeX0yF1CIor?=
+ =?Windows-1252?Q?MM6XN93vF2X7mcpHsCk6O9mE/z9LdbvIr9Jsg+Hj+u8JLeKboqHWqLbx?=
+ =?Windows-1252?Q?ElbJRHp8II5I+Z68lOGJrLDY/JhEAWJbohJFDCNzcl7OY7fD910Y1hkN?=
+ =?Windows-1252?Q?M79ejH/XGLWikWrpsjSz5cS/0OssXer+GGeSPu90zJ7sDzBvalOMuhWB?=
+ =?Windows-1252?Q?f4RZO4UXUrlFaMJ85hzZq1vFTRXEdwxYmikc2z+tKfDAnJVLBvFOTy8p?=
+ =?Windows-1252?Q?bdxlFiI4tDLYSHKOJbGB/eMNPyDxi3/rf08Q+v0vKt0dNKAC4mw934ud?=
+ =?Windows-1252?Q?JiVpfu0dsKnXbc7ZQsT0UnXXOealjvqFn4aF1yqO4cfQUVHK1o4Q7b9I?=
+ =?Windows-1252?Q?ouRj+RU5PCBRU6F9XqJFpFC5pycODl3jOQnkrxE0xSros2fTjgULAavV?=
+ =?Windows-1252?Q?MJ93EdSnr08eJ6k6FgqS5Yje7JYTYkHW7sX4J8YUKbvUPy/GVyqSLprl?=
+ =?Windows-1252?Q?yhu1sS20Rr69Iga/4ENVtscjgSZS3zce9tlj4cMlCDgyYsTdgv1QZYCV?=
+ =?Windows-1252?Q?HAnFNtXzlnwkDWMfNmtAchasQPpioDnD43tYSSsaZwuI/0IgHBbSQjZr?=
+ =?Windows-1252?Q?ciK9HsPZt5lnWbKvM8JzPhCZi3jj77yYELHmAnf8WFPRDrKf1LCvauix?=
+ =?Windows-1252?Q?VD186jOVfUKYbrm7B81QnHTxljxpoWKpYC5+mBTIYxewo+o5sdYwNVOD?=
+ =?Windows-1252?Q?GoZcHyw4V+tQgCQgYAlS9m5zk4kGtZtSRY1zF8zWLM2UlgxqrfXTB2NO?=
+ =?Windows-1252?Q?CUxG6vaNUt3RPk4unRfhRgBPP9VXzZp4Kp1B5T5mfouFUjElaPAOXqKz?=
+ =?Windows-1252?Q?IZ8uozEAPnECe9twU3EQuVhGHTUdBI3TTDpwxilMjchPdKrjUVS8yISJ?=
+ =?Windows-1252?Q?6Zaez/Kcc93iuuDWEz/pwiWGC1N09zYGF2ghjBnw3OrTtulWikD693O+?=
+ =?Windows-1252?Q?1TVThgVq6BZ959FWHYpGw9RQ90/tkwD00RdsPF8l9kDtJcS9MU65OSbE?=
+ =?Windows-1252?Q?qwqqrsBkMEjSTDQl1cN4GfES3gWLusxWXTdyIiKn/js3muULMWrwSc8T?=
+ =?Windows-1252?Q?YQXhftBWhgtlERjRthwmY7FtHhRoycm3IzwwfJAb4ZcY1SmqRjzJNDCv?=
+ =?Windows-1252?Q?iW0iZVJu6lWM4vf5NnX0UEt10i0tdx2ABWu8zjqh15Xb7JB9Ib0kTWUr?=
+ =?Windows-1252?Q?YGIzJeSeANbvNKjLFqX6DcVIuj+MtHDFkhvOb0bAlkwBF8F7gmJ+3GzL?=
+ =?Windows-1252?Q?xB7UzUsdB6dTc2Gi0W4Il3nKRrjMnK8Vi0tPyzTm+Wz/ck+IGOKTcvuZ?=
+ =?Windows-1252?Q?9DH/3HwOAY9MhxE6sLVxkev30+AmIFgG6J5T2/jZR7rgvnuNMciiQ86K?=
+ =?Windows-1252?Q?SFvNzz3YS/zhyZQtQ+FEFBOu2fs3a+E3cLmJ/l/FdO+5KaTAQTMNOiH4?=
+ =?Windows-1252?Q?4gaLXsVQ++ohdLa+Lii6vMdOUwmWSiC1aJC5NhDh9H0h2WjSScBydj2b?=
+ =?Windows-1252?Q?e7Smd3c0Hf6rREAa6QLUQ2cIMzc=3D?=
+Content-Type: multipart/alternative;
+	boundary="_000_DB7PR05MB5560E31B907C2923AED5800BADC49DB7PR05MB5560eurp_"
+MIME-Version: 1.0
+X-OriginatorOrg: reliabletrpt.ae
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: DB7PR05MB5560.eurprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: ad0efa11-a258-4ac9-614e-08dafa259eee
+X-MS-Exchange-CrossTenant-originalarrivaltime: 19 Jan 2023 14:01:11.3346
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 63a14217-e2ad-4b94-b8e7-420336bc71bf
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: hZ+Tud9ITQmBQ811all5J15uJS+Xd64YcKECGj4fJnS/2mdFNCcEqGkkbNAPZhZmYbcqcyWnQ/NI/8Fgji0kHqVJAuLEnMSan/eU1VXxP1k=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB3PR05MB10070
+X-NCJF-Result: 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
+ 
+	NOZSDkg==
+X-NCJF-Version: 2
+Authentication-Results: asp-relay-shared.jellyfish.systems;
+	dkim=pass header.d=reliabletransportllc.onmicrosoft.com header.s=selector2-reliabletransportllc-onmicrosoft-com header.b="jCk/z0fl";
+	arc=pass ("microsoft.com:s=arcselector9901:i=1");
+	dmarc=none;
+	spf=pass (asp-relay-shared.jellyfish.systems: domain of pcabraham@reliabletrpt.ae designates 40.107.7.102 as permitted sender) smtp.mailfrom=pcabraham@reliabletrpt.ae
+
+--_000_DB7PR05MB5560E31B907C2923AED5800BADC49DB7PR05MB5560eurp_
+Content-Type: text/plain; charset="Windows-1252"
+Content-Transfer-Encoding: quoted-printable
+
+Dear Aamer - The following three companies are associated with me and pleas=
+e include them in our service agreement.  The contact person is their owner=
+ Mr. Sahal (055 4200787).
+
+
+  *   Telcon Signs LLC
+  *   Telcon Facilities Management LLC
+  *   Telcon Marine.
+
+Sahal =96 Please share your logins and password in wattsup with Mr. Aamer (=
+052 710 7117).
+
+Best Regards,
+
+PETER ABRAHAM | MANAGING DIRECTOR
++971 56 6511563
+RELIABLE TRANSPORT BY HEAVY & LIGHT TRUCKS LLC
+PO Box 118314 | Dubai | UAE
+
+
+
+--_000_DB7PR05MB5560E31B907C2923AED5800BADC49DB7PR05MB5560eurp_
+Content-Type: text/html; charset="Windows-1252"
+Content-Transfer-Encoding: quoted-printable
+
+<html xmlns:v=3D"urn:schemas-microsoft-com:vml" xmlns:o=3D"urn:schemas-micr=
+osoft-com:office:office" xmlns:w=3D"urn:schemas-microsoft-com:office:word" =
+xmlns:m=3D"http://schemas.microsoft.com/office/2004/12/omml" xmlns=3D"http:=
+//www.w3.org/TR/REC-html40">
+<head>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3DWindows-1=
+252">
+<meta name=3D"Generator" content=3D"Microsoft Word 15 (filtered medium)">
+<style><!--
+/* Font Definitions */
+@font-face
+	{font-family:Wingdings;
+	panose-1:5 0 0 0 0 0 0 0 0 0;}
+@font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+@font-face
+	{font-family:"Bell MT";
+	panose-1:2 2 5 3 6 3 5 2 3 3;}
+/* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin:0cm;
+	font-size:10.0pt;
+	font-family:"Calibri",sans-serif;}
+p.MsoListParagraph, li.MsoListParagraph, div.MsoListParagraph
+	{mso-style-priority:34;
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:36.0pt;
+	font-size:10.0pt;
+	font-family:"Calibri",sans-serif;}
+span.EmailStyle19
+	{mso-style-type:personal-reply;
+	font-family:"Calibri",sans-serif;
+	color:windowtext;}
+.MsoChpDefault
+	{mso-style-type:export-only;
+	font-size:10.0pt;}
+@page WordSection1
+	{size:612.0pt 792.0pt;
+	margin:72.0pt 72.0pt 72.0pt 72.0pt;}
+div.WordSection1
+	{page:WordSection1;}
+/* List Definitions */
+@list l0
+	{mso-list-id:921186663;
+	mso-list-type:hybrid;
+	mso-list-template-ids:1469485406 -1086830460 67698691 67698693 67698689 67=
+698691 67698693 67698689 67698691 67698693;}
+@list l0:level1
+	{mso-level-start-at:0;
+	mso-level-number-format:bullet;
+	mso-level-text:-;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	font-family:"Calibri",sans-serif;
+	mso-fareast-font-family:Calibri;}
+@list l0:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	font-family:"Courier New";}
+@list l0:level3
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7 ;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	font-family:Wingdings;}
+@list l0:level4
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7 ;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	font-family:Symbol;}
+@list l0:level5
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	font-family:"Courier New";}
+@list l0:level6
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7 ;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	font-family:Wingdings;}
+@list l0:level7
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7 ;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	font-family:Symbol;}
+@list l0:level8
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	font-family:"Courier New";}
+@list l0:level9
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7 ;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	font-family:Wingdings;}
+ol
+	{margin-bottom:0cm;}
+ul
+	{margin-bottom:0cm;}
+--></style>
+</head>
+<body lang=3D"en-AE" link=3D"#0563C1" vlink=3D"#954F72" style=3D"word-wrap:=
+break-word">
+<div class=3D"WordSection1">
+<p class=3D"MsoNormal"><span lang=3D"EN-US" style=3D"font-size:11.0pt">Dear=
+ Aamer - The following three companies are associated with me and please in=
+clude them in our service agreement. &nbsp;The contact person is their owne=
+r Mr. Sahal (055 4200787).
+<o:p></o:p></span></p>
+<p class=3D"MsoNormal"><span lang=3D"EN-US" style=3D"font-size:11.0pt"><o:p=
+>&nbsp;</o:p></span></p>
+<ul style=3D"margin-top:0cm" type=3D"disc">
+<li class=3D"MsoListParagraph" style=3D"margin-left:0cm;mso-list:l0 level1 =
+lfo1"><span lang=3D"EN-US" style=3D"font-size:11.0pt">Telcon Signs LLC<o:p>=
+</o:p></span></li><li class=3D"MsoListParagraph" style=3D"margin-left:0cm;m=
+so-list:l0 level1 lfo1"><span lang=3D"EN-US" style=3D"font-size:11.0pt">Tel=
+con Facilities Management LLC<o:p></o:p></span></li><li class=3D"MsoListPar=
+agraph" style=3D"margin-left:0cm;mso-list:l0 level1 lfo1"><span lang=3D"EN-=
+US" style=3D"font-size:11.0pt">Telcon Marine.
+<o:p></o:p></span></li></ul>
+<p class=3D"MsoNormal"><span lang=3D"EN-US" style=3D"font-size:11.0pt"><o:p=
+>&nbsp;</o:p></span></p>
+<p class=3D"MsoNormal"><span lang=3D"EN-US" style=3D"font-size:11.0pt">Saha=
+l =96 Please share your logins and password in wattsup with Mr. Aamer (052 =
+710 7117).&nbsp;
+<o:p></o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:11.0pt"><o:p>&nbsp;</o:p></=
+span></p>
+<div>
+<p class=3D"MsoNormal"><span lang=3D"EN-US" style=3D"color:#404040">Best Re=
+gards, <o:p>
+</o:p></span></p>
+<p class=3D"MsoNormal"><b><span lang=3D"EN-US" style=3D"font-size:11.0pt;co=
+lor:#404040"><o:p>&nbsp;</o:p></span></b></p>
+<p class=3D"MsoNormal"><b><span lang=3D"EN-US" style=3D"font-size:11.0pt;co=
+lor:#C55A11">PETER ABRAHAM | MANAGING DIRECTOR
+<o:p></o:p></span></b></p>
+<p class=3D"MsoNormal"><span lang=3D"EN-US" style=3D"font-size:11.0pt;color=
+:black">+971 56 6511563<o:p></o:p></span></p>
+<p class=3D"MsoNormal"><span lang=3D"EN-US" style=3D"font-size:11.0pt;color=
+:black">RELIABLE TRANSPORT BY HEAVY &amp; LIGHT TRUCKS LLC
+<o:p></o:p></span></p>
+<p class=3D"MsoNormal"><span lang=3D"EN-US" style=3D"color:#404040">PO Box =
+118314&nbsp;| Dubai | UAE</span><span lang=3D"EN-US" style=3D"color:black">=
+<o:p></o:p></span></p>
+</div>
+<p class=3D"MsoNormal"><span style=3D"font-size:11.0pt"><o:p>&nbsp;</o:p></=
+span></p>
+<p class=3D"MsoNormal"><span lang=3D"EN-US" style=3D"font-size:11.0pt"><o:p=
+>&nbsp;</o:p></span></p>
+</div>
+</body>
+</html>
+
+--_000_DB7PR05MB5560E31B907C2923AED5800BADC49DB7PR05MB5560eurp_--

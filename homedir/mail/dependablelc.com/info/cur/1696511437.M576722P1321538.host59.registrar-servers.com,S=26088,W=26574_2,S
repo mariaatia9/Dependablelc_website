@@ -1,0 +1,486 @@
+Return-Path: <w.o.k@me.com>
+Delivered-To: info@dependablelc.com
+Received: from host59.registrar-servers.com
+	by host59.registrar-servers.com with LMTP
+	id kJnSIc21HmVCKhQA+KyzgQ
+	(envelope-from <w.o.k@me.com>)
+	for <info@dependablelc.com>; Thu, 05 Oct 2023 09:10:37 -0400
+Return-path: <w.o.k@me.com>
+Envelope-to: info@dependablelc.com
+Delivery-date: Thu, 05 Oct 2023 09:10:37 -0400
+Received: from [63.250.43.69] (port=10354 helo=asp-relay-shared.jellyfish.systems)
+	by host59.registrar-servers.com with esmtps  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96.1)
+	(envelope-from <w.o.k@me.com>)
+	id 1qoO7h-0062In-14
+	for info@dependablelc.com;
+	Thu, 05 Oct 2023 09:10:37 -0400
+Authentication-Results: asp-relay-shared.jellyfish.systems;
+	dkim=pass header.d=me.com header.s=1a1hai header.b="bQrHY/oC";
+	dmarc=pass (policy=quarantine) header.from=me.com;
+	spf=pass (asp-relay-shared.jellyfish.systems: domain of w.o.k@me.com designates 17.58.23.190 as permitted sender) smtp.mailfrom=w.o.k@me.com
+Received: from mr85p00im-hyfv06021401.me.com (mr85p00im-hyfv06021401.me.com [17.58.23.190])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by asp-relay-shared.jellyfish.systems (Postfix) with ESMTPS id 4S1X3l0NtFz18PT
+	for <info@dependablelc.com>; Thu,  5 Oct 2023 13:10:27 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=me.com; s=1a1hai;
+	t=1696511425; bh=8VwYi1ZK04PA/4pAX5u2yCfXN60fDu3HsZiJ9pqyS/8=;
+	h=To:From:Subject:Date:Message-id:Content-Type:MIME-Version;
+	b=bQrHY/oCSaMC4K28mLY0B8s8c0LAlncXPc3C5DNf+oWHFcVuOxG6lZM0WN1fr0kZj
+	 iswH5dKpGcDfetYxr6u4DsI7T4uu9ZTAtO/TZX4kFxRNkwkUnN84Bgp+VqAmaJs+Kj
+	 kxfilXFMNh9T3ga8pyD0VxP2JbAuVt4Qfyj5JhcFl8hRhhJCv2jkcz4y6QunI2Vi7r
+	 4JWp6xupgBavf7xnaEHf44Rbezl6tw+HaSUrNqFZDPGr97m8iifLb4/SkU5W57LkbU
+	 WkfU1JJUFR3FU7voCgd+fPRoMNVelncBfah/TP57DAM6JbqojHCtY1Y+cUoAMsQZvl
+	 yPVFWobjLHj2A==
+Received: from mr85p00im-hyfv06021401.me.com (mr85p00im-hyfv06021401.me.com [17.58.23.190])
+	by mr85p00im-hyfv06021401.me.com (Postfix) with ESMTPS id 7CAEC30383A5
+	for <info@dependablelc.com>; Thu,  5 Oct 2023 13:10:25 +0000 (UTC)
+Received: from p00-mailws2-7f5f594dc9-ntr4p (mr38p00im.dlb-asmtpoutvip.me.com [10.112.84.233])
+	by mr85p00im-hyfv06021401.me.com (Postfix) with ESMTPSA id 5BA0F30384AB
+	for <info@dependablelc.com>; Thu,  5 Oct 2023 13:10:25 +0000 (UTC)
+To: info@dependablelc.com
+From: Warren Christie <w.o.k@me.com>
+Subject: Fwd: Serena Bella Casa 1 Villa 8
+Date: Thu, 5 Oct 2023 13:10:25 +0000 (UTC)
+X-Mailer: iCloud MailClientcurrent MailServer2322B155.10000-Famine2322-0-e29a334e875d
+Message-id: <b55dfd59-54c5-432d-be43-c89bdcc538fb@me.com>
+Content-Type: multipart/alternative; boundary=Apple-Webmail-42--c8769527-0c82-48ba-8625-56d024d0c310
+MIME-Version: 1.0
+References: <A3110F6B-FD85-4E1E-9D13-A1D138C0369A@me.com>
+ <27D7FC80-970F-42F9-BFEF-258D7402A622@me.com>
+X-Proofpoint-GUID: of_79vRPghyAc5CbkvVcbypBgy1hRii2
+X-Proofpoint-ORIG-GUID: of_79vRPghyAc5CbkvVcbypBgy1hRii2
+X-Proofpoint-Virus-Version: =?UTF-8?Q?vendor=3Dfsecure_engine=3D1.1.170-22c6f66c430a71ce266a39bfe25bc?=
+ =?UTF-8?Q?2903e8d5c8f:6.0.138,18.0.572,17.11.62.513.0000000_definitions?=
+ =?UTF-8?Q?=3D2020-02-14=5F11:2020-02-14=5F02,2020-02-14=5F11,2021-12-02?=
+ =?UTF-8?Q?=5F01_signatures=3D0?=
+X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 mlxlogscore=715 bulkscore=0
+ suspectscore=0 phishscore=0 adultscore=0 spamscore=0 clxscore=1011
+ mlxscore=0 malwarescore=0 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.12.0-2308100000 definitions=main-2310050101
+X-NCJF-Result: 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
+X-NCJF-Version: 12
+
+
+--Apple-Webmail-42--c8769527-0c82-48ba-8625-56d024d0c310
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain;
+    charset=utf-8;
+    format=flowed
+
+hi Aamer,please find below notice to increase the rent before the 90 days=C2=
+=A0please assist=C2=A0regards,Begin forwarded message:From: Warren Christi=
+e <w.o.k@me.com>Subject: Re: Serena Bella Casa 1 Villa 8Date: Jul 26, 2023=
+ at 11:03 AMTo: Chris Houghton <Chris.houghton@mail.com>Hi Chris,Please ta=
+ke this as the notice that I will be increasing the rent in the above ment=
+ioned villa by 20% as per the SURVEY instructions from RERA for your new c=
+ontract starting from *10/11/2023 to 18/07/2024* which is in line with the=
+ end of your 12 months notice.=C2=A0The rental for this period will be cal=
+culated on a AED90,000 annual rental therefore making this *AED62,000 in 1=
+ cheque for the period from 10/11/2023 to 18/07/2024*=C2=A0You will probab=
+ly question this increase but please note this is not as per the rental ca=
+lculator online, *BUT THE RENTAL SURVEY CARRIED OUT for the area by RERA* =
+which a max of 20% is permitted. I will send out a new contract in due cou=
+rse.=C2=A0Regards,=C2=A0WarrenOn 24 Jul 2023, at 21:22, Warren Christie <w=
+.o.k@me.com> wrote:=EF=BB=BFChrisI have given you the new contract to sign=
+ and return back to me=C2=A0I have Attached the cheque that needs to be re=
+placed into my name as per RERA as I=E2=80=99m the new owner=C2=A0You have=
+ until the 5th August to return the signed contract and replace the cheque=
+.=C2=A0I=E2=80=99m waiting on you how you want to proceedRegards=C2=A0<ima=
+ge0.jpeg>WarrenOn 24 Jul 2023, at 18:38, Warren Christie <w.o.k@me.com> wr=
+ote:=EF=BB=BFhi Chris,Following from our whats app communication, you are =
+refusing to give me a new cheque in my name as the new Landlord for the am=
+ount of AED18,750 dated for the 10/08/2023 for the next quarter of your co=
+ntract.As Ive mentioned before I have your old cheque from the seller in h=
+and and will hand this over to you when i receive the new chequePlease not=
+ if your rent is not paid by the 10/08/2023 you will be in breach of contr=
+act.regards,On Jul 24, 2023, at 5:48 PM, Warren Christie <w.o.k@me.com> wr=
+ote:Hi Chris,Please find attached the amended tenancy contract FYI. I will=
+ have 2 copies printed off and come come past the villa and get your signa=
+ture and collect the rental cheque for the next payment which is on 10/08/=
+2023Please can you let me know when if tomorrow would work for youregards,=
+WarrenOn Jul 11, 2023, at 11:35 AM, Chris Houghton <Chris.houghton@mail.co=
+m> wrote:Hi Warren,=C2=A0The good news for today is that as I said I would=
+ yesterday I have set everything in motion with Takhlees for us to have a =
+Tenancy Contract until 9th November 2024 (16 months from now). Takhlees wi=
+ll ask for your agreement to this but if you do not agree they will issue =
+the Tenancy Contract anyway.=C2=A0So you options now, which superceed any =
+previous offers I have made, are:=C2=A01) We will vacate the villa 9th Nov=
+ember 2024 in which case you will refund a) The Security deposit AED 3750,=
+ b) The cost of my obtaing the Contract today AED 4,605 (2205 fees to Takh=
+lees plus 2400 the cost of my time), c) The value of the garden and shower=
+ door AED 12,000 (if you want them).=C2=A0Total AED 20,355 and you can mov=
+e into the villa 10th November 2024.=C2=A02) We will vacate the villa 9th =
+July 2024 in=C2=A0which case you will refund a) The Security deposit AED 3=
+750, b) The cost of my obtaing the Contract today AED 4,605 (2205 fees to =
+Takhlees plus 2400 the cost of my time), c) The value of the garden and sh=
+ower door AED 12,000 (if you want them) d) The rent from July to November =
+2024 AED 25,000, e) Compensation for our allowing you to vacate the tenanc=
+y contract early AED=C2=A020,000.=C2=A0=C2=A0Total 65,355=C2=A0and you can=
+ move into the villa 10th July 2024.=C2=A03) We will vacate the villa in S=
+eptember 2023=C2=A0in which case you will refund a) The Security deposit A=
+ED 3750, b) The cost of my obtaing the Contract today AED 4,605 (2205 fees=
+ to Takhlees plus 2400 the cost of my time), c) The value of the garden an=
+d shower door AED 12,000 (if you want them), d) Compensation for our allow=
+ing you to vacate the tenancy contract early AED=C2=A0150,000.=C2=A0Total =
+AED 170,355 and you can move into the villa in September 2023.=C2=A0Hopefu=
+lly you will appreciate our efforts to assist with your desire to move int=
+o the villa in September 2023.=C2=A0Let us know at you convenience which o=
+ption you prefer.=C2=A0I am reading a book at the moment and found a lovel=
+y phrase in it, "If you tug a tigers tail you had better have a plan how t=
+o deal with its teeth".=C2=A0Have a good day,=C2=A0Chris<8 Bella Casa Tena=
+ncy Contract 2023.pdf>
+--Apple-Webmail-42--c8769527-0c82-48ba-8625-56d024d0c310
+Content-Type: multipart/related;
+    type="text/html";
+    boundary=Apple-Webmail-86--c8769527-0c82-48ba-8625-56d024d0c310
+
+
+--Apple-Webmail-86--c8769527-0c82-48ba-8625-56d024d0c310
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html;
+    charset=utf-8;
+
+<html><body><div><div>hi Aamer,<br></div><div><br></div><div>please find below notice =
+to increase the rent before the 90 days&nbsp;<br></div><div><br></div><div=
+>please assist&nbsp;<br></div><div><br></div><div>regards,</div><div><br><=
+/div><blockquote type=3D"cite"><div>Begin forwarded message:<br></div><div=
+><br></div><div><b style=3D"color: initial">From: </b>Warren Christie &lt;=
+w.o.k@me.com&gt;<br></div><div><b style=3D"color: initial">Subject: </b><b=
+>Re: Serena Bella Casa 1 Villa 8</b><br></div><div><b style=3D"color: init=
+ial">Date: </b>Jul 26, 2023 at 11:03 AM<br></div><div><b style=3D"color: i=
+nitial">To: </b>Chris Houghton &lt;Chris.houghton@mail.com&gt;<br></div><d=
+iv><br></div><div><br></div><div dir=3D"auto"><div>Hi Chris,<br></div><div=
+><br></div><div><div>Please take this as the notice that I will be increas=
+ing the rent in the above mentioned villa by 20% as per the SURVEY instruc=
+tions from RERA for your new contract starting from *10/11/2023 to 18/07/2=
+024* which is in line with the end of your 12 months notice.&nbsp;<br></di=
+v><div><br></div><div>The rental for this period will be calculated on a A=
+ED90,000 annual rental therefore making this *AED62,000 in 1 cheque for th=
+e period from 10/11/2023 to 18/07/2024*&nbsp;<br></div><div><br></div><div=
+>You will probably question this increase but please note this is not as p=
+er the rental calculator online, *BUT THE RENTAL SURVEY CARRIED OUT for th=
+e area by RERA* which a max of 20% is permitted. I will send out a new con=
+tract in due course.&nbsp;<br></div><div><br></div><div>Regards,&nbsp;<br>=
+</div><div><br></div><div dir=3D"ltr">Warren<br></div><div dir=3D"ltr"><di=
+v><br></div><blockquote type=3D"cite"><div>On 24 Jul 2023, at 21:22, Warre=
+n Christie &lt;w.o.k@me.com&gt; wrote:<br></div></blockquote></div><blockq=
+uote type=3D"cite"><div dir=3D"ltr"><div>=EF=BB=BFChris<br></div><div><br>=
+</div><div>I have given you the new contract to sign and return back to me=
+&nbsp;<br></div><div><br></div><div>I have Attached the cheque that needs =
+to be replaced into my name as per RERA as I=E2=80=99m the new owner&nbsp;=
+<br></div><div><br></div><div>You have until the 5th August to return the =
+signed contract and replace the cheque.&nbsp;<br></div><div><br></div><div=
+>I=E2=80=99m waiting on you how you want to proceed<br></div><div><br></di=
+v><div>Regards&nbsp;<br></div><div><div>&lt;image0.jpeg&gt;<br></div></div=
+><div><div><br></div><div><br></div><div dir=3D"ltr">Warren<br></div><div =
+dir=3D"ltr"><div><br></div><blockquote type=3D"cite"><div>On 24 Jul 2023, =
+at 18:38, Warren Christie &lt;w.o.k@me.com&gt; wrote:<br></div></blockquot=
+e></div><blockquote type=3D"cite"><div dir=3D"ltr"><div>=EF=BB=BF<br></div=
+><div><div>hi Chris,<br></div><div><br></div><div>Following from our whats=
+ app communication, you are refusing to give me a new cheque in my name as=
+ the new Landlord for the amount of AED18,750 dated for the 10/08/2023 for=
+ the next quarter of your contract.<br></div><div><br></div><div>As Ive me=
+ntioned before I have your old cheque from the seller in hand and will han=
+d this over to you when i receive the new cheque<br></div><div><br></div><=
+div>Please not if your rent is not paid by the 10/08/2023 you will be in b=
+reach of contract.<br></div><div><br></div><div>regards,<br></div><div><br=
+></div><blockquote type=3D"cite"><div>On Jul 24, 2023, at 5:48 PM, Warren =
+Christie &lt;w.o.k@me.com&gt; wrote:<br></div><div><br></div><div><br></di=
+v><div><div><div>Hi Chris,<br></div><div><br></div><div>Please find attach=
+ed the amended tenancy contract FYI. I will have 2 copies printed off and =
+come come past the villa and get your signature and collect the rental che=
+que for the next payment which is on 10/08/2023<br></div><div><br></div><d=
+iv>Please can you let me know when if tomorrow would work for you<br></div=
+><div><br></div><div>regards,<br></div><div><br></div><div>Warren<br></div=
+><div><br></div><blockquote type=3D"cite"><div>On Jul 11, 2023, at 11:35 A=
+M, Chris Houghton &lt;Chris.houghton@mail.com&gt; wrote:<br></div><div><br=
+></div><div><br></div><div><div style=3D"font-family: Verdana;font-size: 1=
+2.0px;"><div>Hi Warren,<br></div><div>&nbsp;<br></div><div>The good news f=
+or today is that as I said I would yesterday I have set everything in moti=
+on with Takhlees for us to have a Tenancy Contract until 9th November 2024=
+ (16 months from now). Takhlees will ask for your agreement to this but if=
+ you do not agree they will issue the Tenancy Contract anyway.<br></div><d=
+iv>&nbsp;<br></div><div>So you options now, which superceed any previous o=
+ffers I have made, are:<br></div><div>&nbsp;<br></div><div>1) We will vaca=
+te the villa 9th November 2024 in which case you will refund a) The Securi=
+ty deposit AED 3750, b) The cost of my obtaing the Contract today AED 4,60=
+5 (2205 fees to Takhlees plus 2400 the cost of my time), c) The value of t=
+he garden and shower door AED 12,000 (if you want them).<br></div><div>&nb=
+sp;<br></div><div>Total AED 20,355 and you can move into the villa 10th No=
+vember 2024.<br></div><div>&nbsp;<br></div><div>2) We will vacate the vill=
+a 9th July 2024 in&nbsp;which case you will refund a) The Security deposit=
+ AED 3750, b) The cost of my obtaing the Contract today AED 4,605 (2205 fe=
+es to Takhlees plus 2400 the cost of my time), c) The value of the garden =
+and shower door AED 12,000 (if you want them) d) The rent from July to Nov=
+ember 2024 AED 25,000, e) Compensation for our allowing you to vacate the =
+tenancy contract early AED&nbsp;20,000.&nbsp;<br></div><div>&nbsp;<br></di=
+v><div>Total 65,355&nbsp;and you can move into the villa 10th July 2024.<b=
+r></div><div>&nbsp;<br></div><div>3) We will vacate the villa in September=
+ 2023&nbsp;in which case you will refund a) The Security deposit AED 3750,=
+ b) The cost of my obtaing the Contract today AED 4,605 (2205 fees to Takh=
+lees plus 2400 the cost of my time), c) The value of the garden and shower=
+ door AED 12,000 (if you want them), d) Compensation for our allowing you =
+to vacate the tenancy contract early AED&nbsp;150,000.<br></div><div>&nbsp=
+;<br></div><div>Total AED 170,355 and you can move into the villa in Septe=
+mber 2023.<br></div><div>&nbsp;<br></div><div>Hopefully you will appreciat=
+e our efforts to assist with your desire to move into the villa in Septemb=
+er 2023.<br></div><div>&nbsp;<br></div><div>Let us know at you convenience=
+ which option you prefer.<br></div><div>&nbsp;<br></div><div>I am reading =
+a book at the moment and found a lovely phrase in it, "If you tug a tigers=
+ tail you had better have a plan how to deal with its teeth".<br></div><di=
+v>&nbsp;<br></div><div>Have a good day,<br></div><div>&nbsp;<br></div><div=
+>Chris<br></div></div></div></blockquote><div><br></div></div><div><br></d=
+iv><div><span>&lt;8 Bella Casa Tenancy Contract 2023.pdf&gt;</span><br></d=
+iv></div></blockquote></div><div><br></div></div></blockquote></div></div>=
+</blockquote></div></div></blockquote></div><div><br></div></body></html>
+--Apple-Webmail-86--c8769527-0c82-48ba-8625-56d024d0c310--
+
+--Apple-Webmail-42--c8769527-0c82-48ba-8625-56d024d0c310--
+

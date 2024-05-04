@@ -1,0 +1,505 @@
+Return-Path: <m.alsarraj@shawafintl.com>
+Delivered-To: info@dependablelc.com
+Received: from host59.registrar-servers.com
+	by host59.registrar-servers.com with LMTP
+	id 4M7AIUV9sWTzZzoA+KyzgQ
+	(envelope-from <m.alsarraj@shawafintl.com>)
+	for <info@dependablelc.com>; Fri, 14 Jul 2023 12:52:21 -0400
+Return-path: <m.alsarraj@shawafintl.com>
+Envelope-to: info@dependablelc.com
+Delivery-date: Fri, 14 Jul 2023 12:52:21 -0400
+Received: from [63.250.43.69] (port=12716 helo=asp-relay-shared.jellyfish.systems)
+	by host59.registrar-servers.com with esmtps  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <m.alsarraj@shawafintl.com>)
+	id 1qKM1l-00HVga-1A
+	for info@dependablelc.com;
+	Fri, 14 Jul 2023 12:52:21 -0400
+Received: from asp-relay-shared.jellyfish.systems (localhost [127.0.0.1])
+	by asp-relay-shared.jellyfish.systems (Postfix) with ESMTP id 4R2cw45FVmzBwm9
+	for <info@dependablelc.com>; Fri, 14 Jul 2023 16:52:20 +0000 (UTC)
+Received: from mail-ej1-f44.google.com (mail-ej1-f44.google.com [209.85.218.44])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by asp-relay-shared.jellyfish.systems (Postfix) with ESMTPS id 4R2cvz463gzBwjL
+	for <info@dependablelc.com>; Fri, 14 Jul 2023 16:52:15 +0000 (UTC)
+Received: by mail-ej1-f44.google.com with SMTP id a640c23a62f3a-991da766865so287016166b.0
+        for <info@dependablelc.com>; Fri, 14 Jul 2023 09:52:15 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=shawafintl-com.20221208.gappssmtp.com; s=20221208; t=1689353534; x=1691945534;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=gx5OVyeMke+NiOh6agEH2Z+kzstzMHgg6zcntzfDqcY=;
+        b=kjwAmnhBL0+tCA7GVWf/cFn4zAQ3OW9MhVSI6taGL8PQ3Vm7+y4s58tg2nGyc0TE/V
+         TZe0xziFtyVx+rrdCCf2IntxLWVKpFwghdlcp0jQ7uAugcRyEAUWqTQdPsBlHJbdakqW
+         8mpZdcUk/RQO8zBh9x7PPeI3uazS9YwxXiC2jAnphHxcuRva/LCOQw7uD0dsQwtT1tye
+         E41Q1VO2kj5qQkfLUiwrRfqGWkiaBWB2fufqlCgbWi3+TkYhlfSW8ikILD5EbJQdzcDA
+         8Umh2qZKhsBBAsJhWyLAolXjbFDo2tYlfsVjHq3tScTfU8JdgfjJzY3ibtMNLgGsAX/2
+         RHaA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1689353534; x=1691945534;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=gx5OVyeMke+NiOh6agEH2Z+kzstzMHgg6zcntzfDqcY=;
+        b=IAa3IHV6sCREHeKDAS8YxtRDZRK7T6N5dO89WlDRVNZXsrWoBDhv7uyh0I2sgFzHqa
+         dmRH/EBG7pO8t3XyGyvEk4D76aR+NHL2GjVkiFvO1qLknUkT1q66uLjTNVHc7nCRCHvo
+         bdce83dPAZap6u4/dd1tJZX3/JczclM7IGsdWW0O2vLAB0VqeGqf9UZi/agB6lvQnpwN
+         vSzOgJRmAoW7Z8rE72oduiBH/2yObf0OKwqgERn6SjgJslwiwlXlJtAfKXiCtei9xD5/
+         NKf1g8ty2rJg5rLGeruWh7h99QxWMrepSD+QvictdmX4BxPYoDwTxOhsw6tW4gP6UxCE
+         6sdA==
+X-Gm-Message-State: ABy/qLYpxH2dwDO0m+tp4V0LjitWcHXFKZM8MlAqRzGwcs3RbNGF9YJo
+	RJ8epk1rxYLXq0vzBHeeVIQmAPDeoaYqrmVDQe7Ao6DamaAEpVf+2v0=
+X-Google-Smtp-Source: APBJJlFoMKwIGPS3amNsoFoDNHViOkdwfllV0bkLsiQrrqM7JZk7TpZnzp9GvRibPMGhJY+1cXIoia2eIOEKzvtuBXw=
+X-Received: by 2002:a17:906:bc97:b0:992:5135:4112 with SMTP id
+ lv23-20020a170906bc9700b0099251354112mr3928970ejb.32.1689353533391; Fri, 14
+ Jul 2023 09:52:13 -0700 (PDT)
+MIME-Version: 1.0
+References: <tencent_7021D8CD356F67C62B5B0690@qq.com> <CAF+K2+0S6a1cEfE7jKqaWz+UZxrdfBGzfcJrgXo4KVMHabWrSA@mail.gmail.com>
+In-Reply-To: <CAF+K2+0S6a1cEfE7jKqaWz+UZxrdfBGzfcJrgXo4KVMHabWrSA@mail.gmail.com>
+From: Mureed Alsarraj <m.alsarraj@shawafintl.com>
+Date: Fri, 14 Jul 2023 20:52:02 +0400
+Message-ID: <CAM7tO3V6EWA=edrQ0d9oQm_BZGzTaGXDWEK0U4k2_cm=JdRjQg@mail.gmail.com>
+Subject: Fwd: Demand letter& settlement offer for 3 placing booms
+To: info@dependablelc.com
+Content-Type: multipart/alternative; boundary="00000000000042180306007545f7"
+X-NCJF-Result: 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
+X-NCJF-Version: 6
+Authentication-Results: asp-relay-shared.jellyfish.systems;
+	dkim=pass header.d=shawafintl-com.20221208.gappssmtp.com header.s=20221208 header.b=kjwAmnhB;
+	dmarc=none;
+	spf=pass (asp-relay-shared.jellyfish.systems: domain of m.alsarraj@shawafintl.com designates 209.85.218.44 as permitted sender) smtp.mailfrom=m.alsarraj@shawafintl.com
+
+--00000000000042180306007545f7
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+Dear Aamer,
+
+We need to close this matter, lets talk about it.
+
+---------- Forwarded message ---------
+From: Shawaf Al Shawaf <shawaf@albawani.net>
+Date: Fri, Jul 14, 2023, 8:43 PM
+Subject: Fwd: Demand letter& settlement offer for 3 placing booms
+To: Mureed Alsarraj <m.alsarraj@shawafintl.com>
+
+
+Close this issue with the lawyer urgently and take action
+
+
+---------- Forwarded message ---------
+From: =E5=A5=82=E7=AB=A5=E9=B9=A4 <tonghe.huan@zoomlion.com>
+Date: Fri, 14 Jul 2023 at 6:34 am
+Subject: Demand letter& settlement offer for 3 placing booms
+To: shawaf <shawaf@albawani.net>, mohi <mohi@shawafintl.com>, boush.yin <
+boush.yin@shawafintl.com>
+CC: kuangxiaojun <kuangxiaojun@zoomlion.com>, zhenggy <
+zhenggy@zoomlioncapital.com>, mohui <mohui@zoomlion.com>
+
+
+Dear Sirs,
+
+We have discussed the issue arising from the three Zoomlion HGC33D-3R
+placing booms (the =E2=80=9CBooms=E2=80=9D) for many times, and now we need=
+ to talk about
+this issue again.
+
+As we all know, Zoomlion Gulf FZE (=E2=80=9CZoomlion Gulf=E2=80=9D) and Sha=
+waf Al Shawaf
+General Trading (=E2=80=9CYou=E2=80=9D) entered into a sale & purchase cont=
+ract No.
+R/ZL-CE-SDO-1806119 dated on June 12, 2018 (the =E2=80=9CContract=E2=80=9D)=
+ regarding the
+Booms at the price of 1125720 AED.
+
+Zoomlion Gulf has performed its obligation under the Contract by duly
+delivering the Booms. However, You only made the payment to Zoomlion Gulf u=
+nder
+the Contract on January 31, 2019. As a result, You have failed to make
+the payment
+of 350000 AED, which was due in the seventh month after the date of enterin=
+g
+into the Contract (June 12, 2018), and your default has breached the
+Contract.
+
+There is one suggestion for the settlement. If you are willing to make the
+payment of 198000 AED, we can resolve this issue once for all. If you are
+interested in the settlement offer of 198000 AED, please inform us within
+three days. Or, if you have another ideas to achieve the settlement, please
+let us know within three days as well, and we can absolutely discuss this.
+Otherwise, we will file arbitration proceedings before China
+International Economic
+and Trade Arbitration Commission, because of your due payment.
+
+
+Best regards,
+
+--=20
+
+
+
+
+
+*Shawaf Al Shawaf Supply Chain Director * Email: shawaf@albawani.net
+Tel:    920033155                  Website: www.albawani.net
+
+P.O. Box 65697 Riyadh 11566, Kingdom of Saudi Arabia
+
+------------------------------
+The information in this email and in any files transmitted with it, is
+intended only for the addressee, and may contain confidential and/or
+privileged material. Access to this email by anyone else is unauthorized.
+If you receive this by error, please contact the sender immediately and
+delete the material from any receiving computer. If you are not the
+intended recipient, any disclosure, copying, distribution or any action
+taken or omitted to be taken in reliance on it, is strictly prohibited.
+Statements and opinions expressed in this e-mail are those of the sender,
+and do not necessarily reflect those of the Albawani.
+
+--00000000000042180306007545f7
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"auto">Dear Aamer,<div dir=3D"auto"><br></div><div dir=3D"auto">=
+We need to close this matter, lets talk about it.=C2=A0</div></div><br><div=
+ class=3D"gmail_quote"><div dir=3D"ltr" class=3D"gmail_attr">---------- For=
+warded message ---------<br>From: <strong class=3D"gmail_sendername" dir=3D=
+"auto">Shawaf Al Shawaf</strong> <span dir=3D"auto">&lt;<a href=3D"mailto:s=
+hawaf@albawani.net">shawaf@albawani.net</a>&gt;</span><br>Date: Fri, Jul 14=
+, 2023, 8:43 PM<br>Subject: Fwd: Demand letter&amp; settlement offer for 3 =
+placing booms<br>To: Mureed Alsarraj &lt;<a href=3D"mailto:m.alsarraj@shawa=
+fintl.com">m.alsarraj@shawafintl.com</a>&gt;<br></div><br><br><div dir=3D"a=
+uto">Close this issue with the lawyer urgently and take action=C2=A0</div><=
+div dir=3D"auto"><br></div><div><br><div class=3D"gmail_quote"><div dir=3D"=
+ltr" class=3D"gmail_attr">---------- Forwarded message ---------<br>From: <=
+strong class=3D"gmail_sendername" dir=3D"auto">=E5=A5=82=E7=AB=A5=E9=B9=A4<=
+/strong> <span dir=3D"auto">&lt;<a href=3D"mailto:tonghe.huan@zoomlion.com"=
+ target=3D"_blank" rel=3D"noreferrer">tonghe.huan@zoomlion.com</a>&gt;</spa=
+n><br>Date: Fri, 14 Jul 2023 at 6:34 am<br>Subject: Demand letter&amp; sett=
+lement offer for 3 placing booms<br>To: shawaf &lt;<a href=3D"mailto:shawaf=
+@albawani.net" target=3D"_blank" rel=3D"noreferrer">shawaf@albawani.net</a>=
+&gt;, mohi &lt;<a href=3D"mailto:mohi@shawafintl.com" target=3D"_blank" rel=
+=3D"noreferrer">mohi@shawafintl.com</a>&gt;, boush.yin &lt;<a href=3D"mailt=
+o:boush.yin@shawafintl.com" target=3D"_blank" rel=3D"noreferrer">boush.yin@=
+shawafintl.com</a>&gt;<br>CC: kuangxiaojun &lt;<a href=3D"mailto:kuangxiaoj=
+un@zoomlion.com" target=3D"_blank" rel=3D"noreferrer">kuangxiaojun@zoomlion=
+.com</a>&gt;, zhenggy &lt;<a href=3D"mailto:zhenggy@zoomlioncapital.com" ta=
+rget=3D"_blank" rel=3D"noreferrer">zhenggy@zoomlioncapital.com</a>&gt;, moh=
+ui &lt;<a href=3D"mailto:mohui@zoomlion.com" target=3D"_blank" rel=3D"noref=
+errer">mohui@zoomlion.com</a>&gt;<br></div><br><br><div><p style=3D"line-he=
+ight:150%"><font style=3D"display:inline;font-size:13px;font-family:&quot;T=
+imes New Roman&quot;;color:rgb(51,51,51);text-decoration:none;background-co=
+lor:rgba(0,0,0,0);font-weight:400;font-style:normal">Dear Sirs,</font></p><=
+/div><div><p style=3D"text-indent:21.0000pt;line-height:150%"><span style=
+=3D"font-family:=E9=BB=91=E4=BD=93;font-size:12.0000pt"><font face=3D"Times=
+ New Roman">We have discussed the issue arising from the three</font></span=
+><span style=3D"font-family:&#39;Times New Roman&#39;;font-size:12.0000pt">=
+=C2=A0Zoomlion </span><span style=3D"font-family:=E9=BB=91=E4=BD=93;font-si=
+ze:12.0000pt"><font face=3D"Times New Roman">HGC33D-3R placing booms</font>=
+</span><span style=3D"font-family:&#39;Times New Roman&#39;;font-size:12.00=
+00pt">=C2=A0(the =E2=80=9C</span><span style=3D"font-family:=E9=BB=91=E4=BD=
+=93;font-size:12.0000pt"><font face=3D"Times New Roman">Booms</font></span>=
+<span style=3D"font-family:&#39;Times New Roman&#39;;font-size:12.0000pt"><=
+font face=3D"Times New Roman">=E2=80=9D)</font></span><span style=3D"font-f=
+amily:=E9=BB=91=E4=BD=93;font-size:12.0000pt">=C2=A0<font face=3D"Times New=
+ Roman">for many times, and now we need to talk about this issue again.</fo=
+nt></span></p><p style=3D"text-indent:21.0000pt;line-height:150%"><span sty=
+le=3D"font-family:=E9=BB=91=E4=BD=93;font-size:12.0000pt"><font face=3D"Tim=
+es New Roman">As we all know, Zoomlion Gulf FZE (</font></span><span style=
+=3D"font-family:&#39;Times New Roman&#39;;font-size:12.0000pt"><font face=
+=3D"Times New Roman">=E2=80=9C</font></span><span style=3D"font-family:=E9=
+=BB=91=E4=BD=93;font-size:12.0000pt"><font face=3D"Times New Roman">Zoomlio=
+n Gulf</font></span><span style=3D"font-family:&#39;Times New Roman&#39;;fo=
+nt-size:12.0000pt"><font face=3D"Times New Roman">=E2=80=9D</font></span><s=
+pan style=3D"font-family:=E9=BB=91=E4=BD=93;font-size:12.0000pt"><font face=
+=3D"Times New Roman">) </font></span><span style=3D"font-family:&#39;Times =
+New Roman&#39;;font-size:12.0000pt">and </span><span style=3D"font-family:=
+=E5=AE=8B=E4=BD=93;font-size:12pt"><font face=3D"Times New Roman">Shawaf Al=
+ Shawaf General Trading (</font></span><span style=3D"font-family:&quot;Tim=
+es New Roman&quot;;font-size:12pt"><font face=3D"Times New Roman">=E2=80=9C=
+</font></span><span style=3D"font-family:&#39;Times New Roman&#39;;font-siz=
+e:12.0000pt">You</span><span style=3D"font-family:&#39;Times New Roman&#39;=
+;font-size:12.0000pt"><font face=3D"Times New Roman">=E2=80=9D</font></span=
+><span style=3D"font-family:=E9=BB=91=E4=BD=93;font-size:12.0000pt"><font f=
+ace=3D"Times New Roman">)</font></span><span style=3D"font-family:&#39;Time=
+s New Roman&#39;;font-size:12.0000pt">=C2=A0entered into a sale </span><spa=
+n style=3D"font-family:=E9=BB=91=E4=BD=93;font-size:12.0000pt"><font face=
+=3D"Times New Roman">&amp;</font></span><span style=3D"font-family:&#39;Tim=
+es New Roman&#39;;font-size:12.0000pt">=C2=A0purchase contract No. </span><=
+span style=3D"font-family:=E9=BB=91=E4=BD=93;font-size:12.0000pt"><font fac=
+e=3D"Times New Roman">R/ZL-CE-SDO-1806119</font></span><span style=3D"font-=
+family:&#39;Times New Roman&#39;;font-size:12.0000pt">=C2=A0dated on </span=
+><span style=3D"font-family:=E9=BB=91=E4=BD=93;font-size:12.0000pt"><font f=
+ace=3D"Times New Roman">June</font></span><span style=3D"font-family:&#39;T=
+imes New Roman&#39;;font-size:12.0000pt">=C2=A0</span><span style=3D"font-f=
+amily:=E9=BB=91=E4=BD=93;font-size:12.0000pt"><font face=3D"Times New Roman=
+">12</font></span><span style=3D"font-family:&#39;Times New Roman&#39;;font=
+-size:12.0000pt">, 2018 (the =E2=80=9CContract=E2=80=9D) regarding the </sp=
+an><span style=3D"font-family:=E9=BB=91=E4=BD=93;font-size:12.0000pt"><font=
+ face=3D"Times New Roman">Booms</font></span><span style=3D"font-family:&#3=
+9;Times New Roman&#39;;font-size:12.0000pt">=C2=A0at the price of </span><s=
+pan style=3D"font-family:=E9=BB=91=E4=BD=93;font-size:12.0000pt"><font face=
+=3D"Times New Roman">1125720 AED</font></span><span style=3D"font-family:=
+=E9=BB=91=E4=BD=93;font-size:12.0000pt"><font face=3D"Times New Roman">.</f=
+ont></span><span style=3D"font-family:&#39;Times New Roman&#39;;font-size:1=
+2.0000pt"><u></u><u></u></span></p><p style=3D"text-indent:21.0000pt;line-h=
+eight:150%"><span style=3D"font-family:=E9=BB=91=E4=BD=93;font-size:12.0000=
+pt"><font face=3D"Times New Roman">Zoomlion Gulf</font></span><span style=
+=3D"font-family:&#39;Times New Roman&#39;;font-size:12.0000pt">=C2=A0has pe=
+rformed its obligation under the Contract by duly delivering the </span><sp=
+an style=3D"font-family:=E9=BB=91=E4=BD=93;font-size:12.0000pt"><font face=
+=3D"Times New Roman">Booms. However, Y</font></span><span style=3D"font-fam=
+ily:&#39;Times New Roman&#39;;font-size:12.0000pt">ou </span><span style=3D=
+"font-family:=E9=BB=91=E4=BD=93;font-size:12.0000pt"><font face=3D"Times Ne=
+w Roman">only made the payment</font></span><span style=3D"font-family:&#39=
+;Times New Roman&#39;;font-size:12.0000pt">=C2=A0to </span><span style=3D"f=
+ont-family:=E9=BB=91=E4=BD=93;font-size:12.0000pt"><font face=3D"Times New =
+Roman">Zoomlion Gulf</font></span><span style=3D"font-family:&#39;Times New=
+ Roman&#39;;font-size:12.0000pt">=C2=A0under the Contract</span><span style=
+=3D"font-family:=E9=BB=91=E4=BD=93;font-size:12.0000pt">=C2=A0<font face=3D=
+"Times New Roman">o</font></span><span style=3D"font-family:&#39;Times New =
+Roman&#39;;font-size:12.0000pt">n </span><span style=3D"font-family:=E9=BB=
+=91=E4=BD=93;font-size:12.0000pt"><font face=3D"Times New Roman">January</f=
+ont></span><span style=3D"font-family:&#39;Times New Roman&#39;;font-size:1=
+2.0000pt">=C2=A0</span><span style=3D"font-family:=E9=BB=91=E4=BD=93;font-s=
+ize:12.0000pt"><font face=3D"Times New Roman">31</font></span><span style=
+=3D"font-family:&#39;Times New Roman&#39;;font-size:12.0000pt">, 20</span><=
+span style=3D"font-family:=E9=BB=91=E4=BD=93;font-size:12.0000pt"><font fac=
+e=3D"Times New Roman">19. As a result, </font></span><span style=3D"font-fa=
+mily:&#39;Times New Roman&#39;;font-size:12.0000pt">You have failed to make=
+ the</span><span style=3D"font-family:=E9=BB=91=E4=BD=93;font-size:12.0000p=
+t">=C2=A0</span><span style=3D"font-family:&#39;Times New Roman&#39;;font-s=
+ize:12.0000pt">payment </span><span style=3D"font-family:=E9=BB=91=E4=BD=93=
+;font-size:12.0000pt"><font face=3D"Times New Roman">of 350000 AED</font></=
+span><span style=3D"font-family:&#39;Times New Roman&#39;;font-size:12.0000=
+pt">, which was due </span><span style=3D"font-family:=E9=BB=91=E4=BD=93;fo=
+nt-size:12.0000pt"><font face=3D"Times New Roman">in the seventh month</fon=
+t></span><span style=3D"font-family:&#39;Times New Roman&#39;;font-size:12.=
+0000pt">=C2=A0after the date of </span><span style=3D"font-family:=E9=BB=91=
+=E4=BD=93;font-size:12.0000pt"><font face=3D"Times New Roman">entering into=
+ the Contract</font></span><span style=3D"font-family:&#39;Times New Roman&=
+#39;;font-size:12.0000pt">=C2=A0(June </span><span style=3D"font-family:=E9=
+=BB=91=E4=BD=93;font-size:12.0000pt"><font face=3D"Times New Roman">12</fon=
+t></span><span style=3D"font-family:&#39;Times New Roman&#39;;font-size:12.=
+0000pt">, 2018), </span><span style=3D"font-family:=E9=BB=91=E4=BD=93;font-=
+size:12.0000pt"><font face=3D"Times New Roman">and your default has breache=
+d </font></span><span style=3D"font-family:&#39;Times New Roman&#39;;font-s=
+ize:12.0000pt">the Contract</span><span style=3D"font-family:=E9=BB=91=E4=
+=BD=93;font-size:12.0000pt"><font face=3D"Times New Roman">.</font></span><=
+span style=3D"font-family:&#39;Times New Roman&#39;;font-size:12.0000pt"><u=
+></u><u></u></span></p><p style=3D"text-indent:21.0000pt;line-height:150%">=
+<span style=3D"font-family:=E9=BB=91=E4=BD=93;font-size:12.0000pt"><font fa=
+ce=3D"Times New Roman">There is one suggestion for the settlement. If you a=
+re willing to make the payment of 198000 AED, we can resolve this issue onc=
+e for all. I</font></span><span style=3D"font-family:=E9=BB=91=E4=BD=93;fon=
+t-size:12.0000pt"><font face=3D"Times New Roman">f you are interested in th=
+e settlement offer of 198000 AED, please inform us within three days. </fon=
+t></span><span style=3D"font-family:=E9=BB=91=E4=BD=93;font-size:12.0000pt"=
+><font face=3D"Times New Roman">Or, if you have another ideas to achieve th=
+e settlement, please let us know within three days as well, and we can abso=
+lutely discuss this.=C2=A0</font></span><span style=3D"text-indent:21pt;fon=
+t-family:=E9=BB=91=E4=BD=93;font-size:12pt"><font face=3D"Times New Roman">=
+Otherwise,</font></span><span style=3D"text-indent:21pt;font-family:=E9=BB=
+=91=E4=BD=93;font-size:12pt">=C2=A0<font face=3D"Times New Roman">we </font=
+></span><span style=3D"text-indent:21pt;font-family:=E9=BB=91=E4=BD=93;font=
+-size:12pt"><font face=3D"Times New Roman">will file </font></span><span st=
+yle=3D"text-indent:21pt;font-family:=E9=BB=91=E4=BD=93;font-size:12pt"><fon=
+t face=3D"Times New Roman">arbitration proceedings before China</font></spa=
+n><span style=3D"text-indent:21pt;font-family:=E9=BB=91=E4=BD=93;font-size:=
+12pt">	</span><span style=3D"text-indent:21pt;font-family:=E9=BB=91=E4=BD=
+=93;font-size:12pt"><font face=3D"Times New Roman">International</font></sp=
+an><span style=3D"text-indent:21pt;font-family:=E9=BB=91=E4=BD=93;font-size=
+:12pt">=C2=A0</span><span style=3D"text-indent:21pt;font-family:=E9=BB=91=
+=E4=BD=93;font-size:12pt"><font face=3D"Times New Roman">Economic and Trade=
+ Arbitration Commission</font></span><span style=3D"text-indent:21pt;font-f=
+amily:=E9=BB=91=E4=BD=93;font-size:12pt"><font face=3D"Times New Roman">, b=
+ecause of your due payment</font></span><span style=3D"text-indent:21pt;fon=
+t-family:=E9=BB=91=E4=BD=93;font-size:12pt"><font face=3D"Times New Roman">=
+.</font></span></p><p style=3D"line-height:150%"><br></p><p style=3D"line-h=
+eight:150%"><span style=3D"font-family:=E9=BB=91=E4=BD=93;font-size:12.0000=
+pt"><font face=3D"Times New Roman">Best regards,</font></span></p></div><di=
+v><br></div><div><u></u><u></u></div></div></div><span class=3D"gmail_signa=
+ture_prefix">-- </span><br><div dir=3D"ltr" class=3D"gmail_signature" data-=
+smartmail=3D"gmail_signature"><div style=3D"display:table;width:100%">=C2=
+=A0
+<table style=3D"width:100%;max-height:280px;max-width:500px">
+  <tbody>
+		<tr>
+			<td style=3D"width:30%;text-align:center"><img style=3D"width:100%" src=
+=3D"http://gsig.albawani.net/newsig/gray-logo.png"></td>
+
+			<td style=3D"width:70%;padding-left:4%">
+			<p style=3D"font-size:1.5vmin;color:#000000!important;line-height:1.5;fo=
+nt-family:&#39;Open Sans&#39;,sans-serif"><b style=3D"color:#000000!importa=
+nt">Shawaf Al Shawaf<span style=3D"color:#00703c;font-size:1.2vmin"> <br>Su=
+pply Chain Director </span><br><br> </b><span style=3D"font-size:1.2vmin;co=
+lor:#000000!important"> Email: <a href=3D"mailto:shawaf@albawani.net" targe=
+t=3D"_blank" rel=3D"noreferrer">shawaf@albawani.net</a><br>=20
+			<span style=3D"font-size:1.2vmin;color:#000000!important">Tel:=C2=A0 =C2=
+=A0 920033155 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
+=A0Website: <a href=3D"http://www.albawani.net/" target=3D"_blank" rel=3D"n=
+oreferrer">www.albawani.net</a></span><br>
+			<br>
+			<span style=3D"color:#999999">P.O. Box 65697 Riyadh 11566, Kingdom of Sa=
+udi Arabia</span></span></p>
+			</td>
+		</tr>
+	</tbody>
+</table>
+</div><div style=3D"min-height:1px"></div></div>
+
+<br>
+<div><hr></div><div><font face=3D"Arial, Helvetica, sans-serif" color=3D"#8=
+08080" size=3D"1">The information in this email and in any files transmitte=
+d with it, is intended only for the addressee, and may contain confidential=
+ and/or privileged material. Access to this email by anyone else is unautho=
+rized. If you receive this by error, please contact the sender immediately =
+and delete the material from any receiving computer. If you are not the int=
+ended recipient, any disclosure, copying, distribution or any action taken =
+or omitted to be taken in reliance on it, is strictly prohibited. Statement=
+s and opinions expressed in this e-mail are those of the sender, and do not=
+ necessarily reflect those of the Albawani.</font></div><div style=3D"font-=
+size:1.3em;font-family:Arial,Helvetica,sans-serif"><br></div></div>
+
+--00000000000042180306007545f7--

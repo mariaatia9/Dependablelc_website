@@ -1,0 +1,1088 @@
+Return-Path: <dameralan@gmail.com>
+Received: from host59.registrar-servers.com
+	by host59.registrar-servers.com with LMTP
+	id 6DXwI2q3sWJjkQUA+KyzgQ
+	(envelope-from <dameralan@gmail.com>); Tue, 21 Jun 2022 08:19:54 -0400
+Return-path: <dameralan@gmail.com>
+Envelope-to: ceo@dependablelc.com,
+ info@dependablelc.com
+Delivery-date: Tue, 21 Jun 2022 08:19:54 -0400
+Received: from [63.250.43.69] (port=36661 helo=asp-relay-shared.jellyfish.systems)
+	by host59.registrar-servers.com with esmtps  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <dameralan@gmail.com>)
+	id 1o3crK-002Jru-HB;
+	Tue, 21 Jun 2022 08:19:54 -0400
+Received: from mail-wr1-f52.google.com (mail-wr1-f52.google.com [209.85.221.52])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by asp-relay-shared.jellyfish.systems (Postfix) with ESMTPS id 4LS5Dd2ZjxzBrRQ;
+	Tue, 21 Jun 2022 12:19:40 +0000 (UTC)
+Received: by mail-wr1-f52.google.com with SMTP id i10so14923785wrc.0;
+        Tue, 21 Jun 2022 05:19:40 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20210112;
+        h=from:to:cc:references:in-reply-to:subject:date:message-id
+         :mime-version:thread-index:content-language;
+        bh=yy4TfMWfVt/YtWD6B/lFBcE67UwR4gDGzvPUSuAmByE=;
+        b=VKp9ySmo99iP4PI8pt6GxaAq+FlhwuJKmoI1R24gM/hfh54V4TUhESSqnRXfmt31Wj
+         BKBCMszW7BXtW+350/2NY+TeOPbUOzpWwA5GKQBZWpPJD+LB2JeS1/V4Y97QVTwyjhLY
+         COj4RUCKmAVvGJBa9GUtH5Ir+x515sRQ+RnxsiDvIC7LyURNrUVzSeuBO4ywIKR1QZ1l
+         nqWjcR32KNRCRAI+tz5vV+q5mDAoJYwon8ReUSSbDyodYJygIn4NILFQ7A0rh2xyaeEN
+         btafhwrBovZ7ECRsLgkgicF2h7s5omG8lCist32IsFSa8oE8kOYFiIKm1NhFwo58kGEg
+         xa8w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=x-gm-message-state:from:to:cc:references:in-reply-to:subject:date
+         :message-id:mime-version:thread-index:content-language;
+        bh=yy4TfMWfVt/YtWD6B/lFBcE67UwR4gDGzvPUSuAmByE=;
+        b=XxqMotBvRWgbTx+MBLGGK12IN7E1S9QWfeHQv3py3a9pMdqlbc3vx/f+UuvefmMJzQ
+         A9Hn3EGlP4eFU9VOSRv7sSDr+wWVg/17a+2FBqKMn4Ue7X2LVw4byYf1crNWnE0lUHg9
+         7HDsfBBWKhmIueS6CBJVkmOtCmlYSXFKqILBIS4ut20fVwVos9qWsbu0BJpm/B7dejPs
+         X8I42WOx2aM1ESeVBYY8VDFnwbtuRie83enU+07uzcVkNB1JryzljSu6OjE9Kwls0ZaL
+         QHsOCDOx/nPcLIr9BGQl4LNvBLZVGRRkS7KiolI3AZaUBxyWm4rSBETIxRMno6rMJu2M
+         7jtA==
+X-Gm-Message-State: AJIora8fCtmuAit/NOnzo6Ur8GC7j+cE32ZTPkteGh1D5dixJ1aTtT2f
+	O42hB5qG5K0VEJrUKUEcCUc=
+X-Google-Smtp-Source: AGRyM1u+ID/L4WcOiXYZW6bz5P4B8VkS9NNYuvQ6Pu5Rd3Rojfl56U8fIResSETfrhv7fxkl6d3klQ==
+X-Received: by 2002:adf:a2da:0:b0:21b:8e90:6f23 with SMTP id t26-20020adfa2da000000b0021b8e906f23mr10927183wra.565.1655813978896;
+        Tue, 21 Jun 2022 05:19:38 -0700 (PDT)
+Received: from DESKTOPESNQ5L1 ([105.159.239.68])
+        by smtp.gmail.com with ESMTPSA id by13-20020a056000098d00b0021a39a56a73sm16285883wrb.106.2022.06.21.05.19.37
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Tue, 21 Jun 2022 05:19:38 -0700 (PDT)
+From: <dameralan@gmail.com>
+To: <ceo@dependablelc.com>
+Cc: <aamersaade80@gmail.com>,
+	<info@dependablelc.com>
+References: <002301d87b16$9c1c31a0$d45494e0$@dependablelc.com> <CAB94+NXwavrB6mzUxdPvCjo3eYK7sOq0FE1DXV1dQXJodECUqw@mail.gmail.com> <004e01d88542$5e0f8200$1a2e8600$@dependablelc.com>
+In-Reply-To: <004e01d88542$5e0f8200$1a2e8600$@dependablelc.com>
+Subject: RE: Notice Letter from GMG Healthcare LLC FZ.
+Date: Tue, 21 Jun 2022 13:19:37 +0100
+Message-ID: <066b01d88569$2d9eed00$88dcc700$@gmail.com>
+MIME-Version: 1.0
+Content-Type: multipart/related;
+	boundary="----=_NextPart_000_066C_01D88571.8F688520"
+X-Mailer: Microsoft Outlook 16.0
+Thread-Index: AQHE5YitPaisytDU9KQ2rlBa2VxHOAMOenE8AsDaliatUmzLQA==
+Content-Language: en-us
+X-NCJF-Result: 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
+ 
+	fXXqbqmEHLkuPyICVYxO7BQ==
+X-NCJF-Version: 8
+Authentication-Results: asp-relay-shared.jellyfish.systems;
+	dkim=pass header.d=gmail.com header.s=20210112 header.b=VKp9ySmo;
+	dmarc=pass (policy=none) header.from=gmail.com;
+	spf=pass (asp-relay-shared.jellyfish.systems: domain of dameralan@gmail.com designates 209.85.221.52 as permitted sender) smtp.mailfrom=dameralan@gmail.com
+
+This is a multipart message in MIME format.
+
+------=_NextPart_000_066C_01D88571.8F688520
+Content-Type: multipart/alternative;
+	boundary="----=_NextPart_001_066D_01D88571.8F688520"
+
+
+------=_NextPart_001_066D_01D88571.8F688520
+Content-Type: text/plain;
+	charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+CONFIDENTAL
+
+DO NOT SHARE COPY OR PRINT
+
+=20
+
+Pls find below my reply
+
+=20
+
+From: ceo@dependablelc.com <ceo@dependablelc.com>=20
+Sent: Tuesday, June 21, 2022 8:42 AM
+To: 'Alan Damer' <dameralan@gmail.com>
+Cc: aamersaade80@gmail.com; info@dependablelc.com
+Subject: RE: Notice Letter from GMG Healthcare LLC FZ.
+
+=20
+
+GMG Health Care LLC FZ
+
+Dear Ammar:
+
+As per our conversation on phone, I got to review the rules of the =
+American Arbitration Association (AAA), and here is the procedure how it =
+will go if you confirm to go ahead with that:
+
+1.	We must determine the amount you want to claim from OTS, as required =
+by AAA. The amount is based on the turnover and 40% margin profit, =
+details are:
+
+a.	2018, MAD986K
+b.	2019, MAD3,529K
+c.	2020, MAD2,631K
+d.	2021, MAD183K
+
+Gross profit MAD2,931K, GMG SHARE 1,465K=3DUS$146,150
+
+=20
+
+2.	Will submit a request to (AAA) to start the arbitration process as =
+the forum. OK
+
+=20
+
+3.	There will be a fee on that submission as the schedule is attached. =
+OK
+
+=20
+
+4.	When the arbitration procedure starts, and they nominate one =
+Arbitrator, there will be an additional fee. US$3,300
+
+=20
+
+5.	If the submission will be under the name of Dependable Legal =
+Consultants LL, need a letter from GMG to DLC authorizing DLC to start =
+the procedure, as attached here.=20
+
+=20
+
+6.	Also, will agree to the DLC fee for that, which will be 5,000 AED for =
+the submission and follow-up till the Arbitration procedure start. OK
+
+=20
+
+7.	Would inform you also that you can stop the procedure whenever you =
+want, but the fee which was paid to (AAA) will not be refundable.
+
+=20
+
+This is for your information and advice.=20
+
+=20
+
+=20
+
+Aamer Nizar Saade.
+
+CEO
+
++971527047930
+
+
+
+Dependable Legal Consultants LLC
+
+ <http://www.dependablelc.com/> www.dependablelc.com=20
+
+=20
+
+=20
+
+=20
+
+From: Alan Damer <dameralan@gmail.com <mailto:dameralan@gmail.com> >=20
+Sent: 09 June 2022 11:16
+To: ceo@dependablelc.com <mailto:ceo@dependablelc.com>=20
+Subject: Re: Notice Letter from GMG Healthcare LLC FZ.
+
+=20
+
+Hi Amer,
+
+I wish you a good day=20
+
+I received your email sent to OTS.
+
+Pls make sure to bcc me only for any future correspondence
+
+Share with me you meeting with lawyer Naoufel when you meet tomorrow
+
+TC
+
+=20
+
+On Wed, 8 Jun 2022, 10:03 , <ceo@dependablelc.com =
+<mailto:ceo@dependablelc.com> > wrote:
+
+Opti-Tronics sarl.
+
+Dear Sir:
+
+We are Dependable Legal Consultants LLC, the Business Console of GMG =
+Healthcare LLC FZ writing to you, on behalf of GMG Healthcare LLC FZ.
+
+Kindly find the attachment below, the Notice letter from GMG Healthcare =
+LLC FZ, for your response and action.=20
+
+Your quick response is appreciated.
+
+=20
+
+=20
+
+Best Regards.
+
+=20
+
+Dependable Legal Consultants LLC
+
+ <http://www.dependablelc.com/> www.dependablelc.com=20
+
+=20
+
+=20
+
+
+------=_NextPart_001_066D_01D88571.8F688520
+Content-Type: text/html;
+	charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+<html xmlns:v=3D"urn:schemas-microsoft-com:vml" =
+xmlns:o=3D"urn:schemas-microsoft-com:office:office" =
+xmlns:w=3D"urn:schemas-microsoft-com:office:word" =
+xmlns:m=3D"http://schemas.microsoft.com/office/2004/12/omml" =
+xmlns=3D"http://www.w3.org/TR/REC-html40"><head><meta =
+http-equiv=3DContent-Type content=3D"text/html; charset=3Dutf-8"><meta =
+name=3DGenerator content=3D"Microsoft Word 15 (filtered medium)"><!--[if =
+!mso]><style>v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+w\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+</style><![endif]--><style><!--
+/* Font Definitions */
+@font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+@font-face
+	{font-family:"Bell MT";
+	panose-1:2 2 5 3 6 3 5 2 3 3;}
+/* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin:0in;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+a:link, span.MsoHyperlink
+	{mso-style-priority:99;
+	color:blue;
+	text-decoration:underline;}
+p.MsoListParagraph, li.MsoListParagraph, div.MsoListParagraph
+	{mso-style-priority:34;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.5in;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+span.EmailStyle21
+	{mso-style-type:personal-compose;
+	font-family:"Calibri",sans-serif;
+	color:windowtext;}
+.MsoChpDefault
+	{mso-style-type:export-only;
+	font-size:10.0pt;}
+@page WordSection1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.0in 1.0in 1.0in;}
+div.WordSection1
+	{page:WordSection1;}
+/* List Definitions */
+@list l0
+	{mso-list-id:77950238;
+	mso-list-template-ids:-1252646162;}
+@list l0:level2
+	{mso-level-start-at:0;
+	mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level3
+	{mso-level-start-at:0;
+	mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level4
+	{mso-level-start-at:0;
+	mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level5
+	{mso-level-start-at:0;
+	mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level6
+	{mso-level-start-at:0;
+	mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level7
+	{mso-level-start-at:0;
+	mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level8
+	{mso-level-start-at:0;
+	mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level9
+	{mso-level-start-at:0;
+	mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l1
+	{mso-list-id:462774354;
+	mso-list-template-ids:-733694354;}
+@list l1:level2
+	{mso-level-start-at:0;
+	mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l1:level3
+	{mso-level-start-at:0;
+	mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l1:level4
+	{mso-level-start-at:0;
+	mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l1:level5
+	{mso-level-start-at:0;
+	mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l1:level6
+	{mso-level-start-at:0;
+	mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l1:level7
+	{mso-level-start-at:0;
+	mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l1:level8
+	{mso-level-start-at:0;
+	mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l1:level9
+	{mso-level-start-at:0;
+	mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l2
+	{mso-list-id:780615591;
+	mso-list-template-ids:1555971526;}
+@list l2:level2
+	{mso-level-number-format:alpha-lower;
+	mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l2:level3
+	{mso-level-start-at:0;
+	mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l2:level4
+	{mso-level-start-at:0;
+	mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l2:level5
+	{mso-level-start-at:0;
+	mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l2:level6
+	{mso-level-start-at:0;
+	mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l2:level7
+	{mso-level-start-at:0;
+	mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l2:level8
+	{mso-level-start-at:0;
+	mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l2:level9
+	{mso-level-start-at:0;
+	mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l3
+	{mso-list-id:832334841;
+	mso-list-template-ids:48659338;}
+@list l3:level2
+	{mso-level-start-at:0;
+	mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l3:level3
+	{mso-level-start-at:0;
+	mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l3:level4
+	{mso-level-start-at:0;
+	mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l3:level5
+	{mso-level-start-at:0;
+	mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l3:level6
+	{mso-level-start-at:0;
+	mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l3:level7
+	{mso-level-start-at:0;
+	mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l3:level8
+	{mso-level-start-at:0;
+	mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l3:level9
+	{mso-level-start-at:0;
+	mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l4
+	{mso-list-id:919558568;
+	mso-list-template-ids:1913427084;}
+@list l4:level2
+	{mso-level-start-at:0;
+	mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l4:level3
+	{mso-level-start-at:0;
+	mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l4:level4
+	{mso-level-start-at:0;
+	mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l4:level5
+	{mso-level-start-at:0;
+	mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l4:level6
+	{mso-level-start-at:0;
+	mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l4:level7
+	{mso-level-start-at:0;
+	mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l4:level8
+	{mso-level-start-at:0;
+	mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l4:level9
+	{mso-level-start-at:0;
+	mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l5
+	{mso-list-id:1238443145;
+	mso-list-type:hybrid;
+	mso-list-template-ids:1082952300 745074884 67698713 67698715 67698703 =
+67698713 67698715 67698703 67698713 67698715;}
+@list l5:level1
+	{mso-level-text:%1-;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l5:level2
+	{mso-level-number-format:alpha-lower;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l5:level3
+	{mso-level-number-format:roman-lower;
+	mso-level-tab-stop:none;
+	mso-level-number-position:right;
+	text-indent:-9.0pt;}
+@list l5:level4
+	{mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l5:level5
+	{mso-level-number-format:alpha-lower;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l5:level6
+	{mso-level-number-format:roman-lower;
+	mso-level-tab-stop:none;
+	mso-level-number-position:right;
+	text-indent:-9.0pt;}
+@list l5:level7
+	{mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l5:level8
+	{mso-level-number-format:alpha-lower;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l5:level9
+	{mso-level-number-format:roman-lower;
+	mso-level-tab-stop:none;
+	mso-level-number-position:right;
+	text-indent:-9.0pt;}
+@list l6
+	{mso-list-id:1275093624;
+	mso-list-template-ids:-1275691174;}
+@list l6:level2
+	{mso-level-start-at:0;
+	mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l6:level3
+	{mso-level-start-at:0;
+	mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l6:level4
+	{mso-level-start-at:0;
+	mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l6:level5
+	{mso-level-start-at:0;
+	mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l6:level6
+	{mso-level-start-at:0;
+	mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l6:level7
+	{mso-level-start-at:0;
+	mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l6:level8
+	{mso-level-start-at:0;
+	mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l6:level9
+	{mso-level-start-at:0;
+	mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l7
+	{mso-list-id:1373655971;
+	mso-list-template-ids:-1173319818;}
+@list l7:level2
+	{mso-level-start-at:0;
+	mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l7:level3
+	{mso-level-start-at:0;
+	mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l7:level4
+	{mso-level-start-at:0;
+	mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l7:level5
+	{mso-level-start-at:0;
+	mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l7:level6
+	{mso-level-start-at:0;
+	mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l7:level7
+	{mso-level-start-at:0;
+	mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l7:level8
+	{mso-level-start-at:0;
+	mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l7:level9
+	{mso-level-start-at:0;
+	mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+--></style><!--[if gte mso 9]><xml>
+<o:shapedefaults v:ext=3D"edit" spidmax=3D"1026" />
+</xml><![endif]--><!--[if gte mso 9]><xml>
+<o:shapelayout v:ext=3D"edit">
+<o:idmap v:ext=3D"edit" data=3D"1" />
+</o:shapelayout></xml><![endif]--></head><body lang=3DEN-US link=3Dblue =
+vlink=3Dpurple style=3D'word-wrap:break-word'><div =
+class=3DWordSection1><p class=3DMsoNormal align=3Dcenter =
+style=3D'text-align:center'><b><span =
+style=3D'font-size:12.0pt;color:red'>CONFIDENTAL<o:p></o:p></span></b></p=
+><p class=3DMsoNormal align=3Dcenter =
+style=3D'text-align:center'><b><span =
+style=3D'font-size:12.0pt;color:red'>DO NOT SHARE COPY OR =
+PRINT<o:p></o:p></span></b></p><p class=3DMsoNormal align=3Dcenter =
+style=3D'text-align:center'><b><span =
+style=3D'font-size:12.0pt;color:red'><o:p>&nbsp;</o:p></span></b></p><p =
+class=3DMsoNormal><span style=3D'font-size:12.0pt'>Pls find below my =
+reply<o:p></o:p></span></p><p class=3DMsoNormal><span =
+style=3D'font-size:12.0pt'><o:p>&nbsp;</o:p></span></p><div><div =
+style=3D'border:none;border-top:solid #E1E1E1 1.0pt;padding:3.0pt 0in =
+0in 0in'><p class=3DMsoNormal><b>From:</b> ceo@dependablelc.com =
+&lt;ceo@dependablelc.com&gt; <br><b>Sent:</b> Tuesday, June 21, 2022 =
+8:42 AM<br><b>To:</b> 'Alan Damer' =
+&lt;dameralan@gmail.com&gt;<br><b>Cc:</b> aamersaade80@gmail.com; =
+info@dependablelc.com<br><b>Subject:</b> RE: Notice Letter from GMG =
+Healthcare LLC FZ.<o:p></o:p></p></div></div><p =
+class=3DMsoNormal><o:p>&nbsp;</o:p></p><p class=3DMsoNormal><span =
+style=3D'font-size:16.0pt;font-family:"Bell MT",serif;color:#323E4F'>GMG =
+Health Care LLC FZ<o:p></o:p></span></p><p class=3DMsoNormal><span =
+style=3D'font-size:16.0pt;font-family:"Bell =
+MT",serif;color:#323E4F'>Dear Ammar</span><span =
+style=3D'font-size:16.0pt;font-family:"Bell MT",serif'>:<span =
+style=3D'color:#323E4F'><o:p></o:p></span></span></p><p =
+class=3DMsoNormal><span style=3D'font-size:16.0pt;font-family:"Bell =
+MT",serif;color:#323E4F'>As per our conversation on phone, I got to =
+review the rules of the American Arbitration Association (AAA), and here =
+is the procedure how it will go if you confirm to go ahead with =
+that:<o:p></o:p></span></p><ol style=3D'margin-top:0in' start=3D1 =
+type=3D1><li class=3DMsoListParagraph =
+style=3D'color:#3D04BC;margin-left:0in;mso-list:l5 level1 lfo3'><span =
+style=3D'font-size:16.0pt;font-family:"Bell MT",serif;color:#323E4F'>We =
+must determine the amount you want to claim from OTS, as required by =
+AAA.</span><span style=3D'font-size:16.0pt;font-family:"Bell =
+MT",serif;color:windowtext'> </span><span =
+style=3D'font-size:16.0pt;font-family:"Bell MT",serif'>The amount is =
+based on the turnover </span><span =
+style=3D'font-size:16.0pt;font-family:"Bell MT",serif'>and 40% margin =
+profit, details are:<o:p></o:p></span></li><ol style=3D'margin-top:0in' =
+start=3D1 type=3Da><li class=3DMsoListParagraph =
+style=3D'color:#3D04BC;margin-left:0in;mso-list:l5 level2 lfo3'><span =
+style=3D'font-size:16.0pt;font-family:"Bell MT",serif'>2018, =
+MAD986K<o:p></o:p></span></li><li class=3DMsoListParagraph =
+style=3D'color:#3D04BC;margin-left:0in;mso-list:l5 level2 lfo3'><span =
+style=3D'font-size:16.0pt;font-family:"Bell MT",serif'>2019, =
+MAD3,529K<o:p></o:p></span></li><li class=3DMsoListParagraph =
+style=3D'color:#3D04BC;margin-left:0in;mso-list:l5 level2 lfo3'><span =
+style=3D'font-size:16.0pt;font-family:"Bell MT",serif'>2020, =
+MAD2,631K<o:p></o:p></span></li><li class=3DMsoListParagraph =
+style=3D'color:#3D04BC;margin-left:0in;mso-list:l5 level2 lfo3'><span =
+style=3D'font-size:16.0pt;font-family:"Bell MT",serif'>2021, =
+MAD183K<o:p></o:p></span></li></ol></ol><p class=3DMsoNormal =
+style=3D'margin-left:.5in'><span =
+style=3D'font-size:16.0pt;font-family:"Bell =
+MT",serif;color:#3D04BC'>Gross profit MAD2,931K, GMG SHARE =
+1,465K=3D<span =
+style=3D'background:yellow;mso-highlight:yellow'>US$146,150</span><o:p></=
+o:p></span></p><p class=3DMsoNormal style=3D'margin-left:.5in'><span =
+style=3D'font-size:14.0pt;font-family:"Bell =
+MT",serif'><o:p>&nbsp;</o:p></span></p><ol style=3D'margin-top:0in' =
+start=3D2 type=3D1><li class=3DMsoListParagraph =
+style=3D'color:#323E4F;margin-left:0in;mso-list:l5 level1 lfo3'><span =
+style=3D'font-size:16.0pt;font-family:"Bell MT",serif'>Will submit a =
+request to (AAA) to start the arbitration process as the forum. =
+</span><span style=3D'font-size:16.0pt;font-family:"Bell =
+MT",serif;color:#3D04BC'>OK</span><span =
+style=3D'font-size:16.0pt;font-family:"Bell =
+MT",serif'><o:p></o:p></span></li></ol><p class=3DMsoNormal><span =
+style=3D'font-size:12.0pt'><o:p>&nbsp;</o:p></span></p><ol =
+style=3D'margin-top:0in' start=3D3 type=3D1><li class=3DMsoListParagraph =
+style=3D'color:#323E4F;margin-left:0in;mso-list:l5 level1 lfo3'><span =
+style=3D'font-size:16.0pt;font-family:"Bell MT",serif'>There will be =
+<span style=3D'background:yellow;mso-highlight:yellow'>a fee on that =
+submission</span> as the schedule is attached. </span><span =
+style=3D'font-size:16.0pt;font-family:"Bell =
+MT",serif;color:#3D04BC'>OK</span><span =
+style=3D'font-size:16.0pt;font-family:"Bell =
+MT",serif'><o:p></o:p></span></li></ol><p class=3DMsoNormal><span =
+style=3D'font-size:12.0pt'><o:p>&nbsp;</o:p></span></p><ol =
+style=3D'margin-top:0in' start=3D4 type=3D1><li class=3DMsoListParagraph =
+style=3D'color:#3D04BC;margin-left:0in;mso-list:l5 level1 lfo3'><span =
+style=3D'font-size:16.0pt;font-family:"Bell =
+MT",serif;color:#323E4F'>When the arbitration procedure starts, and they =
+nominate one Arbitrator, there will be an additional fee.</span><span =
+style=3D'font-size:16.0pt;font-family:"Bell MT",serif;color:windowtext'> =
+</span><span style=3D'font-size:16.0pt;font-family:"Bell =
+MT",serif'>US$3,300<o:p></o:p></span></li></ol><p =
+class=3DMsoNormal><span =
+style=3D'font-size:12.0pt'><o:p>&nbsp;</o:p></span></p><ol =
+style=3D'margin-top:0in' start=3D5 type=3D1><li class=3DMsoListParagraph =
+style=3D'color:#323E4F;margin-left:0in;mso-list:l5 level1 lfo3'><span =
+style=3D'font-size:16.0pt;font-family:"Bell MT",serif'>If the submission =
+will be under the name of Dependable Legal Consultants LL, need <span =
+style=3D'background:yellow;mso-highlight:yellow'>a letter from GMG to =
+DLC</span> authorizing DLC to start the procedure, as attached here. =
+<o:p></o:p></span></li></ol><p class=3DMsoNormal><span =
+style=3D'font-size:12.0pt'><o:p>&nbsp;</o:p></span></p><ol =
+style=3D'margin-top:0in' start=3D6 type=3D1><li class=3DMsoListParagraph =
+style=3D'color:#323E4F;margin-left:0in;mso-list:l5 level1 lfo3'><span =
+style=3D'font-size:16.0pt;font-family:"Bell MT",serif'>Also, will agree =
+to the DLC fee for that, which will be <span =
+style=3D'background:yellow;mso-highlight:yellow'>5</span></span><span =
+style=3D'font-size:16.0pt;font-family:"Bell =
+MT",serif;color:windowtext;background:yellow;mso-highlight:yellow'>,</spa=
+n><span style=3D'font-size:16.0pt;font-family:"Bell =
+MT",serif;background:yellow;mso-highlight:yellow'>000 AED</span><span =
+style=3D'font-size:16.0pt;font-family:"Bell MT",serif'> for the =
+submission and follow-up till the Arbitration procedure start. =
+</span><span style=3D'font-size:16.0pt;font-family:"Bell =
+MT",serif;color:#3D04BC'>OK</span><span =
+style=3D'font-size:16.0pt;font-family:"Bell =
+MT",serif'><o:p></o:p></span></li></ol><p class=3DMsoNormal><span =
+style=3D'font-size:12.0pt'><o:p>&nbsp;</o:p></span></p><ol =
+style=3D'margin-top:0in' start=3D7 type=3D1><li class=3DMsoListParagraph =
+style=3D'color:#323E4F;margin-left:0in;mso-list:l5 level1 lfo3'><span =
+style=3D'font-size:16.0pt;font-family:"Bell MT",serif'>Would inform you =
+also that you can stop the procedure whenever you want, but the fee =
+which was paid to (AAA) will not be =
+refundable.<o:p></o:p></span></li></ol><p class=3DMsoNormal><span =
+style=3D'font-size:12.0pt'><o:p>&nbsp;</o:p></span></p><p =
+class=3DMsoNormal><span style=3D'font-size:16.0pt;font-family:"Bell =
+MT",serif;color:#323E4F'>This is for your information and advice. =
+<o:p></o:p></span></p><p class=3DMsoNormal><span =
+style=3D'font-size:16.0pt;font-family:"Bell =
+MT",serif;color:#323E4F'><o:p>&nbsp;</o:p></span></p><p =
+class=3DMsoNormal><span =
+style=3D'color:#323E4F'><o:p>&nbsp;</o:p></span></p><p =
+class=3DMsoNormal><span style=3D'font-size:12.0pt;font-family:"Bell =
+MT",serif;color:#1F3864'>Aamer Nizar Saade.<o:p></o:p></span></p><p =
+class=3DMsoNormal><span style=3D'font-size:12.0pt;font-family:"Bell =
+MT",serif;color:#1F3864'>CEO<o:p></o:p></span></p><p =
+class=3DMsoNormal><span style=3D'font-size:12.0pt;font-family:"Bell =
+MT",serif;color:#1F3864'>+971527047930<o:p></o:p></span></p><p =
+class=3DMsoNormal><span style=3D'color:#323E4F'><img width=3D36 =
+height=3D40 style=3D'width:.375in;height:.4166in' id=3D"Picture_x0020_2" =
+src=3D"cid:image003.jpg@01D88571.8E534490"></span><span =
+style=3D'color:#323E4F'><o:p></o:p></span></p><p class=3DMsoNormal><span =
+style=3D'font-size:12.0pt;font-family:"Bell =
+MT",serif;color:#1F3864'>Dependable Legal Consultants =
+LLC<o:p></o:p></span></p><p class=3DMsoNormal><a =
+href=3D"http://www.dependablelc.com/"><span =
+style=3D'color:#0563C1'>www.dependablelc.com</span></a><span =
+style=3D'color:#323E4F'> <o:p></o:p></span></p><p =
+class=3DMsoNormal><span style=3D'font-size:16.0pt;font-family:"Bell =
+MT",serif;color:#323E4F'><o:p>&nbsp;</o:p></span></p><p =
+class=3DMsoNormal><span style=3D'font-size:16.0pt;font-family:"Bell =
+MT",serif;color:#323E4F'><o:p>&nbsp;</o:p></span></p><p =
+class=3DMsoNormal><span style=3D'font-size:16.0pt;font-family:"Bell =
+MT",serif;color:#323E4F'><o:p>&nbsp;</o:p></span></p><div =
+style=3D'border:none;border-top:solid #E1E1E1 1.0pt;padding:3.0pt 0in =
+0in 0in'><p class=3DMsoNormal><b>From:</b> Alan Damer &lt;<a =
+href=3D"mailto:dameralan@gmail.com">dameralan@gmail.com</a>&gt; =
+<br><b>Sent:</b> 09 June 2022 11:16<br><b>To:</b> <a =
+href=3D"mailto:ceo@dependablelc.com">ceo@dependablelc.com</a><br><b>Subje=
+ct:</b> Re: Notice Letter from GMG Healthcare LLC =
+FZ.<o:p></o:p></p></div><p =
+class=3DMsoNormal><o:p>&nbsp;</o:p></p><div><p class=3DMsoNormal>Hi =
+Amer,<o:p></o:p></p><div><p class=3DMsoNormal>I wish you a good =
+day&nbsp;<o:p></o:p></p></div><div><p class=3DMsoNormal>I received your =
+email sent to OTS.<o:p></o:p></p></div><div><p class=3DMsoNormal>Pls =
+make sure to bcc me only for any =
+future&nbsp;correspondence<o:p></o:p></p></div><div><p =
+class=3DMsoNormal>Share with me you meeting with lawyer Naoufel when you =
+meet tomorrow<o:p></o:p></p></div><div><p =
+class=3DMsoNormal>TC<o:p></o:p></p></div></div><p =
+class=3DMsoNormal><o:p>&nbsp;</o:p></p><div><div><p class=3DMsoNormal>On =
+Wed, 8 Jun 2022, 10:03 , &lt;<a =
+href=3D"mailto:ceo@dependablelc.com">ceo@dependablelc.com</a>&gt; =
+wrote:<o:p></o:p></p></div><blockquote =
+style=3D'border:none;border-left:solid #CCCCCC 1.0pt;padding:0in 0in 0in =
+6.0pt;margin-left:4.8pt;margin-top:5.0pt;margin-right:0in;margin-bottom:5=
+.0pt'><div><div><p class=3DMsoNormal =
+style=3D'mso-margin-top-alt:auto;mso-margin-bottom-alt:auto'><span =
+style=3D'font-size:16.0pt;font-family:"Bell =
+MT",serif;color:#323E4F'>Opti-Tronics sarl.</span><o:p></o:p></p><p =
+class=3DMsoNormal =
+style=3D'mso-margin-top-alt:auto;mso-margin-bottom-alt:auto'><span =
+style=3D'font-size:16.0pt;font-family:"Bell =
+MT",serif;color:#323E4F'>Dear Sir:</span><o:p></o:p></p><p =
+class=3DMsoNormal =
+style=3D'mso-margin-top-alt:auto;mso-margin-bottom-alt:auto'><span =
+style=3D'font-size:16.0pt;font-family:"Bell MT",serif;color:#323E4F'>We =
+are Dependable Legal Consultants LLC, the Business Console of GMG =
+Healthcare LLC FZ writing to you, on behalf of GMG Healthcare LLC =
+FZ.</span><o:p></o:p></p><p class=3DMsoNormal =
+style=3D'mso-margin-top-alt:auto;mso-margin-bottom-alt:auto'><span =
+style=3D'font-size:16.0pt;font-family:"Bell =
+MT",serif;color:#323E4F'>Kindly find the attachment below, the Notice =
+letter from GMG Healthcare LLC FZ, for your response and action. =
+</span><o:p></o:p></p><p class=3DMsoNormal =
+style=3D'mso-margin-top-alt:auto;mso-margin-bottom-alt:auto'><span =
+style=3D'font-size:16.0pt;font-family:"Bell =
+MT",serif;color:#323E4F'>Your quick response is =
+appreciated.</span><o:p></o:p></p><p class=3DMsoNormal =
+style=3D'mso-margin-top-alt:auto;mso-margin-bottom-alt:auto'><span =
+style=3D'font-size:16.0pt;font-family:"Bell =
+MT",serif;color:#323E4F'>&nbsp;</span><o:p></o:p></p><p =
+class=3DMsoNormal =
+style=3D'mso-margin-top-alt:auto;mso-margin-bottom-alt:auto'><span =
+lang=3DEN-GB style=3D'font-size:12.0pt;font-family:"Bell =
+MT",serif;color:#002060'>&nbsp;</span><o:p></o:p></p><p =
+class=3DMsoNormal =
+style=3D'mso-margin-top-alt:auto;mso-margin-bottom-alt:auto'><span =
+style=3D'font-size:12.0pt;font-family:"Bell =
+MT",serif;color:#002060'>Best Regards.</span><o:p></o:p></p><p =
+class=3DMsoNormal =
+style=3D'mso-margin-top-alt:auto;mso-margin-bottom-alt:auto'><o:p>&nbsp;<=
+/o:p></p><p class=3DMsoNormal =
+style=3D'mso-margin-top-alt:auto;mso-margin-bottom-alt:auto'><span =
+style=3D'font-size:12.0pt;font-family:"Bell =
+MT",serif;color:#002060'>Dependable Legal Consultants =
+LLC</span><o:p></o:p></p><p class=3DMsoNormal =
+style=3D'mso-margin-top-alt:auto;mso-margin-bottom-alt:auto'><a =
+href=3D"http://www.dependablelc.com/" target=3D"_blank"><span =
+style=3D'font-size:12.0pt;font-family:"Bell =
+MT",serif'>www.dependablelc.com</span></a><span =
+style=3D'font-size:12.0pt;font-family:"Bell MT",serif;color:#002060'> =
+</span><o:p></o:p></p><p class=3DMsoNormal =
+style=3D'mso-margin-top-alt:auto;mso-margin-bottom-alt:auto'><span =
+style=3D'font-size:16.0pt;font-family:"Bell =
+MT",serif;color:#323E4F'>&nbsp;</span><o:p></o:p></p><p =
+class=3DMsoNormal =
+style=3D'mso-margin-top-alt:auto;mso-margin-bottom-alt:auto'><span =
+style=3D'font-size:16.0pt;font-family:"Bell =
+MT",serif;color:#323E4F'>&nbsp;</span><o:p></o:p></p></div></div></blockq=
+uote></div></div></body></html>
+------=_NextPart_001_066D_01D88571.8F688520--
+
+------=_NextPart_000_066C_01D88571.8F688520
+Content-Type: image/jpeg;
+	name="image003.jpg"
+Content-Transfer-Encoding: base64
+Content-ID: <image003.jpg@01D88571.8E534490>
+
+/9j/4AAQSkZJRgABAQEAkACQAAD/2wBDAAoHBwgHBgoICAgLCgoLDhgQDg0NDh0VFhEYIx8lJCIf
+IiEmKzcvJik0KSEiMEExNDk7Pj4+JS5ESUM8SDc9Pjv/2wBDAQoLCw4NDhwQEBw7KCIoOzs7Ozs7
+Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozv/wAARCAA8ADYDASIA
+AhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQA
+AAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3
+ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWm
+p6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEA
+AwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSEx
+BhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElK
+U1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3
+uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD2auY8
+VePtG8KAxXDm4vCMrawkbh7seij61D498Vy+H7GGz02MzavqDeXaxqNxXsWx+PHv9DWFo3gO20GG
+PUtaRNW168k/dpO2Y0kPJJ9cAElvbjtVqKtdktvZGS3j7x9r5L6Fopht8/K0duZP/H24/Son1r4s
+2QMstpcuo5I+yRuPyUZr0GTSpGkie8kkvlx+8RnaMIRxhEUhccjGcn3qY2dxpyLPpU8kgCgm1mkL
+RuB1wWyUb0wceo71XOuwuV9zhNG+Ms0VwLbxFpnlkHDS24IZfqjf0P4V6fp2p2WrWUd5YXCXFvIP
+lkQ5H09j7Vk6noGg+NNKjmurUSCVMxTqNssf4+o9DxXmCf2x8JPFCiR2udJujyQPlmXucdpF/X6G
+i0Z7aMLtbnt9FQ2l1De2sV1bSCSGZA8bjowIyDRWRZxfhqzGv+OtY8TXI3x2UpsLEHouzh2H4k/m
+a6HU5Fh1u3mmLCOOzndQoBJIKEgA98VT8AQeT4Qtzj95LLNI/uxlbNOg1KDxMs8Fu32PVtKnw8Un
+Jjfkc/3kYEjPofUVb3JWxaN5bXVlZXELlFuIDNECBypCnkD2NLJqNrbW1u8hJE179mj8tQ2HLEYx
+2xg5+leca3peoeF9btdY0uy1EhWdH08K8sUIcfMYnXjaTztwD04q74I8M34ij1GYXrX8xeQNdqyQ
+2Jcncyo335CO+Mc9abirXuF9bHfaCCLe6wcx/bZth9t5z/49uqDxd4eh8TeHbnT3UeaV3wOf4JB9
+0/0PsauRS6bpFpFam6hgSJdo82UA/U570g17R2O1dWsSfQXKf41Gt7jOM+Duqy3Xh650u4z5mnTb
+VB6hW5x+BDUVd8HeG7vR/FuvagHt30+/ffAYZQx+8Tgjt1oqp2croUb2N7w9H9kjvdOPBtruRkH+
+xITIp/8AHiPwNcP4mvo/Cvxe0/VGlENtf2wW7J6bRlcn6YU/hXoE3lrdC+gkRii+XOAw5XPH4g5x
+9TXnPxA0W68Y+OLHTtNeMLBaAzTsw2x7mP5nA6CnC19RS2F1v4xPLP8AY/DOntPIx2pNMhJY/wCz
+GOT+P5U208JePfFeJ/EGuTadbPz5Kthsf7i4A/E5rsvCvhHQvC8IWyCTXZGJLpyDI3sP7o9hXQCe
+EsFEyFicAbhk0OaXwoLN7nH6d8KPCtlhrm1k1CXu91ITk/QYFdFbeGtCs1C2+jWMQHTbbpn+VaDS
+xopZnVQvUk4xSCaJiAJEJI3ABh09ahyb3ZVkEVvDACIYY4weoRQP5UUqSxyZ8t1fHXac0UhnB3mn
+Xs1g8NvYSo5+3GUEKPNDu2xAM/MclW9sVc/sj+0NQt0eOWGDyZVnuxAkRlYvERjH3SQuM/7NMltE
+u9RktZHbyw8yALgY8x8t29uKfdQny1ujK5fd93jaBvWQDGOxA/CrJIYNMkksHtLi1uY5pLjekiRK
+jWw88lSGzk9Q36e1E1leASG501XunsbmPdBt2GZ5AVYHPy5xuz2q/c2EVyXlkZzJIEmLcZ3PH5Z7
+dMcgdjzUUmiWrR+XvlAdHPUcdcjp0JGSPXpikMpXlrqb2t+JY2me/s1jcYGVljYKM5OPmUlvoKn0
+1LrStTe7m0yeQGGSNWwoLbpywJ5wvBzjsPyp7xLJeHcFImeG4YbF+8Cp9OnWrFppkDTPuZ3EIJUN
+gghgWIPHIDEkelAibwbbvaWCW81u6zJEu5zGqhRzhMg/Ng5Of9qip/D1nFbOTFlQbeIMoAAY7R8x
+460UnuUf/9k=
+
+------=_NextPart_000_066C_01D88571.8F688520--
+

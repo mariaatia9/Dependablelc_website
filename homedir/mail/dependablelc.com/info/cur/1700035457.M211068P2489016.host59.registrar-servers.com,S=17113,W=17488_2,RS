@@ -1,0 +1,375 @@
+Return-Path: <77897ds@gmail.com>
+Delivered-To: info@dependablelc.com
+Received: from host59.registrar-servers.com
+	by host59.registrar-servers.com with LMTP
+	id oCVbDIF7VGW4+iUA+KyzgQ
+	(envelope-from <77897ds@gmail.com>)
+	for <info@dependablelc.com>; Wed, 15 Nov 2023 03:04:17 -0500
+Return-path: <77897ds@gmail.com>
+Envelope-to: info@dependablelc.com
+Delivery-date: Wed, 15 Nov 2023 03:04:17 -0500
+Received: from [63.250.43.69] (port=15620 helo=asp-relay-shared.jellyfish.systems)
+	by host59.registrar-servers.com with esmtps  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96.1)
+	(envelope-from <77897ds@gmail.com>)
+	id 1r3Asi-00B3Al-32
+	for info@dependablelc.com;
+	Wed, 15 Nov 2023 03:04:16 -0500
+Authentication-Results: asp-relay-shared.jellyfish.systems;
+	dkim=pass header.d=gmail.com header.s=20230601 header.b=FjGk04EW;
+	dmarc=pass (policy=none) header.from=gmail.com;
+	spf=pass (asp-relay-shared.jellyfish.systems: domain of 77897ds@gmail.com designates 209.85.128.48 as permitted sender) smtp.mailfrom=77897ds@gmail.com
+Received: from mail-wm1-f48.google.com (mail-wm1-f48.google.com [209.85.128.48])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by asp-relay-shared.jellyfish.systems (Postfix) with ESMTPS id 4SVbKX15M1zFy6X
+	for <info@dependablelc.com>; Wed, 15 Nov 2023 08:04:16 +0000 (UTC)
+Received: by mail-wm1-f48.google.com with SMTP id 5b1f17b1804b1-4079ed65471so53345605e9.1
+        for <info@dependablelc.com>; Wed, 15 Nov 2023 00:04:16 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1700035454; x=1700640254; darn=dependablelc.com;
+        h=to:message-id:subject:date:mime-version:from
+         :content-transfer-encoding:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=X8ssc57CE6R97J86JjZrQxr6tL9euWPSL4egewjeyA4=;
+        b=FjGk04EWl4WBlHQQV8RHc0M0SrXW6Ua/sTr89gi9i0p7RQJbL4cNPOjgxR2ToRhoN3
+         zQVP1W/S1lVA+WxnPOcCK9GIFHG0MfGl0ocHKkgF4klHQO9GlxzS7o7fjnDN06USs6XB
+         H5HCJH1p/B2quONlkt8n4Bos63RpXk6yI+yK674BO548ESiJifogB/7R0idlNcId6/JM
+         jhrPl5BCWnwjNUFKyR1TImCWlXE5qiTRi/IYtWfz3iPXob06k4q42vo8DrdLNA6RsmYM
+         OCH8ClvWev5/blH8VVMozTa+xeMbgpX7eL9oOat+NQ1Jt3O+FJo7CnUkHsUpu0V3z6Im
+         p/Dg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1700035454; x=1700640254;
+        h=to:message-id:subject:date:mime-version:from
+         :content-transfer-encoding:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=X8ssc57CE6R97J86JjZrQxr6tL9euWPSL4egewjeyA4=;
+        b=hukjX0QzuPBhMnyWdtN4T+P1af2UeFyVb8MLljzO5HO865Qc4xJo4Z87FRQOlu0qeu
+         XQ+6QxFuB+L9QTWoYDuUtvKEQGv9PbIO7WsruELuCzAM+ny+MmHzbNHDr/R7wvcFD5YM
+         uDwMHpDB0IH2QNoRVIHjIz4TWfBUFsqAO8ukZzWMEKmfEm9sVJf4QDnc0zMfchChpqNO
+         6tKJFQ1RWnQxzxL9dJR7onjc4t4+QkEXmU7WV/hVfpRPshuUfz0ZXUfKGwzhRHFmcixd
+         9mDCexoiM17bZPljEwaIcAGkd5i+aUGFTVlQwaS/hV4xWrr3APa6Nj5bFyKFFTYqsjRN
+         Hd5g==
+X-Gm-Message-State: AOJu0Yxf4mKV7GHY65KYff1eBD4bIa5b04tVWTGcCKZFFNwy/4mFcvDC
+	/I1TBcMk573knilC9f7A6zPQmZOtOQ==
+X-Google-Smtp-Source: AGHT+IFGpBoVrcbFE2ihka0Y0DHwDWz5cTOSpNYg3gqwPHnHFbiaqdMS/LZNoMNtma0j9KBiBsEoQQ==
+X-Received: by 2002:a05:600c:5487:b0:405:dbe2:df10 with SMTP id iv7-20020a05600c548700b00405dbe2df10mr8630806wmb.35.1700035454090;
+        Wed, 15 Nov 2023 00:04:14 -0800 (PST)
+Received: from smtpclient.apple ([94.201.235.202])
+        by smtp.gmail.com with ESMTPSA id z22-20020a1c4c16000000b00403b63e87f2sm13916879wmf.32.2023.11.15.00.04.13
+        for <info@dependablelc.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 15 Nov 2023 00:04:13 -0800 (PST)
+Content-Type: text/plain; charset=us-ascii
+Content-Transfer-Encoding: quoted-printable
+From: Dana Sen <77897ds@gmail.com>
+Mime-Version: 1.0 (1.0)
+Date: Wed, 15 Nov 2023 12:04:02 +0400
+Subject: Dana Sen/ Real Estate Case
+Message-Id: <203497CE-D5D5-42AD-8A61-381BA36A1E8C@gmail.com>
+To: info@dependablelc.com
+X-Mailer: iPhone Mail (20G75)
+X-NCJF-Result: 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
+ 
+	FxXh9FYJb4w==
+X-NCJF-Version: 12
+
+Dear Aamer,=20
+
+Good morning! As discussed yesterday over the phone here is my case that I h=
+ave to sort out.
+
+Since September 2021 I work for real estate company called Metropolitan Prem=
+ium Properties as a read estate agent. Once I joined the company I have sign=
+ed a Job offer letter stating that there is no fixed salary and its commissi=
+on based job. Its clearly written in the offer that that if we close the dea=
+l with a company lead I share commission 50/50 with my company. If I close m=
+y own personal lead its 60/40 in %.
+1,5 years ago I closed one deal with the company lead, we shared commission 5=
+0/50 as per the rule.=20
+After that the same client advised me to his friend, then this friends advis=
+ed me to another friend and so on. There were many clients who bought proper=
+ties from me like this. I after closing those deals I reported them to my co=
+mpany as personal leads. Their admins asked me to share with them whats app c=
+ommunications with the clients as a proof. I shared all everything they want=
+ed, all the information was transparent from my side. They approved it as pe=
+rsonal leads and commission was paid 60% mine and 40% for the company.=20
+But now after 1,5 years they told me that the calculation was wrong as any l=
+ead who comes from a company lead is considered as a company client. Even if=
+ my client doesnt even know the original company lead the person is consider=
+ed as a company lead and commission should be shared 50% /50%. I didnt know a=
+bout this rule and I have never signed any document from the company explain=
+ing what do they mean by company lead.=20
+My manager told me that definitely there was a document with this informatio=
+n and was signed by me as an acknowledgment. I asked them to show me this do=
+cument if it exist. They tried to find it, requested it from HR, but apparen=
+tly there were no any document. I have also asked them why in this case ther=
+e have been approving all my leads as my personal leads even after I was pro=
+viding all the information? They said that maybe it was mistake from admin.=20=
+
+As a result now they stopped all my commissions (apx 200k ), they are in the=
+ process of recalculating all my previous deals snd they want to get that 10=
+% different from each deal that they consider as a company lead. I consider i=
+t absolutely unfair and mo one even told me that this is rule for company le=
+ads.=20
+At the same time there are also another agent in the company who didnt know a=
+bout this rule.
+
+Please advise if there is a good chance to get pending commissions  from the=
+m and not pay that 10% for each deal?
+
+Thanks and regards
+Dana
+
+
+
+Sent from my iPhone=

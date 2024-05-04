@@ -1,0 +1,677 @@
+AWSTATS DATA FILE 7.8 (build 20200416)
+# If you remove this file, all statistics for date 202405 will be lost/reset.
+# Last config file used to build this data file was /home/dependablelc/tmp/awstats/ssl/awstats.dependablelc.com.conf.
+
+# Position (offset in bytes) in this file for beginning of each section for
+# direct I/O access. If you made changes somewhere in this file, you should
+# also remove completely the MAP section (AWStats will rewrite it at next
+# update).
+BEGIN_MAP 28
+POS_GENERAL 2021                
+POS_TIME 2704                
+POS_VISITOR 20811               
+POS_DAY 24302               
+POS_DOMAIN 3490                
+POS_LOGIN 4041                
+POS_ROBOT 4196                
+POS_WORMS 4911                
+POS_EMAILSENDER 5042                
+POS_EMAILRECEIVER 5185                
+POS_SESSION 24440               
+POS_SIDER 24636               
+POS_FILETYPES 5320                
+POS_DOWNLOADS 5564                
+POS_OS 5612                
+POS_BROWSER 5824                
+POS_SCREENSIZE 6933                
+POS_UNKNOWNREFERER 7007                
+POS_UNKNOWNREFERERBROWSER 7337                
+POS_ORIGIN 7514                
+POS_SEREFERRALS 7651                
+POS_PAGEREFS 7795                
+POS_SEARCHWORDS 7943                
+POS_KEYWORDS 8095                
+POS_MISC 2368                
+POS_ERRORS 8154                
+POS_CLUSTER 3897                
+POS_SIDER_404 8265                
+END_MAP
+
+# LastLine    = Date of last record processed - Last record line number in last log - Last record offset in last log - Last record signature value
+# FirstTime   = Date of first visit for history file
+# LastTime    = Date of last visit for history file
+# LastUpdate  = Date of last update - Nb of parsed records - Nb of parsed old records - Nb of parsed new records - Nb of parsed corrupted - Nb of parsed dropped
+# TotalVisits = Number of visits
+# TotalUnique = Number of unique visitors
+# MonthHostsKnown   = Number of hosts known
+# MonthHostsUnKnown = Number of hosts unknown
+BEGIN_GENERAL 8
+LastLine 20240503071424 792 157680 15723791026632
+FirstTime 20240501002146
+LastTime 20240503071423
+LastUpdate 20240503082115 792 0 792 0 0
+TotalVisits 107                 
+TotalUnique 87                  
+MonthHostsKnown 0                   
+MonthHostsUnknown 87                  
+END_GENERAL
+
+# Misc ID - Pages - Hits - Bandwidth
+BEGIN_MISC 10
+JavaEnabled 0 0 0
+DirectorSupport 0 0 0
+QuickTimeSupport 0 0 0
+FlashSupport 0 0 0
+WindowsMediaPlayerSupport 0 0 0
+JavascriptDisabled 0 0 0
+TotalMisc 0 0 0
+AddToFavourites 0 3 0
+RealPlayerSupport 0 0 0
+PDFSupport 0 0 0
+END_MISC
+
+# Hour - Pages - Hits - Bandwidth - Not viewed Pages - Not viewed Hits - Not viewed Bandwidth
+BEGIN_TIME 24
+0 9 10 55371 5 11 243971
+1 17 17 130031 20 24 2447946
+2 28 29 659649 44 324 11374798
+3 11 11 27539 11 18 1158859
+4 42 117 1962392 273 275 17990453
+5 10 10 54465 2 5 159139
+6 14 14 29030 21 31 2186669
+7 7 7 664803 17 20 2168697
+8 12 12 27330 22 156 7153218
+9 5 5 0 19 58 1973519
+10 6 6 53854 0 1 111
+11 15 15 77496 86 120 14671197
+12 7 7 27330 14 18 1607799
+13 11 13 272823 4 7 333
+14 10 10 51373 4 5 181974
+15 12 12 153588 3 7 340067
+16 13 14 183835 5 10 230872
+17 8 8 51373 2 2 22715
+18 18 18 229313 12 15 502175
+19 12 12 51778 15 21 2159303
+20 14 15 106342 12 43 1321720
+21 16 16 665206 9 13 217048
+22 11 11 28629 124 159 20511029
+23 8 8 2015 29 30 3450991
+END_TIME
+
+# Domain - Pages - Hits - Bandwidth
+# The 25 first Pages must be first (order not required for others)
+BEGIN_DOMAIN 26
+us 250 330 2765946
+cn 13 13 240320
+gb 6 6 2418
+ro 5 5 525034
+cz 4 4 664803
+at 4 4 664803
+pl 3 3 78254
+jp 2 2 53045
+in 2 2 26926
+cl 2 2 50972
+za 2 2 50970
+hn 2 2 50971
+nl 2 2 26926
+se 2 3 55372
+de 2 2 26927
+sc 2 2 50970
+id 2 2 50971
+ru 2 2 50970
+ao 2 2 50970
+ee 1 1 25174
+es 1 1 403
+al 1 1 25090
+pa 1 1 26524
+sg 1 1 403
+ng 1 1 0
+tz 1 1 403
+END_DOMAIN
+
+# Cluster ID - Pages - Hits - Bandwidth
+BEGIN_CLUSTER 0
+END_CLUSTER
+
+# Login - Pages - Hits - Bandwidth - Last visit
+# The 10 first Pages must be first (order not required for others)
+BEGIN_LOGIN 0
+END_LOGIN
+
+# Robot ID - Hits - Bandwidth - Last visit - Hits on robots.txt
+# The 25 first Hits must be first (order not required for others)
+BEGIN_ROBOT 15
+Go\-http\-client/ 696 48848693 20240503023451 3
+bot[\s_+:,\.\;\/\\-] 67 1220729 20240503071424 26
+AhrefsBot/ 47 576385 20240502180305 2
+zoominfobot 12 29056 20240503042605 7
+nutch 10 178637 20240502214811 2
+MJ12bot/ 8 105129 20240503034623 4
+bingbot/ 8 80453 20240503035823 2
+SemrushBot/ 8 100241 20240501145001 4
+facebookexternalhit/ 3 18738 20240503052939 0
+(firefox/)([0-9]\.|[0-1][0]\.) 3 26927 20240503061711 0
+no_user_agent 3 514149 20240503014114 0
+nbot 2 222 20240501062612 2
+survey 2 342766 20240502163147 0
+Googlebot/ 1 111 20240503065253 1
+unknown 1 111 20240502104230 1
+END_ROBOT
+
+# Worm ID - Hits - Bandwidth - Last visit
+# The 5 first Hits must be first (order not required for others)
+BEGIN_WORMS 0
+END_WORMS
+
+# EMail - Hits - Bandwidth - Last visit
+# The 20 first Hits must be first (order not required for others)
+BEGIN_EMAILSENDER 0
+END_EMAILSENDER
+
+# EMail - Hits - Bandwidth - Last visit
+# The 20 first hits must be first (order not required for others)
+BEGIN_EMAILRECEIVER 0
+END_EMAILRECEIVER
+
+# Files type - Hits - Bandwidth - Bandwidth without compression - Bandwidth after compression
+BEGIN_FILETYPES 10
+png 13 405204 0 0
+js 35 277612 0 0
+php 223 21325 0 0
+jpeg 1 24062 0 0
+Unknown 2 1224 0 0
+woff 2 6608 0 0
+jpg 7 255962 0 0
+html 87 4262452 0 0
+woff2 2 171568 0 0
+css 25 139548 0 0
+END_FILETYPES
+
+# Downloads - Hits - Bandwidth
+BEGIN_DOWNLOADS 0
+END_DOWNLOADS
+
+# OS ID - Hits
+BEGIN_OS ID - Hits - Pages 11
+android10 2 2
+win10 135 58
+win7 13 12
+macosx10 1 1
+win8.1 6 6
+Unknown 195 192
+linux 25 25
+winxp 5 5
+ios_iphone 6 6
+macosx15 6 6
+androidnougat 3 3
+END_OS
+
+# Browser ID - Hits - Pages
+BEGIN_BROWSER 52
+chrome60.0.3112.107 3 3
+Unknown 188 188
+chrome65.0.3325.162 1 1
+chrome91.0.4472.114 3 3
+firefox67.0 1 1
+chrome37.0.2062.124 1 1
+firefox115 1 1
+firefox114.0 20 20
+chrome69.0.3497.100 1 1
+firefox123.0 5 4
+chrome79.0.3945.88 1 1
+chrome122.0.6261.111 4 4
+opera89.0.4447.51 6 6
+firefox52.0 3 3
+chrome80.0.3987.149 6 6
+chrome63.0.3239.132 1 1
+chrome81.0.4044.138 1 1
+chrome116.0.0.0 1 1
+netscape5.0 1 1
+chrome120.0.0.0 3 3
+chrome120.0.6099.71 4 4
+chrome114.0.0.0 2 2
+firefox113.0 4 4
+chrome103.0.0.0 9 9
+chrome83.0.4103.116 1 1
+chrome105.0.0.0 2 1
+firefox60.0 1 1
+firefox56.0 1 1
+mozilla 6 3
+chrome90.0.4430.85 4 4
+chrome87.0.4280.88 1 1
+chrome106.0.0.0 1 1
+firefox17.0 1 1
+chrome60.0.3112.113 2 2
+chrome104.0.0.0 81 6
+chrome56.0.2924.76 1 1
+chrome113.0.0.0 1 1
+chrome84.0.4147.105 1 1
+chrome90.0.4430.212 1 1
+chrome121.0.0.0 2 2
+chrome64.0.3282.0 2 2
+chrome123.0.0.0 1 1
+chrome72.0.3626.121 1 1
+safari13.0.3 5 5
+firefox33.0 1 1
+chrome79.0.3945.117 2 2
+firefox40.0 1 1
+chrome81.0.4044.129 1 1
+chrome122.0.0.0 2 1
+safari 1 1
+firefox59.0 1 1
+chrome65.0.3325.181 2 2
+END_BROWSER
+
+# Screen size - Hits
+BEGIN_SCREENSIZE 0
+END_SCREENSIZE
+
+# Unknown referer OS - Last visit date
+BEGIN_UNKNOWNREFERER 4
+Mozilla/5.0_researchscan.comsys.rwth-aachen.de 20240501153852
+Mozilla/5.0_(compatible;_CensysInspect/1.1;__https://about.censys.io/) 20240503004631
+python-requests/2.31.0 20240501085120
+WordPress/6.5.2;_https://dependablelc.com 20240503071423
+END_UNKNOWNREFERER
+
+# Unknown referer Browser - Last visit date
+BEGIN_UNKNOWNREFERERBROWSER 2
+WordPress/6.5.2;_https://dependablelc.com 20240503071423
+python-requests/2.31.0 20240501085120
+END_UNKNOWNREFERERBROWSER
+
+# Origin - Pages - Hits 
+BEGIN_ORIGIN 6
+From0 264 267
+From1 5 5
+From2 0 0
+From3 0 0
+From4 47 125
+From5 0 0
+END_ORIGIN
+
+# Search engine referers ID - Pages - Hits
+BEGIN_SEREFERRALS 0
+END_SEREFERRALS
+
+# External page referers - Pages - Hits
+# The 25 first Pages must be first (order not required for others)
+BEGIN_PAGEREFS 0
+END_PAGEREFS
+
+# Search keyphrases - Number of search
+# The 10 first number of search must be first (order not required for others)
+BEGIN_SEARCHWORDS 0
+END_SEARCHWORDS
+
+# Search keywords - Number of search
+# The 25 first number of search must be first (order not required for others)
+BEGIN_KEYWORDS 0
+END_KEYWORDS
+
+# Errors - Hits - Bandwidth
+BEGIN_ERRORS 3
+302 2 0
+301 191 0
+404 306 40032256
+END_ERRORS
+
+# URL with 404 errors - Hits - Last URL referrer
+BEGIN_SIDER_404 224
+/wp-admin/wp-cron.php 1 www.google.com
+/sql/phpmyadmin4/ 1 https://dependablelc.com/sql/phpmyadmin4/index.php
+/admin/sqladmin/ 1 https://dependablelc.com/admin/sqladmin/index.php
+/phpMyAdmin2/ 1 https://dependablelc.com/phpMyAdmin2/index.php
+/phpMyAdmin-4/ 1 https://dependablelc.com/phpMyAdmin-4/index.php
+/wp-content/themes/bute/lang.php 2 www.google.com
+/administrator/pma/ 1 https://dependablelc.com/administrator/pma/index.php
+/phpMyAdmin-5.1.0/ 1 https://dependablelc.com/phpMyAdmin-5.1.0/index.php
+/css.php 3 -
+/wp-confg.php 1 dependablelc.com
+/wp-content/uploads/2021/02/business-couching-consulting-template-reviewer-1.jpg 1 -
+/up.php 1 -
+/__phpmyadmin/ 1 https://dependablelc.com/__phpmyadmin/index.php
+/sql/phpMyAdmin/ 1 https://dependablelc.com/sql/phpMyAdmin/index.php
+/wp-admin/inputs.php 2 www.google.com
+/phpmyadmin5/ 1 https://dependablelc.com/phpmyadmin5/index.php
+/wp-include/auto_seo.php 1 -
+/wp-content/uploads/2021/02/business-couching-consulting-template-reviewer-2.jpg 1 -
+/oldsite/wp-admin/install.php 2 -
+/wso112233.php 2 -
+/site/wp-admin/install.php 2 -
+/phpMyAdmin6.0/ 1 https://dependablelc.com/phpMyAdmin6.0/index.php
+/mysql/dbadmin/ 1 https://dependablelc.com/mysql/dbadmin/index.php
+/wp-content/plugins/fix/up.php 4 -
+/pcc.php 1 dependablelc.com
+/phpMyAdmin-5.2.1/ 1 https://dependablelc.com/phpMyAdmin-5.2.1/index.php
+/mysql/admin/ 1 https://dependablelc.com/mysql/admin/index.php
+/sql/myadmin/ 1 https://dependablelc.com/sql/myadmin/index.php
+/wp-content/themes/aahana/json.php 2 www.google.com
+/wp-content/inputs.php 3 www.google.com
+/phpmy-admin/ 1 https://dependablelc.com/phpmy-admin/index.php
+/db/db-admin/ 1 https://dependablelc.com/db/db-admin/index.php
+/phpmyadmin2017/ 1 https://dependablelc.com/phpmyadmin2017/index.php
+/wp-content/plugins/portable-phpmyadmin/wp-pma-mod/ 1 https://dependablelc.com/wp-content/plugins/portable-phpmyadmin/wp-pma-mod/index.php
+/cms/wp-admin/install.php 2 -
+/mysql/ 1 https://dependablelc.com/mysql/index.php
+/db/phpMyAdmin-5/ 1 https://dependablelc.com/db/phpMyAdmin-5/index.php
+/sql/phpmyadmin3/ 1 https://dependablelc.com/sql/phpmyadmin3/index.php
+/admin/phpmyadmin/ 1 https://dependablelc.com/admin/phpmyadmin/index.php
+/wp-content/themes/pridmag/db.php 2 www.google.com
+/phpMyAdmin-latest-english/ 1 https://dependablelc.com/phpMyAdmin-latest-english/index.php
+/alfanew.php 2 -
+/_phpMyAdmin/ 1 https://dependablelc.com/_phpMyAdmin/index.php
+/mysql/pma/ 1 https://dependablelc.com/mysql/pma/index.php
+/wp-emoji-release.min.js 2 -
+/q.php 1 dependablelc.com
+/phpmyadmin3/ 1 https://dependablelc.com/phpmyadmin3/index.php
+/shopdb/ 1 https://dependablelc.com/shopdb/index.php
+/wp-content/uploads/2021/02/business-couching-consulting-template-reviewer-3.jpg 1 -
+/administrator/phpMyAdmin/ 1 https://dependablelc.com/administrator/phpMyAdmin/index.php
+/administrator/admin/ 1 https://dependablelc.com/administrator/admin/index.php
+/phpMyadmin/ 1 https://dependablelc.com/phpMyadmin/index.php
+/mysql/pMA/ 1 https://dependablelc.com/mysql/pMA/index.php
+/old/wp-admin/install.php 2 -
+/inputs.php 3 www.google.com
+/program/ 1 https://dependablelc.com/program/index.php
+/wp-content/themes/newstoday/lang.php 2 www.google.com
+/db/phpmyadmin3/ 1 https://dependablelc.com/db/phpmyadmin3/index.php
+/lv.php 1 -
+/wp-content/languages/ 1 binance.com
+/phpMyAdmin5.2/ 1 https://dependablelc.com/phpMyAdmin5.2/index.php
+/wp-content/plugins/root-file-manager/wp-file.php 1 www.google.com
+/fw.php 2 -
+/db/phpMyAdmin/ 1 https://dependablelc.com/db/phpMyAdmin/index.php
+/phpmyadmin_/ 1 https://dependablelc.com/phpmyadmin_/index.php
+/db/myadmin/ 1 https://dependablelc.com/db/myadmin/index.php
+/atomlib.php 3 -
+/wordpress/wp-admin/install.php 2 -
+/mysqladmin/ 1 https://dependablelc.com/mysqladmin/index.php
+/ws.php 2 -
+/wp-json/wp/v2/pages/958& 1 -
+/sql/webadmin/ 1 https://dependablelc.com/sql/webadmin/index.php
+/phpMyAdmin5.1/ 1 https://dependablelc.com/phpMyAdmin5.1/index.php
+/phpMyAdmin1/ 1 https://dependablelc.com/phpMyAdmin1/index.php
+/cjfuns.php 3 www.google.com
+/wp-content/plugins/woocommerce-products-filter/js/plainoverlay/plainoverlay.jquery.json 1 -
+/phpMyAdmin-5.2.1-english/ 1 https://dependablelc.com/phpMyAdmin-5.2.1-english/index.php
+/phpMyAdmin-5.2/ 1 https://dependablelc.com/phpMyAdmin-5.2/index.php
+/.git/config 2 -
+/phpmyadmin2022/ 1 https://dependablelc.com/phpmyadmin2022/index.php
+/php-myadmin/ 1 https://dependablelc.com/php-myadmin/index.php
+/db/phpmyadmin4/ 1 https://dependablelc.com/db/phpmyadmin4/index.php
+/phpMyAdmin-5.1.3/ 1 https://dependablelc.com/phpMyAdmin-5.1.3/index.php
+/wp-content/uploads/wp-cron.php 1 www.google.com
+/cgi-bin/themes.php 1 dependablelc.com
+/PMA/ 1 https://dependablelc.com/PMA/index.php
+/sqlmanager/ 1 https://dependablelc.com/sqlmanager/index.php
+/phpmyadmin6/ 1 https://dependablelc.com/phpmyadmin6/index.php
+/admin/web/ 1 https://dependablelc.com/admin/web/index.php
+/wp-admin/css/lol.php 1 dependablelc.com
+/.well-known/acme-challenge/license.php 3 www.google.com
+/simple.php 3 -
+/administrator/PMA/ 1 https://dependablelc.com/administrator/PMA/index.php
+/blog/wp-admin/install.php 2 -
+/admin/db/ 1 https://dependablelc.com/admin/db/index.php
+/phpMyAdmin/ 1 https://dependablelc.com/phpMyAdmin/index.php
+/.env 3 -
+/phpmyadmin4/ 1 https://dependablelc.com/phpmyadmin4/index.php
+/wp-content/themes.php 1 dependablelc.com
+/phpMyAdmin-5.1.2/ 1 https://dependablelc.com/phpMyAdmin-5.1.2/index.php
+/mysql/sqlmanager/ 1 https://dependablelc.com/mysql/sqlmanager/index.php
+/wp-content/themes/travel/issue.php 3 www.google.com
+/dbadmin/ 1 https://dependablelc.com/dbadmin/index.php
+/php-my-admin/ 1 https://dependablelc.com/php-my-admin/index.php
+/db/webadmin/ 1 https://dependablelc.com/db/webadmin/index.php
+/administrator/web/ 1 https://dependablelc.com/administrator/web/index.php
+/sql/phpMyAdmin2/ 1 https://dependablelc.com/sql/phpMyAdmin2/index.php
+/database/ 1 https://dependablelc.com/database/index.php
+/wp-content/lol.php 1 dependablelc.com
+/wp-admin/css/ll.php 1 dependablelc.com
+/sql/sqladmin/ 1 https://dependablelc.com/sql/sqladmin/index.php
+/wp-includes/ll.php 1 dependablelc.com
+/MyAdmin/ 1 https://dependablelc.com/MyAdmin/index.php
+/content.php 3 www.google.com
+/phpmyadmin2021/ 1 https://dependablelc.com/phpmyadmin2021/index.php
+/db/phpMyAdmin3/ 1 https://dependablelc.com/db/phpMyAdmin3/index.php
+/sql/websql/ 1 https://dependablelc.com/sql/websql/index.php
+/phpmyadmin2018/ 1 https://dependablelc.com/phpmyadmin2018/index.php
+/_phpmyadmin_/ 1 https://dependablelc.com/_phpmyadmin_/index.php
+/wp-content/plugins/woozone/lib/frontend/js/frontend.js 4 -
+/wp-includes/wp-cron.php 1 www.google.com
+/phpMyAdmin-4.9.10-all-languages/ 1 https://dependablelc.com/phpMyAdmin-4.9.10-all-languages/index.php
+/phpMyAdmin-3/ 1 https://dependablelc.com/phpMyAdmin-3/index.php
+/wp-content/plugins/wp-sec/ab.php 2 www.google.com
+/sql/php-myadmin/ 1 https://dependablelc.com/sql/php-myadmin/index.php
+/phpMyAdmin-4.9.7/ 1 https://dependablelc.com/phpMyAdmin-4.9.7/index.php
+/wp-json/& 1 -
+/author-sitemap.xml 2 -
+/mysql/db/ 1 https://dependablelc.com/mysql/db/index.php
+/db/dbadmin/ 1 https://dependablelc.com/db/dbadmin/index.php
+/phpmyadmin2019/ 1 https://dependablelc.com/phpmyadmin2019/index.php
+/phpmyadmin/ 1 https://dependablelc.com/phpmyadmin/index.php
+/bypass.php 3 -
+/wp-admin/ll.php 1 dependablelc.com
+/theme.php 1 -
+/wp-content/plugins/ph-file-manager/wp-file.php 1 www.google.com
+/phpMyAdmin4/ 1 https://dependablelc.com/phpMyAdmin4/index.php
+/wp-includes/inputs.php 2 www.google.com
+/mrj.php 1 dependablelc.com
+/wp-content/themes/jaida/lang.php 1 www.google.com
+/phpMyAdmin-latest/ 1 https://dependablelc.com/phpMyAdmin-latest/index.php
+/wp-content/plugins/shell/about.php 1 www.google.com
+/test/wp-admin/install.php 2 -
+/wp-content/themes/seotheme/mar.php 2 www.google.com
+/themes.php 1 dependablelc.com
+/wp-content/plugins/seo/idxv3.php 1 dependablelc.com
+/mysql/web/ 1 https://dependablelc.com/mysql/web/index.php
+/sql/webdb/ 1 https://dependablelc.com/sql/webdb/index.php
+/phpMyAdmin6/ 1 https://dependablelc.com/phpMyAdmin6/index.php
+/ll.php 1 dependablelc.com
+/shell.php 2 -
+/about.php 2 -
+/admin.php 20 www.google.com
+/& 1 -
+/wp/wp-admin/install.php 1 -
+/phpMyAdmin-5/ 1 https://dependablelc.com/phpMyAdmin-5/index.php
+/phpMyAdmin_/ 1 https://dependablelc.com/phpMyAdmin_/index.php
+/db/dbweb/ 1 https://dependablelc.com/db/dbweb/index.php
+/phppma/ 1 https://dependablelc.com/phppma/index.php
+/db/phpmyadmin5/ 1 https://dependablelc.com/db/phpmyadmin5/index.php
+/phpMyAdmin-5.2.0-all-languages/ 1 https://dependablelc.com/phpMyAdmin-5.2.0-all-languages/index.php
+/radio.php 3 www.google.com
+/wp-content/plugins/dummyyummy/wp-signup.php 2 www.google.com
+/lol.php 1 dependablelc.com
+/wp-content/plugins/wp-help/mini.php 1 www.google.com
+/administrator/db/ 1 https://dependablelc.com/administrator/db/index.php
+/sql/phpmy-admin/ 1 https://dependablelc.com/sql/phpmy-admin/index.php
+/mysql/mysqlmanager/ 1 https://dependablelc.com/mysql/mysqlmanager/index.php
+/phpmyadmin1/ 1 https://dependablelc.com/phpmyadmin1/index.php
+/wp-include/inputs.php 1 -
+/admin/phpMyAdmin/ 1 https://dependablelc.com/admin/phpMyAdmin/index.php
+/2phpmyadmin/ 1 https://dependablelc.com/2phpmyadmin/index.php
+/wp-content/uploads/2021/02/business-couching-consulting-template-reviewer-4.jpg 1 -
+/wp-content/wp-cron.php 1 www.google.com
+/phpMyAdmin-latest-all-languages/ 1 https://dependablelc.com/phpMyAdmin-latest-all-languages/index.php
+/db/websql/ 1 https://dependablelc.com/db/websql/index.php
+/wp-content/plugins/pwnd/pwnd.php 3 www.google.com
+/sql/sqlweb/ 1 https://dependablelc.com/sql/sqlweb/index.php
+/Mshell.php 1 www.google.com
+/nainxd.php 1 dependablelc.com
+/phpMyAdmin-5.2.1-all-languages/ 1 https://dependablelc.com/phpMyAdmin-5.2.1-all-languages/index.php
+/phpMyAdmin-5.1.1/ 1 https://dependablelc.com/phpMyAdmin-5.1.1/index.php
+/blogs/wp-content/plugins/activedemand/readme.txt 1 http://dependablelc.com/blogs/wp-content/plugins/activedemand/readme.txt
+/new/wp-admin/install.php 1 -
+/wp-config.php 3 -
+/admin/ 1 https://dependablelc.com/admin/index.php
+/_phpmyadmin/ 1 https://dependablelc.com/_phpmyadmin/index.php
+/pma/ 1 https://dependablelc.com/pma/index.php
+/phpMyAdmin-5.2.0/ 1 https://dependablelc.com/phpMyAdmin-5.2.0/index.php
+/sql/phpmyadmin5/ 1 https://dependablelc.com/sql/phpmyadmin5/index.php
+/db/phpMyAdmin-3/ 1 https://dependablelc.com/db/phpMyAdmin-3/index.php
+/wp-admin/user/themes.php 1 dependablelc.com
+/sql/phpmanager/ 1 https://dependablelc.com/sql/phpmanager/index.php
+/admin/sysadmin/ 1 https://dependablelc.com/admin/sysadmin/index.php
+/admin/pma/ 1 https://dependablelc.com/admin/pma/index.php
+/phpMyAdmin3/ 1 https://dependablelc.com/phpMyAdmin3/index.php
+/mysqlmanager/ 1 https://dependablelc.com/mysqlmanager/index.php
+/phpmyAdmin/ 1 https://dependablelc.com/phpmyAdmin/index.php
+/sql/sql/ 1 https://dependablelc.com/sql/sql/index.php
+/phpMyAdmin5/ 1 https://dependablelc.com/phpMyAdmin5/index.php
+/phpmyadmin2020/ 1 https://dependablelc.com/phpmyadmin2020/index.php
+/1phpmyadmin/ 1 https://dependablelc.com/1phpmyadmin/index.php
+/wp-content/plugins/wp-cron.php 1 www.google.com
+/db/ 1 https://dependablelc.com/db/index.php
+/wp-content/plugins/activedemand/readme.txt 1 http://dependablelc.com/wp-content/plugins/activedemand/readme.txt
+/.well-known/wp-cron.php 1 www.google.com
+/web/wp-admin/install.php 2 -
+/cong.php 2 www.google.com
+/backup/wp-admin/install.php 2 -
+/wp-content/ll.php 1 dependablelc.com
+/auto_seo.php 1 -
+/mysql-admin/ 1 https://dependablelc.com/mysql-admin/index.php
+/wp-content/auto_seo.php 1 -
+/db/phpMyAdmin-4/ 1 https://dependablelc.com/db/phpMyAdmin-4/index.php
+/db/phpmyadmin/ 1 https://dependablelc.com/db/phpmyadmin/index.php
+/sql/sql-admin/ 1 https://dependablelc.com/sql/sql-admin/index.php
+/wp-content/plugins/work-list/lang.php 2 www.google.com
+/myadmin/ 1 https://dependablelc.com/myadmin/index.php
+/phpmyadmin2/ 1 https://dependablelc.com/phpmyadmin2/index.php
+/administrator/phpmyadmin/ 1 https://dependablelc.com/administrator/phpmyadmin/index.php
+/phpmy/ 1 https://dependablelc.com/phpmy/index.php
+/db/webdb/ 1 https://dependablelc.com/db/webdb/index.php
+/wp-includes/images/wlw/ 1 binance.com
+/wp-content/themes/wp-cron.php 1 www.google.com
+END_SIDER_404
+
+# Host - Pages - Hits - Bandwidth - Last visit date - [Start date of last visit] - [Last page of last visit]
+# [Start date of last visit] and [Last page of last visit] are saved only if session is not finished
+# The 25 first Hits must be first (order not required for others)
+BEGIN_VISITOR 87
+198.54.126.42 187 187 0 20240503071423 20240503004616 /wp-cron.php
+23.83.88.117 8 10 246299 20240501130115
+45.80.158.81 6 6 174012 20240502043607
+52.165.149.97 6 81 1277587 20240501041030
+64.227.139.219 4 4 6960 20240501185034
+87.249.132.41 4 4 664803 20240503070112 20240503070106 /contact-us/
+195.78.54.120 4 4 664803 20240501211957
+152.42.241.36 3 3 29241 20240502031636
+141.94.190.21 3 3 1209 20240502103909
+152.42.220.94 3 3 29241 20240502062212
+176.111.174.153 3 3 499457 20240503021643
+194.152.50.92 3 3 78254 20240503014536
+104.168.140.147 2 2 50971 20240503042012
+181.41.206.19 2 2 50972 20240501111327
+102.165.16.84 2 2 50971 20240503014420
+128.199.159.184 2 2 806 20240502235456
+39.100.104.223 2 2 806 20240502040915
+45.74.46.97 2 2 328074 20240502043518
+197.234.146.180 2 2 50970 20240502044846
+104.223.120.187 1 1 24480 20240502153315
+118.139.161.25 1 1 403 20240502084629
+196.247.162.212 1 1 25174 20240502171730
+8.142.9.180 1 1 403 20240501124116
+184.168.108.77 1 1 403 20240503052517
+85.239.56.223 1 1 25174 20240502021909
+186.179.42.212 1 1 25175 20240501152634
+40.74.255.112 1 1 403 20240502040954
+34.216.94.24 1 1 0 20240501085120
+45.95.243.30 1 1 25174 20240502142338
+23.81.82.208 1 1 25174 20240502160530
+175.22.82.191 1 1 26524 20240502113151
+154.201.63.65 1 1 25796 20240502184759
+65.154.226.169 1 1 26524 20240501101240
+43.131.62.4 1 1 26523 20240501165133
+154.202.108.6 1 1 25174 20240502184801
+104.41.9.139 1 1 403 20240502235450
+172.255.93.133 1 1 25797 20240501194428
+182.42.104.32 1 1 26522 20240502150551
+179.43.148.58 1 1 26524 20240501202702
+123.244.131.72 1 1 26524 20240501083629
+54.238.205.23 1 1 26524 20240501123851
+41.221.49.120 1 1 403 20240501145702
+39.163.20.82 1 1 26524 20240502045104
+103.119.55.49 1 1 403 20240501020124
+65.19.141.115 1 1 171383 20240502180622
+23.106.192.25 1 1 25797 20240502204911
+182.44.67.97 1 1 26521 20240503020113
+35.93.149.138 1 1 26524 20240501005154
+185.103.16.166 1 1 403 20240501212225
+206.189.149.152 1 1 403 20240501064443
+64.120.34.15 1 1 25796 20240502160527
+5.157.21.179 1 1 25174 20240502162037
+5.133.192.203 1 1 26524 20240502104232
+119.23.236.73 1 1 403 20240503052444
+45.95.243.49 1 1 25796 20240502142336
+217.114.212.27 1 1 403 20240503033417
+196.242.21.34 1 1 25796 20240502171727
+89.32.45.46 1 1 403 20240501124132
+77.247.114.103 1 1 25090 20240502153312
+89.248.174.42 1 1 26523 20240503050539
+165.22.254.136 1 1 403 20240501232629
+199.45.154.22 1 2 28848 20240502165342
+167.71.187.112 1 1 26524 20240502163322
+186.179.36.40 1 1 25796 20240502162034
+72.167.32.29 1 1 403 20240502192406
+91.142.222.180 1 1 403 20240501020102
+172.255.94.179 1 1 25175 20240501194432
+43.130.39.101 1 1 26522 20240502042817
+199.45.155.52 1 2 28847 20240502201631
+149.255.62.116 1 1 403 20240502235447
+175.22.82.94 1 1 26524 20240501220055
+178.157.66.25 1 1 25174 20240502204914
+103.157.24.46 1 1 26523 20240503043427
+175.178.34.4 1 1 403 20240501232537
+137.226.113.44 1 1 26524 20240501153852
+123.244.130.229 1 1 26524 20240501022141
+198.154.80.162 1 1 25797 20240501152631
+72.167.56.190 1 1 403 20240503015414
+213.108.1.115 1 1 25796 20240502021905
+93.158.91.24 1 2 28848 20240502024650
+41.216.188.206 1 1 0 20240501191658
+199.45.155.46 1 2 28847 20240503004628
+38.46.46.235 1 1 26524 20240501130107
+120.227.159.26 1 1 26523 20240503023111
+15.235.140.141 1 1 403 20240503015509
+165.232.32.235 1 1 403 20240501170551
+175.6.217.4 1 1 26522 20240501061838
+END_VISITOR
+
+# Date - Pages - Hits - Bandwidth - Visits
+BEGIN_DAY 3
+20240501 131 208 2647670 43
+20240502 128 131 1436487 48
+20240503 57 58 1481408 16
+END_DAY
+
+# Session range - Number of visits
+BEGIN_SESSION 6
+30mn-1h 4
+5mn-15mn 1
+30s-2mn 1
+1h+ 5
+0s-30s 93
+15mn-30mn 1
+END_SESSION
+
+# URL - Pages - Bandwidth - Entry - Exit
+# The 25 first Pages must be first (order not required for others)
+BEGIN_SIDER 17
+/wp-cron.php 188 0 16 15
+/contact-us/ 38 2078240 24 26
+/ 35 1626095 33 29
+/xmlrpc.php 27 10881 27 27
+//xmlrpc.php 4 2017 0 1
+/wp-login.php 4 8427 3 2
+/blogs/ 4 380006 0 0
+/contact-form/ 3 74660 2 2
+/wp-json/wp/v2/users 2 1224 2 0
+/legal-consultancy/ 2 50276 0 0
+/about/ 2 49820 0 1
+/wp-content/themes/astra/assets/fonts/astra.woff 2 6608 0 1
+/wp-admin/css/colors/sunrise/ 1 426 0 0
+/wp-content/plugins/elementor/assets/lib/eicons/fonts/eicons.woff2 1 93372 0 0
+/wp-content/plugins/elementor/assets/lib/font-awesome/webfonts/fa-solid-900.woff2 1 78196 0 0
+//wp-json/wp/v2/users/ 1 612 0 0
+/wp-includes/js/ 1 2317 0 1
+END_SIDER

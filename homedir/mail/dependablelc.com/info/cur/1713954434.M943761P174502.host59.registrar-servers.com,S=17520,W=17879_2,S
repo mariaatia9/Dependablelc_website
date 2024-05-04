@@ -1,0 +1,359 @@
+Return-Path: <russell_yeomans@yahoo.com>
+Delivered-To: info@dependablelc.com
+Received: from host59.registrar-servers.com
+	by host59.registrar-servers.com with LMTP
+	id mDCCN4LeKGamqQIA+KyzgQ
+	(envelope-from <russell_yeomans@yahoo.com>)
+	for <info@dependablelc.com>; Wed, 24 Apr 2024 06:27:14 -0400
+Return-path: <russell_yeomans@yahoo.com>
+Envelope-to: info@dependablelc.com
+Delivery-date: Wed, 24 Apr 2024 06:27:14 -0400
+Received: from [63.250.43.69] (port=20994 helo=asp-relay-shared.jellyfish.systems)
+	by host59.registrar-servers.com with esmtps  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96.1)
+	(envelope-from <russell_yeomans@yahoo.com>)
+	id 1rzZqM-00135l-1x
+	for info@dependablelc.com;
+	Wed, 24 Apr 2024 06:27:14 -0400
+Authentication-Results: asp-relay-shared.jellyfish.systems;
+	dkim=pass header.d=yahoo.com header.s=s2048 header.b=KLLCGA8k;
+	dmarc=pass (policy=reject) header.from=yahoo.com;
+	spf=pass (asp-relay-shared.jellyfish.systems: domain of russell_yeomans@yahoo.com designates 66.163.190.148 as permitted sender) smtp.mailfrom=russell_yeomans@yahoo.com
+Received: from sonic315-22.consmr.mail.ne1.yahoo.com (sonic315-22.consmr.mail.ne1.yahoo.com [66.163.190.148])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by asp-relay-shared.jellyfish.systems (Postfix) with ESMTPS id 4VPZt44YrjzFywX
+	for <info@dependablelc.com>; Wed, 24 Apr 2024 10:27:08 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yahoo.com; s=s2048; t=1713954428; bh=A5RLeJ5UZaEwY09obKM9zuQ4dfbb3XlXCOXoOuPNEp0=; h=From:Date:Subject:References:To:From:Subject:Reply-To; b=KLLCGA8kMfj2TMj//wJ8O2gcK1/+RRqDh/B2vkWBX8BOk8H057MrB8rL8MkI9nhO/MosJ9u4NfMJ6yBq7bncDkPFy9EXWnRtedJmk5nWjSbk+p8ROHBIQpQWJ6vBr1Z8usBOT+CCavuAV3iJ7U5jGnMwlUiPNsBcCH7fChcYfk61imnERvUMWa44i1bNWPxXFhXNskOgUOVNSJJ5psDdsCoKtijhFYo48NRSl/VnO9Ml8uQ9Me7zlF2UhFuvsYclfQ5WbOGrrXRbDi1Ty+0rSMVKaPVKeh+9jfltx1RA0l+MuZIlG7xnecDSulGXA8gMMhPdZ9MmzSNWPTqK35/b4A==
+X-SONIC-DKIM-SIGN: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yahoo.com; s=s2048; t=1713954428; bh=3BSlItuhaIOxdEHGWNrEx/MQU21uG9fvb3lEZ4rhk3T=; h=X-Sonic-MF:From:Date:Subject:To:From:Subject; b=CIhkEecnjucM3ASyvrCR5k1xkNBZRomZJ/mRMZeVLPBy9vbBdThx4n7+u4j/9ZnBQiv/t5T6YXiZbAwPmDfeeQODOm69ZBxJEmxu8dZHXLzyFoJOYbwzKuU4XDVYvyCbRRU/b0IjZzShnsJLWVlkgm/DKG8s7mEB2a/zJvvVf7TjZstU1Q4T/KqMhMYip9xH8bYEz0qH4b/JYs59Uhyi5YrUvbEs9eVH970X2dRkn/qHxmfs9isZz60epFA4RbfsXevF01a8Ox90cj30kk7I+XqLv0d4u3qOMC48Y1ai4lo4mxPynEbwug3lO1KRn+6Q6HD9Z4cRqmZGHLDTRu/u2A==
+X-YMail-OSG: KavSSbIVM1km1UUNN3gLgxC5ttCzhvyZ70NR3QVVsl6mQEgyodMRK3jg5WGyJVO
+ CWsUEfoxFkNRhSYbSgT6aDlg9lkhuXLs6JxXta8_QkcZcImyWWz5Cxss9OWbcx7SpC2G7C94qPme
+ 3wwEEEPDFB4WRiw7VbXy_b2DoxYRxkedDXZXPGjoVfAXqXlGAsdY6pcZcBj1goZBACkHyFwebcsr
+ SSd4PhYGqq1gFFTr8BAtVFxsVGAmvVnn5.BXBEMgd2lbyDOtv1StUztgMTDhKbxS7TcN2E04Uarf
+ KWpZ59ZYG.dnjZnt510Vp94oeH_w70gbfMfiqMlwHzWNo2oRn5Ed5iEMwB7toYF10YtNunPHPeyB
+ 3VN4.p31V1aSeWEfzKTu4XFnsojvz2XMRniv4FTL1VZ1yOAJsWYrAvbXkfHG8CJsX.gwToTNRRIA
+ Mw203Teet41CAGcDof5h0bpFSitFFoT1rZOKq.dtKZG7DW5b2qKNA1l1EPafnSPsFwOJncXxT1OA
+ jY5.u.GMvUmgfmS4ZvuqhQ7KTWquDKIUVD5qK16UsqTKSbJGZlVoKEIRtR5NZM8Mdo0WKqEzn7hL
+ oQFxwQ.44Wg3fpkg02jmDCQUGL1iClb_oz6oM73g0NWLdyxBsrZbsHjSL8muS_cUiC4BrWNZRO93
+ ToEUkoX5_xZ5qhD.unGUAgpnQUaownD9VUiqBV7MT1fzo42BTT0c1h3UoM_huh.jK1Eaj8iYdkLA
+ pB6ARPrj4ZbbKGu61MNomBx2rjl18mS2NPnnLZExA3l3X4VGwqox5TnExtO1IgXcvcic7zewSyXw
+ 2_kH7gX6Ja_XWFrXa4vEm3On_HTLBC2Yrs7h0Ng7etQeWgX0GhkUgcNRpMotI28EsqsIbLzKnOll
+ iFJiSEGgstwTIrbSeyiIAUCSreuA4vS5tPq2PcixtPXOTxGdHszpe3dV2iyKKKSZoasdtWshY0cg
+ bruMysfkbB6bvdbOFTfx_WJGJkoZT._Xcm50M4l6BmLgcVJyjAWsgDAkJ1ITnm.d0vVX7ML9_O1E
+ 4.kp4yWKM8GE1Vp7rugYW_mdNUPVGEzKrVKBbxya5muNVQeltZ8MQrVAwPoQ4Dno6Nz72dqwa_Cw
+ RINoP3T23Vvx_Mf1mpi4lnX7yz3iFLrY0fFevjOAsRz9Rjwl.gJr4m12GcTfGZOUXEWD2Uiovz3R
+ J1aSD9_p7CLi43AeSf8Xx1u09ZFZrCoFtPULkJaSwO2wL4MGcErVw0v9wHFZ6mU2umrQOAOvqRFJ
+ zn6JqphsCW9gPAcNJNZ.UCs.PJz8zTCSUDSf1kwOt7xpjvh38mBvXgZOPTDE.lIYdyFS0MPOLDrb
+ NRsMk6G5xLow2vMzy9FnGOKO5zHZogQqFhv85dcT0OWwcAJgzT1PYqjt.Ukemx0bOzf6MD3u0JIN
+ inB9kuRFwGOokNGgq9Aqm7mNqLevSdiQhSkGHNq2VceE2ufLIu08y5mwAukdAOg27TP.WbqlQE79
+ gxafkKu3sJAB76Q4YjBu9D2BQE_0MtqNGPPP11jFESCLOVkGH5xgRRfbZK4IoFBWNkq.ItgPCxyP
+ jzd9AxvvQAFmyBfDkAYrCiRV7yZPI1vkVTDfsuFl1bAG5Euf1QxdcS2ihaDnie.ARbJ9V.7QM.9T
+ BbW7bHwg8uEQukaJshMoIpMAvTPxlLqWqlsd0br.cXv4gA7f5wpZvyd08b4MH0Tq8mmPexlXCXZr
+ waIyEfvsNHCENBy.IELHlvg3QOmxnZEpmFZHzhOP.K4hjSMqQMN.x0fGGs03AUo7oI2SgNNG.Q2T
+ vIwMAlxCRmp9Yt8rtX5WJ5gLTQL4pij6d8yubXL4nYqXfJE.gEdh34XVtVRc7IvX4vXgrI71.JJS
+ 8N9tk5GXBstdeNtW0pWan7R0JL_AhQIEUT4xa4GWPdJ7ltkv6n1v577mG.9qpz9T3rd0QtMcK3B3
+ AhYFIjUNBO50CEZcyV9ha4_Y4bQ_Ch0YfqpL0884K9uks2z8hAgA6Afadr_sL9jRqDRgVZYp2J1A
+ GLs4NIB5MSUgxuuypr92nPCS.ys_g_7DHT.x92WMQPwChUvCng_SIt6MHqUg_MKuLZPlr1jm5QUw
+ YP.z1uirRcSWZw_i7R5D6n5OCq9wR0PJn6K.GsYPulO__NghW_v85qMAowDKDEHIymDmc7ZXpw4G
+ xEY_xyRl6I0nbYBFGH4Fa5drPBPS9nOac5mUfC5_rMQXmR3rHe_967u5pCR_fWZYMfjEx88rxtL0
+ 3qy8QIuVZJYgUjV_E5KisEtezuwojGOxuMtISxB6NyhBhrAiP4tDf
+X-Sonic-MF: <russell_yeomans@yahoo.com>
+X-Sonic-ID: 7aabc0a4-941b-46a9-927d-8681cce5c106
+Received: from sonic.gate.mail.ne1.yahoo.com by sonic315.consmr.mail.ne1.yahoo.com with HTTP; Wed, 24 Apr 2024 10:27:08 +0000
+Received: by hermes--production-ir2-7b99fc9bb6-b6zps (Yahoo Inc. Hermes SMTP Server) with ESMTPA ID beac2663107e6098f2205d0ff01913f4;
+          Wed, 24 Apr 2024 10:27:06 +0000 (UTC)
+Content-Type: multipart/alternative; boundary=Apple-Mail-43CB4208-C2CC-4E1F-AA7B-82211F6378FB
+Content-Transfer-Encoding: 7bit
+From: Russell Yeomans <russell_yeomans@yahoo.com>
+Mime-Version: 1.0 (1.0)
+Date: Wed, 24 Apr 2024 14:26:52 +0400
+Subject: Fwd: SendNoticeDownloadLink
+Message-Id: <F2D90D25-846C-465D-B655-67FDD801A94B@yahoo.com>
+References: <85c81982-0927-4c67-94bb-249bdad70430@DUCV-EXCH01.cloud.eres.ae>
+To: Aamer Lawyer <info@dependablelc.com>
+X-Mailer: iPhone Mail (21E236)
+X-NCJF-Result: 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
+X-NCJF-Version: 20
+
+
+--Apple-Mail-43CB4208-C2CC-4E1F-AA7B-82211F6378FB
+Content-Type: text/html;
+	charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+<html><head><meta http-equiv=3D"content-type" content=3D"text/html; charset=3D=
+utf-8"></head><body dir=3D"auto"><br id=3D"lineBreakAtBeginningOfSignature">=
+<div dir=3D"ltr">Russell Yeomans<div>Managing Director &nbsp; &nbsp;&amp; &n=
+bsp; &nbsp; Co-Founder</div><div>Yeomans Executive &nbsp; &amp; &nbsp; &nbsp=
+;Sport2Business</div><div>Partner, AARO Systems</div><div>ryeomans@yeomansex=
+ecutive.com</div><div>www.yeomansexecutive.com</div><div>russell.yeomans@aar=
+o.se</div><div>www.aaro.se</div><div><br></div><div>Mobile+971 5550 43620</d=
+iv><div>=46rom my iPhone</div></div><div dir=3D"ltr"><br>Begin forwarded mes=
+sage:<br><br></div><blockquote type=3D"cite"><div dir=3D"ltr"><b>From:</b> D=
+ubai Land Department &lt;noreply@dubailandmail.gov.ae&gt;<br><b>Date:</b> 24=
+ April 2024 at 13:44:32 GMT+4<br><b>To:</b> russell_yeomans@yahoo.com<br><b>=
+Subject:</b> <b>SendNoticeDownloadLink</b><br><br></div></blockquote><blockq=
+uote type=3D"cite"><div dir=3D"rtl">=EF=BB=BF<p>
+=D8=B9=D8=B2=D9=8A=D8=B2=D9=8A =D8=A7=D9=84=D9=85=D8=B3=D8=AA=D8=AE=D8=AF=D9=
+=85
+<br>
+=D8=A8=D8=B1=D8=AC=D8=A7=D8=A1 =D8=A7=D9=84=D8=B6=D8=BA=D8=B7 =D8=B9=D9=84=D9=
+=8A =D8=A7=D9=84=D8=B1=D8=A7=D8=A8=D8=B7 =D9=84=D8=AA=D9=86=D8=B2=D9=8A=D9=84=
+ =D8=A7=D9=84=D8=A5=D8=B9=D9=84=D8=A7=D9=86 =D8=A7=D9=84=D8=AE=D8=A7=D8=B5 =D8=
+=A8=D8=A7=D9=84=D9=85=D9=86=D9=81=D8=B0 =D8=B6=D8=AF=D9=87.
+<br>
+<a href=3D"https://rdc.dubailand.gov.ae/Pages/Download.aspx?%2bCcptgyk95r0BA=
+5XT5ILM4yUj5RZL3sDhEgQs4eDsn%2flTKmbmAByckOEZvPfoaCC">=D8=AA=D8=AD=D9=85=D9=8A=
+=D9=84 =D8=AA=D9=86=D9=88=D9=8A=D9=87</a>
+</p><p>
+=D9=88=D8=B4=D9=83=D8=B1=D8=A7
+</p>
+
+
+<p>
+Dear,
+<br>
+Please click on the link below in order to download the notice of the defend=
+ant party
+<br>
+<a href=3D"https://rdc.dubailand.gov.ae/Pages/Download.aspx?%2bCcptgyk95r0BA=
+5XT5ILM4yUj5RZL3sDhEgQs4eDsn%2flTKmbmAByckOEZvPfoaCC">Download Notice</a>
+</p><p>
+Thank You
+</p>
+
+
+</div></blockquote></body></html>=
+
+--Apple-Mail-43CB4208-C2CC-4E1F-AA7B-82211F6378FB--

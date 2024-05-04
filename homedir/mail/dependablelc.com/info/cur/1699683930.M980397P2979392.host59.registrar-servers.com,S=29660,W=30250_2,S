@@ -1,0 +1,590 @@
+Return-Path: <Chris.houghton@mail.com>
+Delivered-To: info@dependablelc.com
+Received: from host59.registrar-servers.com
+	by host59.registrar-servers.com with LMTP
+	id uOTiOVoeT2VAdi0A+KyzgQ
+	(envelope-from <Chris.houghton@mail.com>)
+	for <info@dependablelc.com>; Sat, 11 Nov 2023 01:25:30 -0500
+Return-path: <Chris.houghton@mail.com>
+Envelope-to: info@dependablelc.com
+Delivery-date: Sat, 11 Nov 2023 01:25:30 -0500
+Received: from [63.250.43.69] (port=25764 helo=asp-relay-shared.jellyfish.systems)
+	by host59.registrar-servers.com with esmtps  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96.1)
+	(envelope-from <Chris.houghton@mail.com>)
+	id 1r1hQw-00CqRY-2U
+	for info@dependablelc.com;
+	Sat, 11 Nov 2023 01:25:30 -0500
+Authentication-Results: asp-relay-shared.jellyfish.systems;
+	dkim=pass header.d=mail.com header.s=s1089575 header.b=UMsRrpw+;
+	dmarc=pass (policy=none) header.from=mail.com;
+	spf=pass (asp-relay-shared.jellyfish.systems: domain of Chris.houghton@mail.com designates 74.208.4.201 as permitted sender) smtp.mailfrom=Chris.houghton@mail.com
+Received: from mout.gmx.com (mout.gmx.com [74.208.4.201])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by asp-relay-shared.jellyfish.systems (Postfix) with ESMTPS id 4SS5KJ4FwkzFy6m
+	for <info@dependablelc.com>; Sat, 11 Nov 2023 06:25:24 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=mail.com;
+	s=s1089575; t=1699683920; x=1700288720; i=chris.houghton@mail.com;
+	bh=WNoWRU6tbQPMZF2t0cZ4YMiWvsGe7XFGyTJ+eLFKOb0=;
+	h=X-UI-Sender-Class:From:To:Cc:Subject:Date:In-Reply-To:
+	 References;
+	b=UMsRrpw+dPwZc4aBQOkGmABII9CrLh57mq+BzXrdH8HwAc60X9AekhGUAWBBQQA/
+	 mG2MSPGkyPX8pTuRhEGattlK1pXo5YTYjOjNqyKlmXhw7LfD9Kk4aGlE7MWl92noR
+	 lGVCqWrKbAMmHIGnronwqfMWJr7gYCsMYwaw6HY9A7nhhTKEXaioY8LAsQHRsd3U2
+	 kgKYipsrsr9DikH3JHuLT9Mevju93sPYbE3jOljexEpymjTULo6tCCc7b2Li+Bj67
+	 Q3V0B3avK+3vHvTMyOkZ4e3WdZBE91eWiLQbAzT9jYRYfY1zY6/w/pp9ya2S06Anj
+	 IwhrLV3ZO/dDREj2jQ==
+X-UI-Sender-Class: f2cb72be-343f-493d-8ec3-b1efb8d6185a
+Received: from [94.206.113.129] ([94.206.113.129]) by
+ msvc-mesg-gmxus003.server.lan (via HTTP); Sat, 11 Nov 2023 07:25:20 +0100
+MIME-Version: 1.0
+Message-ID: <trinity-fd7722a8-43c8-46b6-a62d-43e59de9e361-1699683920476@msvc-mesg-gmxus003>
+From: Chris.houghton@mail.com
+To: info@dependablelc.com
+Cc: 'Warren Christie' <w.o.k@me.com>
+Subject: Re: RE: Notice for Increment and Renewal Tenancy Contract for Villa
+ 8 - Wadi Al Safa 7
+Content-Type: text/html; charset=UTF-8
+Date: Sat, 11 Nov 2023 07:25:20 +0100
+Content-Transfer-Encoding: quoted-printable
+In-Reply-To: <003101da13e7$f2af2a70$d80d7f50$@dependablelc.com>
+References: <002501da12f3$ddd64150$9982c3f0$@dependablelc.com>
+ <trinity-85c88a30-e0e4-4995-8e28-17e2ccf3eaa0-1699535607561@3c-app-mailcom-lxa10>
+ <003101da13e7$f2af2a70$d80d7f50$@dependablelc.com>
+X-Provags-ID: V03:K1:y2F/4Dl0YnwDHNv0Wez5tFq6VlblNsjag74sWBA1larKMKSjdUfBE81bKUitrxc26geVL
+ 5430iioixV/MUM0eg4kR2Cnl0X4luLCn8cbLkdbUQFIueSWwz4qfyh98+lFYSfwhnc23FePQKbuv
+ atoa7hmYt8x0coziojgsDjmAelu2QQ5Oc82cwntUExpvjbNGiydY8IxMjQW+Ds5ssVZXr2iXmMif
+ Yk1scy7oBcTKQtq3N/3v4s9L4AAL1eSQ72ZdoaYfL2LFKc6Ht66nyCCn29TXgtpWvJn6hyUeugt0
+ mY=
+UI-OutboundReport: notjunk:1;M01:P0:3lHKcncFHws=;yFTVXcEXWCpuEvoTGFt8Vx5S9QL
+ A9x+OUjDlf/X6v5cn/d56NFPy3JkPPsHm5M+F2zuaNo1IPI/rXi7fa0e/y7pkWMNd4UALguIs
+ uOxbi4CebsS2AculcISgWxheF7QE9dtBqwllS/s/xEsI8Dqyk6QcmiPcsQJBI0G/PLQ1krpKv
+ YLqCJsgRzjqJitvvx8vRt5TMPQYnZ1UlVvOKSQHZHs9Km3dVCdon90Ln9c8+J+mCQctuPuZMc
+ uX5U1kiVkMhmCDhsSxIpP4ramiunsO8s+HgDnFQzEMGbYH8fkkhotK6gxOmvp0Yi2JpkrRRco
+ UAEHV3i7aAVtHMA5929w55dEeYA+4tjxdQZa/ziWOkusILyANwKUiIJu6kXx44G8EQqzsXtvi
+ WPHRZuw4xCnGHXMNcVXz4A57pmrDXibxULBpdRs9Ul1erQUEK9m7lc2T8p4ltDJeKoduGeb0B
+ Ur4dwQVGO2nebEOXjP/Q1Eg3XocGYDH2GgnaZR3TPqngw9cC0AWj66uEOk+Pnx92P6elitlpM
+ 4pmtzRkmFqy9dNYRkYuaV8/xEg2ey3aE6e1qc1KaG09dZQTNn159ouE+BCPsPpfxYyDYQHgoL
+ KETZ1m37dtX6q3Q+nGGteuX8k3Ajc7eel0X6i5FxZ4b+kyDsyvHWECdHnAilkvRoFoe7bE7F8
+ CGwIQjxSIYJ6xkeWVBWpalq9smZ6rMSYfXvrFsnNpTwV5TJciXqf2z1nj60ysVjGAkolGoeNn
+ 0Ak6MVs9m2VN9K77r3aaM+kA/dsZXJhbLWV+PbslJ1Rl2/mM88BXB8RqUjuqP3S6aBMVMEHGb
+ fex7iBojdzu3UpeYRexgLFVA==
+X-NCJF-Result: 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
+X-NCJF-Version: 12
+
+<html style=3D"background-color:transparent"><head><meta charset=3D"utf-8" =
+name=3D"viewport" content=3D"width=3Ddevice-width">
+
+   =20
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8">
+<meta name=3D"Generator" content=3D"Microsoft Word 15 (filtered medium)">
+<!--[if !mso]><style>v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+w\:* {behavior:url(#default#VML);}
+=2Eshape {behavior:url(#default#VML);}
+</style><![endif]--><style><!--
+/* Font Definitions */
+@font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+@font-face
+	{font-family:Verdana;
+	panose-1:2 11 6 4 3 5 4 4 2 4;}
+@font-face
+	{font-family:"Bell MT";
+	panose-1:2 2 5 3 6 3 5 2 3 3;}
+/* Style Definitions */
+p=2EMsoNormal, li=2EMsoNormal, div=2EMsoNormal
+	{margin:0cm;
+	font-size:11=2E0pt;
+	font-family:"Calibri",sans-serif;}
+a:link, span=2EMsoHyperlink
+	{mso-style-priority:99;
+	color:blue;
+	text-decoration:underline;}
+span=2EEmailStyle19
+	{mso-style-type:personal-reply;
+	font-family:"Bell MT",serif;
+	color:#323E4F;
+	font-weight:normal;
+	font-style:normal;}
+=2EMsoChpDefault
+	{mso-style-type:export-only;
+	font-size:10=2E0pt;
+	mso-ligatures:none;}
+@page WordSection1
+	{size:612=2E0pt 792=2E0pt;
+	margin:72=2E0pt 72=2E0pt 72=2E0pt 72=2E0pt;}
+div=2EWordSection1
+	{page:WordSection1;}
+--></style>
+<!--[if gte mso 9]><xml>
+<o:shapedefaults v:ext=3D"edit" spidmax=3D"1026" />
+</xml><![endif]--><!--[if gte mso 9]><xml>
+<o:shapelayout v:ext=3D"edit">
+<o:idmap v:ext=3D"edit" data=3D"1" />
+</o:shapelayout></xml><![endif]-->
+</head>
+
+    <body contenteditable=3D"false" style=3D"margin-left:10px;">
+        <div id=3D"8787634986986720895ty" contenteditable=3D"false">
+            <div id=3D"338317EditableDivID--xx--yy--42" style=3D"font-fami=
+ly: Verdana;font-size:17px; color:black;">
+                Dear Sir,</div><div id=3D"338317EditableDivID--xx--yy--42"=
+ style=3D"font-family: Verdana;font-size:17px; color:black;"><br></div><div=
+ id=3D"338317EditableDivID--xx--yy--42" style=3D"font-family: Verdana;font-=
+size:17px; color:black;">Kindly advise what RERA rent calculation indicates=
+ a 20% increase in the current circumstances=2E&nbsp;</div><div id=3D"33831=
+7EditableDivID--xx--yy--42" style=3D"font-family: Verdana;font-size:17px; c=
+olor:black;"><br></div><div id=3D"338317EditableDivID--xx--yy--42" style=3D=
+"font-family: Verdana;font-size:17px; color:black;">Also kindly advise whic=
+h law allows a proposal of a 113% increase in rent&nbsp;followed by a propo=
+sal of a 20% increase, on and after the date of renewal of the tenancy cont=
+ract=2E&nbsp;</div><div id=3D"338317EditableDivID--xx--yy--42" style=3D"fon=
+t-family: Verdana;font-size:17px; color:black;"><br></div><div id=3D"338317=
+EditableDivID--xx--yy--42" style=3D"font-family: Verdana;font-size:17px; co=
+lor:black;">As previously notified to Mr Christie in due time in accordance=
+ with the law we wish to renew the tenancy contract on the same terms as th=
+e existing contract=2E We look forward to receipt of an appropriate contrac=
+t followed by the EJARI registration=2E&nbsp;</div><div id=3D"338317Editabl=
+eDivID--xx--yy--42" style=3D"font-family: Verdana;font-size:17px; color:bla=
+ck;"><br></div><div id=3D"338317EditableDivID--xx--yy--42" style=3D"font-fa=
+mily: Verdana;font-size:17px; color:black;">Many thanks,</div><div id=3D"33=
+8317EditableDivID--xx--yy--42" style=3D"font-family: Verdana;font-size:17px=
+; color:black;"><br></div><div id=3D"338317EditableDivID--xx--yy--42" style=
+=3D"font-family: Verdana;font-size:17px; color:black;">Chris Houghton<br><b=
+r>Sent using the mobile mail app<br><br>On 10/11/2023 at 7:10 PM, info@depe=
+ndablelc=2Ecom wrote:
+                <br><br>
+            </div>
+            <div style=3D"border-left:2px solid gray;padding-left:10px;wid=
+th:100%%">
+                <div style=3D"font-family: Verdana;font-size:17px; color:b=
+lack;">
+                    From: info@dependablelc=2Ecom<br>Date: 10 November 202=
+3<br>To: "'Chris Houghton'" &lt;Chris=2Ehoughton@mail=2Ecom&gt;<br>Cc: "'Wa=
+rren Christie'" &lt;w=2Eo=2Ek@me=2Ecom&gt;<br>Subject: RE: Notice for Incre=
+ment and Renewal Tenancy Contract for  Villa 8 - Wadi Al Safa 7
+                </div>
+                <div class=3D"WordSection1">
+<p class=3D"MsoNormal"><span style=3D"font-size:16=2E0pt;font-family:&quot=
+;Bell MT&quot;,serif;color:#323E4F">Dear Mr=2E </span><span style=3D"font-s=
+ize:16=2E0pt;font-family:&quot;Bell MT&quot;,serif">Christopher,</span></p>=
+<p></p><p></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:16=2E0pt;font-family:&quot=
+;Bell MT&quot;,serif">I hope this email finds you well=2E</span></p><p></p>=
+<p></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:16=2E0pt;font-family:&quot=
+;Bell MT&quot;,serif"></span></p><p>&nbsp;</p><p></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:16=2E0pt;font-family:&quot=
+;Bell MT&quot;,serif">Following the land department rules and Dubai tenancy=
+ law, we are sending you the new tenancy contract with an increase of 20% a=
+s per the RERA calculation, which allows the 20% increment,</span></p><p></=
+p><p></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:16=2E0pt;font-family:&quot=
+;Bell MT&quot;,serif"></span></p><p>&nbsp;</p><p></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:16=2E0pt;font-family:&quot=
+;Bell MT&quot;,serif">We hope you will sign the new contract as it is sent =
+out here and close this matter with Mr=2E Warren=2E </span></p><p></p><p></=
+p>
+<p class=3D"MsoNormal"><span style=3D"font-size:16=2E0pt;font-family:&quot=
+;Bell MT&quot;,serif"></span></p><p>&nbsp;</p><p></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:16=2E0pt;font-family:&quot=
+;Bell MT&quot;,serif;color:#323E4F"></span></p><p>&nbsp;</p><p></p>
+<p class=3D"MsoNormal"><span lang=3D"EN-GB" style=3D"font-size:12=2E0pt;fo=
+nt-family:&quot;Bell MT&quot;,serif;color:#002060"></span></p><p>&nbsp;</p>=
+<p></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:12=2E0pt;font-family:&quot=
+;Bell MT&quot;,serif;color:#002060">Best Regards=2E</span></p><p></p><p></p=
+>
+<p class=3D"MsoNormal"><span style=3D"font-size:12=2E0pt;font-family:&quot=
+;Bell MT&quot;,serif;color:#002060"><img width=3D"64" height=3D"71" style=
+=3D"width:=2E6666in;height:=2E7395in" id=3D"Picture_x0020_2" src=3D"Attachm=
+ent/Y2lkOmltYWdlMDAxLmpwZ0AwMURBMTQwNy5BNUQzODNDMA"></span></p><p></p><p></=
+p>
+<p class=3D"MsoNormal"><span style=3D"font-size:12=2E0pt;font-family:&quot=
+;Bell MT&quot;,serif;color:#002060">Dependable Legal Consultants LLC</span>=
+</p><p></p><p></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:12=2E0pt;font-family:&quot=
+;Bell MT&quot;,serif;color:#002060"><a href=3D"http://www=2Edependablelc=2E=
+com/"><span style=3D"color:#0563C1">www=2Edependablelc=2Ecom</span></a> </s=
+pan></p><p></p><p></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:16=2E0pt;font-family:&quot=
+;Bell MT&quot;,serif;color:#323E4F"></span></p><p>&nbsp;</p><p></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:16=2E0pt;font-family:&quot=
+;Bell MT&quot;,serif;color:#323E4F"></span></p><p>&nbsp;</p><p></p>
+<div><div style=3D"border:none;border-top:solid #E1E1E1 1=2E0pt;padding:3=
+=2E0pt 0cm 0cm 0cm"><p class=3D"MsoNormal"><b>From:</b> Chris Houghton &lt;=
+Chris=2Ehoughton@mail=2Ecom&gt; <br><b>Sent:</b> Thursday, November 9, 2023=
+ 5:13 PM<br><b>To:</b> info@dependablelc=2Ecom<br><b>Cc:</b> Warren Christi=
+e &lt;w=2Eo=2Ek@me=2Ecom&gt;<br><b>Subject:</b> Re: Notice for Increment an=
+d Renewal Tenancy Contract for Villa 8 - Wadi Al Safa 7</p><p></p><p></p></=
+div></div>
+<p class=3D"MsoNormal"></p><p>&nbsp;</p><p></p>
+<div>
+<div><p class=3D"MsoNormal"><span style=3D"font-size:15=2E0pt;font-family:=
+&quot;Verdana&quot;,sans-serif">Dear Sirs,</span><span style=3D"font-size:9=
+=2E0pt;font-family:&quot;Verdana&quot;,sans-serif"></span></p><p></p><p></p=
+></div>
+<div><p class=3D"MsoNormal"><span style=3D"font-size:9=2E0pt;font-family:&=
+quot;Verdana&quot;,sans-serif">&nbsp;</span></p><p></p><p></p></div>
+<div><p class=3D"MsoNormal"><span style=3D"font-size:15=2E0pt;font-family:=
+&quot;Verdana&quot;,sans-serif">Please find attached the email and Legal No=
+tification of the ruling of the Rental Disputes Centre as previously sent t=
+o Mr Christie in due time on 14th July 2023=2E</span><span style=3D"font-si=
+ze:9=2E0pt;font-family:&quot;Verdana&quot;,sans-serif"></span></p><p></p><p=
+></p></div>
+<div><p class=3D"MsoNormal"><span style=3D"font-size:9=2E0pt;font-family:&=
+quot;Verdana&quot;,sans-serif">&nbsp;</span></p><p></p><p></p></div>
+<div><p class=3D"MsoNormal"><span style=3D"font-size:15=2E0pt;font-family:=
+&quot;Verdana&quot;,sans-serif">As Mr Christie is aware there is already a =
+Tenancy Contract between us for the period 10th November 2023 to 9th Novemb=
+er 2024 and the rental cheques are lodged with the Rental Disputes Centre f=
+or Mr Christie to collect=2E</span><span style=3D"font-size:9=2E0pt;font-fa=
+mily:&quot;Verdana&quot;,sans-serif"></span></p><p></p><p></p></div>
+<div><p class=3D"MsoNormal"><span style=3D"font-size:9=2E0pt;font-family:&=
+quot;Verdana&quot;,sans-serif">&nbsp;</span></p><p></p><p></p></div>
+<div><p class=3D"MsoNormal"><span style=3D"font-size:15=2E0pt;font-family:=
+&quot;Verdana&quot;,sans-serif">Best regards,</span><span style=3D"font-siz=
+e:9=2E0pt;font-family:&quot;Verdana&quot;,sans-serif"></span></p><p></p><p>=
+</p></div>
+<div><p class=3D"MsoNormal"><span style=3D"font-size:9=2E0pt;font-family:&=
+quot;Verdana&quot;,sans-serif">&nbsp;</span></p><p></p><p></p></div>
+<div><p class=3D"MsoNormal"><span style=3D"font-size:15=2E0pt;font-family:=
+&quot;Verdana&quot;,sans-serif">Chris Houghton</span><span style=3D"font-si=
+ze:9=2E0pt;font-family:&quot;Verdana&quot;,sans-serif"></span></p><p></p><p=
+></p></div>
+<div>
+<p class=3D"MsoNormal"><span style=3D"font-size:9=2E0pt;font-family:&quot;=
+Verdana&quot;,sans-serif">&nbsp; </span></p><p></p><p></p>
+<div>
+<p class=3D"MsoNormal"><span style=3D"font-size:9=2E0pt;font-family:&quot;=
+Verdana&quot;,sans-serif">&nbsp; </span></p><p></p><p></p>
+<div style=3D"border:none;border-left:solid #C3D9E5 1=2E5pt;padding:0cm 0c=
+m 0cm 8=2E0pt;margin-left:7=2E5pt;margin-top:7=2E5pt;margin-right:3=2E75pt;=
+margin-bottom:3=2E75pt;-webkit-nbsp-mode: space;-webkit-line-break: after-w=
+hite-space" name=3D"quote">
+<div style=3D"margin-bottom:7=2E5pt"><p class=3D"MsoNormal"><b><span style=
+=3D"font-size:9=2E0pt;font-family:&quot;Verdana&quot;,sans-serif">Sent:</sp=
+an></b><span style=3D"font-size:9=2E0pt;font-family:&quot;Verdana&quot;,san=
+s-serif">&nbsp;Thursday, November 09, 2023 at 2:02 PM<br><b>From:</b>&nbsp;=
+<a href=3D"mailto:info@dependablelc=2Ecom">info@dependablelc=2Ecom</a><br><=
+b>To:</b>&nbsp;<a href=3D"mailto:chris=2Ehoughton@mail=2Ecom">chris=2Ehough=
+ton@mail=2Ecom</a><br><b>Cc:</b>&nbsp;"Warren Christie" &lt;<a href=3D"mail=
+to:w=2Eo=2Ek@me=2Ecom">w=2Eo=2Ek@me=2Ecom</a>&gt;<br><b>Subject:</b>&nbsp;N=
+otice for Increment and Renewal Tenancy Contract for Villa 8 - Wadi Al Safa=
+ 7</span></p><p></p><p></p></div>
+<div name=3D"quoted-content"><div><div>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-=
+alt:auto;text-align:justify"><span style=3D"font-size:16=2E0pt;font-family:=
+&quot;Bell MT&quot;,serif">Dear Christopher,</span><span style=3D"font-size=
+:9=2E0pt;font-family:&quot;Verdana&quot;,sans-serif"></span></p><p></p><p><=
+/p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-=
+alt:auto;text-align:justify"><span style=3D"font-size:16=2E0pt;font-family:=
+&quot;Bell MT&quot;,serif">Kindly find the attachments below, </span><span =
+style=3D"font-size:9=2E0pt;font-family:&quot;Verdana&quot;,sans-serif"></sp=
+an></p><p></p><p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-=
+alt:auto;text-align:justify"><span style=3D"font-size:16=2E0pt;font-family:=
+&quot;Bell MT&quot;,serif">Legal Notice from Mr=2E Warren Oliver Kilburn Ch=
+ristie for renewing and increment of the tenancy contract of villa 8 =E2=80=
+=93 Wadi Al Safa 7=2E</span><span style=3D"font-size:9=2E0pt;font-family:&q=
+uot;Verdana&quot;,sans-serif"></span></p><p></p><p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-=
+alt:auto;text-align:justify"><span style=3D"font-size:16=2E0pt;font-family:=
+&quot;Bell MT&quot;,serif">That is for your information and quick action=2E=
+</span><span style=3D"font-size:9=2E0pt;font-family:&quot;Verdana&quot;,san=
+s-serif"></span></p><p></p><p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-=
+alt:auto;text-align:justify"><span style=3D"font-size:16=2E0pt;font-family:=
+&quot;Bell MT&quot;,serif">&nbsp;</span><span style=3D"font-size:9=2E0pt;fo=
+nt-family:&quot;Verdana&quot;,sans-serif"></span></p><p></p><p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-=
+alt:auto"><span style=3D"font-size:16=2E0pt;font-family:&quot;Bell MT&quot;=
+,serif;color:#323E4F">&nbsp;</span><span style=3D"font-size:9=2E0pt;font-fa=
+mily:&quot;Verdana&quot;,sans-serif"></span></p><p></p><p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto"><span style=3D"fo=
+nt-size:12=2E0pt;font-family:&quot;Bell MT&quot;,serif;color:#002060">&nbsp=
+;</span><span style=3D"font-size:9=2E0pt;font-family:&quot;Verdana&quot;,sa=
+ns-serif"></span></p><p></p><p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto"><span style=3D"fo=
+nt-size:12=2E0pt;font-family:&quot;Bell MT&quot;,serif;color:#002060">Best =
+Regards=2E</span><span style=3D"font-size:9=2E0pt;font-family:&quot;Verdana=
+&quot;,sans-serif"></span></p><p></p><p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto"><span style=3D"fo=
+nt-size:12=2E0pt;font-family:&quot;Bell MT&quot;,serif;color:#002060"><img =
+border=3D"0" width=3D"64" height=3D"71" style=3D"width:=2E6666in;height:=2E=
+7395in" id=3D"Picture_x0020_1" src=3D"Attachment/Y2lkOmltYWdlMDAxLmpwZ0AwMU=
+RBMTQwNy5BNUQzODNDMA"></span><span style=3D"font-size:9=2E0pt;font-family:&=
+quot;Verdana&quot;,sans-serif"></span></p><p></p><p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto"><span style=3D"fo=
+nt-size:12=2E0pt;font-family:&quot;Bell MT&quot;,serif;color:#002060">Depen=
+dable Legal Consultants LLC</span><span style=3D"font-size:9=2E0pt;font-fam=
+ily:&quot;Verdana&quot;,sans-serif"></span></p><p></p><p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto"><span style=3D"fo=
+nt-size:12=2E0pt;font-family:&quot;Bell MT&quot;,serif;color:#002060"><a hr=
+ef=3D"http://www=2Edependablelc=2Ecom/" target=3D"_blank">www=2Edependablel=
+c=2Ecom</a> </span><span style=3D"font-size:9=2E0pt;font-family:&quot;Verda=
+na&quot;,sans-serif"></span></p><p></p><p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-=
+alt:auto"><span style=3D"font-size:16=2E0pt;font-family:&quot;Bell MT&quot;=
+,serif;color:#323E4F">&nbsp;</span><span style=3D"font-size:9=2E0pt;font-fa=
+mily:&quot;Verdana&quot;,sans-serif"></span></p><p></p><p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-=
+alt:auto;text-align:justify"><span style=3D"font-size:16=2E0pt;font-family:=
+&quot;Bell MT&quot;,serif">&nbsp;</span><span style=3D"font-size:9=2E0pt;fo=
+nt-family:&quot;Verdana&quot;,sans-serif"></span></p><p></p><p></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:auto;mso-margin-bottom-=
+alt:auto"><span style=3D"font-size:16=2E0pt;font-family:&quot;Bell MT&quot;=
+,serif;color:#323E4F">&nbsp;</span><span style=3D"font-size:9=2E0pt;font-fa=
+mily:&quot;Verdana&quot;,sans-serif"></span></p><p></p><p></p>
+</div></div></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+            </div>
+        </div>
+   =20
+</body></html>

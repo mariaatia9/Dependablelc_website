@@ -1,0 +1,480 @@
+Return-Path: <alhakim80f@gmail.com>
+Delivered-To: info@dependablelc.com
+Received: from host59.registrar-servers.com
+	by host59.registrar-servers.com with LMTP
+	id ICz+I26svWJD8RsA+KyzgQ
+	(envelope-from <alhakim80f@gmail.com>)
+	for <info@dependablelc.com>; Thu, 30 Jun 2022 10:00:14 -0400
+Return-path: <alhakim80f@gmail.com>
+Envelope-to: info@dependablelc.com
+Delivery-date: Thu, 30 Jun 2022 10:00:14 -0400
+Received: from [63.250.43.69] (port=52208 helo=asp-relay-shared.jellyfish.systems)
+	by host59.registrar-servers.com with esmtps  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <alhakim80f@gmail.com>)
+	id 1o6uiM-007pNi-GS
+	for info@dependablelc.com;
+	Thu, 30 Jun 2022 10:00:14 -0400
+Received: from mail-qv1-f49.google.com (mail-qv1-f49.google.com [209.85.219.49])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by asp-relay-shared.jellyfish.systems (Postfix) with ESMTPS id 4LYg2L1RDtzyWx
+	for <info@dependablelc.com>; Thu, 30 Jun 2022 14:00:05 +0000 (UTC)
+Received: by mail-qv1-f49.google.com with SMTP id y14so29765719qvs.10
+        for <info@dependablelc.com>; Thu, 30 Jun 2022 07:00:05 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20210112;
+        h=mime-version:references:in-reply-to:from:date:message-id:subject:to;
+        bh=7CXjF5BgWnILXD5ucYopCacEMZaiYV/wZB8tro81zSs=;
+        b=BShtwUPnwn61N7VBkVQx1kjRLMoKRwpguj4lNKVAWnHMEOY53yQgEQWimjGEa+LQ/K
+         SU7p2zbV+ub6ts6r4z2cQk3XBg6GyvK+atZDgsRDOLJgxTA1aicnxzKrluxN9bb3QmeA
+         wvOXD/P6ZrIDpGPJ40PUkLOSzY+592e7X/YcZg5zwsTBg6f1Oqx8/+h6kjolOuPI1BSI
+         24rPyq++ND34Ynq90mIVdA9DKdsv0SDH1Uv4mW/wlFRbq38rGkK90wrfMfuLC8j718zJ
+         Qux2YgiA7BX4vau+esZovKTECR5P3v2F4Pp/dzKxmKnnb63ZKX1y6vcpZ/veH0TiVzrx
+         dKzQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+         :message-id:subject:to;
+        bh=7CXjF5BgWnILXD5ucYopCacEMZaiYV/wZB8tro81zSs=;
+        b=ZBkNSJxIqaTvuwjfbAqU6orEWqIYEWnCeNc9D0kJAQDKDRIh7Vb1CZh/qwlau+8OXM
+         swzxBIbSNqvcE/Z9cMeVCd4IWTPCkIykfKiKNvfakANorhXzeG7rGQ3ey7KYZ1lu6WIL
+         kvE4VTZcYVx0G58teIaj57OHOvZDJsbVYzk4HgLQJ2hJJ1l8/CIaXyiPR7hLHyH0L0+h
+         dl8AqJmIZwFLMzN3Y7gs6YZMzUGEMvMOx+17UdZEvOmb2AJhMVqK4y1mQlX8csmOQSMm
+         TRhlXWPxC0txyld+UIuP28RsLDitQcOVSWYvQ18YEADTn1OkUisQU9I4I6yWz9NvQQXY
+         XS/Q==
+X-Gm-Message-State: AJIora/iS14XFwRon3PagbFkny0a35MFGq1t3OvxecY6abrdMEn58mk5
+	HdWXWhMxDJY86FvppyvYEgFG0kLfzy1fAhpeaKzJ2CkO
+X-Google-Smtp-Source: AGRyM1sNElbsYVIAU5MkDJqnAPQgLvPaTVs+KhWUcWOSUQwd1RKdTxnvVfuMj4SDqNwo+UBH03+t3Kk35Je6QM+/s8M=
+X-Received: by 2002:ac8:7f89:0:b0:31b:f53c:f78f with SMTP id
+ z9-20020ac87f89000000b0031bf53cf78fmr7807093qtj.271.1656597603848; Thu, 30
+ Jun 2022 07:00:03 -0700 (PDT)
+MIME-Version: 1.0
+References: <GU_cV000000000000000000000000000000000000000000000RDEMQ600GM1wUaIgRZKX_Sg5G9bfmg@sfdc.net>
+ <CAEfyEuokzBMJDB8P6U5DWrQf5C1ri4Sh81jpdUGDHmhaVGARzQ@mail.gmail.com>
+ <CAEfyEuqYQkeBYbaPRVq-=aSB4a2CnVY5NtZCefFhYK6nVJ+LkQ@mail.gmail.com> <CAEfyEuo+peeYEjSmYmqrmM_vdwuvDPs5JUnTp3SWcZdWkFj_ag@mail.gmail.com>
+In-Reply-To: <CAEfyEuo+peeYEjSmYmqrmM_vdwuvDPs5JUnTp3SWcZdWkFj_ag@mail.gmail.com>
+From: Fidaa A <alhakim80f@gmail.com>
+Date: Thu, 30 Jun 2022 23:59:51 +1000
+Message-ID: <CAEfyEuoJzqTjXXu56mEHaU9D2fJsktA=GNM5eDXHvz5Km2JONQ@mail.gmail.com>
+Subject: Fwd: 2101, Silver Tower, Business Bay_SELLER
+To: info@dependablelc.com
+Content-Type: multipart/alternative; boundary="000000000000b694f005e2aaaff8"
+X-NCJF-Result: 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
+X-NCJF-Version: 8
+Authentication-Results: asp-relay-shared.jellyfish.systems;
+	dkim=pass header.d=gmail.com header.s=20210112 header.b=BShtwUPn;
+	dmarc=pass (policy=none) header.from=gmail.com;
+	spf=pass (asp-relay-shared.jellyfish.systems: domain of alhakim80f@gmail.com designates 209.85.219.49 as permitted sender) smtp.mailfrom=alhakim80f@gmail.com
+
+--000000000000b694f005e2aaaff8
+Content-Type: text/plain; charset="UTF-8"
+
+---------- Forwarded message ---------
+From: Fidaa A <alhakim80f@gmail.com>
+Date: Thu, 30 Jun 2022, 11:58 pm
+Subject: Fwd: 2101, Silver Tower, Business Bay_SELLER
+To: <joanne@allsoppandallsopp.com>, <c_alhakim@yahoo.com>
+
+
+Hi Jo,
+
+Thanks for your call
+
+As discussed, we had to apply for time off work and travel to dubai from
+for settlement date for 30june, which was the date the buyer wanted.
+
+It has cost us $30,000 just to do this.
+
+The buyer left the country the same day as settlement day with no regards
+to settlement or the people involved in the settlement.
+
+It is impossible for us to return to dubai at a later date due to the fact
+it would not be possible to be granted any more time of work not mentioning
+the high expense it would be.
+
+The buyer has defaulted in his obligation to the sales agreement and has
+forfeited the deposit cheque, as mentioned in the previous emails i have
+sent to you.
+
+As to not let things esculate, its best for everyone to cut their losses.
+
+We will be collecting the cheque tomorrow and depositing. Please have this
+ready at 9am.
+
+ *Please advise from whom we are to collect the cheque and the right
+address.*
+
+
+Please know that should you not release the forfeited cheque tomorrow
+morning, our solicitor will be taking further action with Dubai courts
+against the buyer, broker and the progression team.
+
+Regards,
+
+Mrs Fidaa Al Hakim
+
+---------- Forwarded message ---------
+From: Fidaa A <alhakim80f@gmail.com>
+Date: Thu, 30 Jun 2022, 11:35 pm
+Subject: Fwd: 2101, Silver Tower, Business Bay_SELLER
+To: <joanne@allsoppandallsopp.com>, <info@dependablelc.com>, <
+c_alhakim@yahoo.com>
+
+
+Hi Jo,
+
+Further to the Below,
+
+Please note that cheque should be released at 9am tomorrow.
+
+Please send your exact address for Chad to come and collect.
+
+The longer the cheque is held, it is likely that the cheque will bounce and
+i do not believe that your company wants to be responsible for this.
+
+Should the above occur, this is when it will be a matter for the courts and
+all relevant parties will be held responsible.
+
+Please note that Chad will discuss with you tomorrow the payment of 20%
+penalty to be paid to allsopp and allsopp from the forfeited cheque
+
+Thanks,
+Fidaa
+
+
+---------- Forwarded message ---------
+From: Fidaa A <alhakim80f@gmail.com>
+Date: Thu, 30 Jun 2022, 10:46 pm
+Subject: Re: 2101, Silver Tower, Business Bay_SELLER
+To: Sales Progression-Allsopp & Allsopp <
+salesprogression@allsoppandallsopp.com>
+Cc: <melissa.s@allsoppandallsopp.com>, <joanne@allsoppandallsopp.com>, <
+laila@allsoppandallsopp.com>, <info@dependablelc.com>, <c_alhakim@yahoo.com>,
+joseph.w@allsoppandallsopp.com <joseph.w@allsoppandallsopp.com>
+
+
+Hi Jo,
+
+As of today, the settlement was not completed due to default by the buyer.
+
+The buyer did not fullfill his contractual obligations according to the
+agreement of sale
+
+Please refer to item 2.14 of the contract, agreement of sale.
+
+Seller is entitled to 80% of the deposit and 20% to the broker.
+
+Chad will be at your head office at 9am to meet with you and pick up the
+deposit cheque.
+
+This matter is required to be settled tomorrow
+
+Our solicitor has also been Cc'd in this email.
+
+Thank you and best regards
+
+Mrs Fidaa Al Hakim
+
+On Mon, 13 Jun 2022, 5:13 pm Sales Progression-Allsopp & Allsopp, <
+salesprogression@allsoppandallsopp.com> wrote:
+
+> Hello Fidaa Al Hakim,
+>
+> Congratulations on the sale of your property 2101, Silver Tower, Business
+> Bay
+>
+> Your Property Sales Consultants have made us aware of the details of your
+> sale, so we are all up to date and ready to guide you through the sale
+> progression to a successful transfer.
+>
+> Jo Murphy will be your Sales Progression Officer. They will liaise
+> directly between yourself, the buyer, and any third parties involved in the
+> sale such as the Developer, and Dubai Land Department.
+>
+> Jo will be in contact with you within the next 48 hours to confirm the
+> next steps and let you know what is required from you to begin the process.
+>
+> In the meantime, the step-by-step guide to the sales progression process
+> is attached, along with a guide on how to prepare managers' cheques which
+> is the method of payment required at transfer.
+>
+> We look forward to working with you.
+>
+> Kind Regards
+> Sales Progression
+> Allsopp & Allsopp
+
+--000000000000b694f005e2aaaff8
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"auto"><div><br><br><div class=3D"gmail_quote"><div dir=3D"ltr" =
+class=3D"gmail_attr">---------- Forwarded message ---------<br>From: <stron=
+g class=3D"gmail_sendername" dir=3D"auto">Fidaa A</strong> <span dir=3D"aut=
+o">&lt;<a href=3D"mailto:alhakim80f@gmail.com">alhakim80f@gmail.com</a>&gt;=
+</span><br>Date: Thu, 30 Jun 2022, 11:58 pm<br>Subject: Fwd: 2101, Silver T=
+ower, Business Bay_SELLER<br>To:  &lt;<a href=3D"mailto:joanne@allsoppandal=
+lsopp.com">joanne@allsoppandallsopp.com</a>&gt;,  &lt;<a href=3D"mailto:c_a=
+lhakim@yahoo.com">c_alhakim@yahoo.com</a>&gt;<br></div><br><br><div dir=3D"=
+auto">Hi Jo,=C2=A0<div dir=3D"auto"><br></div><div dir=3D"auto">Thanks=C2=
+=A0for your call</div><div dir=3D"auto"><br></div><div dir=3D"auto">As disc=
+ussed, we had to apply for time off work and travel to dubai from for settl=
+ement date for 30june, which was the date the buyer wanted.</div><div dir=
+=3D"auto"><br></div><div dir=3D"auto">It has cost us $30,000 just to do thi=
+s.</div><div dir=3D"auto"><br></div><div dir=3D"auto">The buyer left the co=
+untry the same day as settlement day with no regards to settlement or the p=
+eople involved in the settlement.</div><div dir=3D"auto"><br></div><div dir=
+=3D"auto">It is impossible for us to return to dubai at a later date due to=
+ the fact it would not be possible to be granted any more time of work not =
+mentioning the high expense it would be.</div><div dir=3D"auto"><br></div><=
+div dir=3D"auto">The buyer has defaulted in his obligation to the sales agr=
+eement and has forfeited the deposit cheque, as mentioned in the previous e=
+mails i have sent to you.</div><div dir=3D"auto"><br></div><div dir=3D"auto=
+">As to not let things esculate, its best for everyone to cut their=C2=A0lo=
+sses.=C2=A0</div><div dir=3D"auto"><br></div><div dir=3D"auto">We will be c=
+ollecting the cheque tomorrow and depositing. Please have this ready at 9am=
+.</div><div dir=3D"auto"><br></div><div dir=3D"auto">=C2=A0<b><font color=
+=3D"#f44336"><u>Please advise from whom we are to collect=C2=A0the cheque a=
+nd the right address.</u></font></b></div><div dir=3D"auto"><br></div><div =
+dir=3D"auto"><br></div><div dir=3D"auto">Please know that should you not re=
+lease the forfeited cheque tomorrow morning, our solicitor will be taking f=
+urther=C2=A0action with Dubai courts against the buyer, broker and the prog=
+ression team.</div><div dir=3D"auto"><br></div><div dir=3D"auto">Regards,</=
+div><div dir=3D"auto"><br></div><div dir=3D"auto">Mrs Fidaa Al Hakim</div><=
+/div><br><div class=3D"gmail_quote"><div dir=3D"ltr" class=3D"gmail_attr">-=
+--------- Forwarded message ---------<br>From: <strong class=3D"gmail_sende=
+rname" dir=3D"auto">Fidaa A</strong> <span dir=3D"auto">&lt;<a href=3D"mail=
+to:alhakim80f@gmail.com" target=3D"_blank" rel=3D"noreferrer">alhakim80f@gm=
+ail.com</a>&gt;</span><br>Date: Thu, 30 Jun 2022, 11:35 pm<br>Subject: Fwd:=
+ 2101, Silver Tower, Business Bay_SELLER<br>To:  &lt;<a href=3D"mailto:joan=
+ne@allsoppandallsopp.com" target=3D"_blank" rel=3D"noreferrer">joanne@allso=
+ppandallsopp.com</a>&gt;,  &lt;<a href=3D"mailto:info@dependablelc.com" tar=
+get=3D"_blank" rel=3D"noreferrer">info@dependablelc.com</a>&gt;,  &lt;<a hr=
+ef=3D"mailto:c_alhakim@yahoo.com" target=3D"_blank" rel=3D"noreferrer">c_al=
+hakim@yahoo.com</a>&gt;<br></div><br><br><div dir=3D"auto"><div>Hi Jo,</div=
+><div dir=3D"auto"><br></div><div dir=3D"auto">Further to the Below,=C2=A0<=
+/div><div dir=3D"auto"><br></div><div dir=3D"auto">Please note that cheque =
+should be released at 9am tomorrow.</div><div dir=3D"auto"><br></div><div d=
+ir=3D"auto">Please send your exact address for Chad to come and collect.</d=
+iv><div dir=3D"auto"><br></div><div dir=3D"auto">The longer the cheque is h=
+eld, it is likely that the cheque will bounce and i do not believe that you=
+r company wants to be responsible for this.</div><div dir=3D"auto"><br></di=
+v><div dir=3D"auto">Should the above occur, this is when it will be a matte=
+r for the courts and all relevant=C2=A0parties will be held responsible.</d=
+iv><div dir=3D"auto"><br></div><div dir=3D"auto">Please note that Chad will=
+ discuss with you tomorrow the payment of 20% penalty to be paid to allsopp=
+ and allsopp from the forfeited cheque</div><div dir=3D"auto"><br></div><di=
+v dir=3D"auto">Thanks,=C2=A0</div><div dir=3D"auto">Fidaa</div><div dir=3D"=
+auto"><br><br><div class=3D"gmail_quote" dir=3D"auto"><div dir=3D"ltr" clas=
+s=3D"gmail_attr">---------- Forwarded message ---------<br>From: <strong cl=
+ass=3D"gmail_sendername" dir=3D"auto">Fidaa A</strong> <span dir=3D"auto">&=
+lt;<a href=3D"mailto:alhakim80f@gmail.com" rel=3D"noreferrer noreferrer" ta=
+rget=3D"_blank">alhakim80f@gmail.com</a>&gt;</span><br>Date: Thu, 30 Jun 20=
+22, 10:46 pm<br>Subject: Re: 2101, Silver Tower, Business Bay_SELLER<br>To:=
+ Sales Progression-Allsopp &amp; Allsopp &lt;<a href=3D"mailto:salesprogres=
+sion@allsoppandallsopp.com" rel=3D"noreferrer noreferrer" target=3D"_blank"=
+>salesprogression@allsoppandallsopp.com</a>&gt;<br>Cc:  &lt;<a href=3D"mail=
+to:melissa.s@allsoppandallsopp.com" rel=3D"noreferrer noreferrer" target=3D=
+"_blank">melissa.s@allsoppandallsopp.com</a>&gt;,  &lt;<a href=3D"mailto:jo=
+anne@allsoppandallsopp.com" rel=3D"noreferrer noreferrer" target=3D"_blank"=
+>joanne@allsoppandallsopp.com</a>&gt;,  &lt;<a href=3D"mailto:laila@allsopp=
+andallsopp.com" rel=3D"noreferrer noreferrer" target=3D"_blank">laila@allso=
+ppandallsopp.com</a>&gt;,  &lt;<a href=3D"mailto:info@dependablelc.com" rel=
+=3D"noreferrer noreferrer" target=3D"_blank">info@dependablelc.com</a>&gt;,=
+  &lt;<a href=3D"mailto:c_alhakim@yahoo.com" rel=3D"noreferrer noreferrer" =
+target=3D"_blank">c_alhakim@yahoo.com</a>&gt;, <a href=3D"mailto:joseph.w@a=
+llsoppandallsopp.com" rel=3D"noreferrer noreferrer" target=3D"_blank">josep=
+h.w@allsoppandallsopp.com</a> &lt;<a href=3D"mailto:joseph.w@allsoppandalls=
+opp.com" rel=3D"noreferrer noreferrer" target=3D"_blank">joseph.w@allsoppan=
+dallsopp.com</a>&gt;<br></div><br><br><div dir=3D"auto">Hi Jo,<div dir=3D"a=
+uto"><br></div><div dir=3D"auto">As of today, the settlement was not comple=
+ted due to default by the buyer.</div><div dir=3D"auto"><br></div><div dir=
+=3D"auto">The buyer did not fullfill his contractual obligations according =
+to the agreement of sale</div><div dir=3D"auto"><br></div><div dir=3D"auto"=
+>Please refer to item 2.14 of the contract, agreement of sale.</div><div di=
+r=3D"auto"><br></div><div dir=3D"auto">Seller is entitled to 80% of the dep=
+osit and 20% to the broker.</div><div dir=3D"auto"><br></div><div dir=3D"au=
+to">Chad will be at your head office at 9am to=C2=A0meet with you and pick =
+up the deposit cheque.</div><div dir=3D"auto"><br></div><div dir=3D"auto">T=
+his=C2=A0matter is required to be settled tomorrow</div><div dir=3D"auto"><=
+br></div><div dir=3D"auto">Our solicitor has also been Cc&#39;d in this ema=
+il.</div><div dir=3D"auto"><br></div><div dir=3D"auto">Thank you and best r=
+egards</div><div dir=3D"auto"><br></div><div dir=3D"auto">Mrs Fidaa Al Haki=
+m</div></div><br><div class=3D"gmail_quote"><div dir=3D"ltr" class=3D"gmail=
+_attr">On Mon, 13 Jun 2022, 5:13 pm Sales Progression-Allsopp &amp; Allsopp=
+, &lt;<a href=3D"mailto:salesprogression@allsoppandallsopp.com" rel=3D"nore=
+ferrer noreferrer noreferrer" target=3D"_blank">salesprogression@allsoppand=
+allsopp.com</a>&gt; wrote:<br></div><blockquote class=3D"gmail_quote" style=
+=3D"margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex">Hello Fi=
+daa Al Hakim, <br>
+<br>
+Congratulations on the sale of your property 2101, Silver Tower, Business B=
+ay<br>
+<br>
+Your Property Sales Consultants have made us aware of the details of your s=
+ale, so we are all up to date and ready to guide you through the sale progr=
+ession to a successful transfer.<br>
+<br>
+Jo Murphy will be your Sales Progression Officer. They will liaise directly=
+ between yourself, the buyer, and any third parties involved in the sale su=
+ch as the Developer, and Dubai Land Department.<br>
+<br>
+Jo will be in contact with you within the next 48 hours to confirm the next=
+ steps and let you know what is required from you to begin the process.<br>
+<br>
+In the meantime, the step-by-step guide to the sales progression process is=
+ attached, along with a guide on how to prepare managers&#39; cheques which=
+ is the method of payment required at transfer.<br>
+<br>
+We look forward to working with you.<br>
+<br>
+Kind Regards<br>
+Sales Progression<br>
+Allsopp &amp; Allsopp</blockquote></div>
+</div></div></div>
+</div>
+</div></div></div>
+
+--000000000000b694f005e2aaaff8--

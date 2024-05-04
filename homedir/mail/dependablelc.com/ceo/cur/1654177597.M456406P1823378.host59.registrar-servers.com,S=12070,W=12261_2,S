@@ -1,0 +1,191 @@
+Return-Path: <3LmqFYg8JAzMRPgaP.S.hTkXaaPVbPXa.RdbRTdSTeTcSPQaTaR.Rdb@doclist.bounces.google.com>
+Delivered-To: ceo@dependablelc.com
+Received: from server1.parahost.co
+	by server1.parahost.co with LMTP
+	id UKeGIlxqhWJaZgAAYK0uVw
+	(envelope-from <3LmqFYg8JAzMRPgaP.S.hTkXaaPVbPXa.RdbRTdSTeTcSPQaTaR.Rdb@doclist.bounces.google.com>)
+	for <ceo@dependablelc.com>; Thu, 19 May 2022 00:51:24 +0300
+Return-path: <3LmqFYg8JAzMRPgaP.S.hTkXaaPVbPXa.RdbRTdSTeTcSPQaTaR.Rdb@doclist.bounces.google.com>
+Envelope-to: ceo@dependablelc.com
+Delivery-date: Thu, 19 May 2022 00:51:24 +0300
+Received: from mail-qv1-f69.google.com ([209.85.219.69]:55245)
+	by server1.parahost.co with esmtps  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+	(Exim 4.95)
+	(envelope-from <3LmqFYg8JAzMRPgaP.S.hTkXaaPVbPXa.RdbRTdSTeTcSPQaTaR.Rdb@doclist.bounces.google.com>)
+	id 1nrRZk-0006pa-LR
+	for ceo@dependablelc.com;
+	Thu, 19 May 2022 00:51:24 +0300
+Received: by mail-qv1-f69.google.com with SMTP id fw9-20020a056214238900b0043522aa5b81so2628609qvb.21
+        for <ceo@dependablelc.com>; Wed, 18 May 2022 14:51:02 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20210112;
+        h=mime-version:reply-to:references:message-id:date:subject:from:to;
+        bh=YAgYoE2QKlrl4+ZEAYVAme8CJHI4DFwmUTjGBYvgb7E=;
+        b=Hc+ecbbTvhJwo2Eb8t+VsBbCYLGDW0Lrh+/NW0W6pnrQIsRKtWP+9WcAVzB42t2r8/
+         DWANLdt5W0wQoioGPAcColsWFioYVtngoierI8rkXqIQhf+H8H9LYF7t6O5TOoxXMIDu
+         IZXAWVfbeBZaWY+JkFid+yJlNw8YyHnTizFiMoyDAmdsz9BZnRmVuA/y52SnzjTF6jjH
+         442nKsXUroN0C7dn2g17sOqna5ZzbdRye/BliVFH+I8lPQTtrrOLCOkOn9c0wc1zErUq
+         5MMcf1ZYw4hgmagWeDsCBFj1R+7jHnUKqmXmWlBivQT+ieSsJYwOdNBJekVbRDWdhOPt
+         foKA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=x-gm-message-state:mime-version:reply-to:references:message-id:date
+         :subject:from:to;
+        bh=YAgYoE2QKlrl4+ZEAYVAme8CJHI4DFwmUTjGBYvgb7E=;
+        b=wKjk8iGFXRVdj3UWRcRukjEyClh1u41lX7Zj7Zo9CC5Tsoe8N+StLtZJXOhdsnUtuc
+         REfUyWayV5zKi95TJdtZ+s1JIpfz4xSG47XkCne+Afe3rj9CpZ9yCLB4EYGlf1VZSjPP
+         VOU/BcnLkNy4zNgDAeVVLHy6vcBHAzq6XNW9bVoKeQ0Jw4AF8gs602QnDRISWh+fO+q9
+         6kEDh2gOc9ctc1/NAFV7bc35J8eibPIEaL8XSgOVEI80gkB7DkWzyP6UTz9tMYm93W6l
+         PLfCCxaseZKXzSyR3Q6199l0WDyHySb9AbGOHD92qDqV/awnGnNI4iQaarxoEFL+V0lB
+         89bw==
+X-Gm-Message-State: AOAM531vrmGC8wUDKXYfFXuFiAaUxg3wethH/2ODbE18jCITYcvjY97X
+	OeFYFJB0OFjK6CZ0fvWvRnGbDTfJqSw=
+X-Google-Smtp-Source: ABdhPJxxqjZ8oBARLQMdwmMBDvPx+3RE16HYSc/5zbOWsdsaPOLOTMhGGmLHpamZqcH3DRohbCVT5QP6v4c=
+MIME-Version: 1.0
+X-Received: by 2002:a05:620a:4481:b0:6a0:1dd3:d210 with SMTP id
+ x1-20020a05620a448100b006a01dd3d210mr1157383qkp.137.1652910638818; Wed, 18
+ May 2022 14:50:38 -0700 (PDT)
+Reply-To: Carla Sevilla <carla.d.sevilla@gmail.com>
+X-No-Auto-Attachment: 1
+References: <8f439453-e26e-446f-8e4b-f5fdd44e0a6e@docs-share.google.com>
+Message-ID: <00000000000078ecca05df503fd4@google.com>
+Date: Wed, 18 May 2022 21:50:38 +0000
+Subject: Folder shared with you: "CALNDER EVENTS"
+From: "Carla Sevilla (via Google Drive)" <carla.d.sevilla@gmail.com>
+To: ceo@dependablelc.com
+Content-Type: multipart/alternative; boundary="00000000000078ecb805df503fd1"
+X-Spam-Status: No, score=0.4
+X-Spam-Score: 4
+X-Spam-Bar: /
+X-Ham-Report: Spam detection software, running on the system "server1.parahost.co",
+ has NOT identified this incoming email as spam.  The original
+ message has been attached to this so you can view it or label
+ similar future email.  If you have any questions, see
+ root\@localhost for details.
+ Content preview:  I've shared an item with you: CALNDER EVENTS https://drive.google.com/drive/folders/1f7ftAyHmm3goEGTAxP6aqMHIqGgz9lLZ?usp=sharing&invite=CI7j_8IH&ts=62856a2e
+    It's not an attachment -- it's stored online. To open this item, just click
+    the link above. 
+ Content analysis details:   (0.4 points, 5.0 required)
+  pts rule name              description
+ ---- ---------------------- --------------------------------------------------
+ -0.0 SPF_PASS               SPF: sender matches SPF record
+  0.0 FREEMAIL_FROM          Sender email is commonly abused enduser mail
+                             provider
+                             [carla.d.sevilla[at]gmail.com]
+  0.2 HEADER_FROM_DIFFERENT_DOMAINS From and EnvelopeFrom 2nd level
+                             mail domains are different
+  0.0 HTML_MESSAGE           BODY: HTML included in message
+ -0.1 DKIM_VALID             Message has at least one valid DKIM or DK signature
+ -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
+                             author's domain
+  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
+                             valid
+  0.2 FREEMAIL_FORGED_FROMDOMAIN 2nd level domains in From and
+                             EnvelopeFrom freemail headers are
+                             different
+ -0.0 T_SCC_BODY_TEXT_LINE   No description available.
+  0.0 T_REMOTE_IMAGE         Message contains an external image
+X-Spam-Flag: NO
+
+--00000000000078ecb805df503fd1
+Content-Type: text/plain; charset="UTF-8"; format=flowed; delsp=yes
+
+I've shared an item with you:
+
+CALNDER EVENTS
+https://drive.google.com/drive/folders/1f7ftAyHmm3goEGTAxP6aqMHIqGgz9lLZ?usp=sharing&invite=CI7j_8IH&ts=62856a2e
+
+It's not an attachment -- it's stored online. To open this item, just click  
+the link above.
+
+PDF file, overtime.
+
+--00000000000078ecb805df503fd1
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<html><head></head><body><table style=3D"border-collapse: collapse; width: =
+100%; background-color: white; text-align: center;" role=3D"presentation"><=
+tr><td style=3D"padding: 24px 0 16px 0;"><table style=3D"border-collapse: c=
+ollapse;font-family: Roboto, Arial, Helvetica, sans-serif;hyphens: auto; ov=
+erflow-wrap: break-word; word-wrap: break-word; word-break: break-word;disp=
+lay: inline-block; width: 90%;max-width: 700px;min-width: 280px; text-align=
+: left;" role=3D"presentation"><tr><td style=3D"padding: 0;"><table style=
+=3D"width:100%; border: 1px solid #dadce0; border-radius: 8px; border-spaci=
+ng: 0; table-layout:fixed; border-collapse: separate;" role=3D"presentation=
+"><tr><td style=3D"padding: 4.5%;" dir=3D"ltr"><div style=3D"margin-bottom:=
+32px;font-family: Google Sans, Roboto, Arial, Helvetica, sans-serif; font-s=
+tyle: normal; font-size: 28px; line-height: 36px; color: #3c4043;"><a href=
+=3D"mailto:carla.d.sevilla@gmail.com" style=3D"color:inherit;text-decoratio=
+n:none">carla.d.sevilla@gmail.com</a> shared a folder</div><table style=3D"=
+border-collapse: collapse;font-family: Roboto, Arial, Helvetica, sans-serif=
+; font-size:16px; line-height:24px; color:#202124; letter-spacing:0.1px; ta=
+ble-layout:fixed; width:100%; overflow-wrap: break-word;" role=3D"presentat=
+ion"><tr><td style=3D"padding: 0; vertical-align:top; width:50px;"><!--[if =
+mso]><v:oval xmlns:v=3D"urn:schemas-microsoft-com:vml" xmlns:w=3D"urn:schem=
+as-microsoft-com:office:word" style=3D"height:50px;width:50px;" fill=3D"t" =
+stroke=3D"f"><v:fill type=3D"frame" src=3D"https://ssl.gstatic.com/s2/profi=
+les/images/silhouette64.png" alt=3D"Unknown profile photo" style=3D"height:=
+50px;width:50px;"/></v:oval><![endif]--><div style=3D"mso-hide:all;"><img s=
+tyle=3D"border-radius:50%; display:block;" width=3D"50" height=3D"50" src=
+=3D"https://ssl.gstatic.com/s2/profiles/images/silhouette64.png" alt=3D"Unk=
+nown profile photo"></div></td><td style=3D"padding: 0; vertical-align:top;=
+ padding-left:12px;"><div style=3D"padding-top:12px;"><a href=3D"mailto:car=
+la.d.sevilla@gmail.com" style=3D"color:inherit;text-decoration:none">carla.=
+d.sevilla@gmail.com</a> has invited you to <b>contribute to</b> the followi=
+ng shared folder:</div><div style=3D"margin-top:24px; color:#5F6368">PDF fi=
+le, overtime. </div></td></tr></table><table style=3D"border-spacing:0 4px;=
+ table-layout:fixed; width:100%; overflow-wrap: break-word;" role=3D"presen=
+tation"><tr style=3D"height:28px;"></tr><tr><td style=3D"padding: 0;"><a hr=
+ef=3D"https://drive.google.com/drive/folders/1f7ftAyHmm3goEGTAxP6aqMHIqGgz9=
+lLZ?usp=3Dsharing_eil_m&amp;invite=3DCI7j_8IH&amp;ts=3D62856a2e" target=3D"=
+_blank" style=3D"color: #3c4043; display: inline-block; max-width: 100%; te=
+xt-decoration: none; vertical-align: top;border: 1px solid #DADCE0; border-=
+radius: 16px; white-space: nowrap;"><div style=3D"line-height: 18px; overfl=
+ow: hidden; text-overflow: ellipsis;padding: 6px 12px;"><span style=3D"disp=
+lay: inline-block; vertical-align: top; min-width: 26px; width: 26px;"><img=
+ src=3D"https://ssl.gstatic.com/docs/documents/share/images/services/folder=
+-3.png" width=3D"18" height=3D"18" style=3D"vertical-align: top;" role=3D"p=
+resentation"></span><span style=3D"font: 500 14px/18px Google Sans, Roboto,=
+ Arial, Helvetica, sans-serif; display: inline; letter-spacing: 0.2px;">CAL=
+NDER EVENTS</span></div></a></td></tr></table><table style=3D"border-collap=
+se: collapse;" role=3D"presentation"><tr style=3D"height: 24px"><td></td></=
+tr></table><div style=3D"background: #fef7e0; border-radius: 4px; padding:1=
+2px 16px;"><div style=3D"display: table-cell; vertical-align: middle;"><img=
+ src=3D"https://ssl.gstatic.com/docs/documents/share/images/warning_callout=
+_outline_yellow.png" width=3D"24px" height=3D"24px" style=3D"margin-left: 7=
+px; margin-right: 19px; vertical-align: middle;"></div><div style=3D"color:=
+ #3c4043; display: table-cell; font-size: 14px; line-height: 20px; vertical=
+-align: middle;">This email grants access to this item without logging in. =
+Only forward it to people you trust.</div></div><table style=3D"border-coll=
+apse: collapse;" role=3D"presentation"><tr style=3D"height: 32px"><td></td>=
+</tr></table><div><!--[if mso]><v:roundrect xmlns:v=3D"urn:schemas-microsof=
+t-com:vml" xmlns:w=3D"urn:schemas-microsoft-com:office:word" href=3D"https:=
+//drive.google.com/drive/folders/1f7ftAyHmm3goEGTAxP6aqMHIqGgz9lLZ?usp=3Dsh=
+aring_eip_m&amp;invite=3DCI7j_8IH&amp;ts=3D62856a2e" style=3D"height:36px;v=
+-text-anchor:middle;width:100px;" arcsize=3D"50%" stroke=3D"f" fillcolor=3D=
+"#1a73e8"><w:anchorlock/><center style=3D"color:#ffffff;font-family:Arial,H=
+elvetica,sans-serif;font-weight:500;font-size:14px;">Open </center></v:roun=
+drect><![endif]--><a href=3D"https://drive.google.com/drive/folders/1f7ftAy=
+Hmm3goEGTAxP6aqMHIqGgz9lLZ?usp=3Dsharing_eip_m&amp;invite=3DCI7j_8IH&amp;ts=
+=3D62856a2e" class=3D"material-button material-button-filled" target=3D"_bl=
+ank" tabindex=3D"0" role=3D"button" style=3D"mso-hide:all;padding: 0 24px;f=
+ont: 500 14px/36px Google Sans, Roboto, Arial, Helvetica, sans-serif; borde=
+r: none; border-radius: 18px; box-sizing: border-box; display: inline-block=
+; letter-spacing: .25px; min-height: 36px; text-align: center; text-decorat=
+ion: none;background-color: #1a73e8; color: #fff; cursor: pointer;">Open</a=
+></div></td></tr></table><table style=3D"border-collapse: collapse; width: =
+100%;" role=3D"presentation"><tr><td style=3D"padding: 24px 4.5%"><table st=
+yle=3D"border-collapse: collapse; width: 100%;" dir=3D"ltr"><tr><td style=
+=3D"padding: 0;font-family: Roboto, Arial, Helvetica, sans-serif; color: #5=
+F6368; width: 100%; font-size: 12px; line-height: 16px; min-height: 40px; l=
+etter-spacing: .3px;">Google LLC, 1600 Amphitheatre Parkway, Mountain View,=
+ CA 94043, USA<br/> You have received this email because <a href=3D"mailto:=
+carla.d.sevilla@gmail.com" style=3D"color:inherit;text-decoration:none">car=
+la.d.sevilla@gmail.com</a> shared a file or folder located in Google Drive =
+with you.</td><td style=3D"padding: 0; padding-left: 20px;"><a href=3D"http=
+s://www.google.com/" target=3D"_blank"><img src=3D"https://www.gstatic.com/=
+images/branding/googlelogo/2x/googlelogo_grey_tm_color_96x40dp.png" width=
+=3D"96" height=3D"40" alt=3D"Logo for Google Drive"></a></td></tr></table><=
+/td></tr></table></td></tr></table></td></tr></table></body></html>
+--00000000000078ecb805df503fd1--

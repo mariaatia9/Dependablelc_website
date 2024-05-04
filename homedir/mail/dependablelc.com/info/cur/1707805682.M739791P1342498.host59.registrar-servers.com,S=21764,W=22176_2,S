@@ -1,0 +1,412 @@
+Return-Path: <pcabraham@reliabletrpt.ae>
+Delivered-To: info@dependablelc.com
+Received: from host59.registrar-servers.com
+	by host59.registrar-servers.com with LMTP
+	id sAdoK/ILy2UifBQA+KyzgQ
+	(envelope-from <pcabraham@reliabletrpt.ae>)
+	for <info@dependablelc.com>; Tue, 13 Feb 2024 01:28:02 -0500
+Return-path: <pcabraham@reliabletrpt.ae>
+Envelope-to: info@dependablelc.com
+Delivery-date: Tue, 13 Feb 2024 01:28:02 -0500
+Received: from [63.250.43.69] (port=26001 helo=asp-relay-shared.jellyfish.systems)
+	by host59.registrar-servers.com with esmtps  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96.1)
+	(envelope-from <pcabraham@reliabletrpt.ae>)
+	id 1rZmGw-005rff-1f
+	for info@dependablelc.com;
+	Tue, 13 Feb 2024 01:28:02 -0500
+Authentication-Results: asp-relay-shared.jellyfish.systems;
+	dkim=pass header.d=reliabletransportllc.onmicrosoft.com header.s=selector2-reliabletransportllc-onmicrosoft-com header.b=RSQRChwp;
+	arc=pass ("microsoft.com:s=arcselector9901:i=1");
+	dmarc=none;
+	spf=pass (asp-relay-shared.jellyfish.systems: domain of pcabraham@reliabletrpt.ae designates 40.107.20.116 as permitted sender) smtp.mailfrom=pcabraham@reliabletrpt.ae
+Received: from EUR05-DB8-obe.outbound.protection.outlook.com (mail-db8eur05on2116.outbound.protection.outlook.com [40.107.20.116])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by asp-relay-shared.jellyfish.systems (Postfix) with ESMTPS id 4TYrwr041tz1xv4
+	for <info@dependablelc.com>; Tue, 13 Feb 2024 06:27:56 +0000 (UTC)
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=cygIUvgi4XN7zV4gDakQgSu+tPkrIaCu1Gvj6WrIzgOJmtUi+vYDthEQMcmlNTZdLs20UiaZEFRw3MscKz7dUlKmoqZgC4oFzAd7Lr2J7SKsrzeVcGrmzqL6fuYuDyXJhOugKBpC8I9ks9asdONzjtTG4WnU/28tCVP4K0OnFZin94t7IMkEkOqZmuD9PbglVKRvvTJgzot7yuNmme6BonNhyNy8B+XOPf/th6D2Li1eKJ2HuXFaFWYekXLMkSHAQv+1GU3dg9ZTS1q3X6ntWRF/iA47vth/4fzECAHBJu+nd9kb4eD6BODLH95WK/0cj34PqdiTNNP5wEDP6gZ7iQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=IXw5cGoTnFKwYG4rB9AlU4j+2D9mXdf5wXkSc51pYWk=;
+ b=SZgCHfI80xYSod/Ma/R/FjhjwQKwHd+GY3eQGpnXqD8Op+qcVJhNBfh2MOyAqUnnUOkxygNyRKhlrQDaAXYJumuqArMX990JBu39dZ1bS8nJTlXE6jF2REIhnvWLprjC0sJHJZsLqCol/d1taI84yj/OI5UlMKn3Y79du6+1mTTtdt/iK1dMyQRGtU2Il3boq85m3XlnWZkWwNnawsJVvsc0PrchMkIF1BzT0PPGfzB7UiW8D1vi/rhslehT8PHwf6znEvCR8Ad6/UShtoOVZDI8CPymd3EGnlGuf6WjIhrqX35NKijRYXPHpOGbhjlt8LEfoZ0ShEg8E+X00J1bJQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=reliabletrpt.ae; dmarc=pass action=none
+ header.from=reliabletrpt.ae; dkim=pass header.d=reliabletrpt.ae; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=reliabletransportllc.onmicrosoft.com;
+ s=selector2-reliabletransportllc-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=IXw5cGoTnFKwYG4rB9AlU4j+2D9mXdf5wXkSc51pYWk=;
+ b=RSQRChwpabQzeiPfMuyRlBLf4Qj4PqRrqvlLH/bfwueXqXk22LYy73DZmZyWiDbfpfbhEveBrQOSR8EP2M1msksr9uIlNjVNxZU4C/tRJDOnq7YYcS9ar3zBM8HyB1FhIZmTNhcDyvNLS44t+hmFhrpopxHzP+GVOtyoimJteNU=
+Received: from AM8PR05MB8257.eurprd05.prod.outlook.com (2603:10a6:20b:314::11)
+ by AM8PR05MB7330.eurprd05.prod.outlook.com (2603:10a6:20b:1d2::6) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7270.39; Tue, 13 Feb
+ 2024 06:27:53 +0000
+Received: from AM8PR05MB8257.eurprd05.prod.outlook.com
+ ([fe80::f262:2725:7829:4282]) by AM8PR05MB8257.eurprd05.prod.outlook.com
+ ([fe80::f262:2725:7829:4282%6]) with mapi id 15.20.7270.036; Tue, 13 Feb 2024
+ 06:27:53 +0000
+From: Peter Abraham - Reliable Transport LLC <pcabraham@reliabletrpt.ae>
+To: "info@dependablelc.com" <info@dependablelc.com>
+Subject: =?iso-8859-6?B?RndkOiDF1NnH0SDM5NPJ?=
+Thread-Topic: =?iso-8859-6?B?xdTZx9EgzOTTyQ==?=
+Thread-Index: AQHaXkI393CHllbFhEu4ADlkEJxTTbEHzt31
+Date: Tue, 13 Feb 2024 06:27:53 +0000
+Message-ID:
+ <AM8PR05MB8257E1856BA34882782897C2AD4F2@AM8PR05MB8257.eurprd05.prod.outlook.com>
+References: <1327088807.228160.1707804139693@adjappap01.adjd.local>
+In-Reply-To: <1327088807.228160.1707804139693@adjappap01.adjd.local>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach:
+X-MS-TNEF-Correlator:
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: AM8PR05MB8257:EE_|AM8PR05MB7330:EE_
+x-ms-office365-filtering-correlation-id: 47f76587-6310-4eae-e2cf-08dc2c5ce89a
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;
+x-microsoft-antispam-message-info:
+ n97bXN6tgWHSz0bquv1daO9g9YWTKeEys7WJRdcOTvBxy2EBl+4TfOnHYebG3mfj+U1t0NpmK5Pyx25xpRglYf7Z9CwVqAhkVp2N+3fb/XZofYxEPk9Ty0dezXQe5FQ4cKEtJEZDZYtVqP67koQjq4tq091IBLWeC/aJAWHNXVJi7MG/rISBdbNWv8bABayaYlzBxdeT8pEkQSaNKx7NcG07/YCCMjCpsnoDRCboUj8vb6kQKBTEcaBgZvyoiWcMhqvUXJ1HeoBiEvyaohtBJ3vmiZ8dQg9fczbNWzBLLivxe3yRjiOdva8fzpVFUA0reIewhCZmVysM1fEAkJjlcrvbY3z5Wd5vNTgU42W+KQfpcSezWxqXhwHNmikpOgk9MO5ZgfXXVYQSPy4aXIbO1oxEfeVXe0pSVOTu1npxba8+Ww9cKaE01mz1TfNF/J+kMB+rx9U8HcCWOn7Crf8ImkcxNVDz6BUvimT3dAbzKlQ44jevksiwhh0zTNQgdaFSnHerQ54FAyqnuaBW8vu0jHhizMzqhQ3IXo+SxQvkXd+svqjzIGv8H3hPpfBY3ueK52Jc2XIlKRyR5OWmeY1J9jSujVm0lj0wXFabdX4vL+M=
+x-forefront-antispam-report:
+ CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM8PR05MB8257.eurprd05.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230031)(376002)(39830400003)(136003)(346002)(396003)(366004)(230473577357003)(230922051799003)(451199024)(64100799003)(186009)(1800799012)(2906002)(5660300002)(55016003)(41300700001)(45080400002)(8936002)(6916009)(166002)(53546011)(66556008)(66476007)(66446008)(64756008)(52536014)(6506007)(66946007)(76116006)(66574015)(83380400001)(38070700009)(33656002)(224303003)(316002)(71200400001)(9686003)(966005)(478600001)(122000001)(86362001)(7696005)(16799955002)(38100700002);DIR:OUT;SFP:1102;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0:
+ =?iso-8859-6?Q?8scTbC8OZTPhsurG2XhXTDKvtPsNk0NT4HYadqyJxAyRjkN2MY35xU9IkL?=
+ =?iso-8859-6?Q?bHwWQp8QM7hcjg5k2dD4bJLm4i2Lz9tOy1xLr8mU7dfWg4q+fpjqwpFrS0?=
+ =?iso-8859-6?Q?dHfWgdzH8pE2gIP2m5AHoxDNc2ccDISxoqTE//wBYNxvu5Y3RPAuO/5VY7?=
+ =?iso-8859-6?Q?pw0zgOCAxalt4C45TkHve6DxrGcbH0qnMKnj5BenVVotlUPG/uMbYX5EBV?=
+ =?iso-8859-6?Q?eLUuuG0u+1RWnQeRVAy1NZEburw92Y8C/0bE17SthLk7SkUrIZ6h3X0+Vj?=
+ =?iso-8859-6?Q?YEFFwbTgzqovDN1E0P6GVYKCtIhUvwwX1j6j5wI4XruQpw+cNp8Ka3lEsc?=
+ =?iso-8859-6?Q?c4G0qDiarNKIezh22y78iNN1X0mYn1vN+fvfjkBDAdi98/0L4goonPSYwb?=
+ =?iso-8859-6?Q?sP6CJSUhGMfZ4rfGgM2f1R75OLIe0cJX8b8YPnh7D9Ic2zdji7Gq7dZT9X?=
+ =?iso-8859-6?Q?/uESj2jLnC+jPmNyJyX/eQds4Y7P0N+OgtlyrjIUsVUMqSkkAPI4ryCEy9?=
+ =?iso-8859-6?Q?Mw0AIccM1oooj38qwGpPmpTZFqRj/RCn1PyKKYYS6Kv7q5W+CoYL9cnPj8?=
+ =?iso-8859-6?Q?hBmiLQdFhyHlYcmW8PTOy/pYYmPsV/cdY0IrQjumPNQrpSurPfLgJBVMOE?=
+ =?iso-8859-6?Q?iS/0CzrGisV8r4KPP3z40No4lEvCKB1BcymY3md8hcqlMgBjWC8KYl4RTh?=
+ =?iso-8859-6?Q?3IkwrCBQnMt++DskkRk6JLYPaM+QY+ESxChW46PnACJKUwKR/OwzN+DtAd?=
+ =?iso-8859-6?Q?5yL3t9enwotPEWb0DC5Bx0/9rYUfB0FX7FjKqBzSooOhs+qIc6lW4mcsVI?=
+ =?iso-8859-6?Q?hSD70AtBB5ziXkuWJtvQQ1k7bJMoQ1YhzJHC4K8ag3N9wVoTCKawBbLs0Z?=
+ =?iso-8859-6?Q?ie08WSBKaS7+rKzNaKFhSAU/LAw8MCLaAnecXuT0evR0KTFqRmefMf2vY0?=
+ =?iso-8859-6?Q?8kZAxFto6oEvxcVEzkcb+ojW/jcOehLEdjBOW52/xTG2pGAQLb/XWYmN3A?=
+ =?iso-8859-6?Q?PsQ1WBoEs63BZnsqw0b29GGV+72vOz5uLWULPdMrfj4io5KM21RQy9nKqQ?=
+ =?iso-8859-6?Q?Tn/n0wWds+C1ksocWVLBhSA8s0yq2cm6oMyjYp+YG+tTTG4G5Y9RwS6jK7?=
+ =?iso-8859-6?Q?C/1Mw2a5PhZ7qId+q3evg2AsLqXFg67+115B+ojdRHJQNGbp0aHlsnavE1?=
+ =?iso-8859-6?Q?z8dQggs8tpIb2Gq3J769ixuaDJdyhgiS2YDnuf12KUuABHnrir46G/JKF/?=
+ =?iso-8859-6?Q?xJt0KdmE7QLiIBqcrJrAzYMtoGXhUiIzhIdCxoMk99kslgD9K8ly7yy1su?=
+ =?iso-8859-6?Q?ySpVEVZ74fDhEJ+r9n62iL7St8561vpXguzkJK9A6aHICWkA39TORgil01?=
+ =?iso-8859-6?Q?A0O4wQ6uCtmFtCCzTXxjzqV6UxnQjlBE37VBv75x8kxtDjo4WOhG4q4NFx?=
+ =?iso-8859-6?Q?X7/Rg819pXt5tpuKR43Qxsxiwu3R3CFB3+hPcEmI+2vt1qlU/kErj6ulGr?=
+ =?iso-8859-6?Q?R4uIuQYP+UTqB6j+fPGE6zh93swlCAcqaXG3/Tzp0R8DJofijUKhlGwbSt?=
+ =?iso-8859-6?Q?uX7AVdQgz/jpX3/t8Gj38eSDfaifcHquT4slq+G8dZXQ52MURy6iw84V0P?=
+ =?iso-8859-6?Q?AdB5AnIdA2ThbTSPQRVjWq6LDLMD9ZLFYPyw+PwAjpeK/56ob0aqJVrbO/?=
+ =?iso-8859-6?Q?XziN5rKrEMkmQ2/RP6/3WbfcMBcrTTxJEiDUySuyh0KZiBs0L0wbSh4YB/?=
+ =?iso-8859-6?Q?5UIIuGYViP1BHv+AG4WWixUSU=3D?=
+Content-Type: multipart/alternative;
+	boundary="_000_AM8PR05MB8257E1856BA34882782897C2AD4F2AM8PR05MB8257eurp_"
+MIME-Version: 1.0
+X-OriginatorOrg: reliabletrpt.ae
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: AM8PR05MB8257.eurprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 47f76587-6310-4eae-e2cf-08dc2c5ce89a
+X-MS-Exchange-CrossTenant-originalarrivaltime: 13 Feb 2024 06:27:53.0215
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 63a14217-e2ad-4b94-b8e7-420336bc71bf
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: 6Z7uUCEdQN/EkWdwhVpMOEN5zyu4wM1oJKoFHTYH7ycmB3P2ockQKjNIJZd0y0a8nlQ3xVCG4i0ahODw8UFLITS8FlR54MtlUH0VSNVPjtQ=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM8PR05MB7330
+X-NCJF-Result: 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
+ 
+	QZWsJYWvn7O2NU=
+X-NCJF-Version: 20
+
+--_000_AM8PR05MB8257E1856BA34882782897C2AD4F2AM8PR05MB8257eurp_
+Content-Type: text/plain; charset="iso-8859-6"
+Content-Transfer-Encoding: quoted-printable
+
+
+
+Get Outlook for iOS<https://aka.ms/o0ukef>
+________________________________
+From: Abu Dhabi Judicial Department <notification@adjd.gov.ae>
+Sent: Tuesday, February 13, 2024 10:02 AM
+To: Peter Abraham - Reliable Transport LLC <pcabraham@reliabletrpt.ae>
+Subject: =C5=D4=D9=C7=D1 =CC=E4=D3=C9
+
+=C7=E4=D3=EA=CF / =C7=E4=D3=EA=CF=C9 : =D1=EA=E4=EA=C8=EA=E4 =C8=C7=E4=D4=
+=C7=CD=E6=C7=CA =C7=E4=CB=E2=EA=E4=C9 =E8=C7=E4=CE=E1=EA=E1=C9 =D4.=D0.=E5.=
+=E5
+
+=E1=EA=E5=C7 =EA=CA=D9=E4=E2 =C8=C7=E4=E2=D6=EA=C9 =D1=E2=E5 412-2024-=CA=
+=CC =C8=D3=EA=D7=C9-=E5 =D1-=C8-=C3 =D8=E0 =CA =EA=D1=CC=E9 =C7=E4=CA=E3=D1=
+=E5 =C8=C7=E4=D9=E4=E5 =C8=D6=D1=E8=D1=C9 =CD=D6=E8=D1=E3=E5 =E4=E4=CC=E4=
+=D3=C9 =C7=E4=E5=D1=C6=EA=C9 =C7=E4=E5=E2=D1=D1=C9 =E1=EA 15/02/2024 08:30 =
+=D9=E6 =D7=D1=EA=E2 =C5=D3=CA=CE=CF=C7=E5 =C7=E4=D1=C7=C8=D7 =C7=E4=CA=C7=
+=E4=EA:
+
+https://adjd-ae.webex.com/adjd-ae/j.php?MTID=3Dm33ff7063afbe32cdfaa83131a0e=
+f23ef
+
+=D9=E4=E5=C7=EB =C8=C3=E6 =C8=EA=C7=E6=C7=CA =C7=E4=CC=E4=D3=C9 =E7=EA =E3=
+=C7=E4=CA=C7=E4=EA:
+=D1=E2=E5 =C7=E4=C5=CC=CA=E5=C7=D9 : 23951494432
+=E3=E4=E5=C9 =C7=E4=E5=D1=E8=D1 : 1234
+
+=EA=E5=E3=E6=E3 =C7=E4=C5=D7=E4=C7=D9 =D9=E4=E9 =C7=E4=CA=D9=E4=EA=E5=C7=CA=
+ =AC =C7=E4=D4=D1=E8=D7 =E8=C7=E4=C3=CD=E3=C7=E5 =E5=E6 =CE=E4=C7=E4
+https://www.adjd.gov.ae/AR/Pages/RemoteCourtHearings.aspx
+
+=E4=E4=CF=D9=E5 =EA=D1=CC=E9 =C7=E4=CA=E8=C7=D5=E4 =E5=E6 =CE=E4=C7=E4
+T.Salem@ADJD.GOV.AE
+________________________________
+
+=C7=E4=E5=D9=E4=E8=E5=C7=CA =C7=E4=E8=C7=D1=CF=C9 =E1=EA =E7=D0=C7 =C7=E4=
+=C8=D1=EA=CF =C7=E4=C5=E4=E3=CA=D1=E8=E6=EA =E8=E1=EA =C3=EA =E5=E4=E1=C7=
+=CA =CA=E5 =E6=E2=E4=E7=C7 =E5=D9=E7 =E5=CE=D5=D5=C9 =E1=E2=D7 =E4=E4=E5=D1=
+=D3=E4 =C5=E4=EA=E7 =E8=E2=CF =CA=CD=CA=E8=EA =D9=E4=E9 =E5=D9=E4=E8=E5=C7=
+=CA =C3=E8 =E8=CB=C7=C6=E2 =D3=D1=EA=C9. =E5=E6 =DA=EA=D1 =C7=E4=E5=D3=E5=
+=E8=CD =C7=E4=E8=D5=E8=E4 =C5=E4=E9 =E7=D0=C7 =C7=E4=C8=D1=EA=CF =C7=E4=C5=
+=E4=E3=CA=D1=E8=E6=EA =E5=E6 =E2=C8=E4 =C3=EA =D4=CE=D5 =C2=CE=D1 =DA=EA=D1=
+ =C7=E4=E5=D5=D1=CD =E4=E7. =C5=D0=C7 =E4=E5 =CA=E3=E6 =C3=E6=CA =C7=E4=E5=
+=D3=CA=E4=E5 =C7=E4=E5=E2=D5=E8=CF =AC =E1=EA=D1=CC=E9 =C7=E4=C7=CA=D5=C7=
+=E4 =C8=C7=E4=E5=D1=D3=E4 =D9=E4=E9 =C7=E4=E1=E8=D1 =E8=CD=D0=E1 =C7=E4=E5=
+=C7=CF=C9 .
+This email and any files transmitted with it are confidential and intended =
+solely for the use of the individual or entity to whom they are addressed. =
+If you have received this email in error please notify the system manager. =
+Please note that any views or opinions presented in this email are solely t=
+hose of the author and do not necessarily represent those of the company. F=
+inally, the recipient should check this email and any attachments for the p=
+resence of viruses. The company accepts no liability for any damage caused =
+by any virus transmitted by this email.
+
+--_000_AM8PR05MB8257E1856BA34882782897C2AD4F2AM8PR05MB8257eurp_
+Content-Type: text/html; charset="iso-8859-6"
+Content-Transfer-Encoding: quoted-printable
+
+<html>
+<head>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Diso-8859-=
+6">
+</head>
+<body>
+<div dir=3D"ltr">
+<div dir=3D"ltr"><br>
+</div>
+<div id=3D"ms-outlook-mobile-signature">
+<div><br>
+</div>
+Get <a href=3D"https://aka.ms/o0ukef">Outlook for iOS</a></div>
+<div id=3D"mail-editor-reference-message-container" class=3D"ms-outlook-mob=
+ile-reference-message">
+<hr style=3D"display:inline-block;width:98%" tabindex=3D"-1">
+<div id=3D"divRplyFwdMsg" dir=3D"ltr"><font face=3D"Calibri, sans-serif"><b=
+>From:</b> Abu Dhabi Judicial Department &lt;notification@adjd.gov.ae&gt;<b=
+r>
+<b>Sent:</b> Tuesday, February 13, 2024 10:02 AM<br>
+<b>To:</b> Peter Abraham - Reliable Transport LLC &lt;pcabraham@reliabletrp=
+t.ae&gt;<br>
+<b>Subject:</b> =C5=D4=D9=C7=D1 =CC=E4=D3=C9
+<div>&nbsp;</div>
+</font></div>
+=C7=E4=D3=EA=CF / =C7=E4=D3=EA=CF=C9 : =D1=EA=E4=EA=C8=EA=E4 =C8=C7=E4=D4=
+=C7=CD=E6=C7=CA =C7=E4=CB=E2=EA=E4=C9 =E8=C7=E4=CE=E1=EA=E1=C9 =D4.=D0.=E5.=
+=E5 <br>
+<br>
+=E1=EA=E5=C7 =EA=CA=D9=E4=E2 =C8=C7=E4=E2=D6=EA=C9 =D1=E2=E5 412-2024-=CA=
+=CC =C8=D3=EA=D7=C9-=E5 =D1-=C8-=C3 =D8=E0 =CA =EA=D1=CC=E9 =C7=E4=CA=E3=D1=
+=E5 =C8=C7=E4=D9=E4=E5 =C8=D6=D1=E8=D1=C9 =CD=D6=E8=D1=E3=E5 =E4=E4=CC=E4=
+=D3=C9 =C7=E4=E5=D1=C6=EA=C9 =C7=E4=E5=E2=D1=D1=C9 =E1=EA 15/02/2024 08:30 =
+=D9=E6 =D7=D1=EA=E2 =C5=D3=CA=CE=CF=C7=E5 =C7=E4=D1=C7=C8=D7 =C7=E4=CA=C7=
+=E4=EA:
+<br>
+<br>
+https://adjd-ae.webex.com/adjd-ae/j.php?MTID=3Dm33ff7063afbe32cdfaa83131a0e=
+f23ef <br>
+<br>
+=D9=E4=E5=C7=EB =C8=C3=E6 =C8=EA=C7=E6=C7=CA =C7=E4=CC=E4=D3=C9 =E7=EA =E3=
+=C7=E4=CA=C7=E4=EA:<br>
+=D1=E2=E5 =C7=E4=C5=CC=CA=E5=C7=D9 : 23951494432<br>
+=E3=E4=E5=C9 =C7=E4=E5=D1=E8=D1 : 1234 <br>
+<br>
+=EA=E5=E3=E6=E3 =C7=E4=C5=D7=E4=C7=D9 =D9=E4=E9 =C7=E4=CA=D9=E4=EA=E5=C7=CA=
+ =AC =C7=E4=D4=D1=E8=D7 =E8=C7=E4=C3=CD=E3=C7=E5 =E5=E6 =CE=E4=C7=E4 <br>
+https://www.adjd.gov.ae/AR/Pages/RemoteCourtHearings.aspx <br>
+<br>
+=E4=E4=CF=D9=E5 =EA=D1=CC=E9 =C7=E4=CA=E8=C7=D5=E4 =E5=E6 =CE=E4=C7=E4 <br>
+T.Salem@ADJD.GOV.AE <br>
+<hr>
+<font face=3D"Arial" size=3D"1" style=3D"color: gray;"><br>
+=C7=E4=E5=D9=E4=E8=E5=C7=CA =C7=E4=E8=C7=D1=CF=C9 =E1=EA =E7=D0=C7 =C7=E4=
+=C8=D1=EA=CF =C7=E4=C5=E4=E3=CA=D1=E8=E6=EA =E8=E1=EA =C3=EA =E5=E4=E1=C7=
+=CA =CA=E5 =E6=E2=E4=E7=C7 =E5=D9=E7 =E5=CE=D5=D5=C9 =E1=E2=D7 =E4=E4=E5=D1=
+=D3=E4 =C5=E4=EA=E7 =E8=E2=CF =CA=CD=CA=E8=EA =D9=E4=E9 =E5=D9=E4=E8=E5=C7=
+=CA =C3=E8 =E8=CB=C7=C6=E2 =D3=D1=EA=C9. =E5=E6 =DA=EA=D1 =C7=E4=E5=D3=E5=
+=E8=CD =C7=E4=E8=D5=E8=E4 =C5=E4=E9 =E7=D0=C7 =C7=E4=C8=D1=EA=CF =C7=E4=C5=
+=E4=E3=CA=D1=E8=E6=EA =E5=E6 =E2=C8=E4 =C3=EA =D4=CE=D5 =C2=CE=D1 =DA=EA=D1=
+ =C7=E4=E5=D5=D1=CD =E4=E7. =C5=D0=C7 =E4=E5 =CA=E3=E6 =C3=E6=CA =C7=E4=E5=
+=D3=CA=E4=E5 =C7=E4=E5=E2=D5=E8=CF =AC =E1=EA=D1=CC=E9 =C7=E4=C7=CA=D5=C7=
+=E4 =C8=C7=E4=E5=D1=D3=E4
+ =D9=E4=E9 =C7=E4=E1=E8=D1 =E8=CD=D0=E1 =C7=E4=E5=C7=CF=C9 .<br>
+This email and any files transmitted with it are confidential and intended =
+solely for the use of the individual or entity to whom they are addressed. =
+If you have received this email in error please notify the system manager. =
+Please note that any views or opinions
+ presented in this email are solely those of the author and do not necessar=
+ily represent those of the company. Finally, the recipient should check thi=
+s email and any attachments for the presence of viruses. The company accept=
+s no liability for any damage caused
+ by any virus transmitted by this email.<br>
+</font></div>
+</div>
+</body>
+</html>
+
+--_000_AM8PR05MB8257E1856BA34882782897C2AD4F2AM8PR05MB8257eurp_--

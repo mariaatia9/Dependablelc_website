@@ -1,0 +1,1084 @@
+Return-Path: <alber.alset@footage.ae>
+Delivered-To: info@dependablelc.com
+Received: from host59.registrar-servers.com
+	by host59.registrar-servers.com with LMTP
+	id YIqRKeKjJ2WALSEA+KyzgQ
+	(envelope-from <alber.alset@footage.ae>)
+	for <info@dependablelc.com>; Thu, 12 Oct 2023 03:44:34 -0400
+Return-path: <alber.alset@footage.ae>
+Envelope-to: info@dependablelc.com
+Delivery-date: Thu, 12 Oct 2023 03:44:34 -0400
+Received: from [63.250.43.69] (port=7936 helo=asp-relay-shared.jellyfish.systems)
+	by host59.registrar-servers.com with esmtps  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96.1)
+	(envelope-from <alber.alset@footage.ae>)
+	id 1qqqN0-009vI5-1c
+	for info@dependablelc.com;
+	Thu, 12 Oct 2023 03:44:34 -0400
+Authentication-Results: asp-relay-shared.jellyfish.systems;
+	dkim=pass header.d=footage.ae header.s=default header.b=xKw9Q5TQ;
+	arc=reject ("signature check failed: fail, {[1] = sig:mailchannels.net:reject}");
+	dmarc=none;
+	spf=pass (asp-relay-shared.jellyfish.systems: domain of alber.alset@footage.ae designates 23.83.212.19 as permitted sender) smtp.mailfrom=alber.alset@footage.ae
+Received: from black.elm.relay.mailchannels.net (black.elm.relay.mailchannels.net [23.83.212.19])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by asp-relay-shared.jellyfish.systems (Postfix) with ESMTPS id 4S5hVF6sLJz55qV
+	for <info@dependablelc.com>; Thu, 12 Oct 2023 07:44:21 +0000 (UTC)
+X-Sender-Id: 55jbsb1wk8|x-authuser|alber.alset@footage.ae
+Received: from relay.mailchannels.net (localhost [127.0.0.1])
+	by relay.mailchannels.net (Postfix) with ESMTP id 3A02B9410FE
+	for <info@dependablelc.com>; Thu, 12 Oct 2023 07:44:21 +0000 (UTC)
+Received: from host23.server.ae (unknown [127.0.0.6])
+	(Authenticated sender: 55jbsb1wk8)
+	by relay.mailchannels.net (Postfix) with ESMTPA id 400339417E2
+	for <info@dependablelc.com>; Thu, 12 Oct 2023 07:44:20 +0000 (UTC)
+ARC-Seal: i=1; s=arc-2022; d=mailchannels.net; t=1697096660; a=rsa-sha256;
+	cv=none;
+	b=SRrPrEDDPl71i+/BJIgT2/LncGhxGK0gHuZl5Tsqe/Cqup+r6lZOOD2nvAP95SBB5uchjo
+	OMls9sL1Hqa4PIz1hmnDZd+ss0oGXiusCva2oPPUpGD49JCspvftY5wM4AUVNysXiVGmpQ
+	wgqnN5e4EF2EZHI31y01nN/3izRIWtK7x1p9I2KsmZ7cCuxnNUk9AP12KjuClpTj3gCswf
+	rMgslTSAat+g9Gr6efPg5KFmQmkb0onlYGcWpIbGEP0FMF8fdoR/I+OLiy4/JPnpVksgZk
+	ntkT4X1z/rwmlZ0qG8XeoWLYKANMuXbejUUm6PsMEutLzNaVyx1PbjjLSGes/A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=mailchannels.net;
+	s=arc-2022; t=1697096660;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references:dkim-signature;
+	bh=tQxfYRXJBftj9U4dkddbXEghtiyuoyWLtTiRlLxbzCU=;
+	b=FTNMY+odzNMsdVYxHyuOlY5ygh3w+GMl4dXnKiVJpTqMTxhNLs0WzfRfSdaqcoQ++TwakM
+	zefReS6oahk5en+niAIUo3Dd5L9KDbBMjJ/1k7q2x4+k3MYKwJvQrK448D9W9vqlpTmHYS
+	gwoowLAkL10l9m2r7PHBNmUfobQPwPALvXBDDOW15Nm9+1+xKbzDqqWIoWq6qoUV8Bj+i7
+	3UneTS2G4J1e7OlSg0xHLJbLG5SJnSxOQS+UvkTGmEzLv0zPbohlg3M/5UOqDUhcggJeE3
+	wolv12AYsKR2h5KjweevI4YDVju/+QFPxq5zjVS+ruGeI+ztU6V6EWNxOnM1OQ==
+ARC-Authentication-Results: i=1;
+	rspamd-7d5dc8fd68-zt6k2;
+	auth=pass smtp.auth=55jbsb1wk8 smtp.mailfrom=alber.alset@footage.ae
+X-Sender-Id: 55jbsb1wk8|x-authuser|alber.alset@footage.ae
+X-MC-Relay: Neutral
+X-MailChannels-SenderId: 55jbsb1wk8|x-authuser|alber.alset@footage.ae
+X-MailChannels-Auth-Id: 55jbsb1wk8
+X-Bored-Chief: 1242b456384a5d06_1697096661059_2473391909
+X-MC-Loop-Signature: 1697096661059:2297861555
+X-MC-Ingress-Time: 1697096661058
+Received: from host23.server.ae (host23.server.ae [84.16.234.35])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384)
+	by 100.117.92.208 (trex/6.9.1);
+	Thu, 12 Oct 2023 07:44:21 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=footage.ae;
+	s=default; h=Content-Type:MIME-Version:Message-ID:Date:Subject:In-Reply-To:
+	References:To:From:Sender:Reply-To:Cc:Content-Transfer-Encoding:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
+	List-Post:List-Owner:List-Archive;
+	bh=BRAlmfWn0B8J/vfXqZyyG4pdm4Vdmn51gqBGKgHS8h8=; b=xKw9Q5TQ/VgPc3f9U0CfTWT9CD
+	GkHW5UbjZWuXxlBhoY7sn1UwwKMGe1+foEfofIPAvDUQC+cIg8EMFXa/CpykgDowNmT2B4Fs9ccB3
+	OQ2F4CYX57O+eQ/9lTVnQH0djUbfMUfek0q8HKGBuyR+UEzUwXZds/NWASPfk8zxzLkuSHzKPwkqu
+	++kzaTAYwHB19210ciAtm/Zw/PRf7dqDfa2Z7i1hANMAJPPGt2NY0ortAeDeO+KRNhr0YiWFOnsJm
+	spK5QiTJ5pPdPx1GcSCvO40Yk2YWrKRtjzk5AApFzmyfvbN95yjNMBdj6b5lahYVfGMIdUEf4yIsD
+	T6NCyknQ==;
+Received: from bba-86-98-222-4.alshamil.net.ae ([86.98.222.4]:51311 helo=DESKTOP6SB9PFT)
+	by host23.server.ae with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96.1)
+	(envelope-from <alber.alset@footage.ae>)
+	id 1qqqMk-001VVJ-20
+	for info@dependablelc.com;
+	Thu, 12 Oct 2023 11:44:18 +0400
+From: <alber.alset@footage.ae>
+To: <info@dependablelc.com>
+References: <000001d9fb4e$93c5e0a0$bb51a1e0$@footage.ae> <ADCFFF13-66D6-4052-8E2C-180487AAF71E@gmail.com>
+In-Reply-To: <ADCFFF13-66D6-4052-8E2C-180487AAF71E@gmail.com>
+Subject: FW: Services access Suspension Notice
+Date: Thu, 12 Oct 2023 11:44:15 +0400
+Message-ID: <003201d9fcdf$e7643170$b62c9450$@footage.ae>
+MIME-Version: 1.0
+Content-Type: multipart/related;
+	boundary="----=_NextPart_000_0033_01D9FD01.6E773100"
+X-Mailer: Microsoft Outlook 16.0
+Thread-Index: AQFQbwznOd2lPuqKC7gf3JyAAKE7igJ2YB2JsUUuagA=
+Content-Language: en-us
+X-AuthUser: alber.alset@footage.ae
+X-NCJF-Result: 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
+ 
+	7p1U9
+X-NCJF-Version: 12
+
+This is a multipart message in MIME format.
+
+------=_NextPart_000_0033_01D9FD01.6E773100
+Content-Type: multipart/alternative;
+	boundary="----=_NextPart_001_0034_01D9FD01.6E773100"
+
+
+------=_NextPart_001_0034_01D9FD01.6E773100
+Content-Type: text/plain;
+	charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+FYI and action
+
+=20
+
+Alber Alset
+
+DOP
+
+Mob: +971 55 990 4075
+
+ =
+<https://eur03.safelinks.protection.outlook.com/?url=3Dhttp%3A%2F%2Fwww.f=
+ootage.ae%2F&data=3D05%7C01%7CNiza.Miranda%40jumeirah.com%7C2a383d1079f44=
+2af4aa308da6ede86f4%7Ceee3385e742f4e2eb130e496ed7d6a49%7C0%7C0%7C63794419=
+9315088397%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLC=
+JBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C3000%7C%7C%7C&sdata=3D9ErL0f%2FEHH0CfCc5Dy=
+uCfw6u8RTqBMPmDg1WQT7UESY%3D&reserved=3D0> www.footage.ae
+
+Churchill  Tower-Business Bay-Dubai-UAE
+
+
+
+=20
+
+From: Kzee Jibran <jibrannagarmath@gmail.com>=20
+Sent: Thursday, October 12, 2023 1:42 AM
+To: alber.alset@footage.ae
+Cc: kemo_kemo22287@yahoo.com; jibran@tuyuraljamal.com; =
+accounts@tuyuraljamal.com
+Subject: Re: Services access Suspension Notice
+
+=20
+
+Dear Alber
+
+=20
+
+Kindly note the below=20
+
+=20
+
+1. We have not signed any contract with you, kindly share a signed copy =
+if you have any
+
+2. Instagram/ website is a property of TUYUR ALJAMAL MEDICAL CENTER =
+hence the numbers used for verification should be of one of the owners =
+of TUYUR ALJAMAL and not of ALBER ALSET
+
+3. Website sub content has been given to you and approved on WhatsApp =
+long ago. Please check your WhatsApp for reference
+
+4. We have stopped services from footage advertisement in August 2023=20
+
+5. Footage advertisement has no right over changing the passwords or =
+changing of numbers(which we didn=E2=80=99t authorize ) belonging to =
+TUYUR ALJAMAL MEDICAL CENTER=20
+
+=20
+
+If you have any written documents proving the authorization of anything =
+please feel free to share with us
+
+=20
+
+I hence advise you to kindly put the numbers of one of the owners of =
+TUYUR ALJAMAL MEDICAL CENTER
+
+=20
+
+Your email with regards to changing password or stopping access is a =
+clear sign of blackmail which doesn=E2=80=99t belong to FOOTAGE =
+ADVERTISEMENT OR ALBER ALSET
+
+=20
+
+warm regards
+
+Jibran
+
+Sent from my iPhone
+
+
+
+
+
+On 10 Oct 2023, at 11:51 AM, alber.alset@footage.ae =
+<mailto:alber.alset@footage.ae>  wrote:
+
+=EF=BB=BF
+
+Greetings,=20
+
+=20
+
+Dear Tuyur Al Jamal Clinic Management,
+
+=20
+
+Your note as per the below email about the access with us without your =
+authorization is false as we have all the proofs to that.
+
+You also have access to all the mentioned below and you are still using =
+them.
+
+Instagram is not registered under any personal account.=20
+
+Website access will be handed over after closing the pending payments.
+
+=20
+
+Regarding the point you mentioned that we are blackmailing you please =
+note that we are asking you to pay our rights and our hard work and time =
+we spent working for you and your brand,
+
+To give you the benefit of the doubt we will extend the service =
+suspension till 12th October as we mentioned in the previous email, =
+kindly close your payments to avoid any service interruption.
+
+=20
+
+Please be noted calling us as a Company blackmailing you will put =
+responsible for what you say, and we will take a legal action for that =
+for sure.
+
+=20
+
+Alber Alset
+
+DOP
+
+Mob: +971 55 990 4075
+
+ =
+<https://eur03.safelinks.protection.outlook.com/?url=3Dhttp%3A%2F%2Fwww.f=
+ootage.ae%2F&data=3D05%7C01%7CNiza.Miranda%40jumeirah.com%7C2a383d1079f44=
+2af4aa308da6ede86f4%7Ceee3385e742f4e2eb130e496ed7d6a49%7C0%7C0%7C63794419=
+9315088397%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLC=
+JBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C3000%7C%7C%7C&sdata=3D9ErL0f%2FEHH0CfCc5Dy=
+uCfw6u8RTqBMPmDg1WQT7UESY%3D&reserved=3D0> www.footage.ae
+
+Churchill Tower-Business Bay-Dubai-UAE
+
+<image001.png>
+
+=20
+
+From: Mohammed Jibran <jibrannagarmath@gmail.com =
+<mailto:jibrannagarmath@gmail.com> >=20
+Sent: Friday, October 6, 2023 5:37 PM
+To: alber.alset@footage.ae <mailto:alber.alset@footage.ae> ; =
+kemo_kemo22287@yahoo.com <mailto:kemo_kemo22287@yahoo.com> ; =
+jibran@tuyuraljamal.com <mailto:jibran@tuyuraljamal.com> ; =
+accounts@tuyuraljamal.com <mailto:accounts@tuyuraljamal.com>=20
+Subject: Re: Services access Disconnect Notice
+
+=20
+
+Dear Alber,
+
+=20
+
+Kindly note that the access to the digital accounts of TUYUR AL JAMAL =
+MEDICAL CENTER LLC  of the following are with you without the =
+authorisation of the owners of TUYUR ALJAMAL MEDICAL CENTER
+
+=20
+
+1. We have not received access to our Facebook accounts such as ad =
+accounts, ad manager accounts, facebook page, facebook profile( master =
+account is under footage advertisement to which we have not granted =
+permission.
+
+2. Gmail accounts used to create facebook/ instagram till date we don't =
+have access to this and this was created without our knowledge and =
+permission.
+
+3. Instagram email and number is registered under your personal account =
+to which we have not given permission.
+
+4. Website access still not received.
+
+=20
+
+MAHA SOLIMAN has been constantly asking you for access through the =
+whatsapp group and in the personal chats of the above to which until now =
+we have not received any.
+
+=20
+
+Further to the above the email sent by you serves as a blackmail email =
+for us for our own accounts to which we can report you to the police =
+department for a smart/ cyber case.
+
+=20
+
+warm regards,
+
+Mohammed Jibran
+
+Partner
+
+Tuyur Aljamal Medical Center LLC
+
+=20
+
+On Fri, Oct 6, 2023 at 5:11=E2=80=AFPM <alber.alset@footage.ae =
+<mailto:alber.alset@footage.ae> > wrote:
+
+Dear Tuyur Al Jamal Management,
+
+=20
+
+Please find attached the official Notice of Services Access =
+Disconnection for your reference and immediate attention.
+
+In order to prevent any interruption in your access to the digital =
+services, we kindly request that you promptly submit the outstanding =
+payment and respond to this email with the deposit receipt.
+
+This will help us ensure the seamless continuation of your access to the =
+digital services.
+
+=20
+
+=20
+
+Warm regards.
+
+=20
+
+Alber Alset
+
+DOP
+
+Mob: +971 55 990 4075
+
+ =
+<https://eur03.safelinks.protection.outlook.com/?url=3Dhttp%3A%2F%2Fwww.f=
+ootage.ae%2F&data=3D05%7C01%7CNiza.Miranda%40jumeirah.com%7C2a383d1079f44=
+2af4aa308da6ede86f4%7Ceee3385e742f4e2eb130e496ed7d6a49%7C0%7C0%7C63794419=
+9315088397%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLC=
+JBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C3000%7C%7C%7C&sdata=3D9ErL0f%2FEHH0CfCc5Dy=
+uCfw6u8RTqBMPmDg1WQT7UESY%3D&reserved=3D0> www.footage.ae
+
+Crystal Tower-Business Bay-Dubai-UAE
+
+
+
+=20
+
+
+
+
+=20
+
+--=20
+
+With thanks and regards,
+
+Mohammed Jibran
+
++971563727860
+
+
+------=_NextPart_001_0034_01D9FD01.6E773100
+Content-Type: text/html;
+	charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+<html xmlns:v=3D"urn:schemas-microsoft-com:vml" =
+xmlns:o=3D"urn:schemas-microsoft-com:office:office" =
+xmlns:w=3D"urn:schemas-microsoft-com:office:word" =
+xmlns:m=3D"http://schemas.microsoft.com/office/2004/12/omml" =
+xmlns=3D"http://www.w3.org/TR/REC-html40"><head><meta =
+http-equiv=3DContent-Type content=3D"text/html; charset=3Dutf-8"><meta =
+name=3DGenerator content=3D"Microsoft Word 15 (filtered medium)"><!--[if =
+!mso]><style>v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+w\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+</style><![endif]--><style><!--
+/* Font Definitions */
+@font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+/* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin:0in;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+a:link, span.MsoHyperlink
+	{mso-style-priority:99;
+	color:blue;
+	text-decoration:underline;}
+span.gmailsignatureprefix
+	{mso-style-name:gmailsignatureprefix;}
+span.EmailStyle22
+	{mso-style-type:personal-reply;
+	font-family:"Calibri",sans-serif;
+	color:windowtext;}
+.MsoChpDefault
+	{mso-style-type:export-only;
+	font-size:10.0pt;
+	mso-ligatures:none;}
+@page WordSection1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.0in 1.0in 1.0in;}
+div.WordSection1
+	{page:WordSection1;}
+--></style><!--[if gte mso 9]><xml>
+<o:shapedefaults v:ext=3D"edit" spidmax=3D"1026" />
+</xml><![endif]--><!--[if gte mso 9]><xml>
+<o:shapelayout v:ext=3D"edit">
+<o:idmap v:ext=3D"edit" data=3D"1" />
+</o:shapelayout></xml><![endif]--></head><body lang=3DEN-US link=3Dblue =
+vlink=3Dpurple style=3D'word-wrap:break-word'><div =
+class=3DWordSection1><p class=3DMsoNormal>FYI and =
+action<o:p></o:p></p><p class=3DMsoNormal><o:p>&nbsp;</o:p></p><div><p =
+class=3DMsoNormal><span lang=3Den-AE =
+style=3D'font-size:10.0pt;color:#767171;mso-ligatures:standardcontextual'=
+>Alber Alset</span><span lang=3Den-AE =
+style=3D'color:#767171;mso-ligatures:standardcontextual'><o:p></o:p></spa=
+n></p><p class=3DMsoNormal><span lang=3Den-AE =
+style=3D'font-size:10.0pt;color:#767171;mso-ligatures:standardcontextual'=
+>DOP</span><span lang=3Den-AE =
+style=3D'color:#767171;mso-ligatures:standardcontextual'><o:p></o:p></spa=
+n></p><p class=3DMsoNormal><span lang=3Den-AE =
+style=3D'font-size:10.0pt;color:#767171;mso-ligatures:standardcontextual'=
+>Mob: +971 55 990 4075</span><span lang=3Den-AE =
+style=3D'color:#767171;mso-ligatures:standardcontextual'><o:p></o:p></spa=
+n></p><p class=3DMsoNormal><span lang=3Den-AE =
+style=3D'font-size:10.0pt;color:#767171;mso-ligatures:standardcontextual'=
+><a =
+href=3D"https://eur03.safelinks.protection.outlook.com/?url=3Dhttp%3A%2F%=
+2Fwww.footage.ae%2F&amp;data=3D05%7C01%7CNiza.Miranda%40jumeirah.com%7C2a=
+383d1079f442af4aa308da6ede86f4%7Ceee3385e742f4e2eb130e496ed7d6a49%7C0%7C0=
+%7C637944199315088397%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjo=
+iV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C3000%7C%7C%7C&amp;sdata=3D9ErL0=
+f%2FEHH0CfCc5DyuCfw6u8RTqBMPmDg1WQT7UESY%3D&amp;reserved=3D0"><span =
+style=3D'color:#767171'>www.footage.ae</span></a></span><span =
+lang=3Den-AE =
+style=3D'color:#767171;mso-ligatures:standardcontextual'><o:p></o:p></spa=
+n></p><p class=3DMsoNormal><i><span lang=3Den-AE =
+style=3D'font-size:10.0pt;color:#767171;mso-ligatures:standardcontextual'=
+>Churchill =C2=A0Tower-Business Bay-Dubai-UAE</span></i><span =
+lang=3Den-AE =
+style=3D'color:#767171;mso-ligatures:standardcontextual'><o:p></o:p></spa=
+n></p><p class=3DMsoNormal><span lang=3Den-AE =
+style=3D'font-size:10.0pt'><img border=3D0 width=3D421 height=3D84 =
+style=3D'width:4.3854in;height:.875in' id=3D"Picture_x0020_2" =
+src=3D"cid:image001.png@01D9FD01.6D405EB0"></span><span =
+style=3D'mso-ligatures:standardcontextual'><o:p></o:p></span></p></div><p=
+ class=3DMsoNormal><o:p>&nbsp;</o:p></p><div><div =
+style=3D'border:none;border-top:solid #E1E1E1 1.0pt;padding:3.0pt 0in =
+0in 0in'><p class=3DMsoNormal><b>From:</b> Kzee Jibran =
+&lt;jibrannagarmath@gmail.com&gt; <br><b>Sent:</b> Thursday, October 12, =
+2023 1:42 AM<br><b>To:</b> alber.alset@footage.ae<br><b>Cc:</b> =
+kemo_kemo22287@yahoo.com; jibran@tuyuraljamal.com; =
+accounts@tuyuraljamal.com<br><b>Subject:</b> Re: Services access =
+Suspension Notice<o:p></o:p></p></div></div><p =
+class=3DMsoNormal><o:p>&nbsp;</o:p></p><p class=3DMsoNormal>Dear =
+Alber<o:p></o:p></p><div><p =
+class=3DMsoNormal><o:p>&nbsp;</o:p></p></div><div><p =
+class=3DMsoNormal>Kindly note the =
+below&nbsp;<o:p></o:p></p></div><div><p =
+class=3DMsoNormal><o:p>&nbsp;</o:p></p></div><div><p =
+class=3DMsoNormal>1. We have not signed any contract with you, kindly =
+share a signed copy if you have any<o:p></o:p></p></div><div><p =
+class=3DMsoNormal>2. Instagram/ website is a property of TUYUR ALJAMAL =
+MEDICAL CENTER hence the numbers used for verification should be of one =
+of the owners of TUYUR ALJAMAL and not of ALBER =
+ALSET<o:p></o:p></p></div><div><p class=3DMsoNormal>3. Website sub =
+content has been given to you and approved on WhatsApp long ago. Please =
+check your WhatsApp for reference<o:p></o:p></p></div><div><p =
+class=3DMsoNormal>4. We have stopped services from footage advertisement =
+in August 2023&nbsp;<o:p></o:p></p></div><div><p class=3DMsoNormal>5. =
+Footage advertisement has no right over changing the passwords or =
+changing of numbers(which we didn=E2=80=99t authorize ) belonging to =
+TUYUR ALJAMAL MEDICAL CENTER&nbsp;<o:p></o:p></p></div><div><p =
+class=3DMsoNormal><o:p>&nbsp;</o:p></p></div><div><p =
+class=3DMsoNormal><span style=3D'color:black'>If you have any written =
+documents proving the authorization of anything please feel free to =
+share with us</span><o:p></o:p></p></div><div><p =
+class=3DMsoNormal><o:p>&nbsp;</o:p></p></div><div><p class=3DMsoNormal>I =
+hence advise you to kindly put the numbers of one of the owners of TUYUR =
+ALJAMAL MEDICAL CENTER<o:p></o:p></p></div><div><p =
+class=3DMsoNormal><o:p>&nbsp;</o:p></p></div><div><p =
+class=3DMsoNormal>Your email with regards to changing password or =
+stopping access is a clear sign of blackmail which doesn=E2=80=99t =
+belong to FOOTAGE ADVERTISEMENT OR ALBER =
+ALSET<o:p></o:p></p></div><div><p =
+class=3DMsoNormal><o:p>&nbsp;</o:p></p></div><div><p =
+class=3DMsoNormal>warm regards<o:p></o:p></p></div><div><p =
+class=3DMsoNormal =
+style=3D'margin-bottom:12.0pt'>Jibran<o:p></o:p></p><div><p =
+class=3DMsoNormal>Sent from my iPhone<o:p></o:p></p></div><div><p =
+class=3DMsoNormal><br><br><o:p></o:p></p><blockquote =
+style=3D'margin-top:5.0pt;margin-bottom:5.0pt'><p class=3DMsoNormal =
+style=3D'margin-bottom:12.0pt'>On 10 Oct 2023, at 11:51 AM, <a =
+href=3D"mailto:alber.alset@footage.ae">alber.alset@footage.ae</a> =
+wrote:<o:p></o:p></p></blockquote></div><blockquote =
+style=3D'margin-top:5.0pt;margin-bottom:5.0pt'><div><p =
+class=3DMsoNormal>=EF=BB=BF<o:p></o:p></p><p =
+class=3DMsoNormal>Greetings, <o:p></o:p></p><p =
+class=3DMsoNormal>&nbsp;<o:p></o:p></p><p class=3DMsoNormal>Dear Tuyur =
+Al Jamal Clinic Management,<o:p></o:p></p><p =
+class=3DMsoNormal>&nbsp;<o:p></o:p></p><p class=3DMsoNormal>Your note as =
+per the below email about the access with us without your authorization =
+is false as we have all the proofs to that.<o:p></o:p></p><p =
+class=3DMsoNormal>You also have access to all the mentioned below and =
+you are still using them.<o:p></o:p></p><p class=3DMsoNormal>Instagram =
+is not registered under any personal account. <o:p></o:p></p><p =
+class=3DMsoNormal>Website access will be handed over after closing the =
+pending payments.<o:p></o:p></p><p =
+class=3DMsoNormal>&nbsp;<o:p></o:p></p><p class=3DMsoNormal>Regarding =
+the point you mentioned that we are blackmailing you please note that we =
+are asking you to pay our rights and our hard work and time we spent =
+working for you and your brand,<o:p></o:p></p><p class=3DMsoNormal>To =
+give you the benefit of the doubt we will extend the service suspension =
+till 12<sup>th</sup> October as we mentioned in the previous email, =
+kindly close your payments to avoid any service =
+interruption.<o:p></o:p></p><p class=3DMsoNormal>&nbsp;<o:p></o:p></p><p =
+class=3DMsoNormal>Please be noted calling us as a Company blackmailing =
+you will put responsible for what you say, and we will take a legal =
+action for that for sure.<o:p></o:p></p><p =
+class=3DMsoNormal>&nbsp;<o:p></o:p></p><p class=3DMsoNormal><span =
+lang=3Den-AE style=3D'font-size:10.0pt;color:#767171'>Alber =
+Alset</span><o:p></o:p></p><p class=3DMsoNormal><span lang=3Den-AE =
+style=3D'font-size:10.0pt;color:#767171'>DOP</span><o:p></o:p></p><p =
+class=3DMsoNormal><span lang=3Den-AE =
+style=3D'font-size:10.0pt;color:#767171'>Mob: +971 55 990 =
+4075</span><o:p></o:p></p><p class=3DMsoNormal><a =
+href=3D"https://eur03.safelinks.protection.outlook.com/?url=3Dhttp%3A%2F%=
+2Fwww.footage.ae%2F&amp;data=3D05%7C01%7CNiza.Miranda%40jumeirah.com%7C2a=
+383d1079f442af4aa308da6ede86f4%7Ceee3385e742f4e2eb130e496ed7d6a49%7C0%7C0=
+%7C637944199315088397%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjo=
+iV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C3000%7C%7C%7C&amp;sdata=3D9ErL0=
+f%2FEHH0CfCc5DyuCfw6u8RTqBMPmDg1WQT7UESY%3D&amp;reserved=3D0"><span =
+lang=3Den-AE =
+style=3D'font-size:10.0pt;color:#767171'>www.footage.ae</span></a><o:p></=
+o:p></p><p class=3DMsoNormal><i><span lang=3Den-AE =
+style=3D'font-size:10.0pt;color:#767171'>Churchill Tower-Business =
+Bay-Dubai-UAE</span></i><o:p></o:p></p><div><p class=3DMsoNormal><span =
+lang=3Den-AE =
+style=3D'font-size:10.0pt'>&lt;image001.png&gt;<o:p></o:p></span></p></di=
+v><p class=3DMsoNormal>&nbsp;<o:p></o:p></p><div =
+style=3D'border:none;border-top:solid #E1E1E1 1.0pt;padding:3.0pt 0in =
+0in 0in'><p class=3DMsoNormal><b>From:</b> Mohammed Jibran &lt;<a =
+href=3D"mailto:jibrannagarmath@gmail.com">jibrannagarmath@gmail.com</a>&g=
+t; <br><b>Sent:</b> Friday, October 6, 2023 5:37 PM<br><b>To:</b> <a =
+href=3D"mailto:alber.alset@footage.ae">alber.alset@footage.ae</a>; <a =
+href=3D"mailto:kemo_kemo22287@yahoo.com">kemo_kemo22287@yahoo.com</a>; =
+<a href=3D"mailto:jibran@tuyuraljamal.com">jibran@tuyuraljamal.com</a>; =
+<a =
+href=3D"mailto:accounts@tuyuraljamal.com">accounts@tuyuraljamal.com</a><b=
+r><b>Subject:</b> Re: Services access Disconnect =
+Notice<o:p></o:p></p></div><p =
+class=3DMsoNormal>&nbsp;<o:p></o:p></p><div><div><p =
+class=3DMsoNormal>Dear Alber,<o:p></o:p></p><div><p =
+class=3DMsoNormal>&nbsp;<o:p></o:p></p></div><div><p =
+class=3DMsoNormal>Kindly note that the access to the digital accounts of =
+TUYUR AL JAMAL MEDICAL CENTER LLC&nbsp; of the following are with you =
+without the authorisation of the owners of TUYUR ALJAMAL MEDICAL =
+CENTER<o:p></o:p></p></div><div><p =
+class=3DMsoNormal>&nbsp;<o:p></o:p></p></div><div><p =
+class=3DMsoNormal>1. We have not received access to our Facebook =
+accounts such as ad accounts, ad manager accounts, facebook page, =
+facebook profile( master account is under footage advertisement to which =
+we have not granted permission.<o:p></o:p></p></div><div><p =
+class=3DMsoNormal>2. Gmail accounts used to create facebook/ instagram =
+till date we don't have access to this and this was created without our =
+knowledge&nbsp;and permission.<o:p></o:p></p></div><div><p =
+class=3DMsoNormal>3. Instagram email and number is registered under your =
+personal account to which we have not given =
+permission.<o:p></o:p></p></div><div><p class=3DMsoNormal>4. Website =
+access still not received.<o:p></o:p></p></div><div><p =
+class=3DMsoNormal>&nbsp;<o:p></o:p></p></div><div><p =
+class=3DMsoNormal>MAHA SOLIMAN has been constantly asking you for access =
+through the whatsapp group and in the personal chats of the above to =
+which until now we have not received any.<o:p></o:p></p></div><div><p =
+class=3DMsoNormal>&nbsp;<o:p></o:p></p></div><div><p =
+class=3DMsoNormal>Further to the above the email sent by you serves as a =
+blackmail email for us for our own accounts to which we can report you =
+to the police&nbsp;department for a smart/ cyber =
+case.<o:p></o:p></p></div><div><p =
+class=3DMsoNormal>&nbsp;<o:p></o:p></p></div><div><p =
+class=3DMsoNormal>warm regards,<o:p></o:p></p></div><div><p =
+class=3DMsoNormal>Mohammed Jibran<o:p></o:p></p></div><div><p =
+class=3DMsoNormal>Partner<o:p></o:p></p></div><div><p =
+class=3DMsoNormal>Tuyur Aljamal Medical Center =
+LLC<o:p></o:p></p></div></div><p =
+class=3DMsoNormal>&nbsp;<o:p></o:p></p><div><div><p class=3DMsoNormal>On =
+Fri, Oct 6, 2023 at 5:11=E2=80=AFPM &lt;<a =
+href=3D"mailto:alber.alset@footage.ae">alber.alset@footage.ae</a>&gt; =
+wrote:<o:p></o:p></p></div><blockquote =
+style=3D'border:none;border-left:solid #CCCCCC 1.0pt;padding:0in 0in 0in =
+6.0pt;margin-left:4.8pt;margin-top:5.0pt;margin-right:0in;margin-bottom:5=
+.0pt'><div><div><div><p class=3DMsoNormal =
+style=3D'mso-margin-top-alt:auto;mso-margin-bottom-alt:auto'>Dear Tuyur =
+Al Jamal Management,<o:p></o:p></p><p class=3DMsoNormal =
+style=3D'mso-margin-top-alt:auto;mso-margin-bottom-alt:auto'>&nbsp;<o:p><=
+/o:p></p><p class=3DMsoNormal =
+style=3D'mso-margin-top-alt:auto;mso-margin-bottom-alt:auto'>Please find =
+attached the official Notice of Services Access Disconnection for your =
+reference and immediate attention.<o:p></o:p></p><p class=3DMsoNormal =
+style=3D'mso-margin-top-alt:auto;mso-margin-bottom-alt:auto'>In order to =
+prevent any interruption in your access to the digital services, we =
+kindly request that you promptly submit the outstanding payment and =
+respond to this email with the deposit receipt.<o:p></o:p></p><p =
+class=3DMsoNormal =
+style=3D'mso-margin-top-alt:auto;mso-margin-bottom-alt:auto'>This will =
+help us ensure the seamless continuation of your access to the digital =
+services.<o:p></o:p></p><p class=3DMsoNormal =
+style=3D'mso-margin-top-alt:auto;mso-margin-bottom-alt:auto'>&nbsp;<o:p><=
+/o:p></p><p class=3DMsoNormal =
+style=3D'mso-margin-top-alt:auto;mso-margin-bottom-alt:auto'>&nbsp;<o:p><=
+/o:p></p><p class=3DMsoNormal =
+style=3D'mso-margin-top-alt:auto;mso-margin-bottom-alt:auto'>Warm =
+regards.<o:p></o:p></p><p class=3DMsoNormal =
+style=3D'mso-margin-top-alt:auto;mso-margin-bottom-alt:auto'>&nbsp;<o:p><=
+/o:p></p><p class=3DMsoNormal =
+style=3D'mso-margin-top-alt:auto;mso-margin-bottom-alt:auto'><span =
+lang=3Den-AE style=3D'font-size:10.0pt;color:#767171'>Alber =
+Alset</span><o:p></o:p></p><p class=3DMsoNormal =
+style=3D'mso-margin-top-alt:auto;mso-margin-bottom-alt:auto'><span =
+lang=3Den-AE =
+style=3D'font-size:10.0pt;color:#767171'>DOP</span><o:p></o:p></p><p =
+class=3DMsoNormal =
+style=3D'mso-margin-top-alt:auto;mso-margin-bottom-alt:auto'><span =
+lang=3Den-AE style=3D'font-size:10.0pt;color:#767171'>Mob: +971 55 990 =
+4075</span><o:p></o:p></p><p class=3DMsoNormal =
+style=3D'mso-margin-top-alt:auto;mso-margin-bottom-alt:auto'><a =
+href=3D"https://eur03.safelinks.protection.outlook.com/?url=3Dhttp%3A%2F%=
+2Fwww.footage.ae%2F&amp;data=3D05%7C01%7CNiza.Miranda%40jumeirah.com%7C2a=
+383d1079f442af4aa308da6ede86f4%7Ceee3385e742f4e2eb130e496ed7d6a49%7C0%7C0=
+%7C637944199315088397%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjo=
+iV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C3000%7C%7C%7C&amp;sdata=3D9ErL0=
+f%2FEHH0CfCc5DyuCfw6u8RTqBMPmDg1WQT7UESY%3D&amp;reserved=3D0" =
+target=3D"_blank"><span lang=3Den-AE =
+style=3D'font-size:10.0pt;color:#767171'>www.footage.ae</span></a><o:p></=
+o:p></p><p class=3DMsoNormal =
+style=3D'mso-margin-top-alt:auto;mso-margin-bottom-alt:auto'><i><span =
+lang=3Den-AE style=3D'font-size:10.0pt;color:#767171'>Crystal =
+Tower-Business Bay-Dubai-UAE</span></i><o:p></o:p></p><p =
+class=3DMsoNormal =
+style=3D'mso-margin-top-alt:auto;mso-margin-bottom-alt:auto'><span =
+lang=3Den-AE style=3D'font-size:10.0pt'><img border=3D0 width=3D421 =
+height=3D84 style=3D'width:4.3854in;height:.875in' id=3D"_x0000_i1025" =
+src=3D"cid:image001.png@01D9F875.B57DE890"></span><o:p></o:p></p><p =
+class=3DMsoNormal dir=3DRTL =
+style=3D'mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;text-align:ri=
+ght;direction:rtl;unicode-bidi:embed'><span =
+dir=3DLTR>&nbsp;<o:p></o:p></span></p></div></div></div></blockquote></di=
+v><p class=3DMsoNormal><br clear=3Dall><span lang=3DAR-SA =
+dir=3DRTL><o:p></o:p></span></p><div><p class=3DMsoNormal><span =
+lang=3DAR-SA dir=3DRTL>&nbsp;</span><o:p></o:p></p></div><p =
+class=3DMsoNormal><span class=3Dgmailsignatureprefix>-- =
+</span><o:p></o:p></p><div><div><p class=3DMsoNormal>With thanks and =
+regards,<o:p></o:p></p><div><p class=3DMsoNormal>Mohammed =
+Jibran<o:p></o:p></p></div><div><p =
+class=3DMsoNormal>+971563727860<o:p></o:p></p></div></div></div></div></d=
+iv></blockquote></div></div></body></html>
+------=_NextPart_001_0034_01D9FD01.6E773100--
+
+------=_NextPart_000_0033_01D9FD01.6E773100
+Content-Type: image/png;
+	name="image001.png"
+Content-Transfer-Encoding: base64
+Content-ID: <image001.png@01D9FD01.6D405EB0>
+
+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
+jIARiIXA/wHLtJbx/+bH8wAAAABJRU5ErkJggg==
+
+------=_NextPart_000_0033_01D9FD01.6E773100--
+

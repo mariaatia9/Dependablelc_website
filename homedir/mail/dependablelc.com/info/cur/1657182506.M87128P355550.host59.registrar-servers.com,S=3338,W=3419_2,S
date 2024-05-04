@@ -1,0 +1,81 @@
+Return-Path: <>
+Delivered-To: info@dependablelc.com
+Received: from host59.registrar-servers.com
+	by host59.registrar-servers.com with LMTP
+	id wGAgBSqZxmLebAUA+KyzgQ
+	(envelope-from <>)
+	for <info@dependablelc.com>; Thu, 07 Jul 2022 04:28:26 -0400
+Return-path: <>
+Envelope-to: info@dependablelc.com
+Delivery-date: Thu, 07 Jul 2022 04:28:26 -0400
+Received: from mailnull by host59.registrar-servers.com with local (Exim 4.95)
+	id 1o9Ms6-002BVd-0x
+	for info@dependablelc.com;
+	Thu, 07 Jul 2022 04:28:26 -0400
+X-Failed-Recipients: dependablelegacon@gmail.com
+Auto-Submitted: auto-replied
+From: Mail Delivery System <Mailer-Daemon@host59.registrar-servers.com>
+To: info@dependablelc.com
+References: <002e01d891db$83835fc0$8a8a1f40$@dependablelc.com>
+Content-Type: multipart/report; report-type=delivery-status; boundary=1657182506-eximdsn-1283978385
+MIME-Version: 1.0
+Subject: Mail delivery failed: returning message to sender
+Message-Id: <E1o9Ms6-002BVd-0x@host59.registrar-servers.com>
+Date: Thu, 07 Jul 2022 04:28:26 -0400
+
+--1657182506-eximdsn-1283978385
+Content-type: text/plain; charset=us-ascii
+
+This message was created automatically by mail delivery software.
+
+A message that you sent could not be delivered to one or more of its
+recipients. This is a permanent error. The following address(es) failed:
+
+  dependablelegacon@gmail.com
+    host gmail-smtp-in.l.google.com [142.250.27.26]
+    SMTP error from remote mail server after RCPT TO:<dependablelegacon@gmail.com>:
+    550-5.1.1 The email account that you tried to reach does not exist. Please try
+    550-5.1.1 double-checking the recipient's email address for typos or
+    550-5.1.1 unnecessary spaces. Learn more at
+    550 5.1.1  https://support.google.com/mail/?p=NoSuchUser ho14-20020a1709070e8e00b00726a675c097si6605658ejc.337 - gsmtp
+
+--1657182506-eximdsn-1283978385
+Content-type: message/delivery-status
+
+Reporting-MTA: dns; host59.registrar-servers.com
+
+Action: failed
+Final-Recipient: rfc822;dependablelegacon@gmail.com
+Status: 5.0.0
+Remote-MTA: dns; gmail-smtp-in.l.google.com
+Diagnostic-Code: smtp; 550-5.1.1 The email account that you tried to reach does not exist. Please try
+ 550-5.1.1 double-checking the recipient's email address for typos or
+ 550-5.1.1 unnecessary spaces. Learn more at
+ 550 5.1.1  https://support.google.com/mail/?p=NoSuchUser ho14-20020a1709070e8e00b00726a675c097si6605658ejc.337 - gsmtp
+
+--1657182506-eximdsn-1283978385
+Content-type: text/rfc822-headers
+
+Return-path: <info@dependablelc.com>
+Received: from [151.253.235.64] (port=45594 helo=LAPTOP2T90H7MC)
+	by host59.registrar-servers.com with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <info@dependablelc.com>)
+	id 1o9Mrz-002BHY-Uy;
+	Thu, 07 Jul 2022 04:28:24 -0400
+From: <info@dependablelc.com>
+To: <info@dependablelc.com>
+Cc: <dependablelegacon@gmail.com>
+Subject: =?windows-1256?B?0e3h7cjt4SDWzyDUx+3kxyDTyu3KIA==?=
+Date: Thu, 7 Jul 2022 12:28:15 +0400
+Message-ID: <002e01d891db$83835fc0$8a8a1f40$@dependablelc.com>
+MIME-Version: 1.0
+Content-Type: multipart/mixed;
+	boundary="----=_NextPart_000_002F_01D891FD.0A996C90"
+X-Mailer: Microsoft Outlook 16.0
+Thread-Index: AdiR233TkjIqv00HTKangYQopz9G+A==
+Content-Language: en-gb
+X-Exim-DSN-Information: Due to administrative limits only headers are returned
+
+
+--1657182506-eximdsn-1283978385--

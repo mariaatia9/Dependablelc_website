@@ -1,0 +1,324 @@
+Return-Path: <dameralan@gmail.com>
+Delivered-To: ceo@dependablelc.com
+Received: from server1.parahost.co
+	by server1.parahost.co with LMTP
+	id Dp/GD5Nkl2IhBQAAYK0uVw
+	(envelope-from <dameralan@gmail.com>)
+	for <ceo@dependablelc.com>; Wed, 01 Jun 2022 16:07:31 +0300
+Return-path: <dameralan@gmail.com>
+Envelope-to: ceo@dependablelc.com
+Delivery-date: Wed, 01 Jun 2022 16:07:31 +0300
+Received: from mail-wm1-f50.google.com ([209.85.128.50]:54086)
+	by server1.parahost.co with esmtps  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+	(Exim 4.95)
+	(envelope-from <dameralan@gmail.com>)
+	id 1nwO4O-0000H7-Ij
+	for ceo@dependablelc.com;
+	Wed, 01 Jun 2022 16:07:31 +0300
+Received: by mail-wm1-f50.google.com with SMTP id r129so938505wmr.3
+        for <ceo@dependablelc.com>; Wed, 01 Jun 2022 06:07:05 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20210112;
+        h=from:to:cc:references:in-reply-to:subject:date:message-id
+         :mime-version:thread-index:content-language;
+        bh=w8B5D+BJ2KPa73bdOrSX0Gt20ydFxL+ukp3PnluzqT0=;
+        b=ez58sMysWo07VyXk7MZTIBa4WCa1P6NsP8cNy+R+aH5ldqrLsfQmyLfYuMbNrx2g+Z
+         49X18GsSNo75wWebsFrEGDZl3S4nlqf1ztdLNdTJgCfvUaHus+37WzcCa908/HYwCh2z
+         jv2QnKfiXP+cE4/QDdh8S6H9eHzgueIUFKqz6YSBXxeSWgQZChJWyHrZi3XvXPQ/1Dl6
+         YJwOA11xuhYBoDVulelwdaG/5VMswcaf9iYeqTqtMzB8aVLzmKsB2uDORUpbkk+FFuqb
+         v7t5z7Ilc/OYxsj3UaYznUSl0+wTsRZeKwnSi0V745AsxxoQju7tYIxfqxPTBs/f3Ohl
+         23LA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=x-gm-message-state:from:to:cc:references:in-reply-to:subject:date
+         :message-id:mime-version:thread-index:content-language;
+        bh=w8B5D+BJ2KPa73bdOrSX0Gt20ydFxL+ukp3PnluzqT0=;
+        b=6akbl2Z4hW3FDX38Z7vwfwFRFwzsRdrQNYTA9TlYe7uLu+KaLWDv/Ob7OqEBB3xsGb
+         sC3sB2flW+0G8dk5VFre+eWOXmlyr6mpAepfA6EwGNzDhbf5rr8PAcYhLOmemOTJkIvv
+         gu2xJX8XgBDUQFv83eMZeC4/OgWAadmBUX9yXmo+d5yHe+RO0cv5dTNP4Ze+5BzWSnmI
+         7ctXAGlUz8hpOEFCSqbUyOIRwlNeMiOrFGBMNPTb/T+q91B8beAtMh71BhlRsByIx4Mz
+         folICiKMDfOhvFoly+sqY1qJBXibuIlToPydA41VIJXBKn/yiDVS+Y4ZSLRY+pC7c2RO
+         yj3Q==
+X-Gm-Message-State: AOAM533fHv9IOftH57IYgFzkmKShVQwLa/5ZVNAwY84jpbqxbR9u51zF
+	JjmOO/8k1seyi7+hBij+isxdL4dwino=
+X-Google-Smtp-Source: ABdhPJwVXJDBLoHOdUfQe4jtMxUJztpSCkSyiWrvqo8FLU9wwz99n/0RvtK/rh+orOL23mJJfXf34A==
+X-Received: by 2002:a7b:c456:0:b0:397:65a6:ca38 with SMTP id l22-20020a7bc456000000b0039765a6ca38mr27975293wmi.178.1654088803535;
+        Wed, 01 Jun 2022 06:06:43 -0700 (PDT)
+Received: from DESKTOPESNQ5L1 ([196.127.132.254])
+        by smtp.gmail.com with ESMTPSA id f12-20020a5d4dcc000000b002100316b126sm1633540wru.6.2022.06.01.06.06.42
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Wed, 01 Jun 2022 06:06:42 -0700 (PDT)
+From: <dameralan@gmail.com>
+To: "'Dependable Consultants'" <dependablelegalcon@gmail.com>
+Cc: "'Aamer Saade'" <aamersaade80@gmail.com>,
+	<ceo@dependablelc.com>
+References: <CAC3ms5nU7JfxyrGFp=tKTD3MZXf5P2qv_4EsLPDz8He9jsbGPA@mail.gmail.com>
+In-Reply-To: <CAC3ms5nU7JfxyrGFp=tKTD3MZXf5P2qv_4EsLPDz8He9jsbGPA@mail.gmail.com>
+Subject: RE: Proposal from Dependable legal consultants LLC
+Date: Wed, 1 Jun 2022 14:06:41 +0100
+Message-ID: <043a01d875b8$7077a0b0$5166e210$@gmail.com>
+MIME-Version: 1.0
+Content-Type: multipart/alternative;
+	boundary="----=_NextPart_000_043B_01D875C0.D23D4130"
+X-Mailer: Microsoft Outlook 16.0
+Thread-Index: AQJocYwO/yOAbLE6ibwdbzukS+tVO6waiERw
+Content-Language: en-us
+X-Spam-Status: No, score=-0.2
+X-Spam-Score: -1
+X-Spam-Bar: /
+X-Ham-Report: Spam detection software, running on the system "server1.parahost.co",
+ has NOT identified this incoming email as spam.  The original
+ message has been attached to this so you can view it or label
+ similar future email.  If you have any questions, see
+ root\@localhost for details.
+ Content preview:  Dear Amer, I wish you a good day Since we don’t have operations
+    in the UAE now, we prefer to have a case by case basis until we solve this
+    issue with Optitronics 
+ Content analysis details:   (-0.2 points, 5.0 required)
+  pts rule name              description
+ ---- ---------------------- --------------------------------------------------
+ -0.0 SPF_PASS               SPF: sender matches SPF record
+  0.0 FREEMAIL_FROM          Sender email is commonly abused enduser mail
+                             provider
+                             [dameralan[at]gmail.com]
+  0.0 HTML_MESSAGE           BODY: HTML included in message
+ -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
+                             envelope-from domain
+  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
+                             valid
+ -0.1 DKIM_VALID             Message has at least one valid DKIM or DK signature
+ -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
+                             author's domain
+ -0.0 T_SCC_BODY_TEXT_LINE   No description available.
+X-Spam-Flag: NO
+
+This is a multipart message in MIME format.
+
+------=_NextPart_000_043B_01D875C0.D23D4130
+Content-Type: text/plain;
+	charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+Dear Amer,
+
+=20
+
+I wish you a good day
+
+=20
+
+Since we don=E2=80=99t have operations in the UAE now, we prefer to have =
+a case by case basis until we solve this issue with Optitronics
+
+=20
+
+In the same, we would like to see the letter before sending it and the =
+way will be set. In addition what is our approach if they refuse to =
+receive the letter?
+
+=20
+
+Pls advise
+
+=20
+
+BR
+
+=20
+
+From: Dependable Consultants <dependablelegalcon@gmail.com>=20
+Sent: Wednesday, June 1, 2022 12:58 PM
+To: dameralan@gmail.com
+Cc: Aamer Saade <aamersaade80@gmail.com>; ceo@dependablelc.com
+Subject: Proposal from Dependable legal consultants LLC
+
+=20
+
+GMG Healthcare FZ LLC - Dubai UAE.=20
+
+Dear Mr. Ammar:
+
+We would like to thank you for contacting Dependable Legal Consultants =
+LLC, it is our honor to serve you and meet your legal and business =
+issues.
+
+According to your request to send a letter to OPTI-TRONICS sarl from our =
+company, we would like to inform you that we are ready to serve you in =
+that.
+
+So, you have two options for that:
+
+1-          Annual agreement with our company, will handle all your =
+legal issues for an annual fee.
+
+2-          Dealing case by case.
+
+In the end, it is our pleasure to get you as our client in a way =
+suitable for you. =20
+
+=20
+
+Aamer Nizar Saade
+
+CEO - Dependable Legal Consultants LLC.
+
+UAE - +0971 527047930
+
+=20
+
+
+------=_NextPart_000_043B_01D875C0.D23D4130
+Content-Type: text/html;
+	charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+<html xmlns:v=3D"urn:schemas-microsoft-com:vml" =
+xmlns:o=3D"urn:schemas-microsoft-com:office:office" =
+xmlns:w=3D"urn:schemas-microsoft-com:office:word" =
+xmlns:m=3D"http://schemas.microsoft.com/office/2004/12/omml" =
+xmlns=3D"http://www.w3.org/TR/REC-html40"><head><meta =
+http-equiv=3DContent-Type content=3D"text/html; charset=3Dutf-8"><meta =
+name=3DGenerator content=3D"Microsoft Word 15 (filtered =
+medium)"><style><!--
+/* Font Definitions */
+@font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+@font-face
+	{font-family:"Comic Sans MS";
+	panose-1:3 15 7 2 3 3 2 2 2 4;}
+@font-face
+	{font-family:"Sakkal Majalla";
+	panose-1:2 0 0 0 0 0 0 0 0 0;}
+/* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin:0in;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+p.gmail-msolistparagraph, li.gmail-msolistparagraph, =
+div.gmail-msolistparagraph
+	{mso-style-name:gmail-msolistparagraph;
+	mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+span.EmailStyle19
+	{mso-style-type:personal-reply;
+	font-family:"Calibri",sans-serif;
+	color:windowtext;}
+.MsoChpDefault
+	{mso-style-type:export-only;
+	font-family:"Calibri",sans-serif;}
+@page WordSection1
+	{size:8.5in 11.0in;
+	margin:70.85pt 70.85pt 70.85pt 70.85pt;}
+div.WordSection1
+	{page:WordSection1;}
+--></style><!--[if gte mso 9]><xml>
+<o:shapedefaults v:ext=3D"edit" spidmax=3D"1026" />
+</xml><![endif]--><!--[if gte mso 9]><xml>
+<o:shapelayout v:ext=3D"edit">
+<o:idmap v:ext=3D"edit" data=3D"1" />
+</o:shapelayout></xml><![endif]--></head><body lang=3DEN-US =
+link=3D"#0563C1" vlink=3D"#954F72" style=3D'word-wrap:break-word'><div =
+class=3DWordSection1><p class=3DMsoNormal><span =
+style=3D'font-size:12.0pt'>Dear Amer,<o:p></o:p></span></p><p =
+class=3DMsoNormal><span =
+style=3D'font-size:12.0pt'><o:p>&nbsp;</o:p></span></p><p =
+class=3DMsoNormal><span style=3D'font-size:12.0pt'>I wish you a good =
+day<o:p></o:p></span></p><p class=3DMsoNormal><span =
+style=3D'font-size:12.0pt'><o:p>&nbsp;</o:p></span></p><p =
+class=3DMsoNormal><span style=3D'font-size:12.0pt'>Since we =
+don=E2=80=99t have operations in the UAE now, we prefer to have a case =
+by case basis until we solve this issue with =
+Optitronics<o:p></o:p></span></p><p class=3DMsoNormal><span =
+style=3D'font-size:12.0pt'><o:p>&nbsp;</o:p></span></p><p =
+class=3DMsoNormal><span style=3D'font-size:12.0pt'>In the same, we would =
+like to see the letter before sending it and the way will be set. In =
+addition what is our approach if they refuse to receive the =
+letter?<o:p></o:p></span></p><p class=3DMsoNormal><span =
+style=3D'font-size:12.0pt'><o:p>&nbsp;</o:p></span></p><p =
+class=3DMsoNormal><span style=3D'font-size:12.0pt'>Pls =
+advise<o:p></o:p></span></p><p class=3DMsoNormal><span =
+style=3D'font-size:12.0pt'><o:p>&nbsp;</o:p></span></p><p =
+class=3DMsoNormal><span =
+style=3D'font-size:12.0pt'>BR<o:p></o:p></span></p><p =
+class=3DMsoNormal><span =
+style=3D'font-size:12.0pt'><o:p>&nbsp;</o:p></span></p><div =
+style=3D'border:none;border-top:solid #E1E1E1 1.0pt;padding:3.0pt 0in =
+0in 0in'><p class=3DMsoNormal><b>From:</b> Dependable Consultants =
+&lt;dependablelegalcon@gmail.com&gt; <br><b>Sent:</b> Wednesday, June 1, =
+2022 12:58 PM<br><b>To:</b> dameralan@gmail.com<br><b>Cc:</b> Aamer =
+Saade &lt;aamersaade80@gmail.com&gt;; =
+ceo@dependablelc.com<br><b>Subject:</b> Proposal from Dependable legal =
+consultants LLC<o:p></o:p></p></div><p =
+class=3DMsoNormal><o:p>&nbsp;</o:p></p><div><div><p class=3DMsoNormal =
+style=3D'margin-bottom:8.0pt;text-align:justify;line-height:115%'><span =
+lang=3DEN-GB =
+style=3D'font-size:16.0pt;line-height:115%;font-family:"Sakkal =
+Majalla"'>GMG Healthcare FZ LLC - Dubai UAE. </span><o:p></o:p></p><p =
+class=3DMsoNormal =
+style=3D'margin-bottom:8.0pt;text-align:justify;line-height:115%'><span =
+lang=3DEN-GB =
+style=3D'font-size:16.0pt;line-height:115%;font-family:"Sakkal =
+Majalla"'>Dear Mr. Ammar:</span><o:p></o:p></p><p class=3DMsoNormal =
+style=3D'margin-bottom:8.0pt;text-align:justify;line-height:115%'><span =
+lang=3DEN-GB =
+style=3D'font-size:16.0pt;line-height:115%;font-family:"Sakkal =
+Majalla"'>We would like to thank you for contacting Dependable Legal =
+Consultants LLC, it is our honor to serve you and meet your legal and =
+business issues.</span><o:p></o:p></p><p class=3DMsoNormal =
+style=3D'margin-bottom:8.0pt;text-align:justify;line-height:115%'><span =
+lang=3DEN-GB =
+style=3D'font-size:16.0pt;line-height:115%;font-family:"Sakkal =
+Majalla"'>According to your request to send a letter to OPTI-TRONICS =
+sarl from our company, we would like to inform you that we are ready to =
+serve you in that.</span><o:p></o:p></p><p class=3DMsoNormal =
+style=3D'margin-bottom:8.0pt;text-align:justify;line-height:115%'><span =
+lang=3DEN-GB =
+style=3D'font-size:16.0pt;line-height:115%;font-family:"Sakkal =
+Majalla"'>So, you have two options for that:</span><o:p></o:p></p><p =
+class=3Dgmail-msolistparagraph =
+style=3D'mso-margin-top-alt:0in;margin-right:0in;margin-bottom:0in;margin=
+-left:.5in;text-align:justify;line-height:115%'><span lang=3DEN-GB =
+style=3D'font-size:16.0pt;line-height:115%;font-family:"Sakkal =
+Majalla"'>1-</span><span lang=3DEN-GB =
+style=3D'font-size:7.0pt;line-height:115%;font-family:"Times New =
+Roman",serif'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; =
+</span><span lang=3DEN-GB =
+style=3D'font-size:16.0pt;line-height:115%;font-family:"Sakkal =
+Majalla"'>Annual agreement with our company, will handle all your legal =
+issues for an annual fee.</span><o:p></o:p></p><p =
+class=3Dgmail-msolistparagraph =
+style=3D'mso-margin-top-alt:0in;margin-right:0in;margin-bottom:8.0pt;marg=
+in-left:.5in;text-align:justify;line-height:115%'><span lang=3DEN-GB =
+style=3D'font-size:16.0pt;line-height:115%;font-family:"Sakkal =
+Majalla"'>2-</span><span lang=3DEN-GB =
+style=3D'font-size:7.0pt;line-height:115%;font-family:"Times New =
+Roman",serif'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; =
+</span><span lang=3DEN-GB =
+style=3D'font-size:16.0pt;line-height:115%;font-family:"Sakkal =
+Majalla"'>Dealing case by case.</span><o:p></o:p></p><p =
+class=3DMsoNormal =
+style=3D'margin-bottom:8.0pt;text-align:justify;line-height:115%'><span =
+lang=3DEN-GB =
+style=3D'font-size:16.0pt;line-height:115%;font-family:"Sakkal =
+Majalla"'>In the end, it is our pleasure to get you as our client in a =
+way suitable for you.&nbsp;&nbsp;</span><o:p></o:p></p></div><div><p =
+class=3DMsoNormal><o:p>&nbsp;</o:p></p></div><div><div><p =
+class=3DMsoNormal><span style=3D'font-size:13.5pt;font-family:"Comic =
+Sans MS";color:blue'>Aamer Nizar Saade</span><o:p></o:p></p><div><p =
+class=3DMsoNormal><span style=3D'font-size:13.5pt;font-family:"Comic =
+Sans MS";color:blue'>CEO - Dependable Legal Consultants =
+LLC.</span><o:p></o:p></p></div><div><p class=3DMsoNormal><span =
+style=3D'font-size:13.5pt;font-family:"Comic Sans MS";color:blue'>UAE - =
++0971 527047930</span><o:p></o:p></p></div><div><p =
+class=3DMsoNormal><o:p>&nbsp;</o:p></p></div></div></div></div></div></bo=
+dy></html>
+------=_NextPart_000_043B_01D875C0.D23D4130--
+

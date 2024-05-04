@@ -1,0 +1,338 @@
+Return-Path: <ShwetaVaidhy@hotmail.com>
+Delivered-To: info@dependablelc.com
+Received: from host59.registrar-servers.com
+	by host59.registrar-servers.com with LMTP
+	id CBpaOLqmCGPPxSwA+KyzgQ
+	(envelope-from <ShwetaVaidhy@hotmail.com>)
+	for <info@dependablelc.com>; Fri, 26 Aug 2022 06:55:54 -0400
+Return-path: <ShwetaVaidhy@hotmail.com>
+Envelope-to: info@dependablelc.com
+Delivery-date: Fri, 26 Aug 2022 06:55:54 -0400
+Received: from [63.250.43.69] (port=56100 helo=asp-relay-shared.jellyfish.systems)
+	by host59.registrar-servers.com with esmtps  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <ShwetaVaidhy@hotmail.com>)
+	id 1oRX0E-00Du0q-SK
+	for info@dependablelc.com;
+	Fri, 26 Aug 2022 06:55:54 -0400
+Received: from APC01-TYZ-obe.outbound.protection.outlook.com (mail-tyzapc01olkn2081.outbound.protection.outlook.com [40.92.107.81])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by asp-relay-shared.jellyfish.systems (Postfix) with ESMTPS id 4MDcFK1p4czyQ5
+	for <info@dependablelc.com>; Fri, 26 Aug 2022 10:55:44 +0000 (UTC)
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=geCzWFsOzC5TAKQJSSUhjhowRUczO51C/fnijpt7oIBYnF7p/TA4Wfvhw2aKorglKmM9pChpHg0djUFOd2+R5dSF9XPrpBXLqiXj32m15HyjKwQ6IqEDRmJ1NVp4dW+pdrwLBv979hdYCo0+HaPGYzcONBtwlVVEs0SiTyt8RX1ahpOI58fhTCT/HFtjsJP1Ru2nUoUfYzY6e3FZZoDGvKvH8QCeaMsScm6aoMLhW62QCc8JRN8bwED1QeSIn7BFOsFJ+8G5cTPHTZl42nDsg3okm/peusBawpt+0DDUZHoCg4JJwsFO0mjtdTYXG4Wb2L3zZMCrtracPGpchoYqlQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=EKq0fKu1uiNydMbc3tus/ms4B1cD8CHc2tHWRH2uktM=;
+ b=Sk+H7vIXZWtLOJ1XmtLgj76aYO5InaacF+vHZlGSIbibnjgO0L8e2aDS5GZTl66r3Rot6sz1tRE9QI9TWAfpif0DSk0ugW+T+gQWaFNGB/vlgIJLB6g3Y8YrsvsdeLdwvWb89mU6u9kMSe74LmghwBi9YYtAvyt9FJ6IT1COoY6zcdPsmYEGXcnyAmYnlhGEfEzkFjEE6oDNdcl6hUHO6+eo1C1uaqHkUFQdCtXPqcPQMUnFft77wbJSpjPbgN/gYzlYVnD5eexaJFRoKBrL/dSjtoUGz9oCa3PPNoZoIjPYbp5WNb9oR8/WJR36BHZQywG+8DpM5btJMDsc6WO4Fw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
+ dkim=none; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=hotmail.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=EKq0fKu1uiNydMbc3tus/ms4B1cD8CHc2tHWRH2uktM=;
+ b=SC5eFNd9vGA2sOq3602rAqKsZNECU2Av3mty5kG4RtQLulwetN2R6HIt2izX/7/+NcUJj/jgh9V5Gd11h8hFdnO+7EfETgIo/qMw2N4zJiWo658UyNWEKDV4ZQimwrV1zmAh4a8BR3LWAj4kWWhg+2bKEWGMcqLSc/EQLcJunAn8WaRWR9Iy9iDWs+LMjmXKO5q3iQY3a1o7prf/SBvwNAmM+I96uuz9gmf/hYpPZgMiSlcZI13XXOpIJHf/N/L3BS1QE5FyYZurYt/am2ODHPIwuK1qendV9SjXujccLTGncKQDwlq2TzBMWzWT3dAI0G/YHoAvktXO8PedUKcwDA==
+Received: from TYZPR01MB4609.apcprd01.prod.exchangelabs.com
+ (2603:1096:400:261::5) by SEZPR01MB4760.apcprd01.prod.exchangelabs.com
+ (2603:1096:101:a4::10) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.5566.15; Fri, 26 Aug
+ 2022 10:54:20 +0000
+Received: from TYZPR01MB4609.apcprd01.prod.exchangelabs.com
+ ([fe80::91aa:a7a2:c06d:1968]) by TYZPR01MB4609.apcprd01.prod.exchangelabs.com
+ ([fe80::91aa:a7a2:c06d:1968%5]) with mapi id 15.20.5566.015; Fri, 26 Aug 2022
+ 10:54:20 +0000
+From: Shweta Vaidhy <ShwetaVaidhy@hotmail.com>
+Subject: Proposal
+Thread-Topic: Proposal
+Thread-Index: AQHYuTom5SOJ25K2CEawuyTOq95zpA==
+Date: Fri, 26 Aug 2022 10:54:17 +0000
+Message-ID:
+ <TYZPR01MB460980C7220417BBDEBDB83ED8759@TYZPR01MB4609.apcprd01.prod.exchangelabs.com>
+Accept-Language: en-IN, en-US
+Content-Language: en-IN
+X-MS-Has-Attach:
+X-MS-TNEF-Correlator:
+msip_labels:
+x-tmn: [5EDFoeoLMzT1dcV5Lb1DtipQ78Eku4RZ]
+x-ms-publictraffictype: Email
+x-ms-office365-filtering-correlation-id: c5e79574-45fc-427e-5202-08da875152ee
+x-ms-traffictypediagnostic: SEZPR01MB4760:EE_
+x-microsoft-antispam: BCL:0;
+x-microsoft-antispam-message-info:
+ lEp44kb6DVQq8gH/w+6UJLUvw2gRL16ap4BciUXR0HXIp+2hdJqOK7wA+zca9HFlpiQXpuKi95gmlMwoN9rl8FL1u0eQzJEcLmqGfXE0lWz3hCVlXRA9Y2nLonTShdmT2SUVzbOfQfm4QklCxpEJrVHDQX/rE9kr1M1RyhtI2fZDODut/uDyLNWp6pKafmCtUn0xGcB8jqleGYRo0x7d8yGv47GZTIX8txYVlhjr5Bspl5r8k7CZ5gZlv1SD48cvBGEk+0CWlph9ebkTZY7bVc4UlQeVKHucPI/Ue53mzTP3I9C460rNiQoVHZfKd/YzXcD9wls0/NrbP1dZs76rq/CNulTih57UMrraMs9+RfV53EQ+SVNpcnCySVEgLQZ1Ko6tNBparq8n7zLyRZlO63joZ6k59a7SGKQ2wKzSemf5ycpEVANCXW2wf1oo5BbEoopN27zC3dZsfPmuhdkzhwRQsNAHJoNS1BdfmmIsqJ4YihePattEPrGfK/acSIUNIb5IwY3ps7etVMy5E803rHGxBBg6QDOF59qD9mitxPoP/foSyb06LBnRzXirWI3jc0iT41XqYBtbPrVkyypDS8uZNpObHZUBnQKU2X3l9r45wLz5LaI6jsr/GA81nzL1
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0:
+ =?Windows-1252?Q?Hn+x45HrIdmxwL4Gg/8yv1Ec+R5aGPddLAb6+x4nm+raQ+3/1G6Qk6du?=
+ =?Windows-1252?Q?OsuoZ5cc0Oknab82f8/4AdobW7IMOZtp0MAzO9jXXZAfg23fKGitUF+d?=
+ =?Windows-1252?Q?wZgQM+62WO7gBsqpnJQ3jTFOlfgqhNSpf9n+UH7H+kNIyzpYYTOuk8U3?=
+ =?Windows-1252?Q?7O1UP9bybp6dQf4L27XA3UqPJI5yIl/+kaiMHWdHszFeJ9V8oKoothlF?=
+ =?Windows-1252?Q?jN5ABerJjwsSLyF4meVInNPj/CIfYZK8U2zBYx8PpI7U7qwCcD4Wnu4a?=
+ =?Windows-1252?Q?YD0HCgpd6o/WCigRI11JIrLgBWVzletUqQ/eyDKwQmvsKzketc30m8Ov?=
+ =?Windows-1252?Q?Oe5hCWMf3jIaM1metkayENGc9uhCraCzwei24HfyWK2x6HysqfcTD2Rm?=
+ =?Windows-1252?Q?pJEhYrm/erHxo8uvCnpKG6UlYggL3NiHCzKBWicdpDxs4CZxihxrGbr9?=
+ =?Windows-1252?Q?bvj6QirfX6d8hvE/Dd4XIkQGyxAQAhzz6XSesNyeW9RST/0VuURicvOC?=
+ =?Windows-1252?Q?N9RD5wMN0wvkvdxYO3+Ufz7FaLmq+WlO1F0bqsga8FOFZvA/V4x1iqK3?=
+ =?Windows-1252?Q?D9z1kxT20l5ZefFmbTYXP7m/caaxRYhYhjQ1goq450vtHHJMsWhd20Ho?=
+ =?Windows-1252?Q?RhxRZyp6WWXHWltwxvx4dUxVNeIEuFO2G8NwXJOP8mAJw/wTS3lo9xH1?=
+ =?Windows-1252?Q?MFmxJkZpZXfb+dKbUEPYz0egTa6W2DrTqaOXCEd3ZyorD3UqP7nn8L+E?=
+ =?Windows-1252?Q?J3gr346BGF8j9p6s0cEQWjp7zQiQr1/PSCvZGm53plDZsaLdLWO63PMU?=
+ =?Windows-1252?Q?kbkJFzxntJiWCj6tJdY3c45Q7Ne44uD1LRadctY1xeqLV3G3Q4oeJb+T?=
+ =?Windows-1252?Q?S/UGdUWUANqttj0NfeKE7oAYVo5uXieUkZh/UZyqqa8KgfqeAZoGryfK?=
+ =?Windows-1252?Q?LFbLOnYCzYVErBi2DxkugHI643NZymA1EJ0Taaz7DRx+QujJn3LGCkAj?=
+ =?Windows-1252?Q?dv2Alm6e0I4tt+vxZdgRRVD/2CB3B7RdMVtBY1BCepVJtmkiwxuJnYSK?=
+ =?Windows-1252?Q?YNVGQgG2akuW/LKHb4dF3q5B7YvSpi9X27FfuUsUaSw3fv49TsvmuM4g?=
+ =?Windows-1252?Q?FyeS8kSsveT3f9qJ2TgiOXbtuWk02ts9T+A+y03spt2WNWIZj1rMcwXF?=
+ =?Windows-1252?Q?/lgL9n0WRn507kLRbtp4E8GuX88rOdn3Tzy8UTC5I/nTbcNiPAz46cJU?=
+ =?Windows-1252?Q?gygiVlUr7tF81iSIlcB0SKuSPYfDfh01PSgqaX2GFD+qAto0E1PeidT7?=
+ =?Windows-1252?Q?FhmRfGtcGL1xQVZ7XY5yHY+9k1+ikuQ+uwxffqQ5PrsZMXNe7pwfJvCi?=
+ =?Windows-1252?Q?mQtEsdKerbCNQw=3D=3D?=
+Content-Type: multipart/alternative;
+	boundary="_000_TYZPR01MB460980C7220417BBDEBDB83ED8759TYZPR01MB4609apcp_"
+MIME-Version: 1.0
+X-OriginatorOrg: sct-15-20-4755-11-msonline-outlook-d8e84.templateTenant
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: TYZPR01MB4609.apcprd01.prod.exchangelabs.com
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-CrossTenant-Network-Message-Id: c5e79574-45fc-427e-5202-08da875152ee
+X-MS-Exchange-CrossTenant-originalarrivaltime: 26 Aug 2022 10:54:17.9485
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-rms-persistedconsumerorg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SEZPR01MB4760
+X-NCJF-Result: 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
+X-NCJF-Version: 1
+Authentication-Results: asp-relay-shared.jellyfish.systems;
+	dkim=pass header.d=hotmail.com header.s=selector1 header.b=SC5eFNd9;
+	arc=pass ("microsoft.com:s=arcselector9901:i=1");
+	dmarc=pass (policy=none) header.from=hotmail.com;
+	spf=pass (asp-relay-shared.jellyfish.systems: domain of ShwetaVaidhy@hotmail.com designates 40.92.107.81 as permitted sender) smtp.mailfrom=ShwetaVaidhy@hotmail.com
+
+--_000_TYZPR01MB460980C7220417BBDEBDB83ED8759TYZPR01MB4609apcp_
+Content-Type: text/plain; charset="Windows-1252"
+Content-Transfer-Encoding: quoted-printable
+
+Hi,
+
+I hope you are doing well and have time to read my proposal=85
+
+We are an India based Website Design , SEO and Mobile Application Developme=
+nt Company.
+
+Are you looking for a Design and development support, we provide high-end o=
+nline solutions to clients at affordable rates?
+
+Our services at a glance: -
+
+
+  *   1.  SEO (with plan & activity)
+  *   2.  SMO (LinkedIn, Facebook, Twitter etc.)
+  *   3.  Technical Content Writing
+  *   4.  Ecommerce Website Design
+  *   5.  Creative web design and development
+  *   6.  IOs/Android and Mobile App Development
+
+
+Do let me know if you are willing to discuss a possible redesigning/redevel=
+opment of your website or designing new website.
+
+I can send you more details on the packages/action/Portfolio/past work deta=
+ils.
+
+I=92m waiting for your reply.
+
+Thanks & Regards,
+Shweta Vaidhya
+
+--_000_TYZPR01MB460980C7220417BBDEBDB83ED8759TYZPR01MB4609apcp_
+Content-Type: text/html; charset="Windows-1252"
+Content-Transfer-Encoding: quoted-printable
+
+<html>
+<head>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3DWindows-1=
+252">
+<style type=3D"text/css" style=3D"display:none;"> P {margin-top:0;margin-bo=
+ttom:0;} </style>
+</head>
+<body dir=3D"ltr">
+<div style=3D"font-family: Calibri, Arial, Helvetica, sans-serif; font-size=
+: 12pt; color: rgb(0, 0, 0);" class=3D"elementToProof">
+Hi,
+<div>&nbsp;</div>
+<div>I hope you are doing well and have time to read my proposal=85</div>
+<div>&nbsp;</div>
+<div>We are an India based Website Design , SEO and Mobile Application Deve=
+lopment Company.</div>
+<div>&nbsp;</div>
+<div>Are you looking for a Design and development support, we provide high-=
+end online solutions to clients at affordable rates?
+</div>
+<div>&nbsp;</div>
+<div>Our services at a glance: -</div>
+<div>&nbsp;</div>
+<div>
+<ul>
+<li>1. &nbsp;SEO (with plan &amp; activity)</li><li>2. &nbsp;SMO (LinkedIn,=
+ Facebook, Twitter etc.)</li><li>3. &nbsp;Technical Content Writing</li><li=
+>4. &nbsp;Ecommerce Website Design</li><li>5. &nbsp;Creative web design and=
+ development</li><li>6. &nbsp;IOs/Android and Mobile App Development</li></=
+ul>
+</div>
+<div>&nbsp;</div>
+<div>Do let me know if you are willing to discuss a possible redesigning/re=
+development of your website or designing new website.
+</div>
+<div>&nbsp;</div>
+<div>I can send you more details on the packages/action/Portfolio/past work=
+ details.</div>
+<div>&nbsp;</div>
+<div>I=92m waiting for your reply.</div>
+<div>&nbsp;</div>
+<div>Thanks &amp; Regards,</div>
+Shweta Vaidhya<br>
+</div>
+</body>
+</html>
+
+--_000_TYZPR01MB460980C7220417BBDEBDB83ED8759TYZPR01MB4609apcp_--

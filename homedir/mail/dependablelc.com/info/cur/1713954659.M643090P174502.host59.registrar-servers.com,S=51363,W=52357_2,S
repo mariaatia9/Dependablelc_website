@@ -1,0 +1,994 @@
+Return-Path: <segolene.o@gmail.com>
+Delivered-To: info@dependablelc.com
+Received: from host59.registrar-servers.com
+	by host59.registrar-servers.com with LMTP
+	id 0MYLJmPfKGamqQIA+KyzgQ
+	(envelope-from <segolene.o@gmail.com>)
+	for <info@dependablelc.com>; Wed, 24 Apr 2024 06:30:59 -0400
+Return-path: <segolene.o@gmail.com>
+Envelope-to: info@dependablelc.com
+Delivery-date: Wed, 24 Apr 2024 06:30:59 -0400
+Received: from [63.250.43.69] (port=20432 helo=asp-relay-shared.jellyfish.systems)
+	by host59.registrar-servers.com with esmtps  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96.1)
+	(envelope-from <segolene.o@gmail.com>)
+	id 1rzZtz-001AyM-0u
+	for info@dependablelc.com;
+	Wed, 24 Apr 2024 06:30:59 -0400
+Authentication-Results: asp-relay-shared.jellyfish.systems;
+	dkim=pass header.d=gmail.com header.s=20230601 header.b=kg4uP5kc;
+	dmarc=pass (policy=none) header.from=gmail.com;
+	spf=pass (asp-relay-shared.jellyfish.systems: domain of segolene.o@gmail.com designates 209.85.221.45 as permitted sender) smtp.mailfrom=segolene.o@gmail.com
+Received: from mail-wr1-f45.google.com (mail-wr1-f45.google.com [209.85.221.45])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by asp-relay-shared.jellyfish.systems (Postfix) with ESMTPS id 4VPZyS3bdmzFyqL
+	for <info@dependablelc.com>; Wed, 24 Apr 2024 10:30:56 +0000 (UTC)
+Received: by mail-wr1-f45.google.com with SMTP id ffacd0b85a97d-346359c8785so5553338f8f.0
+        for <info@dependablelc.com>; Wed, 24 Apr 2024 03:30:56 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1713954655; x=1714559455; darn=dependablelc.com;
+        h=to:references:message-id:subject:date:mime-version:from
+         :content-transfer-encoding:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=nzXhBXwDqVvXbaSPSJBjoFDfKN2QkAuiumbfZ7VMNKg=;
+        b=kg4uP5kc9mIsBKvVgpVYYfaO1/cCVWuNSqQVA061CVoCqrhkDLw3kLRiPjcFaFGgz0
+         6RPFwA2brXiehCv3zEHPV0B3gXEPhD7ZhUrLfBsZgj9OYQQFKAqhsyisf22g3xzg8xpG
+         f4iiyvdamcjmu5IdPvay8r2ZB6Vif7QLGNMg5QQpV6xSJi4lNl/hUUiJjNdW+dAJsB1K
+         s6b0yCGs6GZkGLhVA4F6xNGDkn6xwZU+8PLy8FLQigUHZMLqzCTi6R7IGrCh/2pDWWeo
+         wUt6x9YAumYKVbkSLSlOPewN6Tf7qvRCvx1w4DxVu4QgkD96iCpXORp7h70HLvRpWNs2
+         BrmQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1713954655; x=1714559455;
+        h=to:references:message-id:subject:date:mime-version:from
+         :content-transfer-encoding:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=nzXhBXwDqVvXbaSPSJBjoFDfKN2QkAuiumbfZ7VMNKg=;
+        b=QZehpQqXTLQtGoR9ilvUHiKlKxUYenIJyWjFxAFDdY44Xpy+m4cYhbKxKnqpnIDEqV
+         qWurZznrj9fLDjFb4YYNQxClqFzB0U1Z+Ldbu7Kos2ePwElcj8r5aCAWvhyf8EPeXF5r
+         PkyE0JbG+OpV7oV9TZDIWHUZCINc73WmNfbrQ4ciJRLFY0vRyQXOII+Kcez0USjem7ui
+         Mi/hU9dntOKMdxPMfDxN5XOSBPEGmRqZ2IraZhKIbkX0/XotAYhvG30A5uc+HUQh9Xap
+         UxK9fHeP6hjscnla7kdJ3dE8jic9crbX4fmxf91QDWKmrHnh7tjMRs+5xavR9dpG5jnB
+         Ueyw==
+X-Gm-Message-State: AOJu0Yyyg8JTGwCJVumL351VW+3MmafQAh8TXkq++htme8WRvPdI8ITU
+	HBnZ0WK7r6shvbfWf8F3vNz9SnvY3eGVw7C6QbcL5PxNbfaA1xmtvSoQMQ==
+X-Google-Smtp-Source: AGHT+IH9MWC4YER3BEeAlLJV42FL8bI/jeGHhtxw7+i24Mt7E0X+4BgbEmgGyZbasQhwxd7tnNCErA==
+X-Received: by 2002:a5d:5547:0:b0:343:5cc6:647f with SMTP id g7-20020a5d5547000000b003435cc6647fmr1321847wrw.21.1713954654654;
+        Wed, 24 Apr 2024 03:30:54 -0700 (PDT)
+Received: from smtpclient.apple (bba-217-165-233-235.alshamil.net.ae. [217.165.233.235])
+        by smtp.gmail.com with ESMTPSA id q2-20020adfab02000000b00349d8717feasm16811267wrc.56.2024.04.24.03.30.53
+        for <info@dependablelc.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 24 Apr 2024 03:30:54 -0700 (PDT)
+Content-Type: multipart/alternative; boundary=Apple-Mail-952BC6BA-D2AE-4844-9A21-61A6BE793360
+Content-Transfer-Encoding: 7bit
+From: Segolene Ollivier <segolene.o@gmail.com>
+Mime-Version: 1.0 (1.0)
+Date: Wed, 24 Apr 2024 14:30:42 +0400
+Subject: Fwd: RERA Report - Villa 4 - `Safety issues
+Message-Id: <33834833-4B0E-4F78-98C7-D5A738E34EB1@gmail.com>
+References: <37293FFC-45C0-4417-A1DD-89A4E0389192@gmail.com>
+To: info@dependablelc.com
+X-Mailer: iPhone Mail (21E236)
+X-NCJF-Result: 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
+X-NCJF-Version: 20
+
+
+--Apple-Mail-952BC6BA-D2AE-4844-9A21-61A6BE793360
+Content-Type: text/html;
+	charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+<html><head><meta http-equiv=3D"content-type" content=3D"text/html; charset=3D=
+utf-8"></head><body dir=3D"auto"><div dir=3D"ltr"></div><div dir=3D"ltr"><br=
+>Begin forwarded message:<br><br></div><blockquote type=3D"cite"><div dir=3D=
+"ltr"><b>From:</b> Segolene Ollivier &lt;segolene.o@gmail.com&gt;<br><b>Date=
+:</b> 22 April 2024 at 20:47:32 GMT+4<br><b>To:</b> Renuka &lt;facilities@ua=
+eenterprisesgroup.ae&gt;<br><b>Cc:</b> Jihad Kadri &lt;jihad@ajdrealestate.a=
+e&gt;, Mikey &lt;mikestephenson18@gmail.com&gt;<br><b>Subject:</b> <b>Re: RE=
+RA Report - Villa 4 - `Safety issues</b><br><br></div></blockquote><blockquo=
+te type=3D"cite"><div dir=3D"ltr">=EF=BB=BF<meta http-equiv=3D"content-type"=
+ content=3D"text/html; charset=3Dutf-8"><div dir=3D"ltr"></div><div dir=3D"l=
+tr">The offer of a one bedroom is not a suitable option for my husband, my d=
+aughter and the baby coming, my mother in law is meant to come visit soon to=
+ support with the pregnancy and the baby arriving. And you forgot to mention=
+ the fact that this appartement is completely unfurnished. There isn=E2=80=99=
+t even a washing machine. So this is definitely not a comparable temporary a=
+ccommodation to replace what we are paying for (a 3 bedroom villa + maids ro=
+om) and we need our maid to be in the house with us to help with our child a=
+s both my husband and I are working and me being pregnant we would not be dr=
+iving back and forth everyday to pick her up. And we want her to be in nice l=
+iving conditions as we do care about her, and a staff accommodation in a sha=
+red room is not a suitable living condition according to us, and again a sig=
+nificant downgrade to what we are paying for!</div><div dir=3D"ltr"><br></di=
+v><div dir=3D"ltr" style=3D"direction: ltr;">There is absolutely no way you c=
+an start roof work whilst we are inside the villa, the RERA report clearly s=
+tates the roof and ceiling can=E2=80=99t hold any weight as there is a high r=
+isk of collapsing. If some tiles are dropped on that ceiling by accident dur=
+ing the work there is a high risk that it goes through the ceiling and could=
+ fall on our head or our daughter.</div><div dir=3D"ltr" style=3D"direction:=
+ ltr;"><br></div><div dir=3D"ltr" style=3D"direction: ltr;">But clearly you a=
+re waiting for something seriously catastrophic to happen in order to take p=
+roper actions. It is totally unacceptable to treat people like this.</div><d=
+iv dir=3D"ltr" style=3D"direction: ltr;"><br></div><div dir=3D"ltr" style=3D=
+"direction: ltr;">The ceiling collapsing near our daughter=E2=80=99s head wa=
+s after we had some rain in February, but it was not a natural disaster, it w=
+as just some rain as it happens more and more often. But those houses are no=
+t properly built to support any form of wet weather. Even hot weather as the=
+ insulation is extremely poorly done, the building is unable to keep out any=
+ form of heat or cold or humidity.</div><div dir=3D"ltr" style=3D"direction:=
+ ltr;"><br></div><div dir=3D"ltr" style=3D"direction: ltr;">If you decide to=
+ do renovation on a roof it is because you accept and acknowledge there is s=
+omething seriously wrong with it and it needs a full replacement.</div><div d=
+ir=3D"ltr" style=3D"direction: ltr;">A roof that needs a full replacement ca=
+n=E2=80=99t be done whilst people are living underneath with a 3 year old ch=
+ild and a 8 month pregnant women who needs rest and calm.&nbsp;</div><div di=
+r=3D"ltr" style=3D"direction: ltr;">&nbsp;</div><div dir=3D"ltr" style=3D"di=
+rection: ltr;">Especially in the state of the ceiling I can=E2=80=99t believ=
+e you are even suggesting this despite the RERA report on the condition of t=
+he materials (something UAE enterprise should know as this is your core busi=
+ness!)</div><div dir=3D"ltr" style=3D"direction: ltr;"><br></div><div dir=3D=
+"ltr" style=3D"direction: ltr;">Therefore I understand that no suitable solu=
+tion has been offered from your side.&nbsp;</div><div dir=3D"ltr" style=3D"d=
+irection: ltr;"><br></div><div dir=3D"ltr" style=3D"direction: ltr;">I have a=
+ctually suggested previously for us to move out and stay with friends or ren=
+t a suitable place for a month in July for you to carry the work but if we d=
+o so we need a full compensation on the rent + all the disruption this has c=
+aused since February.&nbsp;</div><div dir=3D"ltr" style=3D"direction: ltr;">=
+<br></div><div dir=3D"ltr" style=3D"direction: ltr;">It is apparent you have=
+ clearly not presented what is going on to your management and the landlord.=
+ You believe you can handle this situation without presenting it to your man=
+agement, pardon me to believe otherwise as you are still trying to put us in=
+ danger but suggesting for the roof to be replaced whilst we live in the vil=
+la. Astonishing! Why is the landlord or your management not CCed in this ema=
+il chain? We have asked several times now for your management to be included=
+ in those conversation and you are refusing each time. Just like you are ref=
+using to send us the exact details of what work you want to carry out , what=
+ materials will be replaced, the level of noise this will create and the =E2=
+=80=9Csurvey=E2=80=9D that you supposedly got.</div><div dir=3D"ltr" style=3D=
+"direction: ltr;"><br></div><div dir=3D"ltr" style=3D"direction: ltr;">As th=
+ere is no consideration from your side and you are happy to let a family lik=
+e us about to have a baby in a really stressful and not suitable living situ=
+ation, we will have to proceed a different route,</div><div dir=3D"ltr" styl=
+e=3D"direction: ltr;"><br></div><div dir=3D"ltr" style=3D"direction: ltr;">R=
+egards,</div><div dir=3D"ltr" style=3D"direction: ltr;">Segolene&nbsp;</div>=
+<div dir=3D"ltr" style=3D"direction: ltr;"><br></div><div dir=3D"ltr" style=3D=
+"direction: ltr;"><br></div><div dir=3D"ltr"><br><blockquote type=3D"cite">O=
+n 22 Apr 2024, at 20:18, Renuka &lt;facilities@uaeenterprisesgroup.ae&gt; wr=
+ote:<br><br></blockquote></div><blockquote type=3D"cite"><div dir=3D"ltr">=EF=
+=BB=BF
+
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3DWindows-12=
+52">
+
+
+
+<div class=3D"elementToProof" style=3D"font-family: Aptos, Aptos_EmbeddedFon=
+t, Aptos_MSFontService, Calibri, Helvetica, sans-serif; font-size: 12pt; col=
+or: rgb(0, 0, 0);">
+Dear Sego,</div>
+<div class=3D"elementToProof" style=3D"font-family: Aptos, Aptos_EmbeddedFon=
+t, Aptos_MSFontService, Calibri, Helvetica, sans-serif; font-size: 12pt; col=
+or: rgb(0, 0, 0);">
+<br>
+</div>
+<div class=3D"elementToProof" style=3D"font-family: Aptos, Aptos_EmbeddedFon=
+t, Aptos_MSFontService, Calibri, Helvetica, sans-serif; font-size: 12pt; col=
+or: rgb(0, 0, 0);">
+The emails regarding the roof maintenance needed at your property. As we had=
+ clearly communicated after the first rainfall in March, we stated that we w=
+ould provide a temporary fix, but the permanent solution requires a complete=
+ roof replacement. The issue
+ is now becoming critical, and we don't require access from inside the villa=
+ to complete this work. However, as per your email, you prefer to start the w=
+ork in July.</div>
+<div style=3D"font-family: Aptos, Aptos_EmbeddedFont, Aptos_MSFontService, C=
+alibri, Helvetica, sans-serif; font-size: 12pt; color: rgb(0, 0, 0);">
+<br>
+</div>
+<div class=3D"elementToProof" style=3D"font-family: Aptos, Aptos_EmbeddedFon=
+t, Aptos_MSFontService, Calibri, Helvetica, sans-serif; font-size: 12pt; col=
+or: rgb(0, 0, 0);">
+As discussed earlier today, we have offered you a 1-bedroom apartment and fo=
+r your Maids our staff room for temporary accommodation in order to assist y=
+ou during the roof replacement, but you have rejected this offer. Kindly not=
+e currently, we do not have any
+ villas available to relocate you while the work is underway.</div>
+<div style=3D"font-family: Aptos, Aptos_EmbeddedFont, Aptos_MSFontService, C=
+alibri, Helvetica, sans-serif; font-size: 12pt; color: rgb(0, 0, 0);">
+<br>
+</div>
+<div class=3D"elementToProof" style=3D"font-family: Aptos, Aptos_EmbeddedFon=
+t, Aptos_MSFontService, Calibri, Helvetica, sans-serif; color: rgb(0, 0, 0);=
+">
+<span style=3D"font-size: 12pt;">As mentioned earlier, we had recommended th=
+at you allow us to commence the necessary maintenance work without any disru=
+ption inside your villa.
+</span><span style=3D"font-size: 16px; background-color: rgb(255, 255, 255);=
+">However, we understand that you have not yet accepted our proposal to star=
+t the maintenance. It is important to note that the heavy rain we have been e=
+xperiencing in Dubai is a natural
+ occurrence which is beyond our control. We do understand the weather condit=
+ion has significantly impacted, please note &nbsp;the safety of our tenants i=
+s our utmost priority.</span></div>
+<div class=3D"elementToProof" style=3D"font-family: Aptos, Aptos_EmbeddedFon=
+t, Aptos_MSFontService, Calibri, Helvetica, sans-serif; font-size: 12pt; col=
+or: rgb(0, 0, 0);">
+<br>
+</div>
+<div style=3D"font-family: Aptos, Aptos_EmbeddedFont, Aptos_MSFontService, C=
+alibri, Helvetica, sans-serif; font-size: 12pt; color: rgb(0, 0, 0);">
+We strongly advise that you reconsider our suggestion to allow us to begin t=
+he maintenance work as soon as possible.&nbsp;</div>
+<div style=3D"font-family: Aptos, Aptos_EmbeddedFont, Aptos_MSFontService, C=
+alibri, Helvetica, sans-serif; font-size: 12pt; color: rgb(0, 0, 0);">
+<br>
+</div>
+<div class=3D"elementToProof" style=3D"font-family: Aptos, Aptos_EmbeddedFon=
+t, Aptos_MSFontService, Calibri, Helvetica, sans-serif; font-size: 12pt; col=
+or: rgb(0, 0, 0);">
+Thank you for your understanding .</div>
+<div class=3D"elementToProof" style=3D"font-family: Aptos, Aptos_EmbeddedFon=
+t, Aptos_MSFontService, Calibri, Helvetica, sans-serif; font-size: 12pt; col=
+or: rgb(0, 0, 0);">
+<br>
+</div>
+<div class=3D"elementToProof" style=3D"font-family: Aptos, Aptos_EmbeddedFon=
+t, Aptos_MSFontService, Calibri, Helvetica, sans-serif; font-size: 12pt; col=
+or: rgb(0, 0, 0);">
+<br>
+</div>
+<div class=3D"elementToProof" style=3D"font-family: Aptos, Aptos_EmbeddedFon=
+t, Aptos_MSFontService, Calibri, Helvetica, sans-serif; font-size: 12pt; col=
+or: rgb(0, 0, 0);">
+&nbsp;Best Regards,</div>
+<div class=3D"elementToProof" style=3D"font-family: Aptos, Aptos_EmbeddedFon=
+t, Aptos_MSFontService, Calibri, Helvetica, sans-serif; font-size: 12pt; col=
+or: rgb(0, 0, 0);">
+Renuka&nbsp;</div>
+<div class=3D"elementToProof" style=3D"font-family: Aptos, Aptos_EmbeddedFon=
+t, Aptos_MSFontService, Calibri, Helvetica, sans-serif; font-size: 12pt; col=
+or: rgb(0, 0, 0);">
+<br>
+</div>
+<hr style=3D"display: inline-block; width: 98%;">
+<div style=3D"direction: ltr; font-family: Calibri, sans-serif; font-size: 1=
+1pt; color: rgb(0, 0, 0);">
+<b>From:</b>&nbsp;Sego O &lt;segolene.o@gmail.com&gt;<br>
+<b>Sent:</b>&nbsp;Monday, April 22, 2024 2:54 PM<br>
+<b>To:</b>&nbsp;Jihad Kadri &lt;jihad@ajdrealestate.ae&gt;; Renuka &lt;facil=
+ities@uaeenterprisesgroup.ae&gt;<br>
+<b>Cc:</b>&nbsp;Mikey &lt;mikestephenson18@gmail.com&gt;<br>
+<b>Subject:</b>&nbsp;Re: RERA Report - Villa 4 - `Safety issues</div>
+<div style=3D"direction: ltr;">&nbsp;</div>
+<table align=3D"left" style=3D"display: table; width: 100%; table-layout: fi=
+xed; box-sizing: border-box; border-collapse: collapse; border-spacing: 0px;=
+">
+<tbody>
+<tr>
+<td style=3D"width: 1px; height: 30px; background-color: rgb(166, 166, 166);=
+ padding: 7px 2px; vertical-align: middle;">
+</td>
+<td style=3D"width: 100%; height: 30px; text-align: left; background-color: r=
+gb(234, 234, 234); padding: 7px 5px 7px 15px; vertical-align: middle; color:=
+ rgb(33, 33, 33);">
+<div style=3D"text-align: left; font-family: wf_segoe-ui_normal, &quot;Segoe=
+ UI&quot;, &quot;Segoe WP&quot;, Tahoma, Arial, sans-serif; font-size: 12px;=
+">
+You don't often get email from segolene.o@gmail.com. <a href=3D"https://aka.=
+ms/LearnAboutSenderIdentification" id=3D"OWAe9b5f00e-ddfa-e646-e2cf-bacc0d57=
+f424" class=3D"OWAAutoLink" data-auth=3D"NotApplicable" data-loopstyle=3D"li=
+nkonly">
+Learn why this is important</a></div>
+</td>
+<td align=3D"left" style=3D"width: 75px; height: 30px; background-color: rgb=
+(234, 234, 234); padding: 7px 5px; vertical-align: middle; color: rgb(33, 33=
+, 33);">
+</td>
+</tr>
+</tbody>
+</table>
+<div style=3D"direction: ltr;">Dear Renuka and Jihad,</div>
+<div style=3D"direction: ltr;"><br>
+</div>
+<div style=3D"direction: ltr;">It seems that you have clearly not understood=
+ my email and treated the problem with consideration or importance. You have=
+ acknowledged that there is a real issue with the villa, thank you for this.=
+ Renuka even mentioned previously
+ that you are aware that those villas are not in good conditions but there w=
+on't be much money spent on them as they will most likely be demolished with=
+in a couple of years. Well it is not a reason for current tenants to be livi=
+ng in unsafe conditions.</div>
+<div style=3D"direction: ltr;">&nbsp;</div>
+<div style=3D"direction: ltr;">You claim to care about your tenants, but it d=
+oes not seem to be an issue to you that our 3 year old daughter has been sle=
+eping on a mattress on the floor in our bedroom since her ceiling collapsed n=
+ext to her head on the 15th of
+ February. She has trauma which has been medically confirmed and you keep ig=
+noring the facts.</div>
+<div style=3D"direction: ltr;"><br>
+</div>
+<div style=3D"direction: ltr;">I am now 8 months pregnant, our daughter's be=
+droom has been not usable since February, our Nanny's bedroom is not usable s=
+ince the most recent floods as the ceiling threatens to collapse and unlike t=
+he way you are treating us, we
+ do care about our Nanny living situation and do not want her to be in dange=
+r so she is currently staying in the Guest bedroom.</div>
+<div style=3D"direction: ltr;"><br>
+</div>
+<div style=3D"direction: ltr;">We are paying and renting a 3 bedrooms&nbsp;+=
+ Maid villa when currently there are two bedroom which have a very serious h=
+azard risk, a swimming pool not usable which was in very poor condition thos=
+e past few weeks (Ours and our daughter's
+ swimming customse have turned yellow from whatever product you have been pu=
+tting in there to cover up the fact that 3 filters out of 3 were out of orde=
+r, again something we were never made aware of, if we had know we would have=
+ never let our daughter swim
+ in the pool).</div>
+<div style=3D"direction: ltr;"><br>
+</div>
+<div style=3D"direction: ltr;">Some of our neighbours had to move out of the=
+ir villa this week as a company told them they found toxic mould behind the w=
+alls so their house is also currently not in healthy condition.</div>
+<div style=3D"direction: ltr;">When are you going to start taking the proble=
+ms of this compound seriously?!?</div>
+<div style=3D"direction: ltr;"><br>
+</div>
+<div style=3D"direction: ltr;">=46rom my email earlier, what you have offere=
+d us so far is a small one bedroom apartment completely unfurnished whilst y=
+ou are doing renovation work of the villa (no mention of the exact work that=
+ will be carried neither). This is
+ totally unacceptable and very offending. Do you think at 8 months pregnant I=
+ can handle moving out and in furnitures and sharing a one bedroom apartment=
+ with my husband, daughter, newborn and Nanny?! I went there with my husband=
+ and daughter, took the time
+ off work and it was a complete waste of time and more importantly energy. I=
+ had a doctor appointment yesterday which stated I need to stay away from st=
+ress as I have started to lose amniotic fluid and the baby has not grown as i=
+t should have, so I should be
+ in a relaxed environment and taking as much rest as possible. This is impos=
+sible to do whilst living in a house where I do not feel safe.</div>
+<div style=3D"direction: ltr;"><br>
+</div>
+<div style=3D"direction: ltr;">=46rom the way you are dealing with this issu=
+e, it looks like Option 2 is the most appropriate at the moment. We have not=
+ been able to use the villa fully since February when the ceiling collapsed,=
+ we should be asking for rent compensation
+ since February until the rest of the lease, even if you do the renovations.=
+</div>
+<div style=3D"direction: ltr;">I have an appointment at Dubai Land Departmen=
+t on Thursday Morning with an Arabic translator and lawyer to discuss the ca=
+se. Again, this is really not the route we want to take as I am sure this is=
+ something that could be dealt
+ with together if you were actually listening to the problem and offering a f=
+air compensation. We have already spent money on the RERA assessor to come t=
+o our house, and we are aware there will be cost to the lawyer we already ha=
+ve all the details but this
+ is something we are willing to pay as the safety of our children, nanny and=
+ our own is way more important.</div>
+<div style=3D"direction: ltr;"><br>
+</div>
+<div style=3D"direction: ltr;">I want you to address all of these emails to t=
+he landlord, owner of UAE entreprise, as I am sure he also has other issues t=
+o deal with but I would really like for this to be brought to his attention t=
+hat families are living in his
+ compounds with pregnant women and very young children and he surely would n=
+ot want something seriously bad to happen to anyone in his compound due to l=
+ack of maintenance and the state of the buildings.</div>
+<div style=3D"direction: ltr;"><br>
+</div>
+<div style=3D"direction: ltr;">Kind Regards,</div>
+<div style=3D"direction: ltr;"><br>
+</div>
+<div style=3D"direction: ltr;">Segolene</div>
+<div style=3D"direction: ltr;"><br>
+</div>
+<div style=3D"direction: ltr;"><br>
+</div>
+<div style=3D"direction: ltr;"><br>
+</div>
+<div style=3D"direction: ltr;"><br>
+</div>
+<div style=3D"direction: ltr;"><br>
+</div>
+<div style=3D"direction: ltr;">Le&nbsp;lun. 22 avr. 2024 =C3=A0&nbsp;08:11, J=
+ihad Kadri &lt;<a href=3D"mailto:jihad@ajdrealestate.ae" id=3D"OWAab02f41b-0=
+708-96ab-9504-d9dafd4c78b2" class=3D"OWAAutoLink" data-loopstyle=3D"linkonly=
+">jihad@ajdrealestate.ae</a>&gt; a =C3=A9crit&nbsp;:</div>
+<blockquote style=3D"margin: 0px 0px 0px 0.8ex; padding-left: 1ex; border-le=
+ft: 1px solid rgb(204, 204, 204);">
+<p style=3D"direction: ltr;">Dear Segolene,</p>
+<p style=3D"direction: ltr;">&nbsp;</p>
+<p style=3D"direction: ltr;">Thank you for your email.</p>
+<p style=3D"direction: ltr;">&nbsp;</p>
+<p style=3D"direction: ltr;">I have forwarded the same to our Facilities Man=
+agement in case it was not sent to them in order to give you updates regardi=
+ng the repairs.</p>
+<p style=3D"direction: ltr;">&nbsp;</p>
+<p style=3D"direction: ltr;">We appreciate you as a tenant, and you will hea=
+r back from our team regarding your concerns.</p>
+<p style=3D"direction: ltr;">&nbsp;</p>
+<p style=3D"direction: ltr;"><span style=3D"font-family: Candara, sans-serif=
+; font-size: 12pt; color: black; background-color: white;">Thanks &amp; Rega=
+rds,</span></p>
+<p style=3D"direction: ltr; background-color: white;"><span style=3D"font-si=
+ze: 12pt; color: black;">&nbsp;</span></p>
+<table style=3D"direction: ltr; background-color: white; width: 337.85pt; bo=
+x-sizing: border-box; border-collapse: collapse; border-spacing: 0px;">
+<tbody>
+<tr>
+<td style=3D"width: 93.75pt; height: 127.5pt; direction: ltr; padding: 0.75p=
+t; vertical-align: top;">
+<p style=3D"direction: ltr;"><span style=3D"font-family: Helvetica, sans-ser=
+if; font-size: 10pt; color: black;"><a href=3D"https://ddec1-0-en-ctp.trendm=
+icro.com:443/wis/clicktime/v1/query?url=3Dhttps%3a%2f%2fajdrealestates.com&a=
+mp;umid=3D6e6d34cd-46d0-4915-b5fb-4e1e6f98a60d&amp;auth=3D15fb826e09aa5f20dc=
+b9dbba764bdf4fd4af12c8-8a045ad05a62b0780ad4a8e571c3aad0bf634fb8" id=3D"OWA5a=
+5af428-84a3-c686-544d-ea7ca3e07128" class=3D"OWAAutoLink" title=3D"&quot;htt=
+ps://ajdrealestates.com/&quot;" data-auth=3D"NotApplicable" data-loopstyle=3D=
+"linkonly" style=3D"margin-top: 0px; margin-bottom: 0px;"></a></span></p><di=
+v><a href=3D"https://ddec1-0-en-ctp.trendmicro.com:443/wis/clicktime/v1/quer=
+y?url=3Dhttps%3a%2f%2fajdrealestates.com&amp;umid=3D6e6d34cd-46d0-4915-b5fb-=
+4e1e6f98a60d&amp;auth=3D15fb826e09aa5f20dcb9dbba764bdf4fd4af12c8-8a045ad05a6=
+2b0780ad4a8e571c3aad0bf634fb8" id=3D"OWA5a5af428-84a3-c686-544d-ea7ca3e07128=
+" class=3D"OWAAutoLink" title=3D"&quot;https://ajdrealestates.com/&quot;" da=
+ta-auth=3D"NotApplicable" data-loopstyle=3D"linkonly" style=3D"margin-top: 0=
+px; margin-bottom: 0px;">&lt;image001.gif&gt;</a></div><p></p>
+</td>
+<td style=3D"width: 239.6pt; height: 127.5pt; direction: ltr; padding: 0.75p=
+t; vertical-align: top;">
+<p style=3D"direction: ltr;"><span style=3D"font-family: Helvetica, sans-ser=
+if; font-size: 10pt; color: rgb(29, 34, 40);">&nbsp;</span></p>
+<table style=3D"direction: ltr; box-sizing: border-box; border-collapse: col=
+lapse; border-spacing: 0px;">
+<tbody>
+<tr>
+<td style=3D"width: 320.9px; height: 2px; direction: ltr; padding: 0.75pt;">=
+</td>
+</tr>
+<tr>
+<td style=3D"width: 320.9px; height: 23.6px; direction: ltr; padding: 0.75pt=
+;">
+<p style=3D"direction: ltr;"><span style=3D"font-family: Arial, sans-serif;"=
+><b>Jihad Kadri</b></span></p>
+</td>
+</tr>
+<tr>
+<td style=3D"width: 320.9px; height: 23.6px; direction: ltr; padding: 0.75pt=
+;">
+<p style=3D"direction: ltr;"><span style=3D"font-family: Arial, sans-serif;"=
+>Leasing Manager | AJD Real Estates.</span></p>
+</td>
+</tr>
+<tr>
+<td style=3D"width: 320.9px; height: 23.6px; direction: ltr; padding: 0.75pt=
+;">
+<p style=3D"direction: ltr;"><span style=3D"font-family: Arial, sans-serif;"=
+>T: +971- 43429476,&nbsp; M:&nbsp;+971-505028575,</span></p>
+</td>
+</tr>
+<tr>
+<td style=3D"width: 320.9px; height: 95.7875px; direction: ltr; padding: 0.7=
+5pt;">
+<p style=3D"direction: ltr;"><span style=3D"font-family: Arial, sans-serif;"=
+>E: </span>
+<span style=3D"color: rgb(5, 99, 193);"><a href=3D"mailto:Jihad@ajdrealestat=
+e.ae" id=3D"OWAda9b2003-0e9c-7305-c737-daec9ce58b67" class=3D"OWAAutoLink" d=
+ata-loopstyle=3D"linkonly" style=3D"color: rgb(5, 99, 193); margin-top: 0px;=
+ margin-bottom: 0px;">Jihad</a></span><span style=3D"font-family: Arial, san=
+s-serif; color: rgb(5, 99, 193);"><a href=3D"mailto:Jihad@ajdrealestate.ae" i=
+d=3D"OWA763af839-b9c7-2268-ae52-51c3e0ae3c94" class=3D"OWAAutoLink" data-loo=
+pstyle=3D"linkonly" style=3D"color: rgb(5, 99, 193); margin-top: 0px; margin=
+-bottom: 0px;">@ajdrealestate.ae</a></span><span style=3D"font-family: Arial=
+, sans-serif;">&nbsp;|
+</span><span style=3D"color: rgb(5, 99, 193);"><u><a href=3D"https://ddec1-0=
+-en-ctp.trendmicro.com:443/wis/clicktime/v1/query?url=3Dhttps%3a%2f%2fwww.aj=
+drealestates.com&amp;umid=3D6e6d34cd-46d0-4915-b5fb-4e1e6f98a60d&amp;auth=3D=
+15fb826e09aa5f20dcb9dbba764bdf4fd4af12c8-27c827033442b665d7e4d01a3c420b01ff8=
+fe6ff" id=3D"OWA9b773c6e-2faa-759e-72b8-6163444d4394" class=3D"OWAAutoLink" d=
+ata-auth=3D"NotApplicable" data-loopstyle=3D"linkonly" style=3D"color: rgb(5=
+, 99, 193); margin-top: 0px; margin-bottom: 0px;">www.ajdrealestates.com</a>=
+</u></span></p>
+<p style=3D"direction: ltr;"><a href=3D"https://www.facebook.com/1ajdrealest=
+ate" id=3D"OWA5c59e064-054e-30d0-3d08-e7998e0d8532" class=3D"OWAAutoLink" ti=
+tle=3D"&quot;https://www.facebook.com/1ajdrealestate&quot;" data-auth=3D"Not=
+Applicable" data-loopstyle=3D"linkonly" style=3D"margin-top: 0px; margin-bot=
+tom: 0px;"></a></p><div><a href=3D"https://www.facebook.com/1ajdrealestate" i=
+d=3D"OWA5c59e064-054e-30d0-3d08-e7998e0d8532" class=3D"OWAAutoLink" title=3D=
+"&quot;https://www.facebook.com/1ajdrealestate&quot;" data-auth=3D"NotApplic=
+able" data-loopstyle=3D"linkonly" style=3D"margin-top: 0px; margin-bottom: 0=
+px;">&lt;image002.png&gt;</a></div>&nbsp;
+<a href=3D"https://www.instagram.com/ajd.re/" id=3D"OWA26ad8346-9bef-5e49-ea=
+27-6a761cae62c2" class=3D"OWAAutoLink" title=3D"&quot;https://www.instagram.=
+com/ajd.re/&quot;" data-auth=3D"NotApplicable" data-loopstyle=3D"linkonly" s=
+tyle=3D"margin-top: 0px; margin-bottom: 0px;">
+<div>&lt;image003.png&gt;</div></a>&nbsp;
+<a href=3D"https://api.whatsapp.com/send?phone=3D971505669689" id=3D"OWA64d0=
+8dfa-9f21-29cf-d1e8-09e20e987f11" class=3D"OWAAutoLink" title=3D"&quot;https=
+://api.whatsapp.com/send?phone=3D971505669689&quot;" data-auth=3D"NotApplica=
+ble" data-loopstyle=3D"linkonly" style=3D"margin-top: 0px; margin-bottom: 0p=
+x;">
+<div>&lt;image004.png&gt;</div></a>&nbsp;<a href=3D"https://twitter.com/Ajd_=
+Realestate" id=3D"OWA29e7bb19-437a-428d-8613-effe31286d9c" class=3D"OWAAutoL=
+ink" title=3D"&quot;https://twitter.com/Ajd_Realestate&quot;" data-auth=3D"N=
+otApplicable" data-loopstyle=3D"linkonly" style=3D"margin-top: 0px; margin-b=
+ottom: 0px;"><div>&lt;image005.png&gt;</div></a>&nbsp;<a href=3D"https://dde=
+c1-0-en-ctp.trendmicro.com:443/wis/clicktime/v1/query?url=3Dhttps%3a%2f%2fww=
+w.ajdrealestates.com&amp;umid=3D6e6d34cd-46d0-4915-b5fb-4e1e6f98a60d&amp;aut=
+h=3D15fb826e09aa5f20dcb9dbba764bdf4fd4af12c8-27c827033442b665d7e4d01a3c420b0=
+1ff8fe6ff" id=3D"OWA0ae338a3-7cb8-1307-18b8-30e7a11556d7" class=3D"OWAAutoLi=
+nk" title=3D"&quot;https://www.ajdrealestates.com/&quot;" data-auth=3D"NotAp=
+plicable" data-loopstyle=3D"linkonly" style=3D"margin-top: 0px; margin-botto=
+m: 0px;"><div>&lt;image006.png&gt;</div></a><p></p>
+<p style=3D"direction: ltr;"><span style=3D"font-size: 10pt;">P.O Box 2082, A=
+irport Road, | Dubai, U.A.E.&nbsp;&nbsp;</span></p>
+</td>
+</tr>
+<tr>
+<td style=3D"width: 320.9px; height: 2px; direction: ltr; padding: 0.75pt;">=
+</td>
+</tr>
+<tr>
+<td style=3D"width: 320.9px; height: 2px; direction: ltr; padding: 0.75pt; v=
+ertical-align: top;">
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+<p style=3D"direction: ltr; background-color: white;"><span style=3D"font-si=
+ze: 12pt;">&nbsp;</span></p>
+<p style=3D"direction: ltr;">&nbsp;</p>
+<div style=3D"padding: 3pt 0cm 0cm; border-top: 1pt solid rgb(225, 225, 225)=
+;">
+<p style=3D"direction: ltr;"><b>From:</b>&nbsp;Sego O &lt;<a href=3D"mailto:=
+segolene.o@gmail.com" id=3D"OWA119b993d-2d0d-a8b1-a96c-1ee6abeffe34" class=3D=
+"OWAAutoLink" data-loopstyle=3D"linkonly" style=3D"margin-top: 0px; margin-b=
+ottom: 0px;">segolene.o@gmail.com</a>&gt;<br>
+<b>Sent:</b>&nbsp;Sunday, 21 April 2024 6:08 PM<br>
+<b>To:</b>&nbsp;Jihad Kadri &lt;<a href=3D"mailto:jihad@ajdrealestate.ae" id=
+=3D"OWA40833c82-cf34-47bc-1bb3-42c69f3bb84b" class=3D"OWAAutoLink" data-loop=
+style=3D"linkonly" style=3D"margin-top: 0px; margin-bottom: 0px;">jihad@ajdr=
+ealestate.ae</a>&gt;<br>
+<b>Cc:</b>&nbsp;Mikey &lt;<a href=3D"mailto:mikestephenson18@gmail.com" id=3D=
+"OWAdcf24c2a-4eed-c300-04c7-1e8791fb7dc6" class=3D"OWAAutoLink" data-loopsty=
+le=3D"linkonly" style=3D"margin-top: 0px; margin-bottom: 0px;">mikestephenso=
+n18@gmail.com</a>&gt;<br>
+<b>Subject:</b>&nbsp;RERA Report - Villa 4 - `Safety issues</p>
+</div>
+<p style=3D"direction: ltr;">&nbsp;</p>
+<table align=3D"left" style=3D"direction: ltr; width: 100%; box-sizing: bord=
+er-box; border-collapse: collapse; border-spacing: 0px;">
+<tbody>
+<tr>
+<td style=3D"width: 4px; height: 35.6px; direction: ltr; background-color: r=
+gb(166, 166, 166); padding: 5.25pt 1.5pt;">
+</td>
+<td style=3D"width: 100%; height: 35.6px; direction: ltr; background-color: r=
+gb(234, 234, 234); padding: 5.25pt 3.75pt 5.25pt 11.25pt;">
+<p style=3D"direction: ltr;"><span style=3D"font-family: wf_segoe-ui_normal;=
+ font-size: 9pt; color: rgb(33, 33, 33);">You don't often get email from
+<a href=3D"mailto:segolene.o@gmail.com" id=3D"OWA15886518-c24c-6b67-2a6e-c6b=
+0ac9b5239" class=3D"OWAAutoLink" data-loopstyle=3D"linkonly" style=3D"margin=
+-top: 0px; margin-bottom: 0px;">
+segolene.o@gmail.com</a>. <a href=3D"https://ddec1-0-en-ctp.trendmicro.com:4=
+43/wis/clicktime/v1/query?url=3Dhttps%3a%2f%2faka.ms%2fLearnAboutSenderIdent=
+ification&amp;umid=3D6e6d34cd-46d0-4915-b5fb-4e1e6f98a60d&amp;auth=3D15fb826=
+e09aa5f20dcb9dbba764bdf4fd4af12c8-656ce4428ffaae3c6eede98a1af3a702cd6daa46" i=
+d=3D"OWA49e925fe-61f6-448d-8b90-3a86aafb8154" class=3D"OWAAutoLink" data-aut=
+h=3D"NotApplicable" data-loopstyle=3D"linkonly" style=3D"margin-top: 0px; ma=
+rgin-bottom: 0px;">
+Learn why this is important</a></span></p>
+</td>
+<td style=3D"width: 56.25pt; height: 35.6px; direction: ltr; background-colo=
+r: rgb(234, 234, 234); padding: 5.25pt 3.75pt;">
+</td>
+</tr>
+</tbody>
+</table>
+<p style=3D"direction: ltr;"><span style=3D"font-family: Arial, sans-serif;"=
+>Dear Jihad,</span></p>
+<p style=3D"direction: ltr;"><span style=3D"font-family: Aptos, sans-serif;"=
+>&nbsp;</span></p>
+<p style=3D"direction: ltr;"><span style=3D"font-family: Arial, sans-serif;"=
+>I hope this email finds you well. However, I must urgently address serious c=
+oncerns about our villa at 61 Al Khana Street (Villa 4 Abdul Jalil Grove). W=
+e have recently appointed a RERA-accredited
+ agent at our own cost to come assess our villa, the report is attached to t=
+he email and clearly outlines significant structural damages, and safety iss=
+ues. Please note that the agent came before the most recent floods therefore=
+ there has been further damage
+ to the villa which you are aware of. We have paid for this assessment ourse=
+lves as we have asked you several times following the fire and ceiling incid=
+ents for a full report of the house.</span></p>
+<p style=3D"direction: ltr;"><span style=3D"font-family: Aptos, sans-serif;"=
+>&nbsp;</span></p>
+<p style=3D"direction: ltr;"><span style=3D"font-family: Arial, sans-serif;"=
+>The state of our home is deeply concerning. Following a ceiling collapse la=
+st month in our daughter=E2=80=99s bedroom whilst she was asleep, the living=
+ conditions have become not just uncomfortable
+ but outright dangerous. My daughter is now too scared to sleep in her own r=
+oom and requires therapy to manage her anxiety from the incident. We were as=
+sured that the previous repairs would hold, but clearly, they haven=E2=80=99=
+t. The only thing that was offered by
+ the maintenance was to replace the roof but we had to stay in the villa whi=
+lst this was done. I am 8 months pregnant and feeling extremely stressed. I h=
+ope you realize this is completely unacceptable for you to myself and my fam=
+ily in this situation.</span></p>
+<p style=3D"direction: ltr;"><span style=3D"font-family: Aptos, sans-serif;"=
+>&nbsp;</span></p>
+<p style=3D"direction: ltr;"><span style=3D"font-family: Arial, sans-serif;"=
+>Additionally, there=E2=80=99s an unconfirmed, yet alarming possibility that=
+ we might be exposed to asbestos. It will be confirmed next week as we will a=
+ppoint a separate expert to come and take
+ some samples. This is particularly worrisome because if asbestos fibers are=
+ present in our living environment, they could pose a severe health risk to m=
+y family, including my pregnant wife and our young child.</span></p>
+<p style=3D"direction: ltr;"><span style=3D"font-family: Aptos, sans-serif;"=
+>&nbsp;</span></p>
+<p style=3D"direction: ltr;"><span style=3D"font-family: Arial, sans-serif;"=
+>Given these issues, it's evident that the villa is currently not in a state=
+ that's legally suitable for renting. We need to address this as follows:</s=
+pan></p>
+<p style=3D"direction: ltr;"><span style=3D"font-family: Aptos, sans-serif;"=
+>&nbsp;</span></p>
+<p style=3D"direction: ltr; margin-left: 83.25pt;"><span style=3D"font-famil=
+y: Arial, sans-serif;">1.</span><span style=3D"font-family: &quot;Times New R=
+oman&quot;, serif;">&nbsp;&nbsp;&nbsp;
+</span><span style=3D"font-family: Arial, sans-serif;"><b>Immediate Comprehe=
+nsive Repairs</b>: We require a complete renovation of the villa to make it s=
+afe and livable again. We would need to receive a full report of the work th=
+at will be carried out with exact
+ materials replaced etc. All windows, roof, insulation will need to be redon=
+e as well as some walls as there are currently no =E2=80=9Cstructural=E2=80=9D=
+ concrete walls in our villa. During this time, we will need to be relocated=
+, and we believe it's only fair that these
+ costs be covered by you. As well as a reduction on the rent if we do stay f=
+or all the disruption from the past few months.</span></p>
+<p style=3D"direction: ltr; margin-left: 83.25pt;"><span style=3D"font-famil=
+y: Aptos, sans-serif;">&nbsp;</span></p>
+<p style=3D"direction: ltr; margin-left: 83.25pt;"><span style=3D"font-famil=
+y: Arial, sans-serif;">2.</span><span style=3D"font-family: &quot;Times New R=
+oman&quot;, serif;">&nbsp;&nbsp;&nbsp;
+</span><span style=3D"font-family: Arial, sans-serif;"><b>Option to Move Out=
+ with Compensation</b>: If immediate renovations aren=E2=80=99t possible, we=
+ would prefer to move out as soon as possible. In this case, we would expect=
+ a significant compensation for the disruption,
+ the moving expenses and price difference of the new villa we will find.</sp=
+an></p>
+<p style=3D"direction: ltr; margin-left: 83.25pt;"><span style=3D"font-famil=
+y: Aptos, sans-serif;">&nbsp;</span></p>
+<p style=3D"direction: ltr; margin-left: 83.25pt;"><span style=3D"font-famil=
+y: Arial, sans-serif;">3.</span><span style=3D"font-family: &quot;Times New R=
+oman&quot;, serif;">&nbsp;&nbsp;&nbsp;
+</span><span style=3D"font-family: Arial, sans-serif;"><b>Relocation to a Su=
+itable Property</b>: If you have any other properties in a similar area with=
+ a similar rental cost that meets our safety and living needs, we are open t=
+o discussing this as a potential
+ solution.</span></p>
+<p style=3D"direction: ltr; margin-left: 83.25pt;"><span style=3D"font-famil=
+y: Aptos, sans-serif;">&nbsp;</span></p>
+<p style=3D"direction: ltr;"><span style=3D"font-family: Arial, sans-serif;"=
+>We are prepared to take this matter to RERA with our lawyer for resolution i=
+f we do not hear back from you with a viable action plan by Thursday 25th of=
+ April. This isn=E2=80=99t the route we
+ want to take, but we must prioritize the safety and well-being of our famil=
+y.</span></p>
+<p style=3D"direction: ltr;"><span style=3D"font-family: Aptos, sans-serif;"=
+>&nbsp;</span></p>
+<p style=3D"direction: ltr;"><span style=3D"font-family: Arial, sans-serif;"=
+>Thank you for your immediate attention to these issues. We look forward to y=
+our prompt and constructive response.</span></p>
+<p style=3D"direction: ltr;"><span style=3D"font-family: Aptos, sans-serif;"=
+>&nbsp;</span></p>
+<p style=3D"direction: ltr;"><span style=3D"font-family: Arial, sans-serif;"=
+>Please note that this matter is currently addressed only between us and you=
+rself, we have not shared the report to any of the other tenants of the comp=
+ound as we do expect a reasonable
+ solution from you.</span></p>
+<p style=3D"direction: ltr;"><span style=3D"font-family: Aptos, sans-serif;"=
+>&nbsp;</span></p>
+<p style=3D"direction: ltr;"><span style=3D"font-family: Arial, sans-serif;"=
+>Warm regards,</span></p>
+<p style=3D"direction: ltr;"><span style=3D"font-family: Arial, sans-serif;"=
+>Segolene Stephenson</span></p>
+<p style=3D"direction: ltr;"><span style=3D"font-family: Aptos, sans-serif;"=
+>&nbsp;</span></p>
+</blockquote>
+
+
+</div></blockquote></div></blockquote></body></html>=
+
+--Apple-Mail-952BC6BA-D2AE-4844-9A21-61A6BE793360--

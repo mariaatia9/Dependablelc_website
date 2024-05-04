@@ -1,0 +1,1081 @@
+Return-Path: <segolene.o@gmail.com>
+Delivered-To: info@dependablelc.com
+Received: from host59.registrar-servers.com
+	by host59.registrar-servers.com with LMTP
+	id CBFxKo3fKGZULwQA+KyzgQ
+	(envelope-from <segolene.o@gmail.com>)
+	for <info@dependablelc.com>; Wed, 24 Apr 2024 06:31:41 -0400
+Return-path: <segolene.o@gmail.com>
+Envelope-to: info@dependablelc.com
+Delivery-date: Wed, 24 Apr 2024 06:31:41 -0400
+Received: from [63.250.43.69] (port=6932 helo=asp-relay-shared.jellyfish.systems)
+	by host59.registrar-servers.com with esmtps  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96.1)
+	(envelope-from <segolene.o@gmail.com>)
+	id 1rzZuf-001C0J-1R
+	for info@dependablelc.com;
+	Wed, 24 Apr 2024 06:31:41 -0400
+Authentication-Results: asp-relay-shared.jellyfish.systems;
+	dkim=pass header.d=gmail.com header.s=20230601 header.b=FKIq+LUI;
+	dmarc=pass (policy=none) header.from=gmail.com;
+	spf=pass (asp-relay-shared.jellyfish.systems: domain of segolene.o@gmail.com designates 209.85.128.47 as permitted sender) smtp.mailfrom=segolene.o@gmail.com
+Received: from mail-wm1-f47.google.com (mail-wm1-f47.google.com [209.85.128.47])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by asp-relay-shared.jellyfish.systems (Postfix) with ESMTPS id 4VPZzJ4Cllz17Bv
+	for <info@dependablelc.com>; Wed, 24 Apr 2024 10:31:40 +0000 (UTC)
+Received: by mail-wm1-f47.google.com with SMTP id 5b1f17b1804b1-41a72f3a20dso22913005e9.0
+        for <info@dependablelc.com>; Wed, 24 Apr 2024 03:31:40 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1713954699; x=1714559499; darn=dependablelc.com;
+        h=to:references:message-id:subject:date:mime-version:from
+         :content-transfer-encoding:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=iUk+U+/8v2eV3ltptMr4QLF680S+v6mUiunomIDNIN4=;
+        b=FKIq+LUIU2OMb7H8pBrJ8A85k6P/vSZp6WwPF/5A1dzhflehkhF0trLn6FeYJkfh8S
+         kL/47smNHm/m+9sxnlU0eV6eq1/jmphLzwG2eWb6ypDxBia9nj+JHVpWsY/cqyW5cOu2
+         19/QkuhUvxWWJo3YXQ4mlAt6gMVQfcFS4H82Li2Tj3QYgp2+/V5TFASidlx0QryVfITB
+         fBOO0/42317boUUb/m/UwxemqJP0LRgWc/C4H1KXmFuM+E1HXhShSXhVbpPbrKzqdCru
+         /4JWZaBQRz031rpkdddZmUhlbraFE9bfA1n1Dh074rcsr/3gDV0Rq8g9mcQotkK/tzIG
+         Bhcw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1713954699; x=1714559499;
+        h=to:references:message-id:subject:date:mime-version:from
+         :content-transfer-encoding:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=iUk+U+/8v2eV3ltptMr4QLF680S+v6mUiunomIDNIN4=;
+        b=UtxGS3hUyVOkuBFyZNexO2SabPoAK2+tOYL/wVTymwlutfkZXFMk8ViI3Qf4dTln5C
+         FEwqM6BsuGXhRdlt+DWcZ33WmcOszKYWTv0sC1i26H5AbMRVRPmJWtq8lXFGfxdbAM8o
+         zePJozJMcVWP64X7pdkz0qgkr/9VmOpBagAVBIpPJlmYouPdPCmQ/7h69AJlTr9gXtxe
+         hRNn21csVxonK8Xjbz0zZIE+MxUBzmHq8a9pxsGIJkSs6A/kEyN0dDQXEy88WI7rYCnx
+         4DA++LGP/XrgUVxdwoBVYdij9+icpBg+m6CDG0AvGM7988e1ovRp9l6HH+aEKAfKkajh
+         eEvg==
+X-Gm-Message-State: AOJu0YwRwxWoGNAaNlix+WyWxxrd2rOg9H0SH7PMXPmwHZ7yktWNlTz3
+	36d+VD6BCKHqfyKa3Ctga4YQ61nUwkUEwhQiOjsCcUuqviCUW03YvFcEUw==
+X-Google-Smtp-Source: AGHT+IG/8mJ+ahWkRmBGdaYBmJaA8QJC//RrCf1xvh9JCyqK3uf/tnQ32bDRCKWRz4Kltf7dUJ4S0A==
+X-Received: by 2002:a05:600c:46d0:b0:41a:80f2:ba7a with SMTP id q16-20020a05600c46d000b0041a80f2ba7amr1650843wmo.14.1713954698985;
+        Wed, 24 Apr 2024 03:31:38 -0700 (PDT)
+Received: from smtpclient.apple (bba-217-165-233-235.alshamil.net.ae. [217.165.233.235])
+        by smtp.gmail.com with ESMTPSA id g18-20020a05600c4ed200b00418729383a4sm23144209wmq.46.2024.04.24.03.31.38
+        for <info@dependablelc.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 24 Apr 2024 03:31:38 -0700 (PDT)
+Content-Type: multipart/alternative; boundary=Apple-Mail-3EBB7024-E36D-4826-910E-CECFD387689C
+Content-Transfer-Encoding: 7bit
+From: Segolene Ollivier <segolene.o@gmail.com>
+Mime-Version: 1.0 (1.0)
+Date: Wed, 24 Apr 2024 14:31:27 +0400
+Subject: Fwd: Safety issue Villa 4
+Message-Id: <C5A55491-A5CC-4A3A-9395-060BBB99AD0E@gmail.com>
+References: <AS8P194MB157373EE88510069B2EAA5BBBB2F2@AS8P194MB1573.EURP194.PROD.OUTLOOK.COM>
+To: info@dependablelc.com
+X-Mailer: iPhone Mail (21E236)
+X-NCJF-Result: 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
+ 
+	tbk446L2dMWuOAV5RQ=
+X-NCJF-Version: 20
+
+
+--Apple-Mail-3EBB7024-E36D-4826-910E-CECFD387689C
+Content-Type: text/html;
+	charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+<html><head><meta http-equiv=3D"content-type" content=3D"text/html; charset=3D=
+utf-8"></head><body dir=3D"auto"><div dir=3D"ltr"></div><div dir=3D"ltr"><br=
+><br><br>Begin forwarded message:<br><br></div><blockquote type=3D"cite"><di=
+v dir=3D"ltr"><b>From:</b> Renuka &lt;facilities@uaeenterprisesgroup.ae&gt;<=
+br><b>Date:</b> 16 March 2024 at 16:56:59 GMT+4<br><b>To:</b> Sego O &lt;seg=
+olene.o@gmail.com&gt;<br><b>Cc:</b> Jihad Kadri &lt;jihad@ajdrealestate.ae&g=
+t;, Jilna &lt;customercare@ajdrealestate.ae&gt;, Pramita &lt;pramita@ajdreal=
+estate.ae&gt;, Mikey &lt;mikestephenson18@gmail.com&gt;<br><b>Subject:</b> <=
+b>Re: Safety issue Villa 4</b><br><br></div></blockquote><blockquote type=3D=
+"cite"><div dir=3D"ltr">=EF=BB=BF
+
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8">
+
+
+
+<div class=3D"elementToProof" style=3D"font-family: Aptos, Aptos_EmbeddedFon=
+t, Aptos_MSFontService, Calibri, Helvetica, sans-serif; font-size: 12pt; col=
+or: rgb(0, 0, 0);">
+Dear Ms. S=C3=A9gol=C3=A8ne,</div>
+<div class=3D"elementToProof" style=3D"font-family: Aptos, Aptos_EmbeddedFon=
+t, Aptos_MSFontService, Calibri, Helvetica, sans-serif; font-size: 12pt; col=
+or: rgb(0, 0, 0);">
+<br>
+</div>
+<p class=3D"elementToProof" style=3D"margin-top: 0px; margin-bottom: 0px;"><=
+span style=3D"font-family: Aptos, Aptos_EmbeddedFont, Aptos_MSFontService, C=
+alibri, Helvetica, sans-serif; font-size: 12pt; color: rgb(0, 0, 0);">As pre=
+viously communicated, we will replace&nbsp;
+ &nbsp;all roof tiles and waterproofing at your villa. This essential mainte=
+nance work is estimated to be completed within a maximum of 20 days.</span><=
+/p>
+<p class=3D"elementToProof" style=3D"direction: ltr;"><span style=3D"font-fa=
+mily: Aptos, Aptos_EmbeddedFont, Aptos_MSFontService, Calibri, Helvetica, sa=
+ns-serif; font-size: 12pt; color: rgb(0, 0, 0);">To facilitate the smooth ex=
+ecution of this project, our dedicated
+ team will require access to the exterior portion of your villa's roof.</spa=
+n></p>
+<p class=3D"elementToProof" style=3D"direction: ltr;"><span style=3D"font-fa=
+mily: Aptos, Aptos_EmbeddedFont, Aptos_MSFontService, Calibri, Helvetica, sa=
+ns-serif; font-size: 12pt; color: rgb(0, 0, 0);"><br>
+</span></p>
+<p class=3D"elementToProof" style=3D"direction: ltr;"><span style=3D"font-fa=
+mily: Aptos, Aptos_EmbeddedFont, Aptos_MSFontService, Calibri, Helvetica, sa=
+ns-serif; font-size: 12pt; color: rgb(0, 0, 0);">We adhere to a company poli=
+cy where detailed materials are not
+ disclosed however, please rest assured that the scope of work includes wate=
+rproofing, clay tile replacement, and necessary restoration of affected wood=
+en panels.</span></p>
+<p class=3D"elementToProof" style=3D"direction: ltr;"><span style=3D"font-fa=
+mily: Aptos, Aptos_EmbeddedFont, Aptos_MSFontService, Calibri, Helvetica, sa=
+ns-serif; font-size: 12pt; color: rgb(0, 0, 0);"><br>
+</span></p>
+<p class=3D"elementToProof" style=3D"direction: ltr;"><span style=3D"font-fa=
+mily: Aptos, Aptos_EmbeddedFont, Aptos_MSFontService, Calibri, Helvetica, sa=
+ns-serif; font-size: 12pt; color: rgb(0, 0, 0);">&nbsp;As per our agreements=
+ with tenants, we do not provide compensation
+ for maintenance work. Additionally, tenants are responsible for insuring th=
+eir own belongings as the landlord cannot be held accountable for any losses=
+. Furthermore</span><span style=3D"font-family: Aptos, Aptos_EmbeddedFont, A=
+ptos_MSFontService, Calibri, Helvetica, sans-serif; font-size: 16px; color: r=
+gb(0, 0, 0); background-color: rgb(255, 255, 255);">,
+ we want to emphasize that we do not require access from inside the villa, a=
+nd tenants are free to occupy the space without interference.</span></p>
+<p style=3D"direction: ltr;"><span style=3D"font-family: Aptos, Aptos_Embedd=
+edFont, Aptos_MSFontService, Calibri, Helvetica, sans-serif; font-size: 12pt=
+; color: rgb(0, 0, 0);"><br>
+</span></p>
+<p style=3D"direction: ltr;"><span style=3D"font-family: Aptos, Aptos_Embedd=
+edFont, Aptos_MSFontService, Calibri, Helvetica, sans-serif; font-size: 12pt=
+; color: rgb(0, 0, 0);">Your cooperation in granting us permission at your e=
+arliest convenience would be greatly
+ appreciated.&nbsp;</span></p>
+<p class=3D"elementToProof" style=3D"direction: ltr;"><span style=3D"font-fa=
+mily: Aptos, Aptos_EmbeddedFont, Aptos_MSFontService, Calibri, Helvetica, sa=
+ns-serif; font-size: 12pt; color: rgb(0, 0, 0);"><br>
+</span></p>
+<p class=3D"elementToProof" style=3D"direction: ltr;"><span style=3D"font-fa=
+mily: Aptos, Aptos_EmbeddedFont, Aptos_MSFontService, Calibri, Helvetica, sa=
+ns-serif; font-size: 12pt; color: rgb(0, 0, 0);">Thank you for your attentio=
+n to this matter.</span></p>
+<p class=3D"elementToProof" style=3D"direction: ltr;"><span style=3D"font-fa=
+mily: Aptos, Aptos_EmbeddedFont, Aptos_MSFontService, Calibri, Helvetica, sa=
+ns-serif; font-size: 12pt; color: rgb(0, 0, 0);"><br>
+</span></p>
+<p class=3D"elementToProof" style=3D"direction: ltr;"><span style=3D"font-fa=
+mily: Aptos, Aptos_EmbeddedFont, Aptos_MSFontService, Calibri, Helvetica, sa=
+ns-serif; font-size: 12pt; color: rgb(0, 0, 0);">Best regards,</span></p>
+<p class=3D"elementToProof" style=3D"direction: ltr; text-align: left; text-=
+indent: 0px; background-color: rgb(255, 255, 255); margin-top: 0px; margin-b=
+ottom: 0px;">
+<span style=3D"font-family: Aptos, Aptos_EmbeddedFont, Aptos_MSFontService, C=
+alibri, Helvetica, sans-serif; font-size: 12pt; color: rgb(0, 0, 0);">Renuka=
+&nbsp;</span></p>
+<div id=3D"appendonsend"></div>
+<div style=3D"font-family: Aptos, Aptos_EmbeddedFont, Aptos_MSFontService, C=
+alibri, Helvetica, sans-serif; font-size: 12pt; color: rgb(0, 0, 0);">
+<br>
+</div>
+<hr style=3D"display: inline-block; width: 98%;">
+<div dir=3D"ltr" id=3D"divRplyFwdMsg"><span style=3D"font-family: Calibri, s=
+ans-serif; font-size: 11pt; color: rgb(0, 0, 0);"><b>From:</b>&nbsp;Sego O &=
+lt;segolene.o@gmail.com&gt;<br>
+<b>Sent:</b>&nbsp;Saturday, March 16, 2024 2:03 PM<br>
+<b>To:</b>&nbsp;Renuka &lt;facilities@uaeenterprisesgroup.ae&gt;<br>
+<b>Cc:</b>&nbsp;Jihad Kadri &lt;jihad@ajdrealestate.ae&gt;; Jilna &lt;custom=
+ercare@ajdrealestate.ae&gt;; Pramita &lt;pramita@ajdrealestate.ae&gt;; Mikey=
+ &lt;mikestephenson18@gmail.com&gt;<br>
+<b>Subject:</b>&nbsp;Re: Safety issue Villa 4</span>
+<div>&nbsp;</div>
+</div>
+<table align=3D"left" style=3D"display: table; width: 100%; table-layout: fi=
+xed; border-collapse: collapse; border-spacing: 0px; box-sizing: border-box;=
+">
+<tbody>
+<tr>
+<td style=3D"background-color: rgb(166, 166, 166); padding: 7px 2px; vertica=
+l-align: middle; width: 1px;">
+</td>
+<td style=3D"text-align: left; background-color: rgb(234, 234, 234); padding=
+: 7px 5px 7px 15px; vertical-align: middle; color: rgb(33, 33, 33); width: 1=
+00%;">
+<div style=3D"text-align: left;"><span style=3D"font-family: wf_segoe-ui_nor=
+mal, &quot;Segoe UI&quot;, &quot;Segoe WP&quot;, Tahoma, Arial, sans-serif; f=
+ont-size: 12px;">You don't often get email from segolene.o@gmail.com.
+<a href=3D"https://aka.ms/LearnAboutSenderIdentification" data-auth=3D"NotAp=
+plicable" id=3D"OWAe271693e-4fcf-7001-acaa-a052b7779e13" class=3D"OWAAutoLin=
+k" data-loopstyle=3D"linkonly">
+Learn why this is important</a></span></div>
+</td>
+<td align=3D"left" style=3D"background-color: rgb(234, 234, 234); padding: 7=
+px 5px; vertical-align: middle; color: rgb(33, 33, 33); width: 75px;">
+</td>
+</tr>
+</tbody>
+</table>
+<div style=3D"direction: ltr;">Hello,</div>
+<div style=3D"direction: ltr;"><br>
+</div>
+<div style=3D"direction: ltr;">I hope this email finds you well! I just want=
+ to express my disappointment in the way this situation is being handled, fo=
+r a company who "care for their tenants" your lack of response seems to show=
+ otherwise. You might not treat
+ this issue seriously but this is a serious matter to us which has affected o=
+ur family for those past three weeks.</div>
+<div style=3D"direction: ltr;"><br>
+</div>
+<div style=3D"direction: ltr;">I would appreciate an answer to my previous e=
+mail with an outcome on what you are offering.</div>
+<div style=3D"direction: ltr;"><br>
+</div>
+<div style=3D"direction: ltr;">Thank you,</div>
+<div style=3D"direction: ltr;">Segolene Stephenson</div>
+<br>
+<div style=3D"direction: ltr;">Le&nbsp;mar. 5 mars 2024 =C3=A0&nbsp;08:23, S=
+ego O &lt;<a href=3D"mailto:segolene.o@gmail.com" id=3D"OWAb11b9527-cc33-a91=
+b-9604-7be59a6a11fb" class=3D"OWAAutoLink" data-loopstyle=3D"linkonly">segol=
+ene.o@gmail.com</a>&gt; a =C3=A9crit&nbsp;:</div>
+<blockquote style=3D"margin: 0px 0px 0px 0.8ex; padding-left: 1ex; border-le=
+ft: 1px solid rgb(204, 204, 204);">
+<div style=3D"direction: ltr;">Good Morning Renuka,</div>
+<div style=3D"direction: ltr;"><br>
+</div>
+<div style=3D"direction: ltr;">Thank you for your message, please can you sh=
+are the full report from the inspector who came to assess the house. We need=
+ it for the roof but also electrical work of the house which does not seem c=
+ompliant to building regulations
+ and has caused us safety issue in the past. So we need that report please.<=
+/div>
+<div style=3D"direction: ltr;"><br>
+Regarding the roof could you please share the exact scope of work such as:</=
+div>
+<div style=3D"direction: ltr;">-Type of new tiles to be installed.</div>
+<div style=3D"direction: ltr;">-Will there be insulation added below the til=
+es, if so what type of insulation (With photo of material preferably)</div>
+<div style=3D"direction: ltr;">-Framework of the house. Will anything be don=
+e to that?</div>
+<div style=3D"direction: ltr;"><br>
+</div>
+<div style=3D"direction: ltr;">If the entire roof is to be replaced we shoul=
+d all be out of the villa as it will not be in a livable conditions so we wi=
+ll need to organise ourselves to not be here.</div>
+<div style=3D"direction: ltr;">Moreover, our daughter is currently still goi=
+ng through trauma and refuse to sleep alone since the ceiling fell next to h=
+er, we are now seeking medical care for her, which costs us a lot of money s=
+o it is not an option that there
+ is work done to the roof whilst we are inside the villa as it can increase h=
+er trauma.</div>
+<div style=3D"direction: ltr;">&nbsp;As you may know I am now over 6 months p=
+regnant so we have no plans to go anywhere within the next 3 months, we will=
+ look into moving our flights as early as possible for the summer and my hus=
+band Michael who will not travel as
+ he is working will need to find elsewere to live during that time and of co=
+urse we should be compensated for the full rent during the entire time the w=
+ork is being done.</div>
+<div style=3D"direction: ltr;"><br>
+</div>
+<div style=3D"direction: ltr;">Therefore we are looking at July time to do t=
+he work but we need the full scope of work prior for approval and to make su=
+re it complies to building regulations.</div>
+<div style=3D"direction: ltr;"><br>
+</div>
+<div style=3D"direction: ltr;">Looking forward to hearing back from you,</di=
+v>
+<div style=3D"direction: ltr;"><br>
+</div>
+<div style=3D"direction: ltr;">Kind Regards,</div>
+<div style=3D"direction: ltr;">Segolene</div>
+<div style=3D"direction: ltr;"><br>
+</div>
+<div style=3D"direction: ltr;"><br>
+</div>
+<br>
+<div style=3D"direction: ltr;">Le&nbsp;mar. 27 f=C3=A9vr. 2024 =C3=A0&nbsp;2=
+1:33, Renuka &lt;<a href=3D"mailto:facilities@uaeenterprisesgroup.ae" id=3D"=
+OWA92d5e8be-8446-7317-fa7a-737e69f5ad6d" class=3D"OWAAutoLink" data-loopstyl=
+e=3D"linkonly">facilities@uaeenterprisesgroup.ae</a>&gt; a =C3=A9crit&nbsp;:=
+</div>
+<blockquote style=3D"margin: 0px 0px 0px 0.8ex; padding-left: 1ex; border-le=
+ft: 1px solid rgb(204, 204, 204);">
+<div style=3D"direction: ltr; font-family: Aptos, Aptos_EmbeddedFont, Aptos_=
+MSFontService, Calibri, Helvetica, sans-serif; font-size: 12pt; color: rgb(0=
+, 0, 0);">
+<br>
+</div>
+<div id=3D"x_m_3007431512643704799m_5368996754296548885appendonsend"></div>
+<p style=3D"direction: ltr; margin-top: 0px; margin-bottom: 0px;"><span styl=
+e=3D"font-family: Aptos, Aptos_EmbeddedFont, Aptos_MSFontService, Calibri, H=
+elvetica, sans-serif; font-size: 12pt; color: rgb(0, 0, 0);">Good evening Ms=
+. Segolene,</span></p>
+<p style=3D"direction: ltr; margin-top: 0px; margin-bottom: 0px;"><span styl=
+e=3D"font-family: Aptos, Aptos_EmbeddedFont, Aptos_MSFontService, Calibri, H=
+elvetica, sans-serif; font-size: 12pt; color: rgb(0, 0, 0);"><br>
+</span></p>
+<p style=3D"direction: ltr; margin-top: 0px; margin-bottom: 0px;"><span styl=
+e=3D"font-family: Aptos, Aptos_EmbeddedFont, Aptos_MSFontService, Calibri, H=
+elvetica, sans-serif; font-size: 12pt; color: rgb(0, 0, 0);">Following our i=
+nspection on Thursday, we have finalized
+ our plan of action. We will be replacing all the roof tiles and waterproofi=
+ng of your villa. This work is estimated to take a maximum of 20 days to com=
+plete.</span></p>
+<p style=3D"direction: ltr; margin-top: 0px; margin-bottom: 0px;"><span styl=
+e=3D"font-family: Aptos, Aptos_EmbeddedFont, Aptos_MSFontService, Calibri, H=
+elvetica, sans-serif; font-size: 12pt; color: rgb(0, 0, 0);"><br>
+</span></p>
+<p style=3D"direction: ltr; margin-top: 0px; margin-bottom: 0px;"><span styl=
+e=3D"font-family: Aptos, Aptos_EmbeddedFont, Aptos_MSFontService, Calibri, H=
+elvetica, sans-serif; font-size: 12pt; color: rgb(0, 0, 0);">In order to pro=
+ceed with the replacement, our team
+ will require access to the outside of the villa roof.&nbsp;</span></p>
+<p style=3D"direction: ltr; margin-top: 0px; margin-bottom: 0px;"><span styl=
+e=3D"font-family: Aptos, Aptos_EmbeddedFont, Aptos_MSFontService, Calibri, H=
+elvetica, sans-serif; font-size: 12pt; color: rgb(0, 0, 0);"><br>
+</span></p>
+<p style=3D"direction: ltr; margin-top: 0px; margin-bottom: 0px;"><span styl=
+e=3D"font-family: Aptos, Aptos_EmbeddedFont, Aptos_MSFontService, Calibri, H=
+elvetica, sans-serif; font-size: 12pt; color: rgb(0, 0, 0);">Once we receive=
+ your confirmation, we will share
+ the finalized work schedule including the date and time of installation.</s=
+pan></p>
+<div style=3D"direction: ltr; font-family: Aptos, Aptos_EmbeddedFont, Aptos_=
+MSFontService, Calibri, Helvetica, sans-serif; font-size: 12pt; color: rgb(0=
+, 0, 0);">
+<br>
+</div>
+<div style=3D"direction: ltr; font-family: Aptos, Aptos_EmbeddedFont, Aptos_=
+MSFontService, Calibri, Helvetica, sans-serif; font-size: 12pt; color: rgb(0=
+, 0, 0);">
+Thanks &amp; Regards,</div>
+<div style=3D"direction: ltr; font-family: Aptos, Aptos_EmbeddedFont, Aptos_=
+MSFontService, Calibri, Helvetica, sans-serif; font-size: 12pt; color: rgb(0=
+, 0, 0);">
+Renuka&nbsp;</div>
+<hr style=3D"direction: ltr; display: inline-block; width: 98%;">
+<div id=3D"x_m_3007431512643704799m_5368996754296548885divRplyFwdMsg" dir=3D=
+"ltr"><span style=3D"font-family: Calibri, sans-serif; font-size: 11pt; colo=
+r: rgb(0, 0, 0);"><b>From:</b>&nbsp;Segolene Ollivier &lt;<a href=3D"mailto:=
+segolene.o@gmail.com" id=3D"OWAc1bb8744-a328-c6da-9c96-d9a6fc5d9683" class=3D=
+"OWAAutoLink" data-loopstyle=3D"linkonly">segolene.o@gmail.com</a>&gt;<br>
+<b>Sent:</b>&nbsp;Monday, February 19, 2024 1:09 PM<br>
+<b>To:</b>&nbsp;Jihad Kadri &lt;<a href=3D"mailto:jihad@ajdrealestate.ae" id=
+=3D"OWAdcb4021a-4a0a-67a7-2666-83288c80bc17" class=3D"OWAAutoLink" data-loop=
+style=3D"linkonly">jihad@ajdrealestate.ae</a>&gt;<br>
+<b>Cc:</b>&nbsp;Jilna &lt;<a href=3D"mailto:customercare@ajdrealestate.ae" i=
+d=3D"OWA15546ae9-fc23-7527-e166-a672d543dcb6" class=3D"OWAAutoLink" data-loo=
+pstyle=3D"linkonly">customercare@ajdrealestate.ae</a>&gt;; Pramita &lt;<a hr=
+ef=3D"mailto:pramita@ajdrealestate.ae" id=3D"OWA45fa2628-64c7-601f-033d-0e4e=
+667160c0" class=3D"OWAAutoLink" data-loopstyle=3D"linkonly">pramita@ajdreale=
+state.ae</a>&gt;;
+ Mikey &lt;<a href=3D"mailto:mikestephenson18@gmail.com" id=3D"OWA3da899dc-b=
+9a7-3f73-b7a1-4f15455b1ba1" class=3D"OWAAutoLink" data-loopstyle=3D"linkonly=
+">mikestephenson18@gmail.com</a>&gt;; Renuka &lt;<a href=3D"mailto:facilitie=
+s@uaeenterprisesgroup.ae" id=3D"OWA0e2599e3-bb5f-e9e9-85f9-e5e6065d69ea" cla=
+ss=3D"OWAAutoLink" data-loopstyle=3D"linkonly">facilities@uaeenterprisesgrou=
+p.ae</a>&gt;<br>
+<b>Subject:</b>&nbsp;Re: Safety issue Villa 4</span>
+<div>&nbsp;</div>
+</div>
+<table align=3D"left" style=3D"direction: ltr; display: table; width: 100%; t=
+able-layout: fixed; box-sizing: border-box; border-collapse: collapse; borde=
+r-spacing: 0px;">
+<tbody>
+<tr>
+<td style=3D"direction: ltr; background-color: rgb(166, 166, 166); padding: 7=
+px 2px; vertical-align: middle; width: 1px;">
+</td>
+<td style=3D"direction: ltr; text-align: left; background-color: rgb(234, 23=
+4, 234); padding: 7px 5px 7px 15px; vertical-align: middle; color: rgb(33, 3=
+3, 33); width: 100%;">
+<div style=3D"direction: ltr; text-align: left;"><span style=3D"font-family:=
+ wf_segoe-ui_normal, &quot;Segoe UI&quot;, &quot;Segoe WP&quot;, Tahoma, Ari=
+al, sans-serif; font-size: 12px;">You don't often get email from
+<a href=3D"mailto:segolene.o@gmail.com" id=3D"OWAcde7d545-9845-db28-054b-af4=
+f93ba342d" class=3D"OWAAutoLink" data-loopstyle=3D"linkonly">
+segolene.o@gmail.com</a>. <a href=3D"https://ddec1-0-en-ctp.trendmicro.com:4=
+43/wis/clicktime/v1/query?url=3Dhttps%3a%2f%2faka.ms%2fLearnAboutSenderIdent=
+ification&amp;umid=3D521096f8-2e1a-4288-a4b6-a008b1b245de&amp;auth=3D15fb826=
+e09aa5f20dcb9dbba764bdf4fd4af12c8-30ecd69a22b0bed64e37ebb00f5d708c650a9a79" i=
+d=3D"OWA0c6e7a75-2893-53cd-737b-b2d47501e477" data-auth=3D"NotApplicable" cl=
+ass=3D"OWAAutoLink" data-loopstyle=3D"linkonly">
+Learn why this is important</a></span></div>
+</td>
+<td align=3D"left" style=3D"direction: ltr; background-color: rgb(234, 234, 2=
+34); padding: 7px 5px; vertical-align: middle; color: rgb(33, 33, 33); width=
+: 75px;">
+</td>
+</tr>
+</tbody>
+</table>
+<div style=3D"direction: ltr;"><span style=3D"font-family: Aptos, Aptos_Embe=
+ddedFont, Aptos_MSFontService, Calibri, Helvetica, sans-serif; font-size: 12=
+pt; color: rgb(0, 0, 0);">=EF=BB=BF</span></div>
+<div style=3D"direction: ltr;"><span style=3D"font-family: Aptos, Aptos_Embe=
+ddedFont, Aptos_MSFontService, Calibri, Helvetica, sans-serif; font-size: 12=
+pt; color: rgb(0, 0, 0);">Dear Jihad,</span></div>
+<div style=3D"direction: ltr;"><span style=3D"font-family: Aptos, Aptos_Embe=
+ddedFont, Aptos_MSFontService, Calibri, Helvetica, sans-serif; font-size: 12=
+pt; color: rgb(0, 0, 0);"><br>
+</span></div>
+<div style=3D"direction: ltr;"><span style=3D"font-family: Aptos, Aptos_Embe=
+ddedFont, Aptos_MSFontService, Calibri, Helvetica, sans-serif; font-size: 12=
+pt; color: rgb(0, 0, 0);">Thank you for your email but please can you let me=
+ know what will be done from AJD
+ Real estate on the rent and the fact we can=E2=80=99t make full use of the p=
+remises as our daughter is going through the trauma of her ceiling falling n=
+ext to her in her sleep.&nbsp;</span></div>
+<div style=3D"direction: ltr;"><span style=3D"font-family: Aptos, Aptos_Embe=
+ddedFont, Aptos_MSFontService, Calibri, Helvetica, sans-serif; font-size: 12=
+pt; color: rgb(0, 0, 0);">And the recurrent floodings we are facing (which c=
+ome with power cut and us losing
+ water for 2 days.)</span></div>
+<div style=3D"direction: ltr;"><span style=3D"font-family: Aptos, Aptos_Embe=
+ddedFont, Aptos_MSFontService, Calibri, Helvetica, sans-serif; font-size: 12=
+pt; color: rgb(0, 0, 0);"><br>
+</span></div>
+<div style=3D"direction: ltr;"><span style=3D"font-family: Aptos, Aptos_Embe=
+ddedFont, Aptos_MSFontService, Calibri, Helvetica, sans-serif; font-size: 12=
+pt; color: rgb(0, 0, 0);">Regards,</span></div>
+<div style=3D"direction: ltr;"><span style=3D"font-family: Aptos, Aptos_Embe=
+ddedFont, Aptos_MSFontService, Calibri, Helvetica, sans-serif; font-size: 12=
+pt; color: rgb(0, 0, 0);">Segolene Stephenson&nbsp;</span></div>
+<div style=3D"direction: ltr;"><span style=3D"font-family: Aptos, Aptos_Embe=
+ddedFont, Aptos_MSFontService, Calibri, Helvetica, sans-serif; font-size: 12=
+pt; color: rgb(0, 0, 0);"><br>
+</span></div>
+<div style=3D"direction: ltr;"><span style=3D"font-family: Aptos, Aptos_Embe=
+ddedFont, Aptos_MSFontService, Calibri, Helvetica, sans-serif; font-size: 12=
+pt; color: rgb(0, 0, 0);"><br>
+</span></div>
+<blockquote>
+<div style=3D"direction: ltr;"><span style=3D"font-family: Aptos, Aptos_Embe=
+ddedFont, Aptos_MSFontService, Calibri, Helvetica, sans-serif; font-size: 12=
+pt; color: rgb(0, 0, 0);">On 19 Feb 2024, at 13:02, Jihad Kadri &lt;<a href=3D=
+"mailto:jihad@ajdrealestate.ae" id=3D"OWA83694b20-c6a0-14a0-8c28-85bb6ea8020=
+9" class=3D"OWAAutoLink" data-loopstyle=3D"linkonly">jihad@ajdrealestate.ae<=
+/a>&gt;
+ wrote:<br>
+<br>
+</span></div>
+</blockquote>
+<blockquote>
+<div style=3D"direction: ltr;"><span style=3D"font-family: Aptos, Aptos_Embe=
+ddedFont, Aptos_MSFontService, Calibri, Helvetica, sans-serif; font-size: 12=
+pt; color: rgb(0, 0, 0);">=EF=BB=BF</span></div>
+<p style=3D"direction: ltr; margin: 0cm; font-family: Calibri, sans-serif; f=
+ont-size: 11pt;">
+<span style=3D"color: rgb(0, 0, 0);">Dear Segolene,</span></p>
+<p style=3D"direction: ltr; margin: 0cm; font-family: Calibri, sans-serif; f=
+ont-size: 11pt;">
+<span style=3D"color: rgb(0, 0, 0);">&nbsp;</span></p>
+<p style=3D"direction: ltr; margin: 0cm; font-family: Calibri, sans-serif; f=
+ont-size: 11pt;">
+<span style=3D"color: rgb(0, 0, 0);">Thank you for your email.</span></p>
+<p style=3D"direction: ltr; margin: 0cm; font-family: Calibri, sans-serif; f=
+ont-size: 11pt;">
+<span style=3D"color: rgb(0, 0, 0);">&nbsp;</span></p>
+<p style=3D"direction: ltr; margin: 0cm; font-family: Calibri, sans-serif; f=
+ont-size: 11pt;">
+<span style=3D"color: rgb(0, 0, 0);">We would like to inform you that we wil=
+l do our best to have all the safety and the required measurements in order f=
+or our tenants to be happy, comfortable and safe. You will receive shortly a=
+nother email from our facilities
+ management team regarding the steps that will be taken.</span></p>
+<p style=3D"direction: ltr; margin: 0cm; font-family: Calibri, sans-serif; f=
+ont-size: 11pt;">
+<span style=3D"color: rgb(0, 0, 0);">&nbsp;</span></p>
+<p style=3D"direction: ltr; margin: 0cm; font-family: Calibri, sans-serif; f=
+ont-size: 11pt;">
+<span style=3D"color: rgb(0, 0, 0);">Thank you again for being part of AJG1 f=
+amily. &nbsp;</span></p>
+<p style=3D"direction: ltr; margin: 0cm; font-family: Calibri, sans-serif; f=
+ont-size: 11pt;">
+<span style=3D"color: rgb(0, 0, 0);">&nbsp;</span></p>
+<p style=3D"direction: ltr; margin: 0cm; font-family: Calibri, sans-serif; f=
+ont-size: 11pt;">
+<span style=3D"font-family: Candara, sans-serif; font-size: 12pt; color: bla=
+ck; background-color: white;">Best Regards,</span></p>
+<p style=3D"direction: ltr; background-color: white; margin: 0cm; font-famil=
+y: Calibri, sans-serif; font-size: 11pt;">
+<span style=3D"font-size: 12pt; color: black;">&nbsp;</span></p>
+<table style=3D"direction: ltr; background-color: white; width: 337.85pt; bo=
+x-sizing: border-box; border-collapse: collapse; border-spacing: 0px;">
+<tbody>
+<tr>
+<td style=3D"direction: ltr; padding: 0.75pt; vertical-align: top; width: 93=
+.75pt; height: 127.5pt;">
+<div style=3D"direction: ltr;"><span style=3D"font-family: Aptos, Aptos_Embe=
+ddedFont, Aptos_MSFontService, Calibri, Helvetica, sans-serif; font-size: 12=
+pt; color: rgb(0, 0, 0);"><a href=3D"https://ajdrealestates.com/" id=3D"OWA5=
+7a11db6-68a8-1f75-a1f5-7babb01964a7" title=3D"&quot;https://ajdrealestates.c=
+om/&quot;" data-auth=3D"NotApplicable" class=3D"OWAAutoLink" data-loopstyle=3D=
+"linkonly">&lt;image001.gif&gt;</a></span></div>
+</td>
+<td style=3D"direction: ltr; padding: 0.75pt; vertical-align: top; width: 23=
+9.6pt; height: 127.5pt;">
+<p style=3D"direction: ltr; margin: 0cm; font-family: Calibri, sans-serif; f=
+ont-size: 11pt;">
+<span style=3D"font-family: Helvetica, sans-serif; font-size: 10pt; color: r=
+gb(29, 34, 40);">&nbsp;</span></p>
+<table style=3D"direction: ltr; box-sizing: border-box; border-collapse: col=
+lapse; border-spacing: 0px;">
+<tbody>
+<tr>
+<td style=3D"direction: ltr; padding: 0.75pt;"></td>
+</tr>
+<tr>
+<td style=3D"direction: ltr; padding: 0.75pt;">
+<p style=3D"direction: ltr; margin: 0cm; font-family: Calibri, sans-serif; f=
+ont-size: 11pt;">
+<span style=3D"font-family: Arial, sans-serif; color: rgb(0, 0, 0);"><b>Jiha=
+d Kadri</b></span></p>
+</td>
+</tr>
+<tr>
+<td style=3D"direction: ltr; padding: 0.75pt;">
+<p style=3D"direction: ltr; margin: 0cm; font-family: Calibri, sans-serif; f=
+ont-size: 11pt;">
+<span style=3D"font-family: Arial, sans-serif; color: rgb(0, 0, 0);">Leasing=
+ Manager | AJD Real Estates.</span></p>
+</td>
+</tr>
+<tr>
+<td style=3D"direction: ltr; padding: 0.75pt;">
+<p style=3D"direction: ltr; margin: 0cm; font-family: Calibri, sans-serif; f=
+ont-size: 11pt;">
+<span style=3D"font-family: Arial, sans-serif; color: rgb(0, 0, 0);">T: +971=
+- 43429476,&nbsp; M:&nbsp;+971-505028575,</span></p>
+</td>
+</tr>
+<tr>
+<td style=3D"direction: ltr; padding: 0.75pt;">
+<p style=3D"direction: ltr; margin: 0cm; font-family: Calibri, sans-serif; f=
+ont-size: 11pt;">
+<span style=3D"font-family: Arial, sans-serif; color: rgb(0, 0, 0);">E: </sp=
+an><span style=3D"color: rgb(5, 99, 193);"><a href=3D"mailto:Jihad@ajdreales=
+tate.ae" id=3D"OWA37d04b61-f5a7-fc19-ca9d-70a5bbb62a55" style=3D"color: rgb(=
+5, 99, 193); margin-top: 0px; margin-bottom: 0px;" class=3D"OWAAutoLink" dat=
+a-loopstyle=3D"linkonly">Jihad</a></span><span style=3D"font-family: Arial, s=
+ans-serif; color: rgb(5, 99, 193);"><a href=3D"mailto:Jihad@ajdrealestate.ae=
+" id=3D"OWA9bc3482a-e68f-335d-b9da-3aca8bdc6a8f" style=3D"color: rgb(5, 99, 1=
+93); margin-top: 0px; margin-bottom: 0px;" class=3D"OWAAutoLink" data-loopst=
+yle=3D"linkonly">@ajdrealestate.ae</a></span><span style=3D"font-family: Ari=
+al, sans-serif; color: rgb(0, 0, 0);">&nbsp;|
+</span><span style=3D"color: rgb(5, 99, 193);"><u><a href=3D"https://www.ajd=
+realestates.com/" id=3D"OWAc3077222-d58a-e017-e551-d2a22f3c1e2f" data-auth=3D=
+"NotApplicable" style=3D"color: rgb(5, 99, 193); margin-top: 0px; margin-bot=
+tom: 0px;" class=3D"OWAAutoLink" data-loopstyle=3D"linkonly">www.ajdrealesta=
+tes.com</a></u></span></p>
+<div style=3D"direction: ltr;"><span style=3D"font-family: Aptos, Aptos_Embe=
+ddedFont, Aptos_MSFontService, Calibri, Helvetica, sans-serif; font-size: 12=
+pt; color: rgb(0, 0, 0);"><a href=3D"https://www.facebook.com/1ajdrealestate=
+" id=3D"OWA775ef6c1-d553-75eb-de90-e6f95fa20769" title=3D"&quot;https://www.=
+facebook.com/1ajdrealestate&quot;" data-auth=3D"NotApplicable" class=3D"OWAA=
+utoLink" data-loopstyle=3D"linkonly">&lt;image002.png&gt;</a></span></div>
+<div style=3D"direction: ltr;"><span style=3D"font-family: Aptos, Aptos_Embe=
+ddedFont, Aptos_MSFontService, Calibri, Helvetica, sans-serif; font-size: 12=
+pt; color: rgb(0, 0, 0);">&nbsp;</span></div>
+<div style=3D"direction: ltr;"><span style=3D"font-family: Aptos, Aptos_Embe=
+ddedFont, Aptos_MSFontService, Calibri, Helvetica, sans-serif; font-size: 12=
+pt; color: rgb(0, 0, 0);"><a href=3D"https://www.instagram.com/ajd.re/" id=3D=
+"OWA8410ec2e-1e62-39d4-00bc-b41355829a1a" title=3D"&quot;https://www.instagr=
+am.com/ajd.re/&quot;" data-auth=3D"NotApplicable" class=3D"OWAAutoLink" data=
+-loopstyle=3D"linkonly">&lt;image003.png&gt;</a></span></div>
+<div style=3D"direction: ltr;"><span style=3D"font-family: Aptos, Aptos_Embe=
+ddedFont, Aptos_MSFontService, Calibri, Helvetica, sans-serif; font-size: 12=
+pt; color: rgb(0, 0, 0);">&nbsp;</span></div>
+<div style=3D"direction: ltr;"><span style=3D"font-family: Aptos, Aptos_Embe=
+ddedFont, Aptos_MSFontService, Calibri, Helvetica, sans-serif; font-size: 12=
+pt; color: rgb(0, 0, 0);"><a href=3D"https://api.whatsapp.com/send?phone=3D9=
+71505669689" id=3D"OWAd01854a2-5351-ac37-3e3b-b89d98c47c0d" title=3D"&quot;h=
+ttps://api.whatsapp.com/send?phone=3D971505669689&quot;" data-auth=3D"NotApp=
+licable" class=3D"OWAAutoLink" data-loopstyle=3D"linkonly">&lt;image004.png&=
+gt;</a></span></div>
+<div style=3D"direction: ltr;"><span style=3D"font-family: Aptos, Aptos_Embe=
+ddedFont, Aptos_MSFontService, Calibri, Helvetica, sans-serif; font-size: 12=
+pt; color: rgb(0, 0, 0);">&nbsp;</span></div>
+<div style=3D"direction: ltr;"><span style=3D"font-family: Aptos, Aptos_Embe=
+ddedFont, Aptos_MSFontService, Calibri, Helvetica, sans-serif; font-size: 12=
+pt; color: rgb(0, 0, 0);"><a href=3D"https://twitter.com/Ajd_Realestate" id=3D=
+"OWA254a7566-0e88-bfc6-9f52-de122b3701b2" title=3D"&quot;https://twitter.com=
+/Ajd_Realestate&quot;" data-auth=3D"NotApplicable" class=3D"OWAAutoLink" dat=
+a-loopstyle=3D"linkonly">&lt;image005.png&gt;</a></span></div>
+<div style=3D"direction: ltr;"><span style=3D"font-family: Aptos, Aptos_Embe=
+ddedFont, Aptos_MSFontService, Calibri, Helvetica, sans-serif; font-size: 12=
+pt; color: rgb(0, 0, 0);">&nbsp;</span></div>
+<div style=3D"direction: ltr;"><span style=3D"font-family: Aptos, Aptos_Embe=
+ddedFont, Aptos_MSFontService, Calibri, Helvetica, sans-serif; font-size: 12=
+pt; color: rgb(0, 0, 0);"><a href=3D"https://www.ajdrealestates.com/" id=3D"=
+OWA1adc4a19-ae67-d129-fc36-72f64ad35598" title=3D"&quot;https://www.ajdreale=
+states.com/&quot;" data-auth=3D"NotApplicable" class=3D"OWAAutoLink" data-lo=
+opstyle=3D"linkonly">&lt;image006.png&gt;</a></span></div>
+<p style=3D"direction: ltr; margin: 0cm; font-family: Calibri, sans-serif; f=
+ont-size: 11pt;">
+<span style=3D"font-size: 10pt; color: rgb(0, 0, 0);">P.O Box 2082, Airport R=
+oad, | Dubai, U.A.E.&nbsp;&nbsp;</span><span style=3D"color: rgb(0, 0, 0);">=
+<br>
+</span><span style=3D"font-size: 12pt; color: black;"><u>=E2=80=8B=E2=80=8B=E2=
+=80=8B=E2=80=8B=E2=80=8B=E2=80=8B=E2=80=8B=E2=80=8B=E2=80=8B</u></span></p>
+</td>
+</tr>
+<tr>
+<td style=3D"direction: ltr; padding: 0.75pt;"></td>
+</tr>
+<tr>
+<td style=3D"direction: ltr; padding: 0.75pt; vertical-align: top;"></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+<p style=3D"direction: ltr; background-color: white; margin: 0cm; font-famil=
+y: Calibri, sans-serif; font-size: 11pt;">
+<span style=3D"font-size: 12pt; color: rgb(0, 0, 0);">&nbsp;</span></p>
+<p style=3D"direction: ltr; margin: 0cm; font-family: Calibri, sans-serif; f=
+ont-size: 11pt;">
+<span style=3D"color: rgb(0, 0, 0);">&nbsp;</span></p>
+<div style=3D"padding: 3pt 0cm 0cm; border-top: 1pt solid rgb(225, 225, 225)=
+;">
+<p style=3D"direction: ltr; margin: 0cm; font-family: Calibri, sans-serif; f=
+ont-size: 11pt;">
+<span style=3D"color: rgb(0, 0, 0);"><b>From:</b>&nbsp;Segolene Ollivier &lt=
+;<a href=3D"mailto:segolene.o@gmail.com" id=3D"OWAda373ccc-17d2-93dd-e37d-8d=
+f8efb051e3" class=3D"OWAAutoLink" data-loopstyle=3D"linkonly" style=3D"margi=
+n-top: 0px; margin-bottom: 0px;">segolene.o@gmail.com</a>&gt;<br>
+<b>Sent:</b>&nbsp;Monday, February 19, 2024 11:47 AM<br>
+<b>To:</b>&nbsp;Jihad Kadri &lt;<a href=3D"mailto:jihad@ajdrealestate.ae" id=
+=3D"OWA47de9e91-2286-4a7b-43ad-8c0eef1fbb38" class=3D"OWAAutoLink" data-loop=
+style=3D"linkonly" style=3D"margin-top: 0px; margin-bottom: 0px;">jihad@ajdr=
+ealestate.ae</a>&gt;<br>
+<b>Cc:</b>&nbsp;Jilna &lt;<a href=3D"mailto:customercare@ajdrealestate.ae" i=
+d=3D"OWA941bed16-499d-6216-9c14-1e2d6a74b7c4" class=3D"OWAAutoLink" data-loo=
+pstyle=3D"linkonly" style=3D"margin-top: 0px; margin-bottom: 0px;">customerc=
+are@ajdrealestate.ae</a>&gt;; Pramita &lt;<a href=3D"mailto:pramita@ajdreale=
+state.ae" id=3D"OWAf0559407-8c30-1adb-b78f-e1ceec871db2" class=3D"OWAAutoLin=
+k" data-loopstyle=3D"linkonly" style=3D"margin-top: 0px; margin-bottom: 0px;=
+">pramita@ajdrealestate.ae</a>&gt;;
+ Mikey &lt;<a href=3D"mailto:mikestephenson18@gmail.com" id=3D"OWAb0467ef0-0=
+318-c570-e2f5-0d9cf6ddc9e8" class=3D"OWAAutoLink" data-loopstyle=3D"linkonly=
+" style=3D"margin-top: 0px; margin-bottom: 0px;">mikestephenson18@gmail.com<=
+/a>&gt;<br>
+<b>Subject:</b>&nbsp;Re: Safety issue Villa 4</span></p>
+</div>
+<p style=3D"direction: ltr; margin: 0cm; font-family: Calibri, sans-serif; f=
+ont-size: 11pt;">
+<span style=3D"color: rgb(0, 0, 0);">&nbsp;</span></p>
+<p style=3D"direction: ltr; margin: 0cm 0cm 12pt; font-family: Calibri, sans=
+-serif; font-size: 11pt;">
+<span style=3D"color: rgb(0, 0, 0);">[Some people who received this message d=
+on't often get email from
+<a href=3D"mailto:segolene.o@gmail.com" id=3D"OWA7cc42ace-3bfd-38a3-6e57-dbe=
+abcb669c1" class=3D"OWAAutoLink" data-loopstyle=3D"linkonly" style=3D"margin=
+-top: 0px; margin-bottom: 0px;">
+segolene.o@gmail.com</a>. Learn why this is important at <a href=3D"https://=
+ddec1-0-en-ctp.trendmicro.com:443/wis/clicktime/v1/query?url=3Dhttps%3a%2f%2=
+faka.ms%2fLearnAboutSenderIdentification&amp;umid=3Ddc555638-90f4-447c-bbd1-=
+83357d85fcea&amp;auth=3D15fb826e09aa5f20dcb9dbba764bdf4fd4af12c8-51b88075bb1=
+b53200e48071587ca23b8be743b56" id=3D"OWA20eed3c6-b746-e5f6-a4b5-005a26f2b859=
+" class=3D"OWAAutoLink" data-auth=3D"NotApplicable" data-loopstyle=3D"linkon=
+ly" style=3D"margin-top: 0px; margin-bottom: 0px;">
+https://aka.ms/LearnAboutSenderIdentification</a>&nbsp;]<br>
+<br>
+Dear Jihad,<br>
+<br>
+I have not had an answer to my email yet which is quite upsetting as shows t=
+he issue is not being treated seriously.<br>
+<br>
+For your information our daughter still refuses to sleep in her room alone a=
+s =C2=AB she is scared =C2=BB so we are going through this trauma stage with=
+ her which is very difficult to manage and tiring for us with a big lack of s=
+leep.<br>
+<br>
+Also I wanted to highlight that when maintenance came to =C2=AB fix =C2=BB t=
+he ceiling they only cleaned the tiles from the roof and added a plasterboar=
+d without putting any form of insulation underneath the tiles. This is total=
+ly unacceptable and against building regulations.<br>
+<br>
+I have photos and videos attached. I am really expecting a quick action from=
+ your side to make the villa safe with a full check of ceilings, tiles and m=
+aking sure there is an approved insulation applied everywhere below the roof=
+ tile. And also on the rental
+ price, as we can=E2=80=99t enjoy the full use of the property in a safely m=
+anner and have to manage our daughter refusing to sleep in her room and this=
+ trauma could carry on for a longer time! If this continues we will need to s=
+eek medical advice for her.<br>
+<br>
+I am expecting a reply to my emails, also please note that I=E2=80=99m worki=
+ng so can=E2=80=99t answer the phone.<br>
+<br>
+Regards<br>
+Segolene Stephenson</span></p>
+<div style=3D"direction: ltr;"><span style=3D"font-family: Aptos, Aptos_Embe=
+ddedFont, Aptos_MSFontService, Calibri, Helvetica, sans-serif; font-size: 12=
+pt; color: rgb(0, 0, 0);">&lt;image007.jpg&gt;</span></div>
+<p style=3D"direction: ltr; margin: 0cm; font-family: Calibri, sans-serif; f=
+ont-size: 11pt;">
+<span style=3D"color: rgb(0, 0, 0);"><br>
+<br>
+<br>
+&gt; On 16 Feb 2024, at 09:35, Sego O &lt;<a href=3D"mailto:segolene.o@gmail=
+.com" id=3D"OWA907d3770-436b-5b56-9282-4c9ab979d37b" class=3D"OWAAutoLink" d=
+ata-loopstyle=3D"linkonly" style=3D"margin-top: 0px; margin-bottom: 0px;">se=
+golene.o@gmail.com</a>&gt; wrote:<br>
+&gt;<br>
+&gt; =EF=BB=BF<br>
+&gt; Dear Jihad,<br>
+&gt;<br>
+&gt; I would like to raise an important safety issue in our villa as it has n=
+ow affected our family safety.<br>
+&gt;<br>
+&gt; The drainage system in our street / compound is not good so each time t=
+here is rain water villas on our side on the street gets flooded and there i=
+s damages on our furnitures, we also lose electricity and last week our wate=
+r pump broke so we had no water
+ for 2 days.<br>
+&gt;<br>
+&gt; Renuka from UAE Enterprise has sent a team to come and fix those issues=
+ once the damage is done so having to go through this is not pleasant especi=
+ally that we have a 3 year old daughter and I am 6 months pregnant. Gam from=
+ security is actually very helpful
+ and very responding and I am glad we have him in the compound.<br>
+&gt;<br>
+&gt; Last night on Thursday 15th February, we noticed the ceiling of our dau=
+ghter=E2=80=99s room bending slightly and we told Gam / Renuka who said they=
+ will come in the morning.<br>
+&gt; This morning around 7am, our daughter was sleeping in her bed and her c=
+eiling collapsed right next to her. Luckily she was not physically hurt but e=
+xtremely terrified and she might be traumatised from this. We have told Renu=
+ka from UAE Enterprise who is sending
+ a team to fix the ceiling today but they were not even apologetic and our d=
+aughter could have been seriously hurt!<br>
+&gt;<br>
+&gt; It is clear that those villas are not safe anymore and as part of the c=
+ontract and the rent we are paying we should not have to go through this muc=
+h problem and put our family's lives in danger.<br>
+&gt; Our Daughter is traumatised today and is very scared to go back in her r=
+oom. We have had a lot of furniture damage from each flooding and now with t=
+he ceiling collapsing in our daughter room there is extra damage on the furn=
+itures which will need to be replaced
+ and also psychological damage for our daughter.<br>
+&gt;<br>
+&gt; I am contacting you to know what you will do from your side to solve th=
+is matter and what you can offer as this is a serious matter and I also want=
+ to seek advice from RERA about that.<br>
+&gt;<br>
+&gt; I have attached the following for reference:<br>
+&gt; - Our laundry and maid room each time it rains<br>
+&gt; - Photos of our daughters ceiling<br>
+&gt; - Various furniture damage from the Villa issues that can;t be repaired=
+ and these were all brand new furnitures with a certain value.<br>
+&gt;<br>
+&gt;<br>
+&gt; Thank you,<br>
+&gt; Kind Regards,<br>
+&gt;<br>
+&gt; Segolene Stephenson (Villa 4)<br>
+&gt; 0549961637<br>
+&gt;<br>
+&gt; &lt;WhatsApp Image 2024-02-16 at 07.26.28.jpeg&gt;<br>
+&gt; &lt;WhatsApp Image 2024-02-16 at 07.26.27.jpeg&gt;<br>
+&gt; &lt;WhatsApp Image 2024-02-16 at 07.26.27 (1).jpeg&gt;<br>
+&gt; &lt;WhatsApp Image 2024-02-16 at 07.26.28 (1).jpeg&gt;<br>
+&gt; &lt;WhatsApp Video 2024-02-16 at 08.36.49.mp4&gt;<br>
+&gt; &lt;WhatsApp Image 2024-02-16 at 09.33.56.jpeg&gt;<br>
+&gt; &lt;WhatsApp Image 2024-02-16 at 09.33.59.jpeg&gt;<br>
+&gt; &lt;WhatsApp Image 2024-02-16 at 09.33.58.jpeg&gt;<br>
+&gt; &lt;WhatsApp Image 2024-02-16 at 09.33.08.jpeg&gt;</span></p>
+</blockquote>
+</blockquote>
+</blockquote>
+
+
+</div></blockquote></body></html>=
+
+--Apple-Mail-3EBB7024-E36D-4826-910E-CECFD387689C--

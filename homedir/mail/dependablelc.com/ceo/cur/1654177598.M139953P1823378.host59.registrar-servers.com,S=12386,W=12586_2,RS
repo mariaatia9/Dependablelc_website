@@ -1,0 +1,200 @@
+Return-Path: <3r2uFYg8JA7YYWnhW.Z.oarehhWciWeh.YkiYakZalajZWXhahY.Yki@doclist.bounces.google.com>
+Delivered-To: ceo@dependablelc.com
+Received: from server1.parahost.co
+	by server1.parahost.co with LMTP
+	id Ah0CKtlrhWKacwAAYK0uVw
+	(envelope-from <3r2uFYg8JA7YYWnhW.Z.oarehhWciWeh.YkiYakZalajZWXhahY.Yki@doclist.bounces.google.com>)
+	for <ceo@dependablelc.com>; Thu, 19 May 2022 00:57:45 +0300
+Return-path: <3r2uFYg8JA7YYWnhW.Z.oarehhWciWeh.YkiYakZalajZWXhahY.Yki@doclist.bounces.google.com>
+Envelope-to: ceo@dependablelc.com
+Delivery-date: Thu, 19 May 2022 00:57:45 +0300
+Received: from mail-qk1-f200.google.com ([209.85.222.200]:43658)
+	by server1.parahost.co with esmtps  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+	(Exim 4.95)
+	(envelope-from <3r2uFYg8JA7YYWnhW.Z.oarehhWciWeh.YkiYakZalajZWXhahY.Yki@doclist.bounces.google.com>)
+	id 1nrRfu-0007fH-Th
+	for ceo@dependablelc.com;
+	Thu, 19 May 2022 00:57:45 +0300
+Received: by mail-qk1-f200.google.com with SMTP id m26-20020a05620a13ba00b006a32a7adb78so998403qki.10
+        for <ceo@dependablelc.com>; Wed, 18 May 2022 14:57:24 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20210112;
+        h=mime-version:reply-to:references:message-id:date:subject:from:to;
+        bh=SBlSCh5/z3Du6M84raKx7SpcfGcQVdMiOscPr7QUSFo=;
+        b=R6cpLdxXiOeBWP+6tNxPhHsVQ7L/6cBgO+oqq1Uam41CEekmhpaMu0x0nr1oOGHBoe
+         WIEeDufqN4+G7L+jhkJrn+tIxd1Nd4ZOlgAZEEiP4AT8UqPRhz+G7zm8V/6B/hX0TvVu
+         8eviZGlbC77+6p6+C3Aq6D7khK++MPMvEODcurNRa8hYWHf0TLptyljh8SmtSgaYmyZG
+         BuGiR81S7dj6cYmAVwyt2Qodq/7kPOVX4QUB8/PinNfxF2Bh5i29s9POtnj2VWaDwHg/
+         7TiokygZqjbs9UVVvC+Z7OmrrDqirqPwueEflki3NpvpjJ2YVRqB7w8mUTMXBu1fBnc1
+         vxrQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=x-gm-message-state:mime-version:reply-to:references:message-id:date
+         :subject:from:to;
+        bh=SBlSCh5/z3Du6M84raKx7SpcfGcQVdMiOscPr7QUSFo=;
+        b=QR0wqZ0RZzNiSYV/dqpKqZmg6x/QcC/45ux2v8ZPGATbFmkH4dIxQok9vp4t/A7SyB
+         nzuIZhegCc9R5xR6Zy8LgE+C1+JeIRu/gTMP29BP9swWUr7qbtblkrQsHdouj1wICsam
+         6g7PNOjzJ/J2dpY6Utm574G28yQ69Gsk25ktkBp9gB98yU91yCNy00Idx+MGXgZLA3dU
+         xD2IIKBjyaGYdeYaM8N6ihMAGAWt5FEZtytE7JjMrSsARV6VFyLXxDykKmey38/BINTr
+         PG6HLO3nQgPG9JWSX1yCgFDfDsYB/K34/yKJ9c5JqIEec5mMf90DZpgfCjncwuFLr7bd
+         jlCQ==
+X-Gm-Message-State: AOAM530dQVTe2osWzjFL3se+gcVFyGbPvtVQEskYh3mEOCdWLiLyVuib
+	ojrNENmuC8NwkigM6RSlL2MixpgFhwo=
+X-Google-Smtp-Source: ABdhPJy0srIwx6UJBtx+7+bVs9EfbrmrofEFJQyiE5fDsjJzTY4KzCzExYxN/QOXwV6EgxEjv2P0wGwbCYU=
+MIME-Version: 1.0
+X-Received: by 2002:ac8:5755:0:b0:2f3:be35:59c with SMTP id
+ 21-20020ac85755000000b002f3be35059cmr1624472qtx.249.1652911023646; Wed, 18
+ May 2022 14:57:03 -0700 (PDT)
+Reply-To: Carla Sevilla <carla.d.sevilla@gmail.com>
+X-No-Auto-Attachment: 1
+References: <ceb8d5d1-c9f2-4b78-9dfa-e9b9eaf9c39d@docs-share.google.com>
+Message-ID: <00000000000068eb4c05df505601@google.com>
+Date: Wed, 18 May 2022 21:57:03 +0000
+Subject: Folder shared with you: "CARLA FILES"
+From: "Carla Sevilla (via Google Drive)" <carla.d.sevilla@gmail.com>
+To: ceo@dependablelc.com
+Content-Type: multipart/alternative; boundary="00000000000068eb3a05df5056fe"
+X-Spam-Status: No, score=0.4
+X-Spam-Score: 4
+X-Spam-Bar: /
+X-Ham-Report: Spam detection software, running on the system "server1.parahost.co",
+ has NOT identified this incoming email as spam.  The original
+ message has been attached to this so you can view it or label
+ similar future email.  If you have any questions, see
+ root\@localhost for details.
+ Content preview:  I've shared an item with you: CARLA FILES https://drive.google.com/drive/folders/1wSY5Uphfl_lAuUOjQuty3464ymxcXk87?usp=sharing&invite=CL7MrL8H&ts=62856baf
+    It's not an attachment -- it's stored online. To open this item, just click
+    the link above. 
+ Content analysis details:   (0.4 points, 5.0 required)
+  pts rule name              description
+ ---- ---------------------- --------------------------------------------------
+ -0.0 SPF_PASS               SPF: sender matches SPF record
+  0.0 FREEMAIL_FROM          Sender email is commonly abused enduser mail
+                             provider
+                             [carla.d.sevilla[at]gmail.com]
+  0.2 HEADER_FROM_DIFFERENT_DOMAINS From and EnvelopeFrom 2nd level
+                             mail domains are different
+  0.0 HTML_MESSAGE           BODY: HTML included in message
+ -0.1 DKIM_VALID             Message has at least one valid DKIM or DK signature
+ -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
+                             author's domain
+  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
+                             valid
+  0.2 FREEMAIL_FORGED_FROMDOMAIN 2nd level domains in From and
+                             EnvelopeFrom freemail headers are
+                             different
+ -0.0 T_SCC_BODY_TEXT_LINE   No description available.
+  0.0 T_REMOTE_IMAGE         Message contains an external image
+X-Spam-Flag: NO
+
+--00000000000068eb3a05df5056fe
+Content-Type: text/plain; charset="UTF-8"; format=flowed; delsp=yes
+
+I've shared an item with you:
+
+CARLA FILES
+https://drive.google.com/drive/folders/1wSY5Uphfl_lAuUOjQuty3464ymxcXk87?usp=sharing&invite=CL7MrL8H&ts=62856baf
+
+It's not an attachment -- it's stored online. To open this item, just click  
+the link above.
+
+Inside the folder are files of the email I sent to AAC about the turnover  
+of the equipment and the documents I received from the Ministry of Labor.
+
+
+Thanks,
+
+Carla Sevilla
+
+--00000000000068eb3a05df5056fe
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<html><head></head><body><table style=3D"border-collapse: collapse; width: =
+100%; background-color: white; text-align: center;" role=3D"presentation"><=
+tr><td style=3D"padding: 24px 0 16px 0;"><table style=3D"border-collapse: c=
+ollapse;font-family: Roboto, Arial, Helvetica, sans-serif;hyphens: auto; ov=
+erflow-wrap: break-word; word-wrap: break-word; word-break: break-word;disp=
+lay: inline-block; width: 90%;max-width: 700px;min-width: 280px; text-align=
+: left;" role=3D"presentation"><tr><td style=3D"padding: 0;"><table style=
+=3D"width:100%; border: 1px solid #dadce0; border-radius: 8px; border-spaci=
+ng: 0; table-layout:fixed; border-collapse: separate;" role=3D"presentation=
+"><tr><td style=3D"padding: 4.5%;" dir=3D"ltr"><div style=3D"margin-bottom:=
+32px;font-family: Google Sans, Roboto, Arial, Helvetica, sans-serif; font-s=
+tyle: normal; font-size: 28px; line-height: 36px; color: #3c4043;"><a href=
+=3D"mailto:carla.d.sevilla@gmail.com" style=3D"color:inherit;text-decoratio=
+n:none">carla.d.sevilla@gmail.com</a> shared a folder</div><table style=3D"=
+border-collapse: collapse;font-family: Roboto, Arial, Helvetica, sans-serif=
+; font-size:16px; line-height:24px; color:#202124; letter-spacing:0.1px; ta=
+ble-layout:fixed; width:100%; overflow-wrap: break-word;" role=3D"presentat=
+ion"><tr><td style=3D"padding: 0; vertical-align:top; width:50px;"><!--[if =
+mso]><v:oval xmlns:v=3D"urn:schemas-microsoft-com:vml" xmlns:w=3D"urn:schem=
+as-microsoft-com:office:word" style=3D"height:50px;width:50px;" fill=3D"t" =
+stroke=3D"f"><v:fill type=3D"frame" src=3D"https://ssl.gstatic.com/s2/profi=
+les/images/silhouette64.png" alt=3D"Unknown profile photo" style=3D"height:=
+50px;width:50px;"/></v:oval><![endif]--><div style=3D"mso-hide:all;"><img s=
+tyle=3D"border-radius:50%; display:block;" width=3D"50" height=3D"50" src=
+=3D"https://ssl.gstatic.com/s2/profiles/images/silhouette64.png" alt=3D"Unk=
+nown profile photo"></div></td><td style=3D"padding: 0; vertical-align:top;=
+ padding-left:12px;"><div style=3D"padding-top:12px;"><a href=3D"mailto:car=
+la.d.sevilla@gmail.com" style=3D"color:inherit;text-decoration:none">carla.=
+d.sevilla@gmail.com</a> has invited you to <b>contribute to</b> the followi=
+ng shared folder:</div><div style=3D"margin-top:24px; color:#5F6368">Inside=
+ the folder are files of the email I sent to AAC about the turnover of the =
+equipment and the documents I received from the Ministry of Labor. <br><br>=
+<br>Thanks, <br><br>Carla Sevilla</div></td></tr></table><table style=3D"bo=
+rder-spacing:0 4px; table-layout:fixed; width:100%; overflow-wrap: break-wo=
+rd;" role=3D"presentation"><tr style=3D"height:28px;"></tr><tr><td style=3D=
+"padding: 0;"><a href=3D"https://drive.google.com/drive/folders/1wSY5Uphfl_=
+lAuUOjQuty3464ymxcXk87?usp=3Dsharing_eil_m&amp;invite=3DCL7MrL8H&amp;ts=3D6=
+2856baf" target=3D"_blank" style=3D"color: #3c4043; display: inline-block; =
+max-width: 100%; text-decoration: none; vertical-align: top;border: 1px sol=
+id #DADCE0; border-radius: 16px; white-space: nowrap;"><div style=3D"line-h=
+eight: 18px; overflow: hidden; text-overflow: ellipsis;padding: 6px 12px;">=
+<span style=3D"display: inline-block; vertical-align: top; min-width: 26px;=
+ width: 26px;"><img src=3D"https://ssl.gstatic.com/docs/documents/share/ima=
+ges/services/folder-3.png" width=3D"18" height=3D"18" style=3D"vertical-ali=
+gn: top;" role=3D"presentation"></span><span style=3D"font: 500 14px/18px G=
+oogle Sans, Roboto, Arial, Helvetica, sans-serif; display: inline; letter-s=
+pacing: 0.2px;">CARLA FILES</span></div></a></td></tr></table><table style=
+=3D"border-collapse: collapse;" role=3D"presentation"><tr style=3D"height: =
+24px"><td></td></tr></table><div style=3D"background: #fef7e0; border-radiu=
+s: 4px; padding:12px 16px;"><div style=3D"display: table-cell; vertical-ali=
+gn: middle;"><img src=3D"https://ssl.gstatic.com/docs/documents/share/image=
+s/warning_callout_outline_yellow.png" width=3D"24px" height=3D"24px" style=
+=3D"margin-left: 7px; margin-right: 19px; vertical-align: middle;"></div><d=
+iv style=3D"color: #3c4043; display: table-cell; font-size: 14px; line-heig=
+ht: 20px; vertical-align: middle;">This email grants access to this item wi=
+thout logging in. Only forward it to people you trust.</div></div><table st=
+yle=3D"border-collapse: collapse;" role=3D"presentation"><tr style=3D"heigh=
+t: 32px"><td></td></tr></table><div><!--[if mso]><v:roundrect xmlns:v=3D"ur=
+n:schemas-microsoft-com:vml" xmlns:w=3D"urn:schemas-microsoft-com:office:wo=
+rd" href=3D"https://drive.google.com/drive/folders/1wSY5Uphfl_lAuUOjQuty346=
+4ymxcXk87?usp=3Dsharing_eip_m&amp;invite=3DCL7MrL8H&amp;ts=3D62856baf" styl=
+e=3D"height:36px;v-text-anchor:middle;width:100px;" arcsize=3D"50%" stroke=
+=3D"f" fillcolor=3D"#1a73e8"><w:anchorlock/><center style=3D"color:#ffffff;=
+font-family:Arial,Helvetica,sans-serif;font-weight:500;font-size:14px;">Ope=
+n </center></v:roundrect><![endif]--><a href=3D"https://drive.google.com/dr=
+ive/folders/1wSY5Uphfl_lAuUOjQuty3464ymxcXk87?usp=3Dsharing_eip_m&amp;invit=
+e=3DCL7MrL8H&amp;ts=3D62856baf" class=3D"material-button material-button-fi=
+lled" target=3D"_blank" tabindex=3D"0" role=3D"button" style=3D"mso-hide:al=
+l;padding: 0 24px;font: 500 14px/36px Google Sans, Roboto, Arial, Helvetica=
+, sans-serif; border: none; border-radius: 18px; box-sizing: border-box; di=
+splay: inline-block; letter-spacing: .25px; min-height: 36px; text-align: c=
+enter; text-decoration: none;background-color: #1a73e8; color: #fff; cursor=
+: pointer;">Open</a></div></td></tr></table><table style=3D"border-collapse=
+: collapse; width: 100%;" role=3D"presentation"><tr><td style=3D"padding: 2=
+4px 4.5%"><table style=3D"border-collapse: collapse; width: 100%;" dir=3D"l=
+tr"><tr><td style=3D"padding: 0;font-family: Roboto, Arial, Helvetica, sans=
+-serif; color: #5F6368; width: 100%; font-size: 12px; line-height: 16px; mi=
+n-height: 40px; letter-spacing: .3px;">Google LLC, 1600 Amphitheatre Parkwa=
+y, Mountain View, CA 94043, USA<br/> You have received this email because <=
+a href=3D"mailto:carla.d.sevilla@gmail.com" style=3D"color:inherit;text-dec=
+oration:none">carla.d.sevilla@gmail.com</a> shared a file or folder located=
+ in Google Drive with you.</td><td style=3D"padding: 0; padding-left: 20px;=
+"><a href=3D"https://www.google.com/" target=3D"_blank"><img src=3D"https:/=
+/www.gstatic.com/images/branding/googlelogo/2x/googlelogo_grey_tm_color_96x=
+40dp.png" width=3D"96" height=3D"40" alt=3D"Logo for Google Drive"></a></td=
+></tr></table></td></tr></table></td></tr></table></td></tr></table></body>=
+</html>
+--00000000000068eb3a05df5056fe--

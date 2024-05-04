@@ -1,0 +1,414 @@
+Return-Path: <markobjelotomic@gmail.com>
+Delivered-To: info@dependablelc.com
+Received: from host59.registrar-servers.com
+	by host59.registrar-servers.com with LMTP
+	id 0Fu6MuW7Q2TZMiIA+KyzgQ
+	(envelope-from <markobjelotomic@gmail.com>)
+	for <info@dependablelc.com>; Sat, 22 Apr 2023 06:50:13 -0400
+Return-path: <markobjelotomic@gmail.com>
+Envelope-to: info@dependablelc.com
+Delivery-date: Sat, 22 Apr 2023 06:50:13 -0400
+Received: from [63.250.43.69] (port=23243 helo=asp-relay-shared.jellyfish.systems)
+	by host59.registrar-servers.com with esmtps  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <markobjelotomic@gmail.com>)
+	id 1pqAon-009maP-LB
+	for info@dependablelc.com;
+	Sat, 22 Apr 2023 06:50:13 -0400
+Received: from mail-pj1-f41.google.com (mail-pj1-f41.google.com [209.85.216.41])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by asp-relay-shared.jellyfish.systems (Postfix) with ESMTPS id 4Q3SpS16VszFpWw
+	for <info@dependablelc.com>; Sat, 22 Apr 2023 10:50:08 +0000 (UTC)
+Received: by mail-pj1-f41.google.com with SMTP id 98e67ed59e1d1-24781e23c27so2659988a91.0
+        for <info@dependablelc.com>; Sat, 22 Apr 2023 03:50:08 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20221208; t=1682160607; x=1684752607;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=t/6F6osWc4wrFZg+Dn8BtL2I3Xlw1AVwFBO9PC7s6aI=;
+        b=heEMoQLHC7MX11vXw57lQqIJbh6i5sTULe0wVd72hr8wOBYFo7TvhCYf5qzbFvdtcI
+         RLpsboNR4U/RRzOSlv5uBKKJM0XVpm7kkUIFWF9y7AQEo28e9liuZw7m6Xf3QjHDXpIG
+         3jsYCi9RE9IsH7q6CCB8ij16ULfr0p4bT7bys1dqua3moTJLSN/0UtoQuIoZfLA3IFsg
+         IL6ahtFsHrqwB99vbhux0sOB8Mj8iBXIDeiM/OPdGwLtR9lIGRaICYK6tiaBpOm6L9uy
+         1NoczT6WZlQ5ZAXj/az48iF+kzhMf4I3RaJS0dBQidBjPR09FMqQ4OySrkbSzHlW2ZMD
+         Azyg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1682160607; x=1684752607;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=t/6F6osWc4wrFZg+Dn8BtL2I3Xlw1AVwFBO9PC7s6aI=;
+        b=UPbWarm5sY5OyS4H2tnn8ZXh5afxYcxcvSOFJ9nRWhLQ7F/32U4qtjqAu+V4fjetwV
+         eWSd6aZd0mnlzHH8c/r2Rp2CF5uQm7Eh7i4rgxISFApregXMwvlbB1QVEOet9SPRrwEv
+         GG4MWYmq+56rdzSnzX68tWKKW7j3cc+ZidXhzmlK9KV+zTYbrGE5XkV58WZb7PDmzAgp
+         SJ/qMlW/TTZFmhIU3dos26K48pDg1taDQW2kD7MW1yacpA5ViClL8Ca/WJD2MlTADwWc
+         jhau01Q1CaIJ+n5IyEU671cbHX/PFMRgCNacYSwcPO9h0IRNQpfirmNVKsizjs93mTGh
+         5kjw==
+X-Gm-Message-State: AAQBX9e3Eb4pu5ZKDZXFTZqcvSVplKJ8R89/4ZqPoyGljj/GATWV4JaX
+	FrREIalNSkl4s46uBGc552HClGAwIp4wFayWKvOdZOb1ifI=
+X-Google-Smtp-Source: AKy350Z4fuSG+1xrr9houU3JaydsabKMpsAUfAk65KiMw0qJobChCj2wozrSprx44uGF83BoSv8c1bS5odpqd0hXhhU=
+X-Received: by 2002:a17:90a:5509:b0:247:a272:71d1 with SMTP id
+ b9-20020a17090a550900b00247a27271d1mr7952872pji.7.1682160607142; Sat, 22 Apr
+ 2023 03:50:07 -0700 (PDT)
+MIME-Version: 1.0
+References: <CAG3hBcfv=Qm0cjwXz6aFBa9QCZZOCQA15yn_rWhRBWUq+-_xOA@mail.gmail.com>
+ <0039C91A-DDD0-40E8-9870-D36E1637DF76@gmail.com> <f528ea1d-6742-d49f-ad19-122b9d9d24e5@gmail.com>
+In-Reply-To: <f528ea1d-6742-d49f-ad19-122b9d9d24e5@gmail.com>
+From: Marko Bjelotomic <markobjelotomic@gmail.com>
+Date: Sat, 22 Apr 2023 14:49:55 +0400
+Message-ID: <CAG3hBcf8xQpYTDMikiZNAHfHiK=8K=sVtvmorumR9OdrD5i3Ww@mail.gmail.com>
+Subject: Fwd: Communication with Hayk
+To: info@dependablelc.com
+Content-Type: multipart/alternative; boundary="00000000000071a8c905f9ea897b"
+X-NCJF-Result: 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
+ 
+	NhX8H0UIHx2G5o0mYIX6zow2X9PEJW3oHfJNmJA==
+X-NCJF-Version: 3
+Authentication-Results: asp-relay-shared.jellyfish.systems;
+	dkim=pass header.d=gmail.com header.s=20221208 header.b=heEMoQLH;
+	dmarc=pass (policy=none) header.from=gmail.com;
+	spf=pass (asp-relay-shared.jellyfish.systems: domain of markobjelotomic@gmail.com designates 209.85.216.41 as permitted sender) smtp.mailfrom=markobjelotomic@gmail.com
+
+--00000000000071a8c905f9ea897b
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+Here is one of many examples where she does not allow me to see or talk
+with him.
+It is also relevant as there is my request for a national day involvement.
+
+She cut me of and dressed him up in Armenian attire, making sure to
+dissociate him from me and my Serbian origin.
+
+---------- Forwarded message ---------
+From: Marko Bjelotomic <markobjelotomic@gmail.com>
+Date: Fri, 27 Jan 2023, 15:35
+Subject: Re: Communication with Hayk
+To: <annie.stepanyan1985@gmail.com>, Marko Bjelotomic <
+markobjelotomic@gmail.com>
+
+
+Ani,
+
+Cutting me away from Hayk is detrimental to his healthy development.
+Blocking me from any means of communication is also unhealthy,
+
+I want to speak to my son daily and see him as much as possible.
+
+I want to know about his health and development.
+I want to participate in the national day as well.
+
+Respond ASAP,
+
+Marko
+
+
+On 12/9/2022 4:42 PM, annie.stepanyan1985@gmail.com wrote:
+
+Dear marko.
+Given the fact that you demonstratively disrespect and belittle me in front
+of Hayk, i don=E2=80=99t feel comfortable to deal with you directly in meet=
+ings
+arrangement between you and Hayk.
+I addressed this issue in the family court and will wait their decision to
+arrange better and smooth way that is healthier and acceptable for Hayk and
+me.
+
+
+Best wishes,
+Ani Stepanyan
+
+On 9 Dec 2022, at 2:33 PM, Marko Bjelotomic <markobjelotomic@gmail.com>
+<markobjelotomic@gmail.com> wrote:
+
+=EF=BB=BF
+Dear Ani,
+
+I want to talk to Hayk.
+
+I want to spend some time with Hayk.
+
+Please do the right thing
+
+---------- Forwarded message ---------
+From: Marko Bjelotomic <markobjelotomic@gmail.com>
+Date: Wed, 7 Dec 2022, 17:01
+Subject: Communication with Hayk
+To: Ani Stepanyan <annie.stepanyan1985@gmail.com>
+
+
+Hi Ani,
+
+I want to talk to Hayk.
+
+Please provide
+
+
+Best,
+Marko
+
+--=20
+Best,
+Marko Bjelotomic
+
+--00000000000071a8c905f9ea897b
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"auto">Here is one of many examples where she does not allow me =
+to see or talk with him.=C2=A0<div dir=3D"auto">It is also relevant as ther=
+e is my request for a national day involvement.=C2=A0</div><div dir=3D"auto=
+"><br></div><div dir=3D"auto">She cut me of and dressed him up in Armenian =
+attire, making sure to dissociate him from me and my Serbian origin.</div><=
+/div><br><div class=3D"gmail_quote"><div dir=3D"ltr" class=3D"gmail_attr">-=
+--------- Forwarded message ---------<br>From: <strong class=3D"gmail_sende=
+rname" dir=3D"auto">Marko Bjelotomic</strong> <span dir=3D"auto">&lt;<a hre=
+f=3D"mailto:markobjelotomic@gmail.com">markobjelotomic@gmail.com</a>&gt;</s=
+pan><br>Date: Fri, 27 Jan 2023, 15:35<br>Subject: Re: Communication with Ha=
+yk<br>To:  &lt;<a href=3D"mailto:annie.stepanyan1985@gmail.com">annie.stepa=
+nyan1985@gmail.com</a>&gt;, Marko Bjelotomic &lt;<a href=3D"mailto:markobje=
+lotomic@gmail.com">markobjelotomic@gmail.com</a>&gt;<br></div><br><br>
+ =20
+   =20
+ =20
+  <div>
+    <p>Ani, <br>
+      <br>
+      Cutting me away from Hayk is detrimental to his healthy
+      development. <br>
+      Blocking me from any means of communication is also unhealthy, <br>
+      <br>
+      I want to speak to my son daily and see him as much as possible. <br>
+      <br>
+      I want to know about his health and development. <br>
+      I want to participate in the national day as well.<br>
+      <br>
+      Respond ASAP,</p>
+    <p>Marko</p>
+    <p><br>
+    </p>
+    <div>On 12/9/2022 4:42 PM,
+      <a href=3D"mailto:annie.stepanyan1985@gmail.com" target=3D"_blank" re=
+l=3D"noreferrer">annie.stepanyan1985@gmail.com</a> wrote:<br>
+    </div>
+    <blockquote type=3D"cite">
+     =20
+      Dear marko.=C2=A0
+      <div>Given the fact that you demonstratively disrespect and
+        belittle me in front of Hayk, i don=E2=80=99t feel comfortable to d=
+eal
+        with you directly in meetings arrangement between you and Hayk.=C2=
+=A0</div>
+      <div>I addressed this issue in the family court and will wait
+        their decision to arrange better and smooth way that is
+        healthier and acceptable for Hayk and me.=C2=A0</div>
+      <div><br>
+        <br>
+        <div dir=3D"ltr">Best wishes,
+          <div>Ani Stepanyan=C2=A0</div>
+        </div>
+        <div dir=3D"ltr"><br>
+          <blockquote type=3D"cite">On 9 Dec 2022, at 2:33 PM, Marko
+            Bjelotomic <a href=3D"mailto:markobjelotomic@gmail.com" target=
+=3D"_blank" rel=3D"noreferrer">&lt;markobjelotomic@gmail.com&gt;</a> wrote:=
+<br>
+            <br>
+          </blockquote>
+        </div>
+        <blockquote type=3D"cite">
+          <div dir=3D"ltr">=EF=BB=BF
+            <div dir=3D"auto">Dear=C2=A0Ani,=C2=A0
+              <div dir=3D"auto"><br>
+              </div>
+              <div dir=3D"auto">I want to talk to Hayk.=C2=A0</div>
+              <div dir=3D"auto"><br>
+              </div>
+              <div dir=3D"auto">I want to spend some time with Hayk.</div>
+              <div dir=3D"auto"><br>
+              </div>
+              <div dir=3D"auto">Please do the right thing</div>
+            </div>
+            <br>
+            <div class=3D"gmail_quote">
+              <div dir=3D"ltr" class=3D"gmail_attr">---------- Forwarded
+                message ---------<br>
+                From: <strong class=3D"gmail_sendername" dir=3D"auto">Marko
+                  Bjelotomic</strong> <span dir=3D"auto">&lt;<a href=3D"mai=
+lto:markobjelotomic@gmail.com" target=3D"_blank" rel=3D"noreferrer">markobj=
+elotomic@gmail.com</a>&gt;</span><br>
+                Date: Wed, 7 Dec 2022, 17:01<br>
+                Subject: Communication with Hayk<br>
+                To: Ani Stepanyan &lt;<a href=3D"mailto:annie.stepanyan1985=
+@gmail.com" target=3D"_blank" rel=3D"noreferrer">annie.stepanyan1985@gmail.=
+com</a>&gt;<br>
+              </div>
+              <br>
+              <br>
+              <div dir=3D"auto">Hi Ani,=C2=A0
+                <div dir=3D"auto"><br>
+                </div>
+                <div dir=3D"auto">I want to talk to Hayk.=C2=A0</div>
+                <div dir=3D"auto"><br>
+                </div>
+                <div dir=3D"auto">Please provide=C2=A0</div>
+                <div dir=3D"auto"><br>
+                </div>
+                <div dir=3D"auto"><br>
+                </div>
+                <div dir=3D"auto">Best,</div>
+                <div dir=3D"auto">Marko=C2=A0</div>
+              </div>
+            </div>
+          </div>
+        </blockquote>
+      </div>
+    </blockquote>
+    <pre cols=3D"72">--=20
+Best,
+Marko Bjelotomic</pre>
+  </div>
+
+</div>
+
+--00000000000071a8c905f9ea897b--

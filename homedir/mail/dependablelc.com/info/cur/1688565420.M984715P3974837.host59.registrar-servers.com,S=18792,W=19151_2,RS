@@ -1,0 +1,359 @@
+Return-Path: <sanjaydhandsa@gmail.com>
+Delivered-To: info@dependablelc.com
+Received: from host59.registrar-servers.com
+	by host59.registrar-servers.com with LMTP
+	id 2EA0Oqx2pWS1pjwA+KyzgQ
+	(envelope-from <sanjaydhandsa@gmail.com>)
+	for <info@dependablelc.com>; Wed, 05 Jul 2023 09:57:00 -0400
+Return-path: <sanjaydhandsa@gmail.com>
+Envelope-to: info@dependablelc.com
+Delivery-date: Wed, 05 Jul 2023 09:57:00 -0400
+Received: from [63.250.43.69] (port=9985 helo=asp-relay-shared.jellyfish.systems)
+	by host59.registrar-servers.com with esmtps  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <sanjaydhandsa@gmail.com>)
+	id 1qH308-00Go54-2U
+	for info@dependablelc.com;
+	Wed, 05 Jul 2023 09:57:00 -0400
+Received: from asp-relay-shared.jellyfish.systems (localhost [127.0.0.1])
+	by asp-relay-shared.jellyfish.systems (Postfix) with ESMTP id 4Qx1Rv5MBkzBvVV
+	for <info@dependablelc.com>; Wed,  5 Jul 2023 13:56:59 +0000 (UTC)
+Received: from mail-wm1-f49.google.com (mail-wm1-f49.google.com [209.85.128.49])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by asp-relay-shared.jellyfish.systems (Postfix) with ESMTPS id 4Qx1Rp4pZGzBvSN
+	for <info@dependablelc.com>; Wed,  5 Jul 2023 13:56:54 +0000 (UTC)
+Received: by mail-wm1-f49.google.com with SMTP id 5b1f17b1804b1-3fbac8b01b3so6770045e9.1
+        for <info@dependablelc.com>; Wed, 05 Jul 2023 06:56:54 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20221208; t=1688565413; x=1691157413;
+        h=to:in-reply-to:references:message-id:date:subject:mime-version:from
+         :content-transfer-encoding:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=wmLLkQ1FO9Hs8lfg2WoZpuQlK4SHrp62J01M1FW+rdw=;
+        b=GNLrVYTGAE+9JrgWqmHoIzhNOCd9zYN99fqq0mVQH/7pH7W67YatV3kBmITLUNd+rM
+         WCW0G83Y6BdhRgURpv485gH1CqA+RX6pizJJgi4re6MOETfxgl1PJIzCuZqCL4NSaAaB
+         qGGYH/gqxk50Asl+d9Axr/f45X0V/w/ASgSLpcUBavW6j+8Rr9WwUmpZxqYnXGPWqMz2
+         dBpnEYncl8rkFdKW8iUqZBefJRMdKY9deU+mxXB/OhUqCT+4KpqjhHlaM4SA4k8yahTx
+         7nHyn0kP/DFu9hp+Vw85lNGKMBfYTMdBeC1SP760JN6491cpCfFA/sUZQS3HFpoMdws0
+         fLxw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1688565413; x=1691157413;
+        h=to:in-reply-to:references:message-id:date:subject:mime-version:from
+         :content-transfer-encoding:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=wmLLkQ1FO9Hs8lfg2WoZpuQlK4SHrp62J01M1FW+rdw=;
+        b=kffyX8rdcW4BXPFQxYNwPEeZeFMEePwyekYR3zXx9aU6ifysFZYdP0K1lN2/TX8VHr
+         /b7HbFGp+yT0PSxC0Y8pW7Z3YM/4rXd2fpoqRQsTgcB29oG217mZYDKPtUJxVsp3Z6xv
+         bwsELPG/0LYKcb57fOvP1GljCnY9EwhKVti+VSsf8hjTRiLc/A4I8F9iYEjcI5vTbEnt
+         EIQzt4PERKTPdFhRobINausNauewEN71GAemvDxMLq0N2iNPlRDaqhVLQrOKeUiyi0yV
+         2bpl1VlLoganNSPG+geLwXep08ydE64E9iLqpiiKewmEzS4FkGV7huKdj5uGAquylbJT
+         IBxQ==
+X-Gm-Message-State: ABy/qLY7BOcoDv0Z8HhS5Ux5IO951FVT4N2yWaG1CB0JaB7vVbW9GlaC
+	RsUPKliJj2qTN1SQYutgA5aMDIXwiWE=
+X-Google-Smtp-Source: APBJJlFggAawonMFgphWNRVlqqUAZPV1ERKRdjMR3HDZQgU+UT/LGUt+jO4Jda2lvZV7dvJO/zMo4w==
+X-Received: by 2002:a05:600c:3c9c:b0:3fa:91d0:8ddb with SMTP id bg28-20020a05600c3c9c00b003fa91d08ddbmr2384288wmb.14.1688565412403;
+        Wed, 05 Jul 2023 06:56:52 -0700 (PDT)
+Received: from smtpclient.apple (bba-2-50-49-145.alshamil.net.ae. [2.50.49.145])
+        by smtp.gmail.com with ESMTPSA id e1-20020a05600c218100b003fbb0c01d4bsm2236411wme.16.2023.07.05.06.56.51
+        for <info@dependablelc.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 05 Jul 2023 06:56:52 -0700 (PDT)
+Content-Type: multipart/alternative; boundary=Apple-Mail-2239D009-45FC-4594-BDA6-AE47B182BE21
+Content-Transfer-Encoding: 7bit
+From: Sanjay Dhandsa <sanjaydhandsa@gmail.com>
+Mime-Version: 1.0 (1.0)
+Subject: Re: Legal Notice - Vishal
+Date: Wed, 5 Jul 2023 17:56:37 +0400
+Message-Id: <76C67390-FE9F-47A7-93F7-BB93D6866243@gmail.com>
+References: <005401d9af0f$90b6f560$b224e020$@dependablelc.com>
+In-Reply-To: <005401d9af0f$90b6f560$b224e020$@dependablelc.com>
+To: info@dependablelc.com
+X-Mailer: iPhone Mail (20F75)
+X-NCJF-Result: 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
+X-NCJF-Version: 6
+Authentication-Results: asp-relay-shared.jellyfish.systems;
+	dkim=pass header.d=gmail.com header.s=20221208 header.b=GNLrVYTG;
+	dmarc=pass (policy=none) header.from=gmail.com;
+	spf=pass (asp-relay-shared.jellyfish.systems: domain of sanjaydhandsa@gmail.com designates 209.85.128.49 as permitted sender) smtp.mailfrom=sanjaydhandsa@gmail.com
+
+
+--Apple-Mail-2239D009-45FC-4594-BDA6-AE47B182BE21
+Content-Type: text/html;
+	charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+<html><head><meta http-equiv=3D"content-type" content=3D"text/html; charset=3D=
+utf-8"></head><body dir=3D"auto">Please can you confirm this -<div>=E2=80=9C=
+<span style=3D"-webkit-text-size-adjust: auto; caret-color: rgb(50, 62, 79);=
+ color: rgb(50, 62, 79); font-family: &quot;Bell MT&quot;, serif; font-size:=
+ 21.333334px; background-color: rgb(255, 255, 255);">&nbsp;The amount of &nb=
+sp; 185,25 AED=E2=80=9D?&nbsp;</span></div><div><br></div><div><font face=3D=
+"Times New Roman">Is there anything else we can do on the fees? When do they=
+ need to be paid?&nbsp;</font></div><div><br><div dir=3D"ltr">Kind regards&n=
+bsp;<div><br></div><div>Sanjay</div></div><div dir=3D"ltr"><br><blockquote t=
+ype=3D"cite">On 5 Jul 2023, at 11:09, info@dependablelc.com wrote:<br><br></=
+blockquote></div><blockquote type=3D"cite"><div dir=3D"ltr">=EF=BB=BF<meta h=
+ttp-equiv=3D"Content-Type" content=3D"text/html; charset=3Dus-ascii"><meta n=
+ame=3D"Generator" content=3D"Microsoft Word 15 (filtered medium)"><!--[if !m=
+so]><style>v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+w\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+</style><![endif]--><style>@font-face { font-family: "Cambria Math"; }
+@font-face { font-family: Calibri; }
+@font-face { font-family: "Bell MT"; }
+p.MsoNormal, li.MsoNormal, div.MsoNormal { margin: 0cm; font-size: 11pt; fon=
+t-family: Calibri, sans-serif; }
+span.EmailStyle17 { font-family: "Bell MT", serif; color: rgb(50, 62, 79); }=
+
+.MsoChpDefault { font-family: Calibri, sans-serif; }
+@page WordSection1 { size: 612pt 792pt; margin: 72pt; }
+div.WordSection1 { page: WordSection1; }</style><!--[if gte mso 9]><xml>
+<o:shapedefaults v:ext=3D"edit" spidmax=3D"1026" />
+</xml><![endif]--><!--[if gte mso 9]><xml>
+<o:shapelayout v:ext=3D"edit">
+<o:idmap v:ext=3D"edit" data=3D"1" />
+</o:shapelayout></xml><![endif]--><div class=3D"WordSection1"><p class=3D"Ms=
+oNormal"><span style=3D"font-size:16.0pt;font-family:&quot;Bell MT&quot;,ser=
+if;color:#323E4F">Dear Mr. Sanjay:<o:p></o:p></span></p><p class=3D"MsoNorma=
+l"><span style=3D"font-size:16.0pt;font-family:&quot;Bell MT&quot;,serif;col=
+or:#323E4F">I would like to inform you that I did a translation to the legal=
+ notice, and I send it today by Aramex, to notify the tenant.<o:p></o:p></sp=
+an></p><p class=3D"MsoNormal"><span style=3D"font-size:16.0pt;font-family:&q=
+uot;Bell MT&quot;,serif;color:#323E4F"><o:p>&nbsp;</o:p></span></p><p class=3D=
+"MsoNormal"><span style=3D"font-size:16.0pt;font-family:&quot;Bell MT&quot;,=
+serif;color:#323E4F">Now we will wait for the delivery note and then will wa=
+it 30 days if no response will start the case.<o:p></o:p></span></p><p class=
+=3D"MsoNormal"><span style=3D"font-size:16.0pt;font-family:&quot;Bell MT&quo=
+t;,serif;color:#323E4F"><o:p>&nbsp;</o:p></span></p><p class=3D"MsoNormal"><=
+span style=3D"font-size:16.0pt;font-family:&quot;Bell MT&quot;,serif;color:#=
+323E4F">The amount of &nbsp; 185,25 AED for translation&amp; Aramex was paid=
+. <o:p></o:p></span></p><p class=3D"MsoNormal"><span style=3D"font-size:16.0=
+pt;font-family:&quot;Bell MT&quot;,serif;color:#323E4F">Kindly transfer that=
+ to the Bank account as it is attached here. <o:p></o:p></span></p><p class=3D=
+"MsoNormal"><span style=3D"font-size:16.0pt;font-family:&quot;Bell MT&quot;,=
+serif;color:#323E4F"><o:p>&nbsp;</o:p></span></p><p class=3D"MsoNormal"><spa=
+n style=3D"font-size:16.0pt;font-family:&quot;Bell MT&quot;,serif;color:#323=
+E4F">Please as we did not agree yet about our fee, and to make it clear, for=
+ now, our fee will be 1000 AED for the legal notice, and later on if we will=
+ go for A case our fee will be 7000 AED for writing the statement of account=
+ and registered the case online and write all the memorandums, and follow up=
+ with all the procedure, but I will not represent you in front of the court o=
+r rental dispute center, you will attend by yourself under our supervision. <=
+o:p></o:p></span></p><p class=3D"MsoNormal"><span style=3D"font-size:16.0pt;=
+font-family:&quot;Bell MT&quot;,serif;color:#323E4F"><o:p>&nbsp;</o:p></span=
+></p><p class=3D"MsoNormal"><span style=3D"font-size:16.0pt;font-family:&quo=
+t;Bell MT&quot;,serif;color:#323E4F">I hope these will meet your interest an=
+d we are open to any discussion about that.<o:p></o:p></span></p><p class=3D=
+"MsoNormal"><span style=3D"font-size:16.0pt;font-family:&quot;Bell MT&quot;,=
+serif;color:#323E4F"><o:p>&nbsp;</o:p></span></p><p class=3D"MsoNormal"><spa=
+n style=3D"font-size:16.0pt;font-family:&quot;Bell MT&quot;,serif;color:#323=
+E4F">It is our pleasure to serve you with our legal services and consultatio=
+n.<o:p></o:p></span></p><p class=3D"MsoNormal"><span style=3D"font-size:16.0=
+pt;font-family:&quot;Bell MT&quot;,serif;color:#323E4F"><o:p>&nbsp;</o:p></s=
+pan></p><p class=3D"MsoNormal"><span style=3D"font-size:16.0pt;font-family:&=
+quot;Bell MT&quot;,serif;color:#323E4F"><o:p>&nbsp;</o:p></span></p><p class=
+=3D"MsoNormal"><span lang=3D"EN-GB" style=3D"font-size:12.0pt;font-family:&q=
+uot;Bell MT&quot;,serif;color:#002060;mso-ligatures:none"><o:p>&nbsp;</o:p><=
+/span></p><p class=3D"MsoNormal"><span style=3D"font-size:12.0pt;font-family=
+:&quot;Bell MT&quot;,serif;color:#002060;mso-ligatures:none">Best Regards.<o=
+:p></o:p></span></p><p class=3D"MsoNormal"><span style=3D"font-size:12.0pt;f=
+ont-family:&quot;Bell MT&quot;,serif;color:#002060"><div>&lt;image001.jpg&gt=
+;</div><span style=3D"mso-ligatures:none"><o:p></o:p></span></span></p><p cl=
+ass=3D"MsoNormal"><span style=3D"font-size:12.0pt;font-family:&quot;Bell MT&=
+quot;,serif;color:#002060;mso-ligatures:none">Dependable Legal Consultants L=
+LC<o:p></o:p></span></p><p class=3D"MsoNormal"><span style=3D"font-size:12.0=
+pt;font-family:&quot;Bell MT&quot;,serif;color:#002060;mso-ligatures:none"><=
+a href=3D"http://www.dependablelc.com/">www.dependablelc.com</a> <o:p></o:p>=
+</span></p><p class=3D"MsoNormal"><span style=3D"font-size:16.0pt;font-famil=
+y:&quot;Bell MT&quot;,serif;color:#323E4F"><o:p>&nbsp;</o:p></span></p><p cl=
+ass=3D"MsoNormal"><span style=3D"font-size:16.0pt;font-family:&quot;Bell MT&=
+quot;,serif;color:#323E4F"><o:p>&nbsp;</o:p></span></p><p class=3D"MsoNormal=
+"><span style=3D"font-size:16.0pt;font-family:&quot;Bell MT&quot;,serif;colo=
+r:#323E4F"><o:p>&nbsp;</o:p></span></p></div><div>&lt;Aramex - Sanjai.pdf&gt=
+;</div><div>&lt;legal notice translation.pdf&gt;</div><div>&lt;Translation i=
+nvoice.pdf&gt;</div></div></blockquote></div></body></html>=
+
+--Apple-Mail-2239D009-45FC-4594-BDA6-AE47B182BE21--

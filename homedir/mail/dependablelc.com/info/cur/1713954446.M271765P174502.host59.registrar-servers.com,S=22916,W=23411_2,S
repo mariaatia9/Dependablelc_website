@@ -1,0 +1,495 @@
+Return-Path: <russell_yeomans@yahoo.com>
+Delivered-To: info@dependablelc.com
+Received: from host59.registrar-servers.com
+	by host59.registrar-servers.com with LMTP
+	id EE3tD47eKGamqQIA+KyzgQ
+	(envelope-from <russell_yeomans@yahoo.com>)
+	for <info@dependablelc.com>; Wed, 24 Apr 2024 06:27:26 -0400
+Return-path: <russell_yeomans@yahoo.com>
+Envelope-to: info@dependablelc.com
+Delivery-date: Wed, 24 Apr 2024 06:27:26 -0400
+Received: from [63.250.43.69] (port=23860 helo=asp-relay-shared.jellyfish.systems)
+	by host59.registrar-servers.com with esmtps  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96.1)
+	(envelope-from <russell_yeomans@yahoo.com>)
+	id 1rzZqX-0013Ia-2j
+	for info@dependablelc.com;
+	Wed, 24 Apr 2024 06:27:25 -0400
+Authentication-Results: asp-relay-shared.jellyfish.systems;
+	dkim=pass header.d=yahoo.com header.s=s2048 header.b="nPBx//VN";
+	dmarc=pass (policy=reject) header.from=yahoo.com;
+	spf=pass (asp-relay-shared.jellyfish.systems: domain of russell_yeomans@yahoo.com designates 66.163.187.147 as permitted sender) smtp.mailfrom=russell_yeomans@yahoo.com
+Received: from sonic316-21.consmr.mail.ne1.yahoo.com (sonic316-21.consmr.mail.ne1.yahoo.com [66.163.187.147])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by asp-relay-shared.jellyfish.systems (Postfix) with ESMTPS id 4VPZtN6j0rz18ZF
+	for <info@dependablelc.com>; Wed, 24 Apr 2024 10:27:24 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yahoo.com; s=s2048; t=1713954444; bh=mwP8peqrjohJ8jdGCw3PXKKCF8KR2X30mPUpPhpQuH0=; h=From:Date:Subject:References:To:From:Subject:Reply-To; b=nPBx//VNpXRiwmDpx9pJCeb79mwbPX52ILqTLFkhx3DZg2gswItWPZ2B1gpRkLfeE7mWpw7nw6U0D1etlWz/sUQ1yfjhJyXWagVo5CrB750L9sH9kewhgIZd4tj5KrOyTLQNG9Me/oHB3goiLja8qS/0700oHt34jrfJ8sfcLzYO/fsZe5pHsZjFU6K+n147FDstp84AiPGz15ERgOhM+K3hNMyhA8zfPTNzu7OzRVADFK1X2PGcUfJ9vk31cIyQKGHoCs1qCuZ0963Bs9P6e9Lz2x0kOZFy+cZ4G+cz1gbFT7uWdJNY6Fbp4MbBs20fyIsoKqqBRiUG23AyX3DAPg==
+X-SONIC-DKIM-SIGN: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yahoo.com; s=s2048; t=1713954444; bh=oUctUdump1oQ0hymUgzEEYmLgEvsPH3E6EXrKaaoxaZ=; h=X-Sonic-MF:From:Date:Subject:To:From:Subject; b=oJGy3pq8PMP2KJtECBbSVvSEwn+XoAr3/F9ohIphPsfAf8hshbBfaqaTS8RiLXoeAbOWKpJzfuKb6gHgtv+i6KjlWOI9cesPwjotG6AlnZDQNAVF4pBaAd3u0SiIhVYSxLQHroHVsY6A3N27jQw8cM05uiJD2TgV609w87ycOGxquYg7fWwwEsrsHHmsCSVcN/zJ21MmnW+bpigsl2k+rN4IOBMW1xnyCSm+QaGfiINtv1mSN64XMe/nqOgnY9ohWP7rdCUWR4ruJ38fdPw8IoTAEOxqX+2COj1PCG3s4j2Bu/EiQMqTHQoPT7oF4SOQbHDI1et6LjfwZ2eE9cRjLw==
+X-YMail-OSG: 3ghVRW0VM1mq2lHkjz5wivdJCAHcG1LN.y3yw7dez748a5TxDLOEaT5fcfUhHP.
+ u8OwEOBr2Yv4z1iZrmPdl4ETc9z6GTtduOl4QGqUFvknRu1hM3Pp0.mfWr4QwXI2PAnNZUkdPQdO
+ 3eAaIiPTQaam1BtZAw3oHHBACyPCq9pTjOeK5hbUneC6vfd_YH9P876vm25pe27Jz._pgJbCH0hl
+ c7fesl4LNmJgd07pnGaUWTQUn_xgcyRspIdyIWBYzKiwVZItA5SveiBI93SLImfkHyd_ijDskStr
+ cTaGm1BeF4wfWsToTU4oqUVrzYRDRqHLw.KcbCUE.0fHoOZv_s7VbixJW1UmJ2_V_ev3wyhuQIC8
+ j7Gd78nCNA.yuwTwjrpNUTaSwldRktM7avJJCkjfaBJ2PaQhY8I_NiJPcAC5EXt.1_2FE5tfZ8ya
+ 34fVm4.JyITHI7txhaQ7F6fYWlWPaBUTpkqrwhnkFT2SewkHwvTtl66awM.JZAsGSB4X0pPbrkbL
+ xMCMc3j_ksX1akiPWTNzcsygvDAckabdgOai9h0gqG4GD1L6h7rRMWWZV9N0XteFV3Tek6hP_b8a
+ XueVEj6Qlg.khnqq8klqZN7yXXsmx_xi2zxtlkzfU7.Q7yanGxcnfFM12QiuYS6fKfkVL1mtN.eP
+ 1C3Ftx.ri.5JYFisJHCVdq_ode96brZPtS0uIFDFiImOwrsYwFzNTLuIR3JXHmyZwH7DbH4YBuop
+ K53gSWZqn.FA7ByiCHDE1P6U5By9Ib6iT2l5FobGinn.f.V8h0sIH99oczNuC1f_tz4dBJZplqm1
+ JBnWXal2_qwzUzJHn9ILemxC3mz.Ln2EpWbMJKSgqSMn.MRh8ueBCk247GTu84MVXk5xTIpZweSl
+ ruvXGBpNPf.g.JMecMN_EiHqPmp.lu.R8CpCyRM2g552nH_yflCEhlmbVXa.HVyAmqhxe4QyVQWK
+ JSvsGOW1_GOdLaa1iYDv6JtH4CAygIS43cmec37rl1h0.O19ng7t1Sd4CBD2zp4IV3OcJdLuF0i1
+ Dg24Lq.OEhhl5.QNhM.QGN68b.khtDup398Pf3uDJET4iJLx_d87CsPjl1Sy1EEXG1ocXp8qA4ZI
+ 2mEGIY8zrZbCsSAmiZhFeJNkQucPiKEajbg33aBmYVMOFQbqS6k44ijO6YSgKUWhGPnBtiAvUWEh
+ 0y8b5eSe6swBbmmow5lqwN.HCP.aoB9ML6_SnBGFGrsn2ZRMq4WyHxqql.PPy87nxvyELlRNpzEV
+ wahObsZlh_7D3rmKM11j6Ge4e7kT7oZF3bF0naSHKilHPhaKfcrN6wEjYASCE3w.vpc4azLIUkLn
+ DOArh.Sn7G82uVV.a80rSAEiQv3ymwJXTX1J5PJcD5Ixz9JuiavG8_6ZqOykwG_W529xrLf_eXaP
+ JANytRjsrv8vdUGxtvX41bJNkNnYLAxN6RDnNcEKoNcTzSERF1BZrERPITvBzXB5Ugs5k5FnjNEl
+ N66RWELwwAjBaisD9wctPvHHqkOljHLlGmZhCKkaHBz99fr.n7QBUSq01janyI.4hdmYuguDm.7Y
+ nT3bAIkoNbzZkTD7DUtKcFCLECLcZINTzie046SX62XyXKwuc9O5ThURRhCeG6KFA5LYwtM8ra9.
+ 7DbDd4T8KY5OppWHin836nHx4qkNRklkjrFJrzHuJ3IPdE06RHX_lHQ5dwIs0y5_SpCpWE5mzVQu
+ ZlbszGM4auWKcX65Qz.6WLIspMkjC7zHVg_R9hkK6OZB0sJRrTmVo0d3baLkQgIntdDMtT2LRQ4.
+ qKq1Qn_9B4CcTZ8plo.C5N86xyQohV2LFKOjTSxRLorWQJXnYZN6kaG13jzQgBBjIouF4ikq3dQV
+ qEyaZ7Ny1FEr9t1ejmfZbVAl4IgwyphCZIfziyxnnOQF0T6zsMk63zYpbpS0KmDnDBuR7U5ZonCx
+ VBfB6XoKyBtzK4jDxFwg69O4uNTDw6OrtlVac58mTe20e5W6eR3wK8bGd2e6wKEWfUb0LAeIxQzu
+ s4h7Mpz0e.X74xDZ1YXFQVniXSktv6HL3I8B3bP8bJQwfGgtLGYOMHR9mO84opSNeFApUkUcDZJ8
+ JMCpxNXTI6c.HpnqqHxlG9rgNx3ROi86adG1Knkbpces70AIjHhhh8gEVtRpNLUMotAE89bFPTOh
+ kfw1C8RSnt3dGdBVdV63jeRjqyFI1v.Co8o.NhWaXPCb_iGZpUEpGf_YeJI3OEKhmBa0RYwnIplg
+ qdmXLXFDa817mQarY0X99hy4D22kc2hIjZl9tk5oRJbc0aH0cdbvpkw.XjSlT
+X-Sonic-MF: <russell_yeomans@yahoo.com>
+X-Sonic-ID: 4bdbdac4-13bf-4785-a3af-4d2501337f5b
+Received: from sonic.gate.mail.ne1.yahoo.com by sonic316.consmr.mail.ne1.yahoo.com with HTTP; Wed, 24 Apr 2024 10:27:24 +0000
+Received: by hermes--production-ir2-7b99fc9bb6-mh7d4 (Yahoo Inc. Hermes SMTP Server) with ESMTPA ID 2fd067d9c579591b0462eb3a1d0aecad;
+          Wed, 24 Apr 2024 10:27:18 +0000 (UTC)
+Content-Type: multipart/alternative; boundary=Apple-Mail-E1426868-5297-4846-9781-77B83B90CF76
+Content-Transfer-Encoding: 7bit
+From: Russell Yeomans <russell_yeomans@yahoo.com>
+Mime-Version: 1.0 (1.0)
+Date: Wed, 24 Apr 2024 14:27:05 +0400
+Subject: Fwd: Case Activation Notification
+Message-Id: <1B9ABA81-82E6-474D-831B-B4F9E8E879F6@yahoo.com>
+References: <2653b3d0-18c3-486e-ae8c-a3117fa7d58e@DUCV-EXCH01.cloud.eres.ae>
+To: Aamer Lawyer <info@dependablelc.com>
+X-Mailer: iPhone Mail (21E236)
+X-NCJF-Result: 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
+ 
+	5jgzBE4l7uWYi+j7tkB76Ol8O7f
+X-NCJF-Version: 20
+
+
+--Apple-Mail-E1426868-5297-4846-9781-77B83B90CF76
+Content-Type: text/plain;
+	charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+
+Russell Yeomans
+Managing Director    &     Co-Founder
+Yeomans Executive   &    Sport2Business
+Partner, AARO Systems
+ryeomans@yeomansexecutive.com
+www.yeomansexecutive.com
+russell.yeomans@aaro.se
+www.aaro.se
+
+Mobile+971 5550 43620
+=46rom my iPhone
+
+Begin forwarded message:
+
+> From: Dubai Land Department <noreply@dubailandmail.gov.ae>
+> Date: 24 April 2024 at 13:44:27 GMT+4
+> To: russell_yeomans@yahoo.com
+> Subject: Case Activation Notification
+>=20
+> =EF=BB=BF
+> =D8=AA=D9=85 =D8=AA=D8=B3=D8=AC=D9=8A=D9=84 =D8=AF=D8=B9=D9=88=D9=89 =D8=AC=
+=D8=AF=D9=8A=D8=AF=D8=A9:
+> =D8=B1=D9=82=D9=85 =D8=A7=D9=84=D8=AF=D8=B9=D9=88=D9=89	03/21418/20=
+24- =D8=B3=D9=83=D9=86=D9=8A
+> =D9=86=D9=88=D8=B9 =D8=A7=D9=84=D8=AF=D8=B9=D9=88=D9=89	=D8=A7=D8=B3=
+=D8=AA=D8=A6=D9=86=D8=A7=D9=81
+> =D8=A7=D9=84=D9=84=D8=AC=D9=86=D8=A9	=D8=A7=D9=84=D9=84=D8=AC=D9=86=D8=A9=
+ =D8=A7=D9=84=D8=A7=D8=B3=D8=AA=D8=A6=D9=86=D8=A7=D9=81=D9=8A=D8=A9 =D8=A7=D9=
+=84=D8=AB=D8=A7=D9=86=D9=8A=D8=A9
+> =D8=AA=D8=A7=D8=B1=D9=8A=D8=AE =D8=A7=D9=84=D8=AC=D9=84=D8=B3=D8=A9	202=
+4/05/16 14:00
+> =D8=A7=D9=84=D8=AA=D9=88=D8=AC=D9=8A=D9=87=D8=A7=D8=AA	https: //rd=
+c.dubailand.gov.ae/SVCDoc.pdf
+> =D8=A7=D9=84=D8=AA=D9=81=D8=A7=D8=B5=D9=8A=D9=84	https://rdc.dubaila=
+nd.gov.ae/?r=3DWXe6eSYLqc66QN
+> =D9=84=D9=85=D8=B2=D9=8A=D8=AF =D9=85=D9=86 =D8=A7=D9=84=D9=85=D8=B9=D9=84=
+=D9=88=D9=85=D8=A7=D8=AA =D9=8A=D8=B1=D8=AC=D9=89 =D8=B2=D9=8A=D8=A7=D8=B1=D8=
+=A9 =D8=A7=D9=84=D9=85=D9=88=D9=82=D8=B9 https://dubailand.gov.ae =D8=A7=D9=88=
+ =D8=AA=D8=AD=D9=85=D9=8A=D9=84 =D8=A7=D9=84=D8=AA=D8=B7=D8=A8=D9=8A=D9=82 =D8=
+=A7=D9=84=D8=B0=D9=83=D9=8A Dubai REST
+>=20
+>=20
+> New case has been registered:
+> Case No :	03/21418/2024-Residential
+> Case Type :	Appeal
+> Committee :	Appeal Committee 2
+> Session Date :	2024/05/16 14:00
+> Guideline :	https: //rdc.dubailand.gov.ae/SVCDoc.pdf
+> Details :	https://rdc.dubailand.gov.ae/?r=3DWXe6eSYLqc66QN
+> For more info visit to https://dubailand.gov.ae or download the Dubai REST=
+ app
+
+--Apple-Mail-E1426868-5297-4846-9781-77B83B90CF76
+Content-Type: text/html;
+	charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+<html><head><meta http-equiv=3D"content-type" content=3D"text/html; charset=3D=
+utf-8"></head><body dir=3D"auto"><br id=3D"lineBreakAtBeginningOfSignature">=
+<div dir=3D"ltr">Russell Yeomans<div>Managing Director &nbsp; &nbsp;&amp; &n=
+bsp; &nbsp; Co-Founder</div><div>Yeomans Executive &nbsp; &amp; &nbsp; &nbsp=
+;Sport2Business</div><div>Partner, AARO Systems</div><div>ryeomans@yeomansex=
+ecutive.com</div><div>www.yeomansexecutive.com</div><div>russell.yeomans@aar=
+o.se</div><div>www.aaro.se</div><div><br></div><div>Mobile+971 5550 43620</d=
+iv><div>=46rom my iPhone</div></div><div dir=3D"ltr"><br>Begin forwarded mes=
+sage:<br><br></div><blockquote type=3D"cite"><div dir=3D"ltr"><b>From:</b> D=
+ubai Land Department &lt;noreply@dubailandmail.gov.ae&gt;<br><b>Date:</b> 24=
+ April 2024 at 13:44:27 GMT+4<br><b>To:</b> russell_yeomans@yahoo.com<br><b>=
+Subject:</b> <b>Case Activation Notification</b><br><br></div></blockquote><=
+blockquote type=3D"cite"><div dir=3D"ltr">=EF=BB=BF<table dir=3D"rtl">
+    <tbody><tr>
+        <td colspan=3D"2">=D8=AA=D9=85 =D8=AA=D8=B3=D8=AC=D9=8A=D9=84 =D8=AF=
+=D8=B9=D9=88=D9=89 =D8=AC=D8=AF=D9=8A=D8=AF=D8=A9:</td>
+    </tr>
+    <tr>
+        <td style=3D"font-size: medium; font-weight: bold; background-color:=
+ #C0C0C0">=D8=B1=D9=82=D9=85 =D8=A7=D9=84=D8=AF=D8=B9=D9=88=D9=89</td>
+        <td>03/21418/2024- =D8=B3=D9=83=D9=86=D9=8A</td>
+    </tr>
+    <tr>
+        <td style=3D"font-size: medium; font-weight: bold; background-color:=
+ #C0C0C0">=D9=86=D9=88=D8=B9 =D8=A7=D9=84=D8=AF=D8=B9=D9=88=D9=89</td>
+        <td>=D8=A7=D8=B3=D8=AA=D8=A6=D9=86=D8=A7=D9=81</td>
+    </tr>
+    <tr>
+        <td style=3D"font-size: medium; font-weight: bold; background-color:=
+ #C0C0C0">=D8=A7=D9=84=D9=84=D8=AC=D9=86=D8=A9</td>
+        <td>=D8=A7=D9=84=D9=84=D8=AC=D9=86=D8=A9 =D8=A7=D9=84=D8=A7=D8=B3=D8=
+=AA=D8=A6=D9=86=D8=A7=D9=81=D9=8A=D8=A9 =D8=A7=D9=84=D8=AB=D8=A7=D9=86=D9=8A=
+=D8=A9</td>
+    </tr>
+    <tr>
+        <td style=3D"font-size: medium; font-weight: bold; background-color:=
+ #C0C0C0">=D8=AA=D8=A7=D8=B1=D9=8A=D8=AE =D8=A7=D9=84=D8=AC=D9=84=D8=B3=D8=A9=
+</td>
+        <td>2024/05/16 14:00</td>
+    </tr>
+    <tr>
+        <td style=3D"font-size: medium; font-weight: bold; background-color:=
+ #C0C0C0">=D8=A7=D9=84=D8=AA=D9=88=D8=AC=D9=8A=D9=87=D8=A7=D8=AA</td>
+        <td>https: //rdc.dubailand.gov.ae/SVCDoc.pdf</td>
+    </tr>
+    <tr>
+        <td style=3D"font-size: medium; font-weight: bold; background-color:=
+ #C0C0C0">=D8=A7=D9=84=D8=AA=D9=81=D8=A7=D8=B5=D9=8A=D9=84</td>
+        <td>https://rdc.dubailand.gov.ae/?r=3DWXe6eSYLqc66QN</td>
+    </tr>
+    <tr>
+        <td colspan=3D"2">=D9=84=D9=85=D8=B2=D9=8A=D8=AF =D9=85=D9=86 =D8=A7=
+=D9=84=D9=85=D8=B9=D9=84=D9=88=D9=85=D8=A7=D8=AA =D9=8A=D8=B1=D8=AC=D9=89 =D8=
+=B2=D9=8A=D8=A7=D8=B1=D8=A9 =D8=A7=D9=84=D9=85=D9=88=D9=82=D8=B9 https://dub=
+ailand.gov.ae  =D8=A7=D9=88 =D8=AA=D8=AD=D9=85=D9=8A=D9=84 =D8=A7=D9=84=D8=AA=
+=D8=B7=D8=A8=D9=8A=D9=82 =D8=A7=D9=84=D8=B0=D9=83=D9=8A Dubai REST</td>
+    </tr>
+</tbody></table>
+<br>
+<br>
+<table dir=3D"ltr">
+    <tbody><tr>
+        <td colspan=3D"2">New case has been registered:</td>
+    </tr>
+    <tr>
+        <td style=3D"font-size: medium; font-weight: bold; background-color:=
+ #C0C0C0">Case No : </td>
+        <td>03/21418/2024-Residential</td>
+    </tr>
+    <tr>
+        <td style=3D"font-size: medium; font-weight: bold; background-color:=
+ #C0C0C0">Case Type :</td>
+        <td>Appeal</td>
+    </tr>
+    <tr>
+        <td style=3D"font-size: medium; font-weight: bold; background-color:=
+ #C0C0C0">Committee :</td>
+        <td>Appeal Committee 2</td>
+    </tr>
+    <tr>
+        <td style=3D"font-size: medium; font-weight: bold; background-color:=
+ #C0C0C0">Session Date :</td>
+        <td>2024/05/16 14:00</td>
+    </tr>
+    <tr>
+        <td style=3D"font-size: medium; font-weight: bold; background-color:=
+ #C0C0C0">Guideline :</td>
+        <td>https: //rdc.dubailand.gov.ae/SVCDoc.pdf</td>
+    </tr>
+    <tr>
+        <td style=3D"font-size: medium; font-weight: bold; background-color:=
+ #C0C0C0">Details :</td>
+        <td>https://rdc.dubailand.gov.ae/?r=3DWXe6eSYLqc66QN</td>
+    </tr>
+    <tr>
+        <td colspan=3D"2">For more info visit to https://dubailand.gov.ae or=
+ download the Dubai REST app</td>
+    </tr>
+</tbody></table></div></blockquote></body></html>=
+
+--Apple-Mail-E1426868-5297-4846-9781-77B83B90CF76--

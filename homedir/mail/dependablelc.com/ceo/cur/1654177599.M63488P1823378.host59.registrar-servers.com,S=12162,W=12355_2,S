@@ -1,0 +1,193 @@
+Return-Path: <3gl2TYg8JA6UHFWQF.I.XJaNQQFLRFNQ.HTRHJTIJUJSIFGQJQH.HTR@doclist.bounces.google.com>
+Delivered-To: ceo@dependablelc.com
+Received: from server1.parahost.co
+	by server1.parahost.co with LMTP
+	id 8CF8ELFdk2K6RQAAYK0uVw
+	(envelope-from <3gl2TYg8JA6UHFWQF.I.XJaNQQFLRFNQ.HTRHJTIJUJSIFGQJQH.HTR@doclist.bounces.google.com>)
+	for <ceo@dependablelc.com>; Sun, 29 May 2022 14:49:05 +0300
+Return-path: <3gl2TYg8JA6UHFWQF.I.XJaNQQFLRFNQ.HTRHJTIJUJSIFGQJQH.HTR@doclist.bounces.google.com>
+Envelope-to: ceo@dependablelc.com
+Delivery-date: Sun, 29 May 2022 14:49:05 +0300
+Received: from mail-qk1-f198.google.com ([209.85.222.198]:53144)
+	by server1.parahost.co with esmtps  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+	(Exim 4.95)
+	(envelope-from <3gl2TYg8JA6UHFWQF.I.XJaNQQFLRFNQ.HTRHJTIJUJSIFGQJQH.HTR@doclist.bounces.google.com>)
+	id 1nvHPr-0004bG-Qq
+	for ceo@dependablelc.com;
+	Sun, 29 May 2022 14:49:05 +0300
+Received: by mail-qk1-f198.google.com with SMTP id br42-20020a05620a462a00b006a5b92ed7b2so6513355qkb.19
+        for <ceo@dependablelc.com>; Sun, 29 May 2022 04:48:42 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20210112;
+        h=mime-version:reply-to:references:message-id:date:subject:from:to:cc;
+        bh=RANcNASVjAlvD1nuDDUvCK7JPgPmFSWCGgqNKiTIYEs=;
+        b=KmbKDMiKCUmF5Jt3lRDHza/S31FZSGzkNHqQW2Gn36UdGNKCIxKrJtBNIIRO9JxCTp
+         xV081zVZAS2HbAIOIjUIVC0b8mkl9bKsSdLx3IbTTYDCkRpDqKpztGyuHaZqfh0D23N5
+         H+4qP8r0f5Nj6YggVdV2OuaWrYmhL9IrieRNNuOzsP2MOvrCCytiY/rzZyFjI5Q2a34e
+         y+6InJjRYKormDkxjMQD9MQINZeE/gQdZVeMqSX89oB4X6CY59ndj6yzvHvjzq9CugOQ
+         mioH+6HblhJZ1Z0DhrxGe5f9JKpajyLTW5hLCOZZIAdmKPIgOiSFx6lE+OsW9XclOuPr
+         Llmw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=x-gm-message-state:mime-version:reply-to:references:message-id:date
+         :subject:from:to:cc;
+        bh=RANcNASVjAlvD1nuDDUvCK7JPgPmFSWCGgqNKiTIYEs=;
+        b=7ppJmtk7b9F1hObI9KklO6pMxadliMyJBo/6kHfPn/kEK7/RukXoGt+yyeXaRroRko
+         1PYC100MtOb8ox2mlfCSWGIYZd9OY2xPpK3JBXV2GH4QmFpeRtUAlcmBl3N1+58Q3XCi
+         IgyBATINKEgnPdZQuIcHUWjxC1Q7da8yqVh+2Zi/c4LLxIWgm3sbyTWCjSViVH4Mu/Sr
+         h/Ekziv1n4vx76fkAvOxw7a4yDgpNx/ftd00+ePBMKfuIz+ireYFx+JoLWb8YR//eqFx
+         hXYyCDK1yb3krtbvkW02uHG0r4y0x2/g95LIWsbsN/Um7KFTgNImmaxWb2VrmGIeBwsn
+         4/ow==
+X-Gm-Message-State: AOAM533tsH4vLJ1LGyYqrj5GMCWC7rECSLeYjp7ssXo4LCH7rfl0ElFA
+	sqaP/IvZQ+9z9DnUY+xbEyiybkM0rD4=
+X-Google-Smtp-Source: ABdhPJymCUeKVFe7o49Oe0WPjwq9KRkpSKkSmdSXqgrBYjCQNeML9nPZ4+ZJgiSsvQLyhaiONtSnRv8eF2w=
+MIME-Version: 1.0
+X-Received: by 2002:ac8:5acb:0:b0:2f3:b7d7:6597 with SMTP id
+ d11-20020ac85acb000000b002f3b7d76597mr40487803qtd.98.1653824898353; Sun, 29
+ May 2022 04:48:18 -0700 (PDT)
+Reply-To: Carla Sevilla <carla.d.sevilla@gmail.com>
+X-No-Auto-Attachment: 1
+References: <d0818804-9d7a-4c2a-844d-c8e5a3f65975@docs-share.google.com>
+Message-ID: <00000000000096533905e0251de9@google.com>
+Date: Sun, 29 May 2022 11:48:18 +0000
+Subject: Item shared with you: "AAC%20UNPAID%20OVERTIME%20v.2.pdf.pdf"
+From: "Carla Sevilla (via Google Drive)" <carla.d.sevilla@gmail.com>
+To: ceo@dependablelc.com
+Cc: mizrullafir9@gmail.com
+Content-Type: multipart/alternative; boundary="00000000000096531d05e0251de6"
+X-Spam-Status: No, score=0.4
+X-Spam-Score: 4
+X-Spam-Bar: /
+X-Ham-Report: Spam detection software, running on the system "server1.parahost.co",
+ has NOT identified this incoming email as spam.  The original
+ message has been attached to this so you can view it or label
+ similar future email.  If you have any questions, see
+ root\@localhost for details.
+ Content preview:  I've shared an item with you: AAC%20UNPAID%20OVERTIME%20v.2.pdf.pdf
+    https://drive.google.com/file/d/1-O9S0tMf8Outgy30Nnyy3VSv7uIZ_l9H/view?usp=sharing&invite=CNn3xdUF&ts=62935d82
+    It's not an attachment -- it's stored online. To open this item, just click
+    the link above. 
+ Content analysis details:   (0.4 points, 5.0 required)
+  pts rule name              description
+ ---- ---------------------- --------------------------------------------------
+  0.2 HEADER_FROM_DIFFERENT_DOMAINS From and EnvelopeFrom 2nd level
+                             mail domains are different
+ -0.0 SPF_PASS               SPF: sender matches SPF record
+  0.0 FREEMAIL_FROM          Sender email is commonly abused enduser mail
+                             provider
+                             [carla.d.sevilla[at]gmail.com]
+  0.0 HTML_MESSAGE           BODY: HTML included in message
+  0.0 HTML_IMAGE_RATIO_08    BODY: HTML has a low ratio of text to image
+                             area
+ -0.1 DKIM_VALID             Message has at least one valid DKIM or DK signature
+  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
+                             valid
+ -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
+                             author's domain
+  0.2 FREEMAIL_FORGED_FROMDOMAIN 2nd level domains in From and
+                             EnvelopeFrom freemail headers are
+                             different
+ -0.0 T_SCC_BODY_TEXT_LINE   No description available.
+  0.0 T_REMOTE_IMAGE         Message contains an external image
+X-Spam-Flag: NO
+
+--00000000000096531d05e0251de6
+Content-Type: text/plain; charset="UTF-8"; format=flowed; delsp=yes
+
+I've shared an item with you:
+
+AAC%20UNPAID%20OVERTIME%20v.2.pdf.pdf
+https://drive.google.com/file/d/1-O9S0tMf8Outgy30Nnyy3VSv7uIZ_l9H/view?usp=sharing&invite=CNn3xdUF&ts=62935d82
+
+It's not an attachment -- it's stored online. To open this item, just click  
+the link above.
+
+
+--00000000000096531d05e0251de6
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<html><head></head><body><table style=3D"border-collapse: collapse; width: =
+100%; background-color: white; text-align: center;" role=3D"presentation"><=
+tr><td style=3D"padding: 24px 0 16px 0;"><table style=3D"border-collapse: c=
+ollapse;font-family: Roboto, Arial, Helvetica, sans-serif;hyphens: auto; ov=
+erflow-wrap: break-word; word-wrap: break-word; word-break: break-word;disp=
+lay: inline-block; width: 90%;max-width: 700px;min-width: 280px; text-align=
+: left;" role=3D"presentation"><tr><td style=3D"padding: 0;"><table style=
+=3D"width:100%; border: 1px solid #dadce0; border-radius: 8px; border-spaci=
+ng: 0; table-layout:fixed; border-collapse: separate;" role=3D"presentation=
+"><tr><td style=3D"padding: 4.5%;" dir=3D"ltr"><div style=3D"margin-bottom:=
+32px;font-family: Google Sans, Roboto, Arial, Helvetica, sans-serif; font-s=
+tyle: normal; font-size: 28px; line-height: 36px; color: #3c4043;"><a href=
+=3D"mailto:carla.d.sevilla@gmail.com" style=3D"color:inherit;text-decoratio=
+n:none">carla.d.sevilla@gmail.com</a> shared an item</div><table style=3D"b=
+order-collapse: collapse;font-family: Roboto, Arial, Helvetica, sans-serif;=
+ font-size:16px; line-height:24px; color:#202124; letter-spacing:0.1px; tab=
+le-layout:fixed; width:100%; overflow-wrap: break-word;" role=3D"presentati=
+on"><tr><td style=3D"padding: 0; vertical-align:top; width:50px;"><!--[if m=
+so]><v:oval xmlns:v=3D"urn:schemas-microsoft-com:vml" xmlns:w=3D"urn:schema=
+s-microsoft-com:office:word" style=3D"height:50px;width:50px;" fill=3D"t" s=
+troke=3D"f"><v:fill type=3D"frame" src=3D"https://ssl.gstatic.com/s2/profil=
+es/images/silhouette64.png" alt=3D"Unknown profile photo" style=3D"height:5=
+0px;width:50px;"/></v:oval><![endif]--><div style=3D"mso-hide:all;"><img st=
+yle=3D"border-radius:50%; display:block;" width=3D"50" height=3D"50" src=3D=
+"https://ssl.gstatic.com/s2/profiles/images/silhouette64.png" alt=3D"Unknow=
+n profile photo"></div></td><td style=3D"padding: 0; vertical-align:top; pa=
+dding-left:12px;"><div style=3D"padding-top:12px;"><a href=3D"mailto:carla.=
+d.sevilla@gmail.com" style=3D"color:inherit;text-decoration:none">carla.d.s=
+evilla@gmail.com</a> has shared the following item:</div></td></tr></table>=
+<table style=3D"border-spacing:0 4px; table-layout:fixed; width:100%; overf=
+low-wrap: break-word;" role=3D"presentation"><tr style=3D"height:28px;"></t=
+r><tr><td style=3D"padding: 0;"><a href=3D"https://drive.google.com/file/d/=
+1-O9S0tMf8Outgy30Nnyy3VSv7uIZ_l9H/view?usp=3Dsharing_eil_m&amp;invite=3DCNn=
+3xdUF&amp;ts=3D62935d82" target=3D"_blank" style=3D"color: #3c4043; display=
+: inline-block; max-width: 100%; text-decoration: none; vertical-align: top=
+;border: 1px solid #DADCE0; border-radius: 16px; white-space: nowrap;"><div=
+ style=3D"line-height: 18px; overflow: hidden; text-overflow: ellipsis;padd=
+ing: 6px 12px;"><span style=3D"display: inline-block; vertical-align: top; =
+min-width: 26px; width: 26px;"><img src=3D"https://ssl.gstatic.com/docs/doc=
+list/images/mediatype/icon_3_pdf_x64.png" width=3D"18" height=3D"18" style=
+=3D"vertical-align: top;" role=3D"presentation"></span><span style=3D"font:=
+ 500 14px/18px Google Sans, Roboto, Arial, Helvetica, sans-serif; display: =
+inline; letter-spacing: 0.2px;">AAC%20UNPAID%20OVERTIME%20v.2.pdf.pdf</span=
+></div></a></td></tr></table><table style=3D"border-collapse: collapse;" ro=
+le=3D"presentation"><tr style=3D"height: 24px"><td></td></tr></table><div s=
+tyle=3D"background: #fef7e0; border-radius: 4px; padding:12px 16px;"><div s=
+tyle=3D"display: table-cell; vertical-align: middle;"><img src=3D"https://s=
+sl.gstatic.com/docs/documents/share/images/warning_callout_outline_yellow.p=
+ng" width=3D"24px" height=3D"24px" style=3D"margin-left: 7px; margin-right:=
+ 19px; vertical-align: middle;"></div><div style=3D"color: #3c4043; display=
+: table-cell; font-size: 14px; line-height: 20px; vertical-align: middle;">=
+This email grants access to this item without logging in. Only forward it t=
+o people you trust.</div></div><table style=3D"border-collapse: collapse;" =
+role=3D"presentation"><tr style=3D"height: 32px"><td></td></tr></table><div=
+><!--[if mso]><v:roundrect xmlns:v=3D"urn:schemas-microsoft-com:vml" xmlns:=
+w=3D"urn:schemas-microsoft-com:office:word" href=3D"https://drive.google.co=
+m/file/d/1-O9S0tMf8Outgy30Nnyy3VSv7uIZ_l9H/view?usp=3Dsharing_eip_m&amp;inv=
+ite=3DCNn3xdUF&amp;ts=3D62935d82" style=3D"height:36px;v-text-anchor:middle=
+;width:100px;" arcsize=3D"50%" stroke=3D"f" fillcolor=3D"#1a73e8"><w:anchor=
+lock/><center style=3D"color:#ffffff;font-family:Arial,Helvetica,sans-serif=
+;font-weight:500;font-size:14px;">Open </center></v:roundrect><![endif]--><=
+a href=3D"https://drive.google.com/file/d/1-O9S0tMf8Outgy30Nnyy3VSv7uIZ_l9H=
+/view?usp=3Dsharing_eip_m&amp;invite=3DCNn3xdUF&amp;ts=3D62935d82" class=3D=
+"material-button material-button-filled" target=3D"_blank" tabindex=3D"0" r=
+ole=3D"button" style=3D"mso-hide:all;padding: 0 24px;font: 500 14px/36px Go=
+ogle Sans, Roboto, Arial, Helvetica, sans-serif; border: none; border-radiu=
+s: 18px; box-sizing: border-box; display: inline-block; letter-spacing: .25=
+px; min-height: 36px; text-align: center; text-decoration: none;background-=
+color: #1a73e8; color: #fff; cursor: pointer;">Open</a></div></td></tr></ta=
+ble><table style=3D"border-collapse: collapse; width: 100%;" role=3D"presen=
+tation"><tr><td style=3D"padding: 24px 4.5%"><table style=3D"border-collaps=
+e: collapse; width: 100%;" dir=3D"ltr"><tr><td style=3D"padding: 0;font-fam=
+ily: Roboto, Arial, Helvetica, sans-serif; color: #5F6368; width: 100%; fon=
+t-size: 12px; line-height: 16px; min-height: 40px; letter-spacing: .3px;">G=
+oogle LLC, 1600 Amphitheatre Parkway, Mountain View, CA 94043, USA<br/> You=
+ have received this email because <a href=3D"mailto:carla.d.sevilla@gmail.c=
+om" style=3D"color:inherit;text-decoration:none">carla.d.sevilla@gmail.com<=
+/a> shared a file or folder located in Google Drive with you.</td><td style=
+=3D"padding: 0; padding-left: 20px;"><a href=3D"https://www.google.com/" ta=
+rget=3D"_blank"><img src=3D"https://www.gstatic.com/images/branding/googlel=
+ogo/2x/googlelogo_grey_tm_color_96x40dp.png" width=3D"96" height=3D"40" alt=
+=3D"Logo for Google Drive"></a></td></tr></table></td></tr></table></td></t=
+r></table></td></tr></table></body></html>
+--00000000000096531d05e0251de6--

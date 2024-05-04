@@ -1,0 +1,785 @@
+Return-Path: <am@reliabletrpt.ae>
+Delivered-To: info@dependablelc.com
+Received: from host59.registrar-servers.com
+	by host59.registrar-servers.com with LMTP
+	id oLQoFHqexmIcDgsA+KyzgQ
+	(envelope-from <am@reliabletrpt.ae>)
+	for <info@dependablelc.com>; Thu, 07 Jul 2022 04:51:06 -0400
+Return-path: <am@reliabletrpt.ae>
+Envelope-to: info@dependablelc.com
+Delivery-date: Thu, 07 Jul 2022 04:51:06 -0400
+Received: from [63.250.43.69] (port=42391 helo=asp-relay-shared.jellyfish.systems)
+	by host59.registrar-servers.com with esmtps  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <am@reliabletrpt.ae>)
+	id 1o9NE2-0039B6-8k
+	for info@dependablelc.com;
+	Thu, 07 Jul 2022 04:51:06 -0400
+Received: from EUR02-AM5-obe.outbound.protection.outlook.com (mail-eopbgr00113.outbound.protection.outlook.com [40.107.0.113])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by asp-relay-shared.jellyfish.systems (Postfix) with ESMTPS id 4LdqrP3gdSzyR4
+	for <info@dependablelc.com>; Thu,  7 Jul 2022 08:50:55 +0000 (UTC)
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=fzSIqGf0i4fCXK4iRMA0YRK8vFRKLs6POpooojjsxz4xYUJv8kVD5WeNc9nD/9oUm/LjRTxXryAG/bSrO4T+auTnOEIBeseKFCq+YGxYLiZ21/pHBq4CrOfYQu3K2QthIEbygNGYpH0qs9TotSo5XPpb/vPlHPgtU7nsgtlqgE6Ceaa62isEzjsaubYLiLiFzeTx/207yG6YGyI+srpoWyHJHfgTnr/ztzZ/2eQMBF0AFOud1TZRTJaqVfizPk/68UjnEPTFrZUqEr2WznezynfXmF09ZBccvFmCJnLKWfvcSG31TNXHWgqarv3YDs2YNOQUBlZF870v/K7SMUxlhw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=aN3Rv2X3dAP9jy45fb2RdhhEev101QyplVfaPSUTdYM=;
+ b=ichnAxvs2CQumRxYrGP8hf23N9W7iqusTOnqjMuYwmgr4W3h8gGt1lrtO0azG26vg6if1Q4g3Wz/rXOCenZ+Wdw7EBwiH3qRvoQxva0FQooPOrmWlN1PdTX9IQud3Eu8F5U6O7Gf/P+MEWF7ZwMJOAZkjfr2DnWHay99I/PYmx9cM8cK6rW7AsF2ttV7EvJQM66AhCZC587HjEQPlpv6NJilSUEQuarb7ddJoxj0M73DdAB2zXDHr1xL7TYQpTBiIw3//F10EUpjOWgKxM4f4Le7PqYQcCwKXmD1Cuc+uAoiiyvXymgIngzcHPVKIRmpLYjGP7ksg8DDq8Q53ZQ5Cg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=reliabletrpt.ae; dmarc=pass action=none
+ header.from=reliabletrpt.ae; dkim=pass header.d=reliabletrpt.ae; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=reliabletransportllc.onmicrosoft.com;
+ s=selector2-reliabletransportllc-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=aN3Rv2X3dAP9jy45fb2RdhhEev101QyplVfaPSUTdYM=;
+ b=B3t3+srNdvrtMTAl+DLMvxE9UdKSr4z4OrqXgQpq++NSjVQI2sE7Id5YPk2x329G4SMmB6j2pKTKnvG1dEWxsMh01mvwr2Iur3mo0XMcGqXE7W71l2d+OQzUTNdVX3GM5a8MA1NVsV84EwVjsGoDwhvAR4tjVDWx8AIoG2etDQ8=
+Received: from HE1PR05MB3306.eurprd05.prod.outlook.com (2603:10a6:7:38::20) by
+ AM5PR0502MB2979.eurprd05.prod.outlook.com (2603:10a6:203:95::15) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.5417.15; Thu, 7 Jul
+ 2022 08:50:53 +0000
+Received: from HE1PR05MB3306.eurprd05.prod.outlook.com
+ ([fe80::9c34:789:a46e:4cfd]) by HE1PR05MB3306.eurprd05.prod.outlook.com
+ ([fe80::9c34:789:a46e:4cfd%5]) with mapi id 15.20.5417.016; Thu, 7 Jul 2022
+ 08:50:52 +0000
+From: "MANOJ" <am@reliabletrpt.ae>
+To: <info@dependablelc.com>
+Cc: "'Smitha \(RTC\)'" <accounts1@reliabletrpt.ae>,
+	<pcabraham@reliabletrpt.ae>,
+	<kumarrtransport@gmail.com>
+References: <000001d8860b$fca7fea0$f5f7fbe0$@reliabletrpt.ae> <001001d891da$9caef780$d60ce680$@dependablelc.com>
+In-Reply-To: <001001d891da$9caef780$d60ce680$@dependablelc.com>
+Subject: RE: Documents for Red Sea Hosing Services Company FZE - For Legal Proceedings
+Date: Thu, 7 Jul 2022 12:50:46 +0400
+Message-ID: <000401d891de$a9271e30$fb755a90$@reliabletrpt.ae>
+Content-Type: multipart/related;
+	boundary="----=_NextPart_000_0005_01D89200.303B2F30"
+X-Mailer: Microsoft Outlook 16.0
+Thread-Index: AQFbaerbi4RvrvsBrR/3ST0KNTaIGAHyDj1Yrl1YUfA=
+Content-Language: en-ae
+X-ClientProxiedBy: DXXP273CA0003.AREP273.PROD.OUTLOOK.COM
+ (2603:1086:300:2::15) To HE1PR05MB3306.eurprd05.prod.outlook.com
+ (2603:10a6:7:38::20)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id: baf2ef62-e3cd-4421-6262-08da5ff5cc39
+X-MS-TrafficTypeDiagnostic: AM5PR0502MB2979:EE_
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;
+X-Microsoft-Antispam-Message-Info:
+	ha6qaXqu37x9VkgR3HiqhpsOrx1WcRpyrfsAHGpotle2Wr9Kfm+vp6ZC6xS/anBTLU87XQflugYVhjmaz3E9kbPBunFGMiooygZHjQ/RA7tNCSBIoi5wjg7qABasUjThGt1vlO8tm9vwovMky9d1Ag9mEMmw8p7/lccOslW0WyomB//kqz6RhOye6Br3fOtJQqMe59z9oiIQmuJRFkmgI+3UIjEq+ChpxKPkvRw9D+lKLNcq3rd2aG5fUZHdHRvchttCgLTpFCXO3fM47G9gLM2NhbaWEBDv+v5KNEOsl2E19kKUaX05oRHxE0W3OmsT6EaaXs073VYIKzHivbE7at7GbWYq7MM5BJQE7O5tIlfeDEeHPFEtJm8yM7Y4fWgQcb3+Uo3Y7JCFaNgy6RtkVPYt78NWS4Hod9YkzKSln5DrKdoAkxKLGVCjRVuCjGUhh/soUe91++VDi+pJTGv5Z/cpMdjlTN/A9BpnC3qplLmnW1OEYqLVSmZPQEyT+pL3Xr8muvBETG/wEknTybruv4tOt28OcIpYWiOhBBWrs0AybSTV7hL8Sw0vuayR/f6+kzSL4g4GYdJR4MVQQMTKBLAWuhl2cmiKJzrGYpFRXJiMNUMk3OmhLcnX3BP0sLB5wgHkVlqsiSudQutaPcKmTfTohgH+bNDmEcxvg8OYii5vVD83d/hxfotexbKKirPVQHZlmNvrrAUpd2xDyiauU0NYsJEOy9s21vDuj5LCXQLh5pmCvC5v3+a1ECjTtgO1/Oyz3yc09pMFn/U6/9IjfYKdlzr6Tk5FkmjX4y6t++mvKZ1vz+xV+q3Ata20iSvr
+X-Forefront-Antispam-Report:
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:HE1PR05MB3306.eurprd05.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230016)(376002)(346002)(39830400003)(396003)(366004)(136003)(6512007)(66556008)(1420700001)(2616005)(66476007)(5660300002)(8936002)(8676002)(66946007)(186003)(36756003)(86362001)(6916009)(53546011)(44736005)(4326008)(26005)(6506007)(41300700001)(6486002)(2906002)(52116002)(478600001)(6666004)(83380400001)(316002)(54906003)(38100700002)(38350700002);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	=?us-ascii?Q?Cz18U2muayqbSw/pc4zhA/qXt7Wp3U1e8FX7L2dNrJHJC0rVws5UfLfHm12w?=
+ =?us-ascii?Q?2/vHKKptQQgaeWzLOwxFsuZ8/bOMlpekjHBroXTEtegYpZcFCA/u8d4hrVkP?=
+ =?us-ascii?Q?zKwvfFRZ9FA6c1oMt0gceSrAwlcSzLIrZ3t3KRMo/e99QXVoXdOJzseu70Pv?=
+ =?us-ascii?Q?WP3sAik8NDcrR+4J3R4TqPKYIJ0tbUhx7U3R6kh29B23R1gOgOy1Y+4tPij1?=
+ =?us-ascii?Q?1moD7G6Z7RfZhOcjENYvzUVPpXZvFHgLyKTOXnjS4GMWziT4b9WM+bofEjZF?=
+ =?us-ascii?Q?Yh13eZcyyYeDvSiqfZNReU7XWDpOQRi6RqR4r7XyserpDPwGnoJrZUBWhs0M?=
+ =?us-ascii?Q?o7JAxDwNzx/igzNkaen2FIJzUPNqKVCdazCBNNlunyzxrK+SUwJvxXH1XDXj?=
+ =?us-ascii?Q?2UtWsjLap2QuoegFAt42QOFJ+Smv3ldAFT5NLuj/vzV3/sOu7520zyYoCQtr?=
+ =?us-ascii?Q?/lDREzdgG7QL22ZbRNQvYcxu3Qdp2rKemqY6b2WLwAoRianUyIVoRjyG5/Dc?=
+ =?us-ascii?Q?9dDoKZ8dj4kWxynR8sOhfftYE+phAzt3Dkk6LWkdYNod/oFRNgOxgwiZmG7F?=
+ =?us-ascii?Q?qBANtotfBCkdHtnk+vmfgEOB+uAgn3SjKKsqhhVg+opsIocZik1CCTlRFfBw?=
+ =?us-ascii?Q?dFu4ivpPoT9kZ3tATKTwsSY8fK7rkfIctZMGBDXGRt0TqwVJ9pjni2OlKR4W?=
+ =?us-ascii?Q?P2/Gw7vJeb303lG/k11Uhua255gf5YD9o2ETylDMaybt2Lq9xkpK6bmS4zla?=
+ =?us-ascii?Q?16ozMSY0RIpYXy9+OoaXPuk/eFKfdkk5SF7ycEKXw5ZzDlqVl2U6YX5BXK9U?=
+ =?us-ascii?Q?GwhFbI0eqb/3pMlk0AwT3nKBcOu7UXI8vKlb+c8uDs3FOKIcd5JLp4ifcSFN?=
+ =?us-ascii?Q?pPYIExkpdXeD8309qnncWW/ifeelGHL21fxib85wP84enfqHXNgFL/3itULW?=
+ =?us-ascii?Q?jsE3YAc70vx7PcKEam4nv1rTO7yh3SXmb0gfmHt63/OLlybAF9ny/To6pt9U?=
+ =?us-ascii?Q?yeuTvX7hhlL5dV0EsnRi/K5ZawaHTIsjN61zBKx+m42iHyYqJBbTl6utPs+X?=
+ =?us-ascii?Q?WioPGe2D63paUk+rmG4a2Dk/Oj/CaJQCMW2xLhsGl+x4l0LilexUUzVEeJVj?=
+ =?us-ascii?Q?razKpqv65I9nwgXuhxpKZ150mNgQ4bGLDo9bHi7jjNNyfJtbf4al3dgbNkjC?=
+ =?us-ascii?Q?P9iEWSO9clCvsBDDmPNwTbbk1eKxLIHv4l2FbsFk+BzXwdiflRG4NVkYE5ea?=
+ =?us-ascii?Q?GkZs8OhrTKsPpKeeME12L/YUFPY7mdDT+5HTfnZEHT9KKgeQSV89If1ODfFO?=
+ =?us-ascii?Q?x5AALmJWAw3cEoqa4qDNgBMvmYMtSMG3lfGDxQuXh8vzZjXKHWbFTWeLI4Yu?=
+ =?us-ascii?Q?120Z3dUpqFfBcZD4OCey/QHAsfvSBvWmODLYYgiBd6lSdPVIL017lMK/sQMy?=
+ =?us-ascii?Q?btrhGUOb16CI3uqOq1/VRQlJE4F7zVLi1VF8692XdN3DiyWSc7dPD6rviFfv?=
+ =?us-ascii?Q?dKl4EtxGBHFG4ty/5cYWmc448WK4KMd9MRBuxHSjCd7xtk/wo4pBtv5+2M+K?=
+ =?us-ascii?Q?lKOXr8QBTHPE9/Kyh7EpD566tt0WYKXI9l25e5rZ?=
+X-OriginatorOrg: reliabletrpt.ae
+X-MS-Exchange-CrossTenant-Network-Message-Id: baf2ef62-e3cd-4421-6262-08da5ff5cc39
+X-MS-Exchange-CrossTenant-AuthSource: HE1PR05MB3306.eurprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 Jul 2022 08:50:52.7254
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 63a14217-e2ad-4b94-b8e7-420336bc71bf
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: gmLdxE+wB9+aGehUnsJwQC8A9PXdgf1eeXiJeISuqr/UltnbXs4oY3DQhM5pxA6aXgu9mozv7iuxhQG7qp+2Pw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM5PR0502MB2979
+X-NCJF-Result: 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
+ 
+	=
+X-NCJF-Version: 8
+Authentication-Results: asp-relay-shared.jellyfish.systems;
+	dkim=pass header.d=reliabletransportllc.onmicrosoft.com header.s=selector2-reliabletransportllc-onmicrosoft-com header.b=B3t3+srN;
+	arc=pass ("microsoft.com:s=arcselector9901:i=1");
+	dmarc=none;
+	spf=pass (asp-relay-shared.jellyfish.systems: domain of am@reliabletrpt.ae designates 40.107.0.113 as permitted sender) smtp.mailfrom=am@reliabletrpt.ae
+
+------=_NextPart_000_0005_01D89200.303B2F30
+Content-Type: multipart/alternative;
+	boundary="----=_NextPart_001_0006_01D89200.303B2F30"
+
+------=_NextPart_001_0006_01D89200.303B2F30
+Content-Type: text/plain;
+	charset="us-ascii"
+Content-Transfer-Encoding: 7bit
+
+Dear Mr. Aamer,
+
+ 
+
+Good Afternoon ! !
+
+ 
+
+Refer to your below email, please be confirmed that Red Sea Housing company
+is still working in Jafza.
+
+ 
+
+Best Regards 
+
+ 
+
+Manoj Kumar
+
+Sales Executive
+
+ 
+
+
+
+PO Box 118314  Dubai UAE
+
+Tel : +971 4 320 1102
+
+Fax: +971 4 320 2775
+
+Mob: +971 50 100 0923
+
+Email: am@reliabletrpt.ae <mailto:am@reliabletrpt.ae> 
+
+ 
+
+From: info@dependablelc.com [mailto:info@dependablelc.com] 
+Sent: Thursday, 7 July 2022 12:22 PM
+To: 'MANOJ' <am@reliabletrpt.ae>
+Cc: 'Smitha (RTC)' <accounts1@reliabletrpt.ae>; pcabraham@reliabletrpt.ae;
+kumarrtransport@gmail.com
+Subject: RE: Documents for Red Sea Hosing Services Company FZE - For Legal
+Proceedings
+
+ 
+
+Dears
+
+I review and go through these documents of the red sea.
+
+Basically, everything is ok with these documents, and we can claim it, but
+the point as I know from Mr. Manoj that this company does not exist anymore,
+and their trade license is expired, 
+
+The point is that their trade license is from Jafza (free zone) and I can
+not check if they renew it or not. 
+
+So, I advise that to check if their office is still there in Jabl Ali and
+working. 
+
+If they are still, there so we can start the process even if their trade
+license expired and not renewed. 
+
+ 
+
+From: MANOJ <am@reliabletrpt.ae <mailto:am@reliabletrpt.ae> > 
+Sent: 22 June 2022 11:45
+To: info@dependablelc.com <mailto:info@dependablelc.com> 
+Cc: Smitha (RTC) <accounts1@reliabletrpt.ae
+<mailto:accounts1@reliabletrpt.ae> >; pcabraham@reliabletrpt.ae
+<mailto:pcabraham@reliabletrpt.ae> ; kumarrtransport@gmail.com
+<mailto:kumarrtransport@gmail.com> 
+Subject: Documents for Red Sea Hosing Services Company FZE - For Legal
+Proceedings
+
+ 
+
+Dear Mr. Aamer,
+
+ 
+
+Good Morning ! !
+
+ 
+
+Further to our discussion a while ago as discussed please find attached
+documents for Red Sea Housing Services Company FZE for your reference and
+further proceedings.
+
+ 
+
+Company full name and address :
+
+ 
+
+Company full name : RED SEA HOUSING SERVICES COMPANY FZE
+
+ 
+
+Address :
+
+P.O box number : 17365
+
+Jebel Ali, Dubai,
+
+Jafza N 413, Street JF 7 R/A 7,8, PLOT NO MO 0303
+
+Land Phone : 04-8838589
+
+Fax : 04- 8839730
+
+ 
+
+Contact person :
+
+Mr. Shibu - 050-9941349
+
+Mr. Wilson - 050- 5347007
+
+ 
+
+Email ids :
+
+baskar.kanniah@redseaintl.com <mailto:baskar.kanniah@redseaintl.com> ,
+a.kasper@redseaintl.com <mailto:a.kasper@redseaintl.com> ;
+shibu.n@redseaintl.com <mailto:shibu.n@redseaintl.com> ;
+wilbert.tanyag@redseaintl.com <mailto:wilbert.tanyag@redseaintl.com> ;
+mavil.wilson@redseahousing.com <mailto:mavil.wilson@redseahousing.com> 
+
+ 
+
+ 
+
+Best Regards 
+
+ 
+
+Manoj Kumar
+
+Sales Executive
+
+ 
+
+
+
+PO Box 118314  Dubai UAE
+
+Tel : +971 4 320 1102
+
+Fax: +971 4 320 2775
+
+Mob: +971 50 100 0923
+
+Email:  <mailto:am@reliabletrpt.ae> am@reliabletrpt.ae
+
+ 
+
+From: Smitha-Accounts [mailto:accounts1@reliabletrpt.ae] 
+Sent: Tuesday, 21 June 2022 5:33 PM
+To: 'MANOJ' <am@reliabletrpt.ae <mailto:am@reliabletrpt.ae> >
+Subject: Red Sea- Documents
+
+ 
+
+FYI
+
+ 
+
+Thanks,
+
+Smitha
+
+Accounts
+
+
+
+PO Box 118314  Dubai UAE
+
+Telephone: +971 4 320 1102
+
+Fax: +971 4 320 2775
+
+ 
+
+
+------=_NextPart_001_0006_01D89200.303B2F30
+Content-Type: text/html;
+	charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
+
+<html xmlns:v=3D"urn:schemas-microsoft-com:vml" xmlns:o=3D"urn:schemas-micr=
+osoft-com:office:office" xmlns:w=3D"urn:schemas-microsoft-com:office:word" =
+xmlns:m=3D"http://schemas.microsoft.com/office/2004/12/omml" xmlns=3D"http:=
+//www.w3.org/TR/REC-html40"><head>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dus-ascii"=
+><meta name=3D"Generator" content=3D"Microsoft Word 15 (filtered medium)"><=
+!--[if !mso]><style>v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+w\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+</style><![endif]--><style><!--
+/* Font Definitions */
+@font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+@font-face
+	{font-family:"Bookman Old Style";
+	panose-1:2 5 6 4 5 5 5 2 2 4;}
+@font-face
+	{font-family:Verdana;
+	panose-1:2 11 6 4 3 5 4 4 2 4;}
+@font-face
+	{font-family:"Bell MT";
+	panose-1:2 2 5 3 6 3 5 2 3 3;}
+/* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin:0cm;
+	margin-bottom:.0001pt;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+a:link, span.MsoHyperlink
+	{mso-style-priority:99;
+	color:blue;
+	text-decoration:underline;}
+a:visited, span.MsoHyperlinkFollowed
+	{mso-style-priority:99;
+	color:purple;
+	text-decoration:underline;}
+p.msonormal0, li.msonormal0, div.msonormal0
+	{mso-style-name:msonormal;
+	mso-margin-top-alt:auto;
+	margin-right:0cm;
+	mso-margin-bottom-alt:auto;
+	margin-left:0cm;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+span.EmailStyle18
+	{mso-style-type:personal;
+	font-family:"Bell MT",serif;
+	color:#323E4F;
+	font-weight:normal;
+	font-style:normal;}
+span.EmailStyle19
+	{mso-style-type:personal-reply;
+	font-family:"Calibri",sans-serif;
+	color:#1F497D;}
+.MsoChpDefault
+	{mso-style-type:export-only;
+	font-size:10.0pt;}
+@page WordSection1
+	{size:612.0pt 792.0pt;
+	margin:72.0pt 72.0pt 72.0pt 72.0pt;}
+div.WordSection1
+	{page:WordSection1;}
+--></style><!--[if gte mso 9]><xml>
+<o:shapedefaults v:ext=3D"edit" spidmax=3D"1026" />
+</xml><![endif]--><!--[if gte mso 9]><xml>
+<o:shapelayout v:ext=3D"edit">
+<o:idmap v:ext=3D"edit" data=3D"1" />
+</o:shapelayout></xml><![endif]--></head><body lang=3D"EN-US" link=3D"blue"=
+ vlink=3D"purple"><div class=3D"WordSection1"><p class=3D"MsoNormal"><span =
+style=3D"color:#1F497D">Dear Mr. Aamer,<o:p></o:p></span></p><p class=3D"Ms=
+oNormal"><span style=3D"color:#1F497D"><o:p>&nbsp;</o:p></span></p><p class=
+=3D"MsoNormal"><span style=3D"color:#1F497D">Good Afternoon ! !<o:p></o:p><=
+/span></p><p class=3D"MsoNormal"><span style=3D"color:#1F497D"><o:p>&nbsp;<=
+/o:p></span></p><p class=3D"MsoNormal"><span style=3D"color:#1F497D">Refer =
+to your below email, please be confirmed that Red Sea Housing company is st=
+ill working in Jafza.<o:p></o:p></span></p><p class=3D"MsoNormal"><span sty=
+le=3D"color:#1F497D"><o:p>&nbsp;</o:p></span></p><div><p class=3D"MsoNormal=
+"><span style=3D"color:#1F497D">Best Regards </span><span style=3D"font-fam=
+ily:&quot;Verdana&quot;,sans-serif;color:black"><o:p></o:p></span></p><p cl=
+ass=3D"MsoNormal"><span style=3D"color:#1F497D">&nbsp;</span><span style=3D=
+"font-family:&quot;Verdana&quot;,sans-serif;color:black"><o:p></o:p></span>=
+</p><p class=3D"MsoNormal"><b><span style=3D"color:#1F497D">Manoj Kumar</sp=
+an></b><b><span style=3D"font-family:&quot;Verdana&quot;,sans-serif;color:b=
+lack"><o:p></o:p></span></b></p><p class=3D"MsoNormal"><i><span style=3D"co=
+lor:#1F497D">Sales Executive</span></i><i><span style=3D"font-family:&quot;=
+Verdana&quot;,sans-serif;color:black"><o:p></o:p></span></i></p><p class=3D=
+"MsoNormal"><span style=3D"color:#1F497D">&nbsp;</span><span style=3D"font-=
+family:&quot;Verdana&quot;,sans-serif;color:black"><o:p></o:p></span></p><p=
+ class=3D"MsoNormal"><span style=3D"font-family:&quot;Bookman Old Style&quo=
+t;,serif;color:#4A442A"><img width=3D"141" height=3D"40" id=3D"_x0000_i1027=
+" src=3D"cid:image001.jpg@01D89200.2CDEE4D0" alt=3D"Description: Descriptio=
+n: cid:image004.jpg@01CDD530.A87C0920"></span><span style=3D"font-family:&q=
+uot;Verdana&quot;,sans-serif;color:black"><o:p></o:p></span></p><p class=3D=
+"MsoNormal"><span style=3D"font-size:9.0pt;font-family:&quot;Bookman Old St=
+yle&quot;,serif;color:gray">PO Box 118314&nbsp; Dubai UAE</span><span style=
+=3D"font-family:&quot;Verdana&quot;,sans-serif;color:black"><o:p></o:p></sp=
+an></p><p class=3D"MsoNormal"><span style=3D"font-size:9.0pt;font-family:&q=
+uot;Bookman Old Style&quot;,serif;color:gray">Tel : +971 4 320 1102</span><=
+span style=3D"font-family:&quot;Verdana&quot;,sans-serif;color:black"><o:p>=
+</o:p></span></p><p class=3D"MsoNormal"><span style=3D"font-size:9.0pt;font=
+-family:&quot;Bookman Old Style&quot;,serif;color:gray">Fax: +971 4 320 277=
+5</span><span style=3D"font-family:&quot;Verdana&quot;,sans-serif;color:bla=
+ck"><o:p></o:p></span></p><p class=3D"MsoNormal"><span style=3D"font-size:9=
+.0pt;font-family:&quot;Bookman Old Style&quot;,serif;color:gray">Mob: +971 =
+50 100 0923</span><span style=3D"font-family:&quot;Verdana&quot;,sans-serif=
+;color:black"><o:p></o:p></span></p><p class=3D"MsoNormal"><span style=3D"f=
+ont-size:9.0pt;font-family:&quot;Bookman Old Style&quot;,serif;color:gray">=
+Email: <a href=3D"mailto:am@reliabletrpt.ae">am@reliabletrpt.ae</a></span><=
+span style=3D"font-family:&quot;Verdana&quot;,sans-serif;color:black"><o:p>=
+</o:p></span></p></div><p class=3D"MsoNormal"><span style=3D"color:#1F497D"=
+><o:p>&nbsp;</o:p></span></p><div><div style=3D"border:none;border-top:soli=
+d #E1E1E1 1.0pt;padding:3.0pt 0cm 0cm 0cm"><p class=3D"MsoNormal"><b>From:<=
+/b> info@dependablelc.com [mailto:info@dependablelc.com] <br><b>Sent:</b> T=
+hursday, 7 July 2022 12:22 PM<br><b>To:</b> 'MANOJ' &lt;am@reliabletrpt.ae&=
+gt;<br><b>Cc:</b> 'Smitha (RTC)' &lt;accounts1@reliabletrpt.ae&gt;; pcabrah=
+am@reliabletrpt.ae; kumarrtransport@gmail.com<br><b>Subject:</b> RE: Docume=
+nts for Red Sea Hosing Services Company FZE - For Legal Proceedings<o:p></o=
+:p></p></div></div><p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p><p class=3D"=
+MsoNormal"><span lang=3D"EN-GB" style=3D"font-size:16.0pt;font-family:&quot=
+;Bell MT&quot;,serif;color:#323E4F">Dears<o:p></o:p></span></p><p class=3D"=
+MsoNormal"><span lang=3D"EN-GB" style=3D"font-size:16.0pt;font-family:&quot=
+;Bell MT&quot;,serif;color:#323E4F">I review and go through these documents=
+ of the red sea.<o:p></o:p></span></p><p class=3D"MsoNormal"><span lang=3D"=
+EN-GB" style=3D"font-size:16.0pt;font-family:&quot;Bell MT&quot;,serif;colo=
+r:#323E4F">Basically, everything is ok with these documents, and we can cla=
+im it, but the point as I know from Mr. Manoj that this company does not ex=
+ist anymore, and their trade license is expired, <o:p></o:p></span></p><p c=
+lass=3D"MsoNormal"><span lang=3D"EN-GB" style=3D"font-size:16.0pt;font-fami=
+ly:&quot;Bell MT&quot;,serif;color:#323E4F">The point is that their trade l=
+icense is from Jafza (free zone) and I can not check if they renew it or no=
+t. <o:p></o:p></span></p><p class=3D"MsoNormal"><span lang=3D"EN-GB" style=
+=3D"font-size:16.0pt;font-family:&quot;Bell MT&quot;,serif;color:#323E4F">S=
+o, I advise that to check if their office is still there in Jabl Ali and wo=
+rking. <o:p></o:p></span></p><p class=3D"MsoNormal"><span lang=3D"EN-GB" st=
+yle=3D"font-size:16.0pt;font-family:&quot;Bell MT&quot;,serif;color:#323E4F=
+">If they are still, there so we can start the process even if their trade =
+license expired and not renewed. <o:p></o:p></span></p><p class=3D"MsoNorma=
+l"><span style=3D"font-size:16.0pt;font-family:&quot;Bell MT&quot;,serif;co=
+lor:#323E4F"><o:p>&nbsp;</o:p></span></p><div><div style=3D"border:none;bor=
+der-top:solid #E1E1E1 1.0pt;padding:3.0pt 0cm 0cm 0cm"><p class=3D"MsoNorma=
+l"><b>From:</b> MANOJ &lt;<a href=3D"mailto:am@reliabletrpt.ae">am@reliable=
+trpt.ae</a>&gt; <br><b>Sent:</b> 22 June 2022 11:45<br><b>To:</b> <a href=
+=3D"mailto:info@dependablelc.com">info@dependablelc.com</a><br><b>Cc:</b> S=
+mitha (RTC) &lt;<a href=3D"mailto:accounts1@reliabletrpt.ae">accounts1@reli=
+abletrpt.ae</a>&gt;; <a href=3D"mailto:pcabraham@reliabletrpt.ae">pcabraham=
+@reliabletrpt.ae</a>; <a href=3D"mailto:kumarrtransport@gmail.com">kumarrtr=
+ansport@gmail.com</a><br><b>Subject:</b> Documents for Red Sea Hosing Servi=
+ces Company FZE - For Legal Proceedings<o:p></o:p></p></div></div><p class=
+=3D"MsoNormal"><o:p>&nbsp;</o:p></p><p class=3D"MsoNormal"><span style=3D"c=
+olor:#1F497D">Dear Mr. Aamer,<o:p></o:p></span></p><p class=3D"MsoNormal"><=
+span style=3D"color:#1F497D"><o:p>&nbsp;</o:p></span></p><p class=3D"MsoNor=
+mal"><span style=3D"color:#1F497D">Good Morning ! !<o:p></o:p></span></p><p=
+ class=3D"MsoNormal"><span style=3D"color:#1F497D"><o:p>&nbsp;</o:p></span>=
+</p><p class=3D"MsoNormal"><span style=3D"color:#1F497D">Further to our dis=
+cussion a while ago as discussed please find attached documents for Red Sea=
+ Housing Services Company FZE for your reference and further proceedings.<o=
+:p></o:p></span></p><p class=3D"MsoNormal"><span style=3D"color:#1F497D"><o=
+:p>&nbsp;</o:p></span></p><p class=3D"MsoNormal"><span style=3D"color:#1F49=
+7D">Company full name and address :<o:p></o:p></span></p><p class=3D"MsoNor=
+mal"><span style=3D"color:#1F497D"><o:p>&nbsp;</o:p></span></p><p class=3D"=
+MsoNormal"><span style=3D"color:#1F497D">Company full name : RED SEA HOUSIN=
+G SERVICES COMPANY FZE<o:p></o:p></span></p><p class=3D"MsoNormal"><span st=
+yle=3D"color:#1F497D"><o:p>&nbsp;</o:p></span></p><p class=3D"MsoNormal"><s=
+pan style=3D"color:#1F497D">Address :<o:p></o:p></span></p><p class=3D"MsoN=
+ormal"><span style=3D"color:#1F497D">P.O box number : 17365<o:p></o:p></spa=
+n></p><p class=3D"MsoNormal"><span style=3D"color:#1F497D">Jebel Ali, Dubai=
+,<o:p></o:p></span></p><p class=3D"MsoNormal"><span style=3D"color:#1F497D"=
+>Jafza N 413, Street JF 7 R/A 7,8, PLOT NO MO 0303<o:p></o:p></span></p><p =
+class=3D"MsoNormal"><span style=3D"color:#1F497D">Land Phone : 04-8838589<o=
+:p></o:p></span></p><p class=3D"MsoNormal"><span style=3D"color:#1F497D">Fa=
+x : 04- 8839730<o:p></o:p></span></p><p class=3D"MsoNormal"><span style=3D"=
+color:#1F497D"><o:p>&nbsp;</o:p></span></p><p class=3D"MsoNormal"><span sty=
+le=3D"color:#1F497D">Contact person :<o:p></o:p></span></p><p class=3D"MsoN=
+ormal"><span style=3D"color:#1F497D">Mr. Shibu &#8211; 050-9941349<o:p></o:=
+p></span></p><p class=3D"MsoNormal"><span style=3D"color:#1F497D">Mr. Wilso=
+n &#8211; 050- 5347007<o:p></o:p></span></p><p class=3D"MsoNormal"><span st=
+yle=3D"color:#1F497D"><o:p>&nbsp;</o:p></span></p><p class=3D"MsoNormal"><s=
+pan style=3D"color:#1F497D">Email ids :<o:p></o:p></span></p><p class=3D"Ms=
+oNormal"><span style=3D"color:#1F497D"><a href=3D"mailto:baskar.kanniah@red=
+seaintl.com">baskar.kanniah@redseaintl.com</a>, <a href=3D"mailto:a.kasper@=
+redseaintl.com">a.kasper@redseaintl.com</a>; <a href=3D"mailto:shibu.n@reds=
+eaintl.com">shibu.n@redseaintl.com</a>; <a href=3D"mailto:wilbert.tanyag@re=
+dseaintl.com">wilbert.tanyag@redseaintl.com</a>; <a href=3D"mailto:mavil.wi=
+lson@redseahousing.com">mavil.wilson@redseahousing.com</a><o:p></o:p></span=
+></p><p class=3D"MsoNormal"><span style=3D"color:#1F497D"><o:p>&nbsp;</o:p>=
+</span></p><p class=3D"MsoNormal"><span style=3D"color:#1F497D"><o:p>&nbsp;=
+</o:p></span></p><div><p class=3D"MsoNormal"><span style=3D"color:#1F497D">=
+Best Regards </span><span style=3D"font-family:&quot;Verdana&quot;,sans-ser=
+if;color:black"><o:p></o:p></span></p><p class=3D"MsoNormal"><span style=3D=
+"color:#1F497D">&nbsp;</span><span style=3D"font-family:&quot;Verdana&quot;=
+,sans-serif;color:black"><o:p></o:p></span></p><p class=3D"MsoNormal"><b><s=
+pan style=3D"color:#1F497D">Manoj Kumar</span></b><b><span style=3D"font-fa=
+mily:&quot;Verdana&quot;,sans-serif;color:black"><o:p></o:p></span></b></p>=
+<p class=3D"MsoNormal"><i><span style=3D"color:#1F497D">Sales Executive</sp=
+an></i><i><span style=3D"font-family:&quot;Verdana&quot;,sans-serif;color:b=
+lack"><o:p></o:p></span></i></p><p class=3D"MsoNormal"><span style=3D"color=
+:#1F497D">&nbsp;</span><span style=3D"font-family:&quot;Verdana&quot;,sans-=
+serif;color:black"><o:p></o:p></span></p><p class=3D"MsoNormal"><span style=
+=3D"font-family:&quot;Bookman Old Style&quot;,serif;color:#4A442A"><img bor=
+der=3D"0" width=3D"141" height=3D"40" id=3D"Picture_x0020_2" src=3D"cid:ima=
+ge001.jpg@01D89200.2CDEE4D0" alt=3D"Description: Description: cid:image004.=
+jpg@01CDD530.A87C0920"></span><span style=3D"font-family:&quot;Verdana&quot=
+;,sans-serif;color:black"><o:p></o:p></span></p><p class=3D"MsoNormal"><spa=
+n style=3D"font-size:9.0pt;font-family:&quot;Bookman Old Style&quot;,serif;=
+color:gray">PO Box 118314&nbsp; Dubai UAE</span><span style=3D"font-family:=
+&quot;Verdana&quot;,sans-serif;color:black"><o:p></o:p></span></p><p class=
+=3D"MsoNormal"><span style=3D"font-size:9.0pt;font-family:&quot;Bookman Old=
+ Style&quot;,serif;color:gray">Tel : +971 4 320 1102</span><span style=3D"f=
+ont-family:&quot;Verdana&quot;,sans-serif;color:black"><o:p></o:p></span></=
+p><p class=3D"MsoNormal"><span style=3D"font-size:9.0pt;font-family:&quot;B=
+ookman Old Style&quot;,serif;color:gray">Fax: +971 4 320 2775</span><span s=
+tyle=3D"font-family:&quot;Verdana&quot;,sans-serif;color:black"><o:p></o:p>=
+</span></p><p class=3D"MsoNormal"><span style=3D"font-size:9.0pt;font-famil=
+y:&quot;Bookman Old Style&quot;,serif;color:gray">Mob: +971 50 100 0923</sp=
+an><span style=3D"font-family:&quot;Verdana&quot;,sans-serif;color:black"><=
+o:p></o:p></span></p><p class=3D"MsoNormal"><span style=3D"font-size:9.0pt;=
+font-family:&quot;Bookman Old Style&quot;,serif;color:gray">Email: </span><=
+a href=3D"mailto:am@reliabletrpt.ae"><span style=3D"font-size:9.0pt;font-fa=
+mily:&quot;Bookman Old Style&quot;,serif">am@reliabletrpt.ae</span></a><spa=
+n style=3D"font-family:&quot;Verdana&quot;,sans-serif;color:black"><o:p></o=
+:p></span></p></div><p class=3D"MsoNormal"><span style=3D"color:#1F497D"><o=
+:p>&nbsp;</o:p></span></p><div><div style=3D"border:none;border-top:solid #=
+E1E1E1 1.0pt;padding:3.0pt 0cm 0cm 0cm"><p class=3D"MsoNormal"><b>From:</b>=
+ Smitha-Accounts [<a href=3D"mailto:accounts1@reliabletrpt.ae">mailto:accou=
+nts1@reliabletrpt.ae</a>] <br><b>Sent:</b> Tuesday, 21 June 2022 5:33 PM<br=
+><b>To:</b> 'MANOJ' &lt;<a href=3D"mailto:am@reliabletrpt.ae">am@reliabletr=
+pt.ae</a>&gt;<br><b>Subject:</b> Red Sea- Documents<o:p></o:p></p></div></d=
+iv><p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p><p class=3D"MsoNormal">FYI<o=
+:p></o:p></p><p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p><p class=3D"MsoNor=
+mal"><span style=3D"font-size:10.0pt;font-family:&quot;Bookman Old Style&qu=
+ot;,serif">Thanks,<o:p></o:p></span></p><p class=3D"MsoNormal"><span style=
+=3D"font-size:10.0pt;font-family:&quot;Bookman Old Style&quot;,serif;color:=
+#404040">Smitha<o:p></o:p></span></p><p class=3D"MsoNormal"><span style=3D"=
+font-size:10.0pt;font-family:&quot;Bookman Old Style&quot;,serif;color:#404=
+040">Accounts</span><span style=3D"font-size:12.0pt;font-family:&quot;Arial=
+&quot;,sans-serif;color:black"><o:p></o:p></span></p><p class=3D"MsoNormal"=
+><span style=3D"font-family:&quot;Bookman Old Style&quot;,serif"><img borde=
+r=3D"0" width=3D"141" height=3D"40" id=3D"Picture_x0020_1" src=3D"cid:image=
+001.jpg@01D89200.2CDEE4D0" alt=3D"Description: Description: Description: De=
+scription: Description: Description: Description: Description: Description:=
+ Description: Description: Description: Description: Description: Descripti=
+on: Description: Description: Description: Description: Description: Descri=
+ption: Description: Description: Description: Description: Description: Des=
+cription: Description: Description: Description: Description: Description: =
+Description: Description: Description: Description: Description: Descriptio=
+n: cid:image001.jpg@01D42E6F.BB3642D0"></span><o:p></o:p></p><p class=3D"Ms=
+oNormal"><span style=3D"font-size:9.0pt;font-family:&quot;Bookman Old Style=
+&quot;,serif;color:#777777">PO Box 118314&nbsp; Dubai UAE<o:p></o:p></span>=
+</p><p class=3D"MsoNormal"><span style=3D"font-size:9.0pt;font-family:&quot=
+;Bookman Old Style&quot;,serif;color:#777777">Telephone: +971 4 320 1102<o:=
+p></o:p></span></p><p class=3D"MsoNormal"><span style=3D"font-size:9.0pt;fo=
+nt-family:&quot;Bookman Old Style&quot;,serif;color:#777777">Fax: +971 4 32=
+0 2775</span><o:p></o:p></p><p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p></d=
+iv></body></html>=
+
+------=_NextPart_001_0006_01D89200.303B2F30--
+
+------=_NextPart_000_0005_01D89200.303B2F30
+Content-Type: image/jpeg;
+	name="image001.jpg"
+Content-Transfer-Encoding: base64
+Content-ID: <image001.jpg@01D89200.2CDEE4D0>
+
+/9j/4AAQSkZJRgABAQEAYABgAAD/2wBDAAoHBwgHBgoICAgLCgoLDhgQDg0NDh0VFhEYIx8lJCIf
+IiEmKzcvJik0KSEiMEExNDk7Pj4+JS5ESUM8SDc9Pjv/2wBDAQoLCw4NDhwQEBw7KCIoOzs7Ozs7
+Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozv/wAARCAAoAI0DASIA
+AhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQA
+AAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3
+ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWm
+p6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEA
+AwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSEx
+BhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElK
+U1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3
+uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwDs7XUv
+EF5411fQk1O3ihsIYpY5DZ7mYuOh+YdKueD/ABJda4dTtNQhiS80q6NtLJBnypcdGXPI6ciucuNL
+utX+Iniy2sdTuNPuvsFt5UsL4w23jd7f41b8Kakv/CFappljYx2Gu6bFKlxax/eM204kHdtxwc80
+Adqmo2Mt21nHeQPcqDuhWUFx+Gc1haRqWo3XiPxLp9xdo0diYRbN5YUR74y3Prz6+lczotrpOs6R
+4fvR4iVZrOSN4oYYY1mEuMNG38RySd3r1rc0VY5PGnjNHCup+yhlPIP7k9aGNbm9pszWmjRy6lqM
+E5RP3l2CEjbnr6D0qj4m1l4vBupatot9C0ltA8iSptlXKjOOuK5qKaxTwj4Vt54xJPLdj7Kry7If
+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
+
+------=_NextPart_000_0005_01D89200.303B2F30--

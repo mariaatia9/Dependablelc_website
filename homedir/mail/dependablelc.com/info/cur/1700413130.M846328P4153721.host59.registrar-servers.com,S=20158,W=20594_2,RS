@@ -1,0 +1,436 @@
+Return-Path: <ciecheverri@gmail.com>
+Delivered-To: info@dependablelc.com
+Received: from host59.registrar-servers.com
+	by host59.registrar-servers.com with LMTP
+	id SE1RMso+WmV5YT8A+KyzgQ
+	(envelope-from <ciecheverri@gmail.com>)
+	for <info@dependablelc.com>; Sun, 19 Nov 2023 11:58:50 -0500
+Return-path: <ciecheverri@gmail.com>
+Envelope-to: info@dependablelc.com
+Delivery-date: Sun, 19 Nov 2023 11:58:50 -0500
+Received: from [63.250.43.69] (port=30332 helo=asp-relay-shared.jellyfish.systems)
+	by host59.registrar-servers.com with esmtps  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96.1)
+	(envelope-from <ciecheverri@gmail.com>)
+	id 1r4l8E-00HZYg-23
+	for info@dependablelc.com;
+	Sun, 19 Nov 2023 11:58:50 -0500
+Authentication-Results: asp-relay-shared.jellyfish.systems;
+	dkim=pass header.d=gmail.com header.s=20230601 header.b=hbTKbT6T;
+	dmarc=pass (policy=none) header.from=gmail.com;
+	spf=pass (asp-relay-shared.jellyfish.systems: domain of ciecheverri@gmail.com designates 209.85.208.177 as permitted sender) smtp.mailfrom=ciecheverri@gmail.com
+Received: from mail-lj1-f177.google.com (mail-lj1-f177.google.com [209.85.208.177])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by asp-relay-shared.jellyfish.systems (Postfix) with ESMTPS id 4SYH0V0whrz55gD
+	for <info@dependablelc.com>; Sun, 19 Nov 2023 16:58:50 +0000 (UTC)
+Received: by mail-lj1-f177.google.com with SMTP id 38308e7fff4ca-2c523ac38fbso46071691fa.0
+        for <info@dependablelc.com>; Sun, 19 Nov 2023 08:58:50 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1700413128; x=1701017928; darn=dependablelc.com;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=p2Vu6Wn2XXgnl/i7Zcpg2855NIhaXDeQMl0Lus2CDMs=;
+        b=hbTKbT6TiipsPcvNwCqjNaWHuuBiYwAUKV6Y/at+yQ5cXbyqeKVU+ZbHfYwqLPnOT0
+         fwtgXvHnp/F2rKII2WXxvHb9oPSZWBysfIbS4+lfSHbnmONAuWs3ZAfaYR9pNpU4jRSe
+         s32wMjU3Xxxsc+vaXzVTZqHRSE2jFVuCkDZJo8KAgCRAevpoGwGRukYHOetyFUnU4CKS
+         5+xWB8tv62KcFmral+QAh53Vf0a03gJR7EKfH8EELTtgwMn7UhzmFxm3b507xt1+yUZg
+         xzWCDOON4M90iAFzR06W0jUMpJyaOuLqaIWrl1efO5SMkymvOaZ4Jl2FCP0y43/LqJop
+         /bmw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1700413128; x=1701017928;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=p2Vu6Wn2XXgnl/i7Zcpg2855NIhaXDeQMl0Lus2CDMs=;
+        b=srJ+bHXnZe5UR7NSqzq1KymhemXkStMyhTj+tZECXoDXmwORT5yimVd25eycuxMfDz
+         ePOjJ7CKpOZxO7hJyGC7RQi4lmVsrMRrO8T9EohSRm3/Fx2Y9vPvt4a60DVGnHgEMqG2
+         j9YZbFsGZgmk3e5lPc55E0sGsO2V9OO5yAzZ+vH0FTbrZ8p4p3/ivyGZC82I4ki+fTWw
+         BmFPrfc7bJCTBNX+mNoaksgdRtglW+dNg1YNA3Dz6n+AO/jHDVj4BNifgYHTx84lOIA1
+         Hsktlc/vK9WGlw6aNDsSAq+lX42oOQgOHML+Hhfm0ohbFVa8f60MLUklXWQ5YwLUnHf9
+         DgjA==
+X-Gm-Message-State: AOJu0YxlapvyZE2JyAFQXZRfI0XV8GpgjsLX948Io9Vz/5VRDh1d+vTn
+	cp2KkKm26Z33BDPzldlORro5ocU5LT6lfMCpJRT3RW3supY=
+X-Google-Smtp-Source: AGHT+IHFe/uyn1NrG/N+JTCCUA0elvU61dbcDd36FhurUBeJ7MHtR9BDs5/CAzeEm78R9get2ZyN5QPSka9cZZReL8s=
+X-Received: by 2002:a2e:9113:0:b0:2c0:d06:9e65 with SMTP id
+ m19-20020a2e9113000000b002c00d069e65mr3211073ljg.8.1700413128030; Sun, 19 Nov
+ 2023 08:58:48 -0800 (PST)
+MIME-Version: 1.0
+References: <CA+vkg21aLdEqk3+MG0eb=PJdxSq3XdtQAYE8QNRJJx7prWK+=A@mail.gmail.com>
+ <001c01da1b04$8e9af4f0$abd0ded0$@dependablelc.com> <CA+vkg23eB2j_UrMEN=Y3ix3vANRQr4ho7Hu+QQSWNSA7jF-E-A@mail.gmail.com>
+In-Reply-To: <CA+vkg23eB2j_UrMEN=Y3ix3vANRQr4ho7Hu+QQSWNSA7jF-E-A@mail.gmail.com>
+From: carlos echeverri <ciecheverri@gmail.com>
+Date: Sun, 19 Nov 2023 20:58:47 +0400
+Message-ID: <CA+vkg207=f7TkWfcsxBAMOqs472vhzt6E1q6s1SXP5WjMvETMg@mail.gmail.com>
+Subject: Re: carlos echeverri has shared a file with you
+To: info@dependablelc.com
+Content-Type: multipart/alternative; boundary="00000000000077c110060a84485a"
+X-NCJF-Result: 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
+ 
+	eeRCVaQNRt3tcgHr7c60jzjLB+Bo=
+X-NCJF-Version: 15
+
+--00000000000077c110060a84485a
+Content-Type: text/plain; charset="UTF-8"
+
+Hi Aamer, if you need anything else let me know, I have to go to sleep
+because I have to wake up at 4 am, I will be free after 1:00 pm so we can
+talk and explain me about the login and other details.
+Best regards
+Carlos Echeverri
+
+On Sun, Nov 19, 2023, 20:51 carlos echeverri <ciecheverri@gmail.com> wrote:
+
+>
+> On Sun, Nov 19, 2023, 20:22 <info@dependablelc.com> wrote:
+>
+>> Dear Carlos
+>>
+>> First of all, I want to inform you and thank you for the advance payment
+>> we received in the amount of 2000 AED.
+>>
+>> But please send me the tenancy contract again because the link which you
+>> sent when I opened it there is something wrong with it.
+>>
+>>
+>>
+>>
+>>
+>>
+>>
+>>
+>>
+>> Best Regards.
+>>
+>> Dependable Legal Consultants LLC
+>>
+>> www.dependablelc.com
+>>
+>>
+>>
+>>
+>>
+>> *From:* carlos echeverri <ciecheverri@gmail.com>
+>> *Sent:* Sunday, November 19, 2023 6:39 AM
+>> *To:* info@dependablelc.com
+>> *Subject:* carlos echeverri has shared a file with you
+>>
+>>
+>>
+>>
+>> https://acrobat.adobe.com/id/urn:aaid:sc:VA6C2:b739cccc-3025-4695-bc1c-7b4dad603e11
+>>
+>>
+>
+
+--00000000000077c110060a84485a
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"auto">Hi Aamer, if you need anything else=C2=A0let me know, I h=
+ave to go to sleep because I have to wake up at 4 am, I will be free after =
+1:00 pm so we can talk and explain me about the login and other details.<di=
+v dir=3D"auto">Best regards</div><div dir=3D"auto">Carlos Echeverri=C2=A0</=
+div></div><br><div class=3D"gmail_quote"><div dir=3D"ltr" class=3D"gmail_at=
+tr">On Sun, Nov 19, 2023, 20:51 carlos echeverri &lt;<a href=3D"mailto:ciec=
+heverri@gmail.com">ciecheverri@gmail.com</a>&gt; wrote:<br></div><blockquot=
+e class=3D"gmail_quote" style=3D"margin:0 0 0 .8ex;border-left:1px #ccc sol=
+id;padding-left:1ex"><div dir=3D"auto"></div><br><div class=3D"gmail_quote"=
+><div dir=3D"ltr" class=3D"gmail_attr">On Sun, Nov 19, 2023, 20:22  &lt;<a =
+href=3D"mailto:info@dependablelc.com" target=3D"_blank" rel=3D"noreferrer">=
+info@dependablelc.com</a>&gt; wrote:<br></div><blockquote class=3D"gmail_qu=
+ote" style=3D"margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex=
+"><div lang=3D"EN-US" link=3D"blue" vlink=3D"purple" style=3D"word-wrap:bre=
+ak-word"><div><p class=3D"MsoNormal"><span style=3D"font-size:16.0pt;font-f=
+amily:&quot;Bell MT&quot;,serif;color:#323e4f">Dear Carlos<u></u><u></u></s=
+pan></p><p class=3D"MsoNormal"><span style=3D"font-size:16.0pt;font-family:=
+&quot;Bell MT&quot;,serif;color:#323e4f">First of all, I want to inform you=
+ and thank you for the advance payment we received in the amount of 2000 AE=
+D.<u></u><u></u></span></p><p class=3D"MsoNormal"><span style=3D"font-size:=
+16.0pt;font-family:&quot;Bell MT&quot;,serif;color:#323e4f">But please send=
+ me the tenancy contract again because the link which you sent when I opene=
+d it there is something wrong with it.<u></u><u></u></span></p><p class=3D"=
+MsoNormal"><span style=3D"font-size:16.0pt;font-family:&quot;Bell MT&quot;,=
+serif;color:#323e4f"><u></u>=C2=A0<u></u></span></p><p class=3D"MsoNormal">=
+<span style=3D"font-size:16.0pt;font-family:&quot;Bell MT&quot;,serif;color=
+:#323e4f"><u></u>=C2=A0<u></u></span></p><p class=3D"MsoNormal"><span style=
+=3D"font-size:12.0pt;font-family:&quot;Bell MT&quot;,serif;color:#002060"><=
+u></u>=C2=A0<u></u></span></p><p class=3D"MsoNormal"><span style=3D"font-si=
+ze:12.0pt;font-family:&quot;Bell MT&quot;,serif;color:#002060"><u></u>=C2=
+=A0<u></u></span></p><p class=3D"MsoNormal"><span style=3D"font-size:12.0pt=
+;font-family:&quot;Bell MT&quot;,serif;color:#002060">Best Regards.<u></u><=
+u></u></span></p><p class=3D"MsoNormal"><span style=3D"font-size:12.0pt;fon=
+t-family:&quot;Bell MT&quot;,serif;color:#002060"><img width=3D"64" height=
+=3D"71" style=3D"width:.6666in;height:.7395in" id=3D"m_-3307834292152711957=
+m_-1034604573093000313Picture_x0020_1"><u></u><u></u></span></p><p class=3D=
+"MsoNormal"><span style=3D"font-size:12.0pt;font-family:&quot;Bell MT&quot;=
+,serif;color:#002060">Dependable Legal Consultants LLC<u></u><u></u></span>=
+</p><p class=3D"MsoNormal"><span style=3D"font-size:12.0pt;font-family:&quo=
+t;Bell MT&quot;,serif;color:#002060"><a href=3D"http://www.dependablelc.com=
+/" rel=3D"noreferrer noreferrer" target=3D"_blank"><span style=3D"color:#05=
+63c1">www.dependablelc.com</span></a> <u></u><u></u></span></p><p class=3D"=
+MsoNormal"><span style=3D"font-size:16.0pt;font-family:&quot;Bell MT&quot;,=
+serif;color:#323e4f"><u></u>=C2=A0<u></u></span></p><p class=3D"MsoNormal">=
+<span style=3D"font-size:16.0pt;font-family:&quot;Bell MT&quot;,serif;color=
+:#323e4f"> <u></u><u></u></span></p><p class=3D"MsoNormal"><span style=3D"f=
+ont-size:16.0pt;font-family:&quot;Bell MT&quot;,serif;color:#323e4f"><u></u=
+>=C2=A0<u></u></span></p><div style=3D"border:none;border-top:solid #e1e1e1=
+ 1.0pt;padding:3.0pt 0cm 0cm 0cm"><p class=3D"MsoNormal"><b>From:</b> carlo=
+s echeverri &lt;<a href=3D"mailto:ciecheverri@gmail.com" rel=3D"noreferrer =
+noreferrer" target=3D"_blank">ciecheverri@gmail.com</a>&gt; <br><b>Sent:</b=
+> Sunday, November 19, 2023 6:39 AM<br><b>To:</b> <a href=3D"mailto:info@de=
+pendablelc.com" rel=3D"noreferrer noreferrer" target=3D"_blank">info@depend=
+ablelc.com</a><br><b>Subject:</b> carlos echeverri has shared a file with y=
+ou<u></u><u></u></p></div><p class=3D"MsoNormal"><u></u>=C2=A0<u></u></p><d=
+iv><p class=3D"MsoNormal"><a href=3D"https://acrobat.adobe.com/id/urn:aaid:=
+sc:VA6C2:b739cccc-3025-4695-bc1c-7b4dad603e11" rel=3D"noreferrer noreferrer=
+" target=3D"_blank">https://acrobat.adobe.com/id/urn:aaid:sc:VA6C2:b739cccc=
+-3025-4695-bc1c-7b4dad603e11</a>=C2=A0<u></u><u></u></p></div></div></div><=
+/blockquote></div>
+</blockquote></div>
+
+--00000000000077c110060a84485a--

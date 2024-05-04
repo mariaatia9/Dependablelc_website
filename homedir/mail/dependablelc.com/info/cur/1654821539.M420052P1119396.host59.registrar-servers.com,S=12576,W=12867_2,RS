@@ -1,0 +1,291 @@
+Return-Path: <mohitmenon4@gmail.com>
+Delivered-To: info@dependablelc.com
+Received: from host59.registrar-servers.com
+	by host59.registrar-servers.com with LMTP
+	id 8IBOGKOSomKkFBEA+KyzgQ
+	(envelope-from <mohitmenon4@gmail.com>)
+	for <info@dependablelc.com>; Thu, 09 Jun 2022 20:38:59 -0400
+Return-path: <mohitmenon4@gmail.com>
+Envelope-to: info@dependablelc.com
+Delivery-date: Thu, 09 Jun 2022 20:38:59 -0400
+Received: from [63.250.43.69] (port=48217 helo=asp-relay-shared.jellyfish.systems)
+	by host59.registrar-servers.com with esmtps  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <mohitmenon4@gmail.com>)
+	id 1nzSfz-004u1G-BA
+	for info@dependablelc.com;
+	Thu, 09 Jun 2022 20:38:59 -0400
+Received: from mail-ej1-f54.google.com (mail-ej1-f54.google.com [209.85.218.54])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by asp-relay-shared.jellyfish.systems (Postfix) with ESMTPS id 4LK2C65df8zyQ2
+	for <info@dependablelc.com>; Fri, 10 Jun 2022 00:38:53 +0000 (UTC)
+Received: by mail-ej1-f54.google.com with SMTP id u12so50598365eja.8
+        for <info@dependablelc.com>; Thu, 09 Jun 2022 17:38:53 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20210112;
+        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+         :cc;
+        bh=5LQ9CXijDwDVJpmz+ExJg0gfwwlWutRENnj0afMdQZA=;
+        b=Cid0VLj3czdYNAE9vRbpszdgWHdqq6yze47mO0ChwGt8+amUVSUQmoniGMGpG90/wK
+         qbn3IJsARN8QJNndj9CI65hlkV3lQXdWEmlYjgT8GEznOp4wBnZ4Xn5HeHIfjKgckQ2D
+         wFyeXoRqEcVxBZgnJlIBkvGPYec9T6E1E2nkYs+rcjMSHAl1XK9wvdeI0KMw1kcwvJOX
+         /jIJZkqvT+MdH+EnPN9Hy7JvibjRdzZGAgjcb8VmJmwZWuSSvi857+sO1hDnP7Rb8n32
+         M2qL38bEhn977VfElIQxNsSnQ6gF195e4n9ybmrKmaMFeMKSNqOe6YxbbR62tQJ9RInY
+         Rqog==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+         :message-id:subject:to:cc;
+        bh=5LQ9CXijDwDVJpmz+ExJg0gfwwlWutRENnj0afMdQZA=;
+        b=fBbYcL3GSCojaGr+PwewOLGZSdoHIrwUNm0jrqWRef/Cx5b4eDGJUWBnCmP5p3baY3
+         IHEsSci51PQj1e1v18Zp8OBGmz9p+oWugDYOO4FKRJynJtiSiDOcPGVF14Jg95mMV5n+
+         EEQczpBDh+ljWpkFPCQ8MKBZqIIpmLyWj3u4ZT97jM3S1MxdLPUyu5juj1ucIqJTbK+Q
+         U65IXzUoCYuKDXOgzz7jk/F7qbT+uqxkx0YI4cby1R60YMonrtjKS/A1ePvDquWoV5V9
+         5AptHokr2jb+aiPzQ03fmz+Pj+Ke0wu9Q14veY/Wpp1OPEnYxAzhtCmV7z8x1DURSsRt
+         dKAQ==
+X-Gm-Message-State: AOAM530grxjTomTGNksP50KKQcLpFcEq7x0pGIXYK6Nzwl1qvHFEYDW4
+	90JUX38g1jJK6M/q4o0qyb95wqzOad13LzL0dSezlBzxaYM=
+X-Google-Smtp-Source: ABdhPJze6Rd2d70xPb8LCsaPLuoFAD3rg5c+UqGcJKsGCYEFG6b0Dq+bW5cjLlh0apdZJNwnDweqEjT6WB8NhnExGFw=
+X-Received: by 2002:a17:906:b208:b0:70e:c7f1:f8bf with SMTP id
+ p8-20020a170906b20800b0070ec7f1f8bfmr31984896ejz.143.1654821531918; Thu, 09
+ Jun 2022 17:38:51 -0700 (PDT)
+MIME-Version: 1.0
+References: <CAObQKurneF1S-2=yb30mCQmo=xZFk9ST7TZectih+G0exu_Dkw@mail.gmail.com>
+ <48aa897312c05211f5299f149343288b@dependablelc.com>
+In-Reply-To: <48aa897312c05211f5299f149343288b@dependablelc.com>
+From: Mohit Menon <mohitmenon4@gmail.com>
+Date: Fri, 10 Jun 2022 04:38:40 +0400
+Message-ID: <CAObQKurgQQg+oajzpDE9+Vn+tjhPnpS_AyVuzyAk-pT+VDZ_4w@mail.gmail.com>
+Subject: Re: Mutual Divorce
+To: info@dependablelc.com
+Cc: aamersaade80@gmail.com, Shabnam Menon <shabnam.menon@gmail.com>
+Content-Type: multipart/alternative; boundary="00000000000093a42605e10d291a"
+X-NCJF-Result: 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
+X-NCJF-Version: 8
+Authentication-Results: asp-relay-shared.jellyfish.systems;
+	dkim=pass header.d=gmail.com header.s=20210112 header.b=Cid0VLj3;
+	dmarc=pass (policy=none) header.from=gmail.com;
+	spf=pass (asp-relay-shared.jellyfish.systems: domain of mohitmenon4@gmail.com designates 209.85.218.54 as permitted sender) smtp.mailfrom=mohitmenon4@gmail.com
+
+--00000000000093a42605e10d291a
+Content-Type: text/plain; charset="UTF-8"
+
+Dear Aamer,
+
+Lets please move forward, as discussed we need your support on doing the
+entire process online and till we receive the formal closure document. I
+will call you later today.
+
+Regards,
+
+On Fri, 3 Jun 2022 at 00:03, <info@dependablelc.com> wrote:
+
+> On 2022-06-01 19:58, Mohit Menon wrote:
+> > Dear Aamer,
+> >
+> > Hope this note finds you well. Further to our discussion Shabnam and I
+> > would like you to support us in concluding our mutually agreed
+> > divorce. Please find enclosed a document that we have mutually
+> > created.
+> >
+> > Can we meet jointly, discuss and we look forward to a quick closure on
+> > our divorce proceedings.
+> >
+> > Regards,
+> >
+> > Mohit
+> Dear Mr. Mohit:
+> It is our pleasure to serve you.
+> Please find our quotation here for drafting your divorce agreement.
+>
+
+--00000000000093a42605e10d291a
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"ltr">Dear Aamer,<div><br></div><div>Lets please=C2=A0move forwa=
+rd, as discussed=C2=A0we need your support on doing the entire process onli=
+ne and till we receive the formal closure document. I will call you later t=
+oday.</div><div><br></div><div>Regards,</div></div><br><div class=3D"gmail_=
+quote"><div dir=3D"ltr" class=3D"gmail_attr">On Fri, 3 Jun 2022 at 00:03, &=
+lt;<a href=3D"mailto:info@dependablelc.com">info@dependablelc.com</a>&gt; w=
+rote:<br></div><blockquote class=3D"gmail_quote" style=3D"margin:0px 0px 0p=
+x 0.8ex;border-left:1px solid rgb(204,204,204);padding-left:1ex">On 2022-06=
+-01 19:58, Mohit Menon wrote:<br>
+&gt; Dear Aamer,<br>
+&gt; <br>
+&gt; Hope this note finds you well. Further to our discussion Shabnam and I=
+<br>
+&gt; would like you to support us in concluding our mutually agreed<br>
+&gt; divorce. Please find enclosed a document that we have mutually<br>
+&gt; created.<br>
+&gt; <br>
+&gt; Can we meet jointly, discuss and we look forward to a quick closure on=
+<br>
+&gt; our divorce proceedings.<br>
+&gt; <br>
+&gt; Regards,<br>
+&gt; <br>
+&gt; Mohit<br>
+Dear Mr. Mohit:<br>
+It is our pleasure to serve you.<br>
+Please find our quotation here for drafting your divorce agreement.<br>
+</blockquote></div>
+
+--00000000000093a42605e10d291a--

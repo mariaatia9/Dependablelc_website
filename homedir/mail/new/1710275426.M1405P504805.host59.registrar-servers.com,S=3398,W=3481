@@ -1,0 +1,83 @@
+Return-Path: <>
+Delivered-To: dependablelc@host59.registrar-servers.com
+Received: from host59.registrar-servers.com
+	by host59.registrar-servers.com with LMTP
+	id UHH5OmG78GXlswcA+KyzgQ
+	(envelope-from <>)
+	for <dependablelc@host59.registrar-servers.com>; Tue, 12 Mar 2024 16:30:25 -0400
+Return-path: <>
+Envelope-to: dependablelc@host59.registrar-servers.com
+Delivery-date: Tue, 12 Mar 2024 16:30:26 -0400
+Received: from mailnull by host59.registrar-servers.com with local (Exim 4.96.1)
+	id 1rk8lV-002p9j-32
+	for dependablelc@host59.registrar-servers.com;
+	Tue, 12 Mar 2024 16:30:25 -0400
+X-Failed-Recipients: admin@dependablelc.com
+Auto-Submitted: auto-replied
+From: Mail Delivery System <Mailer-Daemon@host59.registrar-servers.com>
+To: dependablelc@host59.registrar-servers.com
+References: <yH0Y8uu4cPgO7w3vXUjSmm5ojtXmqdzip2jr8sS2GU@dependablelc.com>
+Content-Type: multipart/report; report-type=delivery-status; boundary=1710275425-eximdsn-447538046
+MIME-Version: 1.0
+Subject: Mail delivery failed: returning message to sender
+Message-Id: <E1rk8lV-002p9j-32@host59.registrar-servers.com>
+Date: Tue, 12 Mar 2024 16:30:25 -0400
+
+--1710275425-eximdsn-447538046
+Content-type: text/plain; charset=us-ascii
+
+This message was created automatically by mail delivery software.
+
+A message that you sent could not be delivered to one or more of its
+recipients. This is a permanent error. The following address(es) failed:
+
+  admin@dependablelc.com
+    No Such User Here
+
+--1710275425-eximdsn-447538046
+Content-type: message/delivery-status
+
+Reporting-MTA: dns; host59.registrar-servers.com
+
+Action: failed
+Final-Recipient: rfc822;admin@dependablelc.com
+Status: 5.0.0
+
+--1710275425-eximdsn-447538046
+Content-type: message/rfc822
+
+Return-path: <dependablelc@host59.registrar-servers.com>
+Received: from dependablelc by host59.registrar-servers.com with local (Exim 4.96.1)
+	(envelope-from <dependablelc@host59.registrar-servers.com>)
+	id 1rk8lV-002p91-2J
+	for admin@dependablelc.com;
+	Tue, 12 Mar 2024 16:30:25 -0400
+To: admin@dependablelc.com
+Subject: [DLC] Please moderate: "site-logo-white.svg"
+X-PHP-Script: dependablelc.com/wp-comments-post.php for 185.125.50.5, 185.125.50.5
+X-PHP-Filename: /home/dependablelc/public_html/wp-comments-post.php REMOTE_ADDR: 185.125.50.5
+Date: Tue, 12 Mar 2024 20:30:25 +0000
+From: WordPress <wordpress@dependablelc.com>
+Message-ID: <yH0Y8uu4cPgO7w3vXUjSmm5ojtXmqdzip2jr8sS2GU@dependablelc.com>
+X-Mailer: PHPMailer 6.8.1 (https://github.com/PHPMailer/PHPMailer)
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Sender:  <dependablelc@host59.registrar-servers.com>
+
+A new comment on the post "site-logo-white.svg" is waiting for your approval
+https://dependablelc.com/site-logo-white-svg/
+
+Author: Extended Opportunity (IP address: 185.125.50.5, 9346.h2.nexus)
+Email: 33184@gmail.com
+URL: 
+Comment: 
+A.I Create & Sell Unlimited Audiobooks to 2.3 Million Users - https://ext-opp.com/ECCO
+
+Approve it: https://dependablelc.com/wp-admin/comment.php?action=approve&c=5#wpbody-content
+Trash it: https://dependablelc.com/wp-admin/comment.php?action=trash&c=5#wpbody-content
+Spam it: https://dependablelc.com/wp-admin/comment.php?action=spam&c=5#wpbody-content
+Currently 3 comments are waiting for approval. Please visit the moderation panel:
+https://dependablelc.com/wp-admin/edit-comments.php?comment_status=moderated#wpbody-content
+
+
+--1710275425-eximdsn-447538046--

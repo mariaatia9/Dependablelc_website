@@ -1,0 +1,1088 @@
+Return-Path: <soualahecom@gmail.com>
+Delivered-To: info@dependablelc.com
+Received: from host59.registrar-servers.com
+	by host59.registrar-servers.com with LMTP
+	id KDilGI0QdmNhvhMA+KyzgQ
+	(envelope-from <soualahecom@gmail.com>)
+	for <info@dependablelc.com>; Thu, 17 Nov 2022 05:44:29 -0500
+Return-path: <soualahecom@gmail.com>
+Envelope-to: info@dependablelc.com
+Delivery-date: Thu, 17 Nov 2022 05:44:29 -0500
+Received: from [63.250.43.69] (port=15335 helo=asp-relay-shared.jellyfish.systems)
+	by host59.registrar-servers.com with esmtps  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <soualahecom@gmail.com>)
+	id 1ovcNh-007Fe5-7U
+	for info@dependablelc.com;
+	Thu, 17 Nov 2022 05:44:29 -0500
+Received: from mail-wr1-f41.google.com (mail-wr1-f41.google.com [209.85.221.41])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by asp-relay-shared.jellyfish.systems (Postfix) with ESMTPS id 4NCc3r6ShLzybN
+	for <info@dependablelc.com>; Thu, 17 Nov 2022 10:44:19 +0000 (UTC)
+Received: by mail-wr1-f41.google.com with SMTP id bs21so3093973wrb.4
+        for <info@dependablelc.com>; Thu, 17 Nov 2022 02:44:19 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20210112;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=yQffKa3zMDkdicF+r5U9NpiBC4P3jb9aM8si6dTZDrg=;
+        b=ULT5PuRJ5LN+ZhrDpM28rUTO7GyR4dMddry4XZ86CUKetODo+F/WZ//rUTjaI4wGx/
+         7MEIJ/ry9ovtA4rPSsc1gL62akiW7hpX856jtG8xPqQbsqqig1Y2Knk5FRJNmAoJaaZ0
+         Ba160WSzFrhheHk0WEXUKIRtkBkCpfXY6DZCBzX/VgYUkDuX/5SsAUI7wpVar4LtgkU3
+         2LpJKOTIVKy+N9sImlV76oHfiVYibhhKhym9Rf/yi1xJ7+FQh3TbG/61FsgLvy7W4Qjr
+         iJHEEuDgT1orGuv3qJFhwMKogvp5JskFxcNsZkDOJ/No7obGZm1LQzH6QO82bdW66sze
+         TeGA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=yQffKa3zMDkdicF+r5U9NpiBC4P3jb9aM8si6dTZDrg=;
+        b=hptK3tNUdm33PGl5zNK/avH29LiRg7o+dVU3+vcsnN5GUMs5Q0euEd6lx7n1JCEbJE
+         Y+RwuYTKSAfyIQoH4tnKyFGgCJQTVoe9AK7Q1aMGL9YsgZe8FBhKORTZsKmTBnmVOhpM
+         ew1y0y5quM3V+sYvlwcN8Ks7aQwbzmoOoZk2DpyhhMiYnrkpavZMAf1OLazdkX0C3VzI
+         B8inRiZ8BwxMNxTyhyie+Zf+O02xRd4Znoc7v5nf35gNdXvqhY2cUN8p7a37Xr41fk1y
+         86ACJlPNeu2+vljSfuF3+Pu0RGD5kzoB8AQTuKvwCvVIA3dxL1j0iB9OL7OVDROgT5AI
+         Zeew==
+X-Gm-Message-State: ANoB5pkAE+CK1eqoTG6QWhbd7+MWJyrcIGhSEfhB0w8GCNsLQhm1lkhg
+	sgsDQ1YDRKm46/0XoAxhQ36W0zPa2A3BrPJdexF7H4uD
+X-Google-Smtp-Source: AA0mqf5e8uB9SnrRqJhAyTc/gy7JOZSYUSH9N+NFMGnw+5qJ2TLurBxIpG0DKtlIuh7uyGVt6SuwhvpuV2q2kR3DLrI=
+X-Received: by 2002:a05:6000:388:b0:241:b93b:32d4 with SMTP id
+ u8-20020a056000038800b00241b93b32d4mr733217wrf.671.1668681858482; Thu, 17 Nov
+ 2022 02:44:18 -0800 (PST)
+MIME-Version: 1.0
+References: <2d6f.389c52e.m1.14aa69a0-658d-11ed-a230-525400d6cd4f.1847faad53a@mailer.zohosalesiq.com>
+ <AM0PR04MB6722E077333A9EFB1D16EF94AA079@AM0PR04MB6722.eurprd04.prod.outlook.com>
+ <aca773c45dfda319225684fbcc78729b5932b4c497e073e84de1706ef8f1d0c5_hrq0c_1847ff775f7@zohodesk.com>
+In-Reply-To: <aca773c45dfda319225684fbcc78729b5932b4c497e073e84de1706ef8f1d0c5_hrq0c_1847ff775f7@zohodesk.com>
+From: Sami Soualah <soualahecom@gmail.com>
+Date: Thu, 17 Nov 2022 14:44:07 +0400
+Message-ID: <CAMrjo3izergFtFzH=qfa+k4-dF6k_KD4uYZcw0eHR1sL3ktTwg@mail.gmail.com>
+Subject: Fwd: [## 300877 ##] License Renewal
+To: info@dependablelc.com
+Content-Type: multipart/related; boundary="0000000000006b195705eda845e4"
+X-NCJF-Result: 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
+X-NCJF-Version: 2
+Authentication-Results: asp-relay-shared.jellyfish.systems;
+	dkim=pass header.d=gmail.com header.s=20210112 header.b=ULT5PuRJ;
+	dmarc=pass (policy=none) header.from=gmail.com;
+	spf=pass (asp-relay-shared.jellyfish.systems: domain of soualahecom@gmail.com designates 209.85.221.41 as permitted sender) smtp.mailfrom=soualahecom@gmail.com
+
+--0000000000006b195705eda845e4
+Content-Type: multipart/alternative; boundary="0000000000006b195505eda845e3"
+
+--0000000000006b195505eda845e3
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+---------- Forwarded message ---------
+De : Kinaz Ahmadieh <renewals@shams.ae>
+Date: mer. 16 nov. 2022 =C3=A0 14:24
+Subject: Re:[## 300877 ##] License Renewal
+To: <soualahecom@gmail.com>
+
+
+To whom it may concern,
+
+Greetings,
+
+Kindly note that your license is managed by consulting agent HOME AND
+BUSINESS SOLUTIONS FZE
+
+Kindly contact them to assist you on the renewal of your license.
+
+Regards,
+
+---- On  Wed, 16 Nov 2022 13:04:21 +0400* "Shams Chat"<chat@shams.ae
+<chat@shams.ae>> * wrote ----
+
+Hello Team,
+
+FYI.
+
+Client Name:  Soualahecom
+Contact #: +971545044780
+Email Address: soualahecom@gmail.com
+
+
+Brief Description of the Client=E2=80=99s Inquiry:  License renewal
+
+Thank you.
+
+------------------------------
+
+*From:* SalesIQ <systemgenerated@zohosalesiq.com>
+*Sent:* Wednesday, November 16, 2022 1:00 PM
+*To:* Shams Chat <chat@shams.ae>
+*Subject:* Chat : hello, I want to renewal my company soualah ecom LLC but
+I can't access to the company management. How can I do please ?
+
+Chat Transcript
+
+*#32200 Soualahecom* - soualahecom@gmail.com
+=E2=98=8E 545044780
+Website : https://portal.shams.ae/frontend/customer/help-support
+<https://eur03.safelinks.protection.outlook.com/?url=3Dhttps%3A%2F%2Fportal=
+.shams.ae%2Ffrontend%2Fcustomer%2Fhelp-support&data=3D05%7C01%7Cchat%40sham=
+s.ae%7Cf55449eeceee418a8ac708dac7b11216%7C981d25cf9dbb439fa4b468583e1841b6%=
+7C0%7C0%7C638041860568875362%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLC=
+JQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C3000%7C%7C%7C&sdata=3D%2BC99=
+h07q7%2F3w%2FCd0AQ8P8%2Fv6f%2Fvivi2ZSlJM5eoNSQ8%3D&reserved=3D0>
+Attended By : Shams
+Chat Ended by : Operator
+Operating System : Mac OS
+Browser : Google Chrome
+Device : Desktop
+City : Al Qawz
+State : Dubai
+Country : United Arab Emirates
+Average Response Time : 8 Secs
+16 Nov 2022, 12:48 PM
+Chat Duration : 00:12:03
+Chat Transcript
+
+  hello, I want to renewal my company soualah ecom LLC but I can't access
+to the company management. How can I do please ?
+Soualahecom
+hello, I want to renewal my company soualah ecom LLC but I can't access to
+the company management. How can I do please ?
+12:48:08 PM
+Shams
+Thank you for contacting Sharjah Media City (Shams). How can we assist you
+today?
+12:48:11 PM
+Soualahecom
+hello, I want to renewal my company soualah ecom LLC but I can't access to
+the company management. How can I do please ?
+12:48:44 PM
+Shams
+Good afternoon. This is Mary.
+12:49:05 PM
+
+Is your company registered directly with Shams or was it through a
+consultant?
+12:49:57 PM
+Soualahecom
+through a consultant
+12:50:29 PM
+
+But he ask me more than 20 000 AED for renewal
+12:50:48 PM
+
+I know it take a lot of profit on me
+12:51:07 PM
+
+I cannot pay it every year
+12:51:14 PM
+
+I want to pay directly by myself
+12:51:31 PM
+Shams
+Since your company was set up through them, you need to renew your license
+through them as well.
+12:51:50 PM
+
+Please contact them first and check what your options are.
+12:52:08 PM
+
+Can I help you with anything else?
+12:56:24 PM
+
+I have not received a response from your end for the past few minutes. I
+will be closing this chat session to assist other clients in the queue.
+Feel free to contact us again if you still need assistance. Thank you for
+contacting Shams. Have a great day ahead.
+1:00:09 PM
+
+--0000000000006b195505eda845e3
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"ltr"><br><br><div class=3D"gmail_quote"><div dir=3D"ltr" class=
+=3D"gmail_attr">---------- Forwarded message ---------<br>De=C2=A0: <strong=
+ class=3D"gmail_sendername" dir=3D"auto">Kinaz Ahmadieh</strong> <span dir=
+=3D"auto">&lt;<a href=3D"mailto:renewals@shams.ae">renewals@shams.ae</a>&gt=
+;</span><br>Date: mer. 16 nov. 2022 =C3=A0=C2=A014:24<br>Subject: Re:[## 30=
+0877 ##]  License Renewal<br>To:  &lt;<a href=3D"mailto:soualahecom@gmail.c=
+om">soualahecom@gmail.com</a>&gt;<br></div><br><br><u></u>
+<div><div style=3D"font-size:13px;font-family:Arial,Helvetica,Verdana,sans-=
+serif"><div><span style=3D"font-family:Arial,Helvetica,sans-serif,sans-seri=
+f"><span style=3D"font-size:13px">To whom it may concern,</span><span style=
+=3D"font-size:13px"><br></span></span></div><div><span style=3D"font-family=
+:Arial,Helvetica,sans-serif,sans-serif"><span style=3D"font-size:13px"><br>=
+</span></span></div><div><span style=3D"font-family:Arial,Helvetica,sans-se=
+rif,sans-serif"><span style=3D"font-size:13px">Greetings,</span><span style=
+=3D"font-size:13px"><br></span></span></div><div><span style=3D"font-family=
+:Arial,Helvetica,sans-serif,sans-serif"><span style=3D"font-size:13px"><br>=
+</span></span></div><div><span style=3D"font-family:Arial,Helvetica,sans-se=
+rif,sans-serif"><span style=3D"font-size:13px">Kindly note that your licens=
+e is managed by consulting agent=C2=A0</span></span><font face=3D"LatoBold"=
+><span style=3D"outline-color:initial;background-color:rgb(255,255,255);fon=
+t-size:12px;height:inherit;border:inherit!important;border-radius:inherit!i=
+mportant;line-height:inherit!important;margin:inherit!important;padding:inh=
+erit!important;width:inherit!important"><span style=3D"font-family:Arial,He=
+lvetica,sans-serif,sans-serif"><span style=3D"font-size:13px">HOME AND BUSI=
+NESS SOLUTIONS FZE</span></span></span></font><span style=3D"font-family:Ar=
+ial,Helvetica,sans-serif,sans-serif"><span style=3D"font-size:13px"><br></s=
+pan></span></div><div><span style=3D"font-family:Arial,Helvetica,sans-serif=
+,sans-serif"><span style=3D"font-size:13px"><br></span></span></div><div><f=
+ont face=3D"LatoBold"><span style=3D"outline-color:initial;background-color=
+:rgb(255,255,255);font-size:12px;height:inherit;border:inherit!important;bo=
+rder-radius:inherit!important;line-height:inherit!important;margin:inherit!=
+important;padding:inherit!important;width:inherit!important"><span style=3D=
+"font-family:Arial,Helvetica,sans-serif,sans-serif"><span style=3D"font-siz=
+e:13px">Kindly contact them to assist you on the renewal of your license.</=
+span></span></span></font><span style=3D"font-family:Arial,Helvetica,sans-s=
+erif,sans-serif"><span style=3D"font-size:13px"><br></span></span></div><di=
+v><span style=3D"font-family:Arial,Helvetica,sans-serif,sans-serif"><span s=
+tyle=3D"font-size:13px"><br></span></span></div><div><font face=3D"LatoBold=
+"><span style=3D"outline-color:initial;background-color:rgb(255,255,255);fo=
+nt-size:12px;height:inherit;border:inherit!important;border-radius:inherit!=
+important;line-height:inherit!important;margin:inherit!important;padding:in=
+herit!important;width:inherit!important"><span style=3D"font-family:Arial,H=
+elvetica,sans-serif,sans-serif"><span style=3D"font-size:13px">Regards,=C2=
+=A0</span></span></span></font><br></div><div><font face=3D"LatoBold"><span=
+ style=3D"outline-color:initial;background-color:rgb(255,255,255);font-size=
+:12px;height:inherit;border:inherit!important;border-radius:inherit!importa=
+nt;line-height:inherit!important;margin:inherit!important;padding:inherit!i=
+mportant;width:inherit!important"></span></font><br></div><div>---- On =C2=
+=A0Wed, 16 Nov 2022 13:04:21 +0400<b>=C2=A0&quot;Shams  Chat&quot;&lt;<a re=
+l=3D"noreferrer" href=3D"mailto:chat@shams.ae" target=3D"_blank">chat@shams=
+.ae</a>&gt;=C2=A0</b> wrote ---- <br></div><div title=3D"beforequote:::"></=
+div><div><blockquote style=3D"border-left:1px dotted rgb(229,229,229);margi=
+n-left:5px;padding-left:5px"><div style=3D"padding-top:10px">=20
+
+
+<div dir=3D"ltr">
+<div style=3D"font-family:Calibri,Arial,Helvetica,sans-serif;font-size:12pt=
+;color:rgb(0,0,0);background-color:rgb(255,255,255)">
+<div>Hello Team,</div>
+<div><br>
+</div>
+<div>FYI.</div>
+<div><br>
+</div>
+<div>Client Name: =C2=A0Soualahecom</div>
+<div>Contact #: +971545044780</div>
+<div>Email Address: <a rel=3D"noreferrer" href=3D"mailto:soualahecom@gmail.=
+com" target=3D"_blank">soualahecom@gmail.com</a></div>
+<div><br>
+</div>
+<div><br>
+</div>
+<div>Brief Description of the Client=E2=80=99s Inquiry: =C2=A0License renew=
+al
+</div>
+<div><br>
+</div>
+<div>Thank you.</div>
+<div><br></div>
+</div>
+<div id=3D"m_8539577203178676107x_-565609040appendonsend"></div>
+<div><hr style=3D"display:inline-block;width:98%"><br></div>
+<div dir=3D"ltr" id=3D"m_8539577203178676107x_-565609040divRplyFwdMsg"><div=
+><font color=3D"#000000" style=3D"font-size:11pt" face=3D"Calibri, sans-ser=
+if"><b>From:</b> SalesIQ &lt;<a rel=3D"noreferrer" href=3D"mailto:systemgen=
+erated@zohosalesiq.com" target=3D"_blank">systemgenerated@zohosalesiq.com</=
+a>&gt;<br>
+<b>Sent:</b> Wednesday, November 16, 2022 1:00 PM<br>
+<b>To:</b> Shams Chat &lt;<a rel=3D"noreferrer" href=3D"mailto:chat@shams.a=
+e" target=3D"_blank">chat@shams.ae</a>&gt;<br>
+<b>Subject:</b> Chat : hello, I want to renewal my company soualah ecom LLC=
+ but I can&#39;t access to the company management. How can I do please ?</f=
+ont></div>
+<div>=C2=A0</div>
+</div>
+<div>
+<div style=3D"background-color:rgb(241,241,241)">
+<table style=3D"background-color:rgb(255,255,255);font-family:Arial,Helveti=
+ca,sans-serif;border-right:1px solid rgb(227,227,227);border-bottom:1px sol=
+id rgb(227,227,227);border-left:1px solid rgb(227,227,227);border-top:none;=
+padding-bottom:15px;max-width:100%" align=3D"center" cellpadding=3D"0" cell=
+spacing=3D"0" border=3D"0" width=3D"960">
+<tbody>
+<tr>
+<td>
+<table style=3D"height:3px;overflow:hidden;max-width:100%" align=3D"center"=
+ cellpadding=3D"0" cellspacing=3D"0" border=3D"0" height=3D"3" width=3D"100=
+%">
+<tbody>
+<tr>
+<td style=3D"overflow:hidden;background-color:rgb(210,140,147);width:25%" h=
+eight=3D"3">
+</td>
+<td style=3D"overflow:hidden;background-color:rgb(107,194,129);width:25%" h=
+eight=3D"3">
+</td>
+<td style=3D"overflow:hidden;background-color:rgb(131,178,212);width:25%" h=
+eight=3D"3">
+</td>
+<td style=3D"overflow:hidden;background-color:rgb(242,224,119);width:25%" h=
+eight=3D"3">
+</td>
+</tr>
+</tbody>
+</table>
+<table style=3D"background-color:rgb(255,255,255);width:900px;font-size:13p=
+x;max-width:100%" align=3D"center" cellpadding=3D"0" cellspacing=3D"0" bord=
+er=3D"0" width=3D"900">
+<tbody>
+<tr>
+<td>
+<table style=3D"padding-bottom:15px;max-width:100%" align=3D"center" cellpa=
+dding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"100%">
+<tbody>
+<tr>
+<td align=3D"center">
+<div style=3D"color:rgb(89,87,88);margin:0;padding:40px 0 10px 0;display:in=
+line-block;text-align:right">
+<div style=3D"color:rgb(0,0,0);text-align:center;padding-bottom:1px;font-we=
+ight:normal;font-size:39px">
+Chat Transcript</div>
+<div><span style=3D"display:inline-block;vertical-align:top;line-height:nor=
+mal;font-size:1px;border-top:1px solid rgb(108,194,129);width:40px">=C2=A0<=
+/span><br></div></div>
+</td>
+</tr>
+</tbody>
+</table>
+<table style=3D"max-width:100%" cellpadding=3D"0" cellspacing=3D"0" border=
+=3D"0" width=3D"100%">
+<tbody>
+<tr>
+<td>
+<div>
+<table style=3D"max-width:100%" cellpadding=3D"0" cellspacing=3D"0" border=
+=3D"0" width=3D"100%">
+<tbody>
+<tr>
+<td style=3D"float:left">
+<div style=3D"padding-top:27px;font-size:13px">
+<div style=3D"color:rgb(0,0,0)"><b style=3D"padding:0;font-size:13px;color:=
+rgb(0,0,0)"><span style=3D"padding-top:10px;color:rgb(0,0,0);font-weight:bo=
+ld">#32200
+</span>Soualahecom</b> - <span style=3D"font-weight:bold;color:rgb(0,0,0);f=
+ont-size:13px">
+<a rel=3D"noreferrer" href=3D"mailto:soualahecom@gmail.com" target=3D"_blan=
+k">soualahecom@gmail.com</a> </span>
+</div>
+<div style=3D"padding-top:8px;color:rgb(0,0,0);font-size:13px">=E2=98=8E 54=
+5044780</div>
+<div style=3D"padding-top:8px;color:rgb(0,0,0);font-size:13px">Website :=C2=
+=A0<a rel=3D"noreferrer" style=3D"width:490px;float:right" href=3D"https://=
+eur03.safelinks.protection.outlook.com/?url=3Dhttps%3A%2F%2Fportal.shams.ae=
+%2Ffrontend%2Fcustomer%2Fhelp-support&amp;data=3D05%7C01%7Cchat%40shams.ae%=
+7Cf55449eeceee418a8ac708dac7b11216%7C981d25cf9dbb439fa4b468583e1841b6%7C0%7=
+C0%7C638041860568875362%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjo=
+iV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C3000%7C%7C%7C&amp;sdata=3D%2BC99h=
+07q7%2F3w%2FCd0AQ8P8%2Fv6f%2Fvivi2ZSlJM5eoNSQ8%3D&amp;reserved=3D0" target=
+=3D"_blank">https://portal.shams.ae/frontend/customer/help-support</a></div=
+>
+<div style=3D"padding-top:8px;color:rgb(0,0,0);font-size:13px">Attended By =
+: Shams</div>
+<div style=3D"padding-top:8px;color:rgb(0,0,0);font-size:13px">Chat Ended b=
+y : Operator</div>
+<div style=3D"padding-top:8px;color:rgb(0,0,0);font-size:13px">Operating Sy=
+stem : Mac OS</div>
+<div style=3D"padding-top:8px;color:rgb(0,0,0);font-size:13px">Browser : Go=
+ogle Chrome</div>
+<div style=3D"padding-top:8px;color:rgb(0,0,0);font-size:13px">Device : Des=
+ktop</div>
+<div style=3D"padding-top:8px;color:rgb(0,0,0);font-size:13px">City : Al Qa=
+wz </div>
+<div style=3D"padding-top:8px;color:rgb(0,0,0);font-size:13px">State : Duba=
+i </div>
+<div style=3D"padding-top:8px;color:rgb(0,0,0);font-size:13px">Country : Un=
+ited Arab Emirates
+</div>
+<div style=3D"padding-top:8px;color:rgb(0,0,0);font-size:13px">Average Resp=
+onse Time : 8 Secs
+</div>
+</div>
+</td>
+<td valign=3D"top" width=3D"300">
+<div style=3D"float:right;width:285px;text-align:right;padding-top:20px;fon=
+t-size:13px">
+<div style=3D"color:rgb(0,0,0);padding-top:7px;font-size:13px">16 Nov 2022,=
+ 12:48 PM
+</div>
+<div style=3D"color:rgb(0,0,0);padding-top:9px;font-size:13px">Chat Duratio=
+n : 00:12:03</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<div></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<table style=3D"max-width:100%" cellpadding=3D"0" cellspacing=3D"0" border=
+=3D"0" width=3D"100%">
+<tbody>
+<tr>
+<td style=3D"white-space:nowrap" valign=3D"middle" width=3D"12%" height=3D"=
+35">
+<div style=3D"white-space:nowrap;font-size:18px;color:rgb(0,0,0);padding:35=
+px 10px 0 0">
+Chat Transcript</div>
+</td>
+<td style=3D"text-align:right" valign=3D"middle">
+<div style=3D"border-bottom:1px dashed rgb(191,189,190);min-height:35px;lin=
+e-height:0">
+=C2=A0</div>
+</td>
+</tr>
+</tbody>
+</table>
+<div style=3D"padding-top:15px;width:900px;max-width:900px">
+<table style=3D"max-width:100%" border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0">
+<tbody>
+<tr>
+<td style=3D"width:120px;color:rgb(0,0,0);text-align:right;min-width:100px;=
+max-width:100px;padding:8px 10px 6px 12px">
+=C2=A0</td>
+<td style=3D"padding:8px 10px 6px 12px">
+<h1 style=3D"margin:0;padding:5px 0;font-size:14px;color:rgb(0,0,0);font-fa=
+mily:inherit;font-weight:bold;width:643px;max-width:643px">
+hello, I want to renewal my company soualah ecom LLC but I can&#39;t access=
+ to the company management. How can I do please ?</h1>
+</td>
+</tr>
+<tr>
+</tr>
+<tr>
+<td style=3D"padding:8px 12px 6px 12px;border-top:1px solid rgb(251,251,251=
+);min-width:130px;max-width:130px;overflow:hidden;width:140px;text-align:ri=
+ght;background-color:rgb(250,250,250);color:rgb(0,0,0);vertical-align:top;f=
+ont-size:13px" title=3D"Soualahecom">
+Soualahecom</td>
+<td style=3D"padding:8px 10px 6px 12px;color:rgb(0,0,0);border-top:1px soli=
+d rgb(251,251,251);border-left:1px solid rgb(251,250,251);font-size:13px;li=
+ne-height:23px">
+<div style=3D"width:auto"><span>hello, I want to renewal my company soualah=
+ ecom LLC but I can&#39;t access to the company management. How can I do pl=
+ease ?</span></div>
+</td>
+<td style=3D"text-align:right;border-top:1px solid rgb(251,250,251);font-si=
+ze:13px" width=3D"100">
+<span style=3D"text-align:right;color:rgb(153,153,153);min-width:50px;max-w=
+idth:65px;font-size:11px;font-style:normal;padding-right:5px">12:48:08 PM</=
+span></td>
+</tr>
+<tr>
+<td style=3D"padding:8px 12px 6px 12px;border-top:1px solid rgb(251,251,251=
+);min-width:130px;max-width:130px;overflow:hidden;width:130px;text-align:ri=
+ght;background-color:rgb(243,243,243);color:rgb(0,0,0);vertical-align:top;f=
+ont-size:13px" title=3D"Shams">
+Shams</td>
+<td style=3D"padding:8px 10px 6px 12px;color:rgb(0,0,0);border-top:1px soli=
+d rgb(251,251,251);border-left:1px solid rgb(251,250,251);font-size:13px;li=
+ne-height:23px">
+<div style=3D"width:auto"><span>Thank you for contacting Sharjah Media City=
+ (Shams). How can we assist you today?</span></div>
+</td>
+<td style=3D"text-align:right;border-top:1px solid rgb(251,250,251);font-si=
+ze:13px" width=3D"100">
+<span style=3D"text-align:right;color:rgb(153,153,153);min-width:50px;max-w=
+idth:65px;font-size:11px;font-style:normal;padding-right:5px">12:48:11 PM</=
+span></td>
+</tr>
+<tr>
+<td style=3D"padding:8px 12px 6px 12px;border-top:1px solid rgb(251,251,251=
+);min-width:130px;max-width:130px;overflow:hidden;width:140px;text-align:ri=
+ght;background-color:rgb(250,250,250);color:rgb(0,0,0);vertical-align:top;f=
+ont-size:13px" title=3D"Soualahecom">
+Soualahecom</td>
+<td style=3D"padding:8px 10px 6px 12px;color:rgb(0,0,0);border-top:1px soli=
+d rgb(251,251,251);border-left:1px solid rgb(251,250,251);font-size:13px;li=
+ne-height:23px">
+<div style=3D"width:auto"><span>hello, I want to renewal my company soualah=
+ ecom LLC but I can&#39;t access to the company management. How can I do pl=
+ease ?</span></div>
+</td>
+<td style=3D"text-align:right;border-top:1px solid rgb(251,250,251);font-si=
+ze:13px" width=3D"100">
+<span style=3D"text-align:right;color:rgb(153,153,153);min-width:50px;max-w=
+idth:65px;font-size:11px;font-style:normal;padding-right:5px">12:48:44 PM</=
+span></td>
+</tr>
+<tr>
+<td style=3D"padding:8px 12px 6px 12px;border-top:1px solid rgb(251,251,251=
+);min-width:130px;max-width:130px;overflow:hidden;width:130px;text-align:ri=
+ght;background-color:rgb(243,243,243);color:rgb(0,0,0);vertical-align:top;f=
+ont-size:13px" title=3D"Shams">
+Shams</td>
+<td style=3D"padding:8px 10px 6px 12px;color:rgb(0,0,0);border-top:1px soli=
+d rgb(251,251,251);border-left:1px solid rgb(251,250,251);font-size:13px;li=
+ne-height:23px">
+<div style=3D"width:auto"><span>Good afternoon. This is Mary.</span></div>
+</td>
+<td style=3D"text-align:right;border-top:1px solid rgb(251,250,251);font-si=
+ze:13px" width=3D"100">
+<span style=3D"text-align:right;color:rgb(153,153,153);min-width:50px;max-w=
+idth:65px;font-size:11px;font-style:normal;padding-right:5px">12:49:05 PM</=
+span></td>
+</tr>
+<tr>
+<td style=3D"padding:8px 12px 6px 12px;border-top:1px solid rgb(251,251,251=
+);min-width:130px;max-width:130px;overflow:hidden;width:130px;text-align:ri=
+ght;background-color:rgb(243,243,243);color:rgb(0,0,0);vertical-align:top;f=
+ont-size:13px" title=3D"">
+</td>
+<td style=3D"padding:8px 10px 6px 12px;color:rgb(0,0,0);border-top:1px soli=
+d rgb(251,251,251);border-left:1px solid rgb(251,250,251);font-size:13px;li=
+ne-height:23px">
+<div style=3D"width:auto"><span>Is your company registered directly with Sh=
+ams or was it through a consultant?</span></div>
+</td>
+<td style=3D"text-align:right;border-top:1px solid rgb(251,250,251);font-si=
+ze:13px" width=3D"100">
+<span style=3D"text-align:right;color:rgb(153,153,153);min-width:50px;max-w=
+idth:65px;font-size:11px;font-style:normal;padding-right:5px">12:49:57 PM</=
+span></td>
+</tr>
+<tr>
+<td style=3D"padding:8px 12px 6px 12px;border-top:1px solid rgb(251,251,251=
+);min-width:130px;max-width:130px;overflow:hidden;width:140px;text-align:ri=
+ght;background-color:rgb(250,250,250);color:rgb(0,0,0);vertical-align:top;f=
+ont-size:13px" title=3D"Soualahecom">
+Soualahecom</td>
+<td style=3D"padding:8px 10px 6px 12px;color:rgb(0,0,0);border-top:1px soli=
+d rgb(251,251,251);border-left:1px solid rgb(251,250,251);font-size:13px;li=
+ne-height:23px">
+<div style=3D"width:auto"><span>through a consultant</span></div>
+</td>
+<td style=3D"text-align:right;border-top:1px solid rgb(251,250,251);font-si=
+ze:13px" width=3D"100">
+<span style=3D"text-align:right;color:rgb(153,153,153);min-width:50px;max-w=
+idth:65px;font-size:11px;font-style:normal;padding-right:5px">12:50:29 PM</=
+span></td>
+</tr>
+<tr>
+<td style=3D"padding:8px 12px 6px 12px;border-top:1px solid rgb(251,251,251=
+);min-width:130px;max-width:130px;overflow:hidden;width:140px;text-align:ri=
+ght;background-color:rgb(250,250,250);color:rgb(0,0,0);vertical-align:top;f=
+ont-size:13px" title=3D"">
+</td>
+<td style=3D"padding:8px 10px 6px 12px;color:rgb(0,0,0);border-top:1px soli=
+d rgb(251,251,251);border-left:1px solid rgb(251,250,251);font-size:13px;li=
+ne-height:23px">
+<div style=3D"width:auto"><span>But he ask me more than 20 000 AED for rene=
+wal</span></div>
+</td>
+<td style=3D"text-align:right;border-top:1px solid rgb(251,250,251);font-si=
+ze:13px" width=3D"100">
+<span style=3D"text-align:right;color:rgb(153,153,153);min-width:50px;max-w=
+idth:65px;font-size:11px;font-style:normal;padding-right:5px">12:50:48 PM</=
+span></td>
+</tr>
+<tr>
+<td style=3D"padding:8px 12px 6px 12px;border-top:1px solid rgb(251,251,251=
+);min-width:130px;max-width:130px;overflow:hidden;width:140px;text-align:ri=
+ght;background-color:rgb(250,250,250);color:rgb(0,0,0);vertical-align:top;f=
+ont-size:13px" title=3D"">
+</td>
+<td style=3D"padding:8px 10px 6px 12px;color:rgb(0,0,0);border-top:1px soli=
+d rgb(251,251,251);border-left:1px solid rgb(251,250,251);font-size:13px;li=
+ne-height:23px">
+<div style=3D"width:auto"><span>I know it take a lot of profit on me</span>=
+</div>
+</td>
+<td style=3D"text-align:right;border-top:1px solid rgb(251,250,251);font-si=
+ze:13px" width=3D"100">
+<span style=3D"text-align:right;color:rgb(153,153,153);min-width:50px;max-w=
+idth:65px;font-size:11px;font-style:normal;padding-right:5px">12:51:07 PM</=
+span></td>
+</tr>
+<tr>
+<td style=3D"padding:8px 12px 6px 12px;border-top:1px solid rgb(251,251,251=
+);min-width:130px;max-width:130px;overflow:hidden;width:140px;text-align:ri=
+ght;background-color:rgb(250,250,250);color:rgb(0,0,0);vertical-align:top;f=
+ont-size:13px" title=3D"">
+</td>
+<td style=3D"padding:8px 10px 6px 12px;color:rgb(0,0,0);border-top:1px soli=
+d rgb(251,251,251);border-left:1px solid rgb(251,250,251);font-size:13px;li=
+ne-height:23px">
+<div style=3D"width:auto"><span>I cannot pay it every year</span></div>
+</td>
+<td style=3D"text-align:right;border-top:1px solid rgb(251,250,251);font-si=
+ze:13px" width=3D"100">
+<span style=3D"text-align:right;color:rgb(153,153,153);min-width:50px;max-w=
+idth:65px;font-size:11px;font-style:normal;padding-right:5px">12:51:14 PM</=
+span></td>
+</tr>
+<tr>
+<td style=3D"padding:8px 12px 6px 12px;border-top:1px solid rgb(251,251,251=
+);min-width:130px;max-width:130px;overflow:hidden;width:140px;text-align:ri=
+ght;background-color:rgb(250,250,250);color:rgb(0,0,0);vertical-align:top;f=
+ont-size:13px" title=3D"">
+</td>
+<td style=3D"padding:8px 10px 6px 12px;color:rgb(0,0,0);border-top:1px soli=
+d rgb(251,251,251);border-left:1px solid rgb(251,250,251);font-size:13px;li=
+ne-height:23px">
+<div style=3D"width:auto"><span>I want to pay directly by myself</span></di=
+v>
+</td>
+<td style=3D"text-align:right;border-top:1px solid rgb(251,250,251);font-si=
+ze:13px" width=3D"100">
+<span style=3D"text-align:right;color:rgb(153,153,153);min-width:50px;max-w=
+idth:65px;font-size:11px;font-style:normal;padding-right:5px">12:51:31 PM</=
+span></td>
+</tr>
+<tr>
+<td style=3D"padding:8px 12px 6px 12px;border-top:1px solid rgb(251,251,251=
+);min-width:130px;max-width:130px;overflow:hidden;width:130px;text-align:ri=
+ght;background-color:rgb(243,243,243);color:rgb(0,0,0);vertical-align:top;f=
+ont-size:13px" title=3D"Shams">
+Shams</td>
+<td style=3D"padding:8px 10px 6px 12px;color:rgb(0,0,0);border-top:1px soli=
+d rgb(251,251,251);border-left:1px solid rgb(251,250,251);font-size:13px;li=
+ne-height:23px">
+<div style=3D"width:auto"><span>Since your company was set up through them,=
+ you need to renew your license through them as well.</span></div>
+</td>
+<td style=3D"text-align:right;border-top:1px solid rgb(251,250,251);font-si=
+ze:13px" width=3D"100">
+<span style=3D"text-align:right;color:rgb(153,153,153);min-width:50px;max-w=
+idth:65px;font-size:11px;font-style:normal;padding-right:5px">12:51:50 PM</=
+span></td>
+</tr>
+<tr>
+<td style=3D"padding:8px 12px 6px 12px;border-top:1px solid rgb(251,251,251=
+);min-width:130px;max-width:130px;overflow:hidden;width:130px;text-align:ri=
+ght;background-color:rgb(243,243,243);color:rgb(0,0,0);vertical-align:top;f=
+ont-size:13px" title=3D"">
+</td>
+<td style=3D"padding:8px 10px 6px 12px;color:rgb(0,0,0);border-top:1px soli=
+d rgb(251,251,251);border-left:1px solid rgb(251,250,251);font-size:13px;li=
+ne-height:23px">
+<div style=3D"width:auto"><span>Please contact them first and check what yo=
+ur options are.</span></div>
+</td>
+<td style=3D"text-align:right;border-top:1px solid rgb(251,250,251);font-si=
+ze:13px" width=3D"100">
+<span style=3D"text-align:right;color:rgb(153,153,153);min-width:50px;max-w=
+idth:65px;font-size:11px;font-style:normal;padding-right:5px">12:52:08 PM</=
+span></td>
+</tr>
+<tr>
+<td style=3D"padding:8px 12px 6px 12px;border-top:1px solid rgb(251,251,251=
+);min-width:130px;max-width:130px;overflow:hidden;width:130px;text-align:ri=
+ght;background-color:rgb(243,243,243);color:rgb(0,0,0);vertical-align:top;f=
+ont-size:13px" title=3D"">
+</td>
+<td style=3D"padding:8px 10px 6px 12px;color:rgb(0,0,0);border-top:1px soli=
+d rgb(251,251,251);border-left:1px solid rgb(251,250,251);font-size:13px;li=
+ne-height:23px">
+<div style=3D"width:auto"><span>Can I help you with anything else?</span></=
+div>
+</td>
+<td style=3D"text-align:right;border-top:1px solid rgb(251,250,251);font-si=
+ze:13px" width=3D"100">
+<span style=3D"text-align:right;color:rgb(153,153,153);min-width:50px;max-w=
+idth:65px;font-size:11px;font-style:normal;padding-right:5px">12:56:24 PM</=
+span></td>
+</tr>
+<tr>
+<td style=3D"padding:8px 12px 6px 12px;border-top:1px solid rgb(251,251,251=
+);min-width:130px;max-width:130px;overflow:hidden;width:130px;text-align:ri=
+ght;background-color:rgb(243,243,243);color:rgb(0,0,0);vertical-align:top;f=
+ont-size:13px" title=3D"">
+</td>
+<td style=3D"padding:8px 10px 6px 12px;color:rgb(0,0,0);border-top:1px soli=
+d rgb(251,251,251);border-left:1px solid rgb(251,250,251);font-size:13px;li=
+ne-height:23px">
+<div style=3D"width:auto"><span>I have not received a response from your en=
+d for the past few minutes. I will be closing this chat session to assist o=
+ther clients in the queue. Feel free to contact us again if you still need =
+assistance.
+ Thank you for contacting Shams. Have a great day ahead.</span></div>
+</td>
+<td style=3D"text-align:right;border-top:1px solid rgb(251,250,251);font-si=
+ze:13px" width=3D"100">
+<span style=3D"text-align:right;color:rgb(153,153,153);min-width:50px;max-w=
+idth:65px;font-size:11px;font-style:normal;padding-right:5px">1:00:09 PM</s=
+pan></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div><br></div>
+<div><br></div>
+<div><br></div>
+<div></div>
+<table style=3D"padding-top:65px;max-width:100%" width=3D"100%" border=3D"0=
+" cellspacing=3D"0" cellpadding=3D"0">
+<tbody>
+<tr>
+<td style=3D"width:70%"></td>
+<td style=3D"width:30%" align=3D"right"><span style=3D"font-weight:bold;pad=
+ding-right:5px;color:rgb(178,178,178);display:block"><img src=3D"cid:184853=
+03c664f8779271" style=3D"border-style:none;max-width:129px;max-height:96px;=
+padding:4px 3px 0 0"><img style=3D"max-width:100%"></span></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div></div></blockquote></div> <div><br></div></div><div id=3D"m_853957720=
+3178676107ZDeskInteg"></div><br></div></div></div>
+
+--0000000000006b195505eda845e3--
+--0000000000006b195705eda845e4
+Content-Type: image/jpeg; name="1668594254582005_775294629.jpg"
+Content-Disposition: inline; filename="1668594254582005_775294629.jpg"
+Content-Transfer-Encoding: base64
+Content-ID: <18485303c664f8779271>
+X-Attachment-Id: 18485303c664f8779271
+
+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
+QmCC
+--0000000000006b195705eda845e4--

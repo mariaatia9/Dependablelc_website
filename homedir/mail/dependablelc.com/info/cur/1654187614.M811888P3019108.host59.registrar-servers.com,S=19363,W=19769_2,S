@@ -1,0 +1,406 @@
+Return-Path: <rajesh.sharma12547@outlook.com>
+Delivered-To: info@dependablelc.com
+Received: from host59.registrar-servers.com
+	by host59.registrar-servers.com with LMTP
+	id aJzLL17mmGJkES4A+KyzgQ
+	(envelope-from <rajesh.sharma12547@outlook.com>)
+	for <info@dependablelc.com>; Thu, 02 Jun 2022 12:33:34 -0400
+Return-path: <rajesh.sharma12547@outlook.com>
+Envelope-to: info@dependablelc.com
+Delivery-date: Thu, 02 Jun 2022 12:33:34 -0400
+Received: from [63.250.43.69] (port=56245 helo=asp-relay-shared.jellyfish.systems)
+	by host59.registrar-servers.com with esmtps  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <rajesh.sharma12547@outlook.com>)
+	id 1nwnlO-00CjHm-Nn
+	for info@dependablelc.com;
+	Thu, 02 Jun 2022 12:33:34 -0400
+Received: from APC01-TYZ-obe.outbound.protection.outlook.com (mail-tyzapc01olkn2044.outbound.protection.outlook.com [40.92.107.44])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by asp-relay-shared.jellyfish.systems (Postfix) with ESMTPS id 4LDWm00N6SzFpZ0
+	for <info@dependablelc.com>; Thu,  2 Jun 2022 16:33:15 +0000 (UTC)
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=Idq6Pnyl9G50ZkOiKq2qjpavSwkMWn79wFNAhSltZionO1p6Jb8HYAO8Q0WpO1y8aS4NeOnd03CIcS7rSQ9CO2JQSv9ku3ArRPbIdTfCJI7oImiowUBg6MOrNh0Ox1pNAAsn9WKqASSj17vzUua5VPkQh5nkma40YCpwzSY16QM5rSxv4vAnNQZMpYUXR1YAE96idFXg/Crh6FX6vx1xLwYRdvL/ZuRjmwi5TxbJL3PGreXPWTW7VzhCPexziuS3cLUKH4QFls9fm1muFKoBrCt+q4c3aCzWWame5UDp1MxvUlYdpLwcsWyk1XuLWoiwjieEb00GSPrQAAz6bZj5eQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=3VWfuPa2Xq6wX2Nj8z+atJ2JrBk12j0UHNhcuF3uDlk=;
+ b=SH3u88SQ2dr66j4fgDtRYtEBRzZ2CuwXJ3yKNeRCRlUibyQZkL+kvwaKANucdUfgRPx6i3myUg1NO+Dov9HAodQmyMs4g0poPt9zUqu1/OkSL4KRO1ramDKiwgTiFne7Mq8JSrQUZ/uqmA3URD5MmEDw56TBNX6FUQfSoDsKmbl6D0dpLEi3Hes4Htkc1dptHRlooUZk6Jn+xi55q2wuvgnEJGv3iCQEvkibq0T36OiruYeUeuR/ZnjkoaZ5Qm+MzayQT7BqRb/vbA03iS+ISWFLkw5GQzPVQp5PGF1jW434dYT4kK9aTAozI6BVK7Cj38vjKb7xiOvV4opLbkTVgQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
+ dkim=none; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=3VWfuPa2Xq6wX2Nj8z+atJ2JrBk12j0UHNhcuF3uDlk=;
+ b=otlTOhc43laskUPvTgtsSHvWNWzUp2CWz2sS49lEZWODaiDv9/payNWe+aztoeMnbuDLOZdpkLn4ERphxe6c75I+nVkNAty5VQ7xUBbaEcUyWVWeZG0PC3r9rFLxBQURaZ3aD6wEe/9S+rR2oSA5ljICXDjlg33LCbk+J3Q8AXvpOSpB4XsYlYvTI8+F3x125UkIAMxTYH4DsAZjKNHhZAwa5oNBMwC7XQA9Pzwf3qHrqWm1Lbs898Hju7SCK13SpUcXTeOZ+KzYZrgjiVy8X2BubTiyAmFYsy1ecAkmYDAVF6OQ+Q10MpSl72fN4J+rRzPN0YEYA+0BbXTPA5yRgw==
+Received: from PSAPR03MB5256.apcprd03.prod.outlook.com (2603:1096:301:22::11)
+ by TY2PR03MB4048.apcprd03.prod.outlook.com (2603:1096:404:a9::17) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.5314.6; Thu, 2 Jun
+ 2022 16:32:03 +0000
+Received: from PSAPR03MB5256.apcprd03.prod.outlook.com
+ ([fe80::f5f2:aa11:d847:77e0]) by PSAPR03MB5256.apcprd03.prod.outlook.com
+ ([fe80::f5f2:aa11:d847:77e0%9]) with mapi id 15.20.5314.012; Thu, 2 Jun 2022
+ 16:32:03 +0000
+From: Rajesh Sharma <rajesh.sharma12547@outlook.com>
+To: Rajesh Sharma <rajesh.sharma12547@outlook.com>
+Subject: Re: Mobile/web apps!!
+Thread-Topic: Mobile/web apps!!
+Thread-Index: AQHYapkcmP4qFvoDVUmgUHufA6qJUq08ZwFb
+Date: Thu, 2 Jun 2022 16:32:03 +0000
+Message-ID:
+ <PSAPR03MB525698EABCDF253B358F17ECC4DE9@PSAPR03MB5256.apcprd03.prod.outlook.com>
+References:
+ <PSAPR03MB52565DAAC05CD770F288BA34C4D19@PSAPR03MB5256.apcprd03.prod.outlook.com>
+In-Reply-To:
+ <PSAPR03MB52565DAAC05CD770F288BA34C4D19@PSAPR03MB5256.apcprd03.prod.outlook.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach:
+X-MS-TNEF-Correlator:
+msip_labels:
+x-tmn: [C62WCLdTs/jozabP7QTVS5n3XVJFNTi29PY4gzJErU4=]
+x-ms-publictraffictype: Email
+x-ms-office365-filtering-correlation-id: cb63d870-51db-457d-6b1e-08da44b56cd3
+x-ms-exchange-slblob-mailprops:
+ 6LNn4QW4Bf5RGvEmP8DQFO0IoT0JV76QUuwN0asiOfWEg3sk2TeqWR+GGNIEJaewKqoMROVb/GNflE4sglEpHBnY4q2be4KjzTdNEaktt2EPZtl1P07CXCWPz9/2WK3x8GcogknOb1LnggmsMW+XkCRslpAiKxDM0sC7zgPsDOqIeTg+ANwLsA/9eSlEPg5sgUdP69xFvVvTLvXOq+eBaLVSzh6Aq46M6ECLbi2eXN/u69uAmhR6RBpMP5/8VXWTa66CTaq0T75EcfaFwCSjbq/jFqbzg6IVIgghwAz7YFf8CM3w6bgRXF7mvCv8w9KKQtq5mWoF64S0z5/UW60awmkkZuS4Vay/jQ8jJPTSC9o0meWeOStBpax0kB8bWRmkwfwfuy+r7CHBbw2aaVqlpZuz0SMixLPGEWeRNSOcOQ/LYpjWlHV075yMkVr6rHCW/2+rX/eVDI9p+9POvxpSEEPEX4bwRNWvzUKrrp1a5m1vxZcwC3j8rrUukfRLmwOqzZeFicmxlWvFeT/lNW4Z+SdAiDt0W4TyAM316twfZo3U2a6yJ9uZf2Xd2//qIP6I4MZm5CvrqqxcIcvfD3+Zu90d0hPkTJMUzIWZaomhsbXG1fMblU7y7da3c/mGv1SHqcbYhTInYISq6ts1LiGVHp1meQ58Gtt5YP5vnc/yDafAjB01Zqua43p0E6l8uZXP
+x-ms-traffictypediagnostic: TY2PR03MB4048:EE_
+x-microsoft-antispam: BCL:0;
+x-microsoft-antispam-message-info:
+ YmErePALlapR+3Mjyk4mjw4xm2BkGXK0YarhdnUngE5Kd9PG2T9y+816qXpptFFa6EL6USMxYj/zkHr8p7j8ReKa80K5cgU7TDrgUV8mKutLIYtQ4ksVgHhJXGvSmFp6147iy5d/NzLibAAGfInknsDJqDSFxBqDdrcPxssQw6tLkqCvlfy95/XdRLjo04r3+Mkvd0ECWyviLGl5zu47n/6kVt3T/X47Tu3TbeMGnVgVbgAHpwxBMOnTtNy6/KCfhMdB2z+vugmbQagk3i5RyT1S+dx7WXHc1F9ldet+4aoeRMNwLUMrguRj2AsYfQEynHrwYewkCp71IGLaokEl9DudihyZ/xWjj6i0kMLx1zvGMIW9Nn4pon/jLCS1Rm4e3XaCs67Vq5r4y09QJ3mlDvESulm8cnliodLemeaABBGYw6r6KN6QTrHkydBbA7pIfcJP8iJFQzv7j3vSnT1Y8/ECOBQqPjs8o/ZzzS9Nl8J4J7D4oJMpJDYsKLpSIcyYIxc1iBkSdUczEwz8CYeqhqzHJv8S1TLUW1io35rpKgzcipe9/phvVT9E0TljeT0w0ZIP7VMoWlm9ZVzY+PdnHw==
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0:
+ =?Windows-1252?Q?Vh46d2ac1+Ks7sBoXEjeittcyn7L9GZjCr5LiHkUpsQRhK6bt53IDbIW?=
+ =?Windows-1252?Q?hUu3YVXZuomniiVtBgpcO/Bo0C3dE55aeR9IKBMJO+tCn/dZRO3nGB60?=
+ =?Windows-1252?Q?veI/y/D5yKJYtA4N6/6AiqKsg6AqAypgXqvWOeG579R2FbLKyMXqGD8m?=
+ =?Windows-1252?Q?XDde1pYowePVpv0Bj7MJc7PrMtRpkhpeKole4geMtT8evx1kEJ7H4cGO?=
+ =?Windows-1252?Q?DZK1HdVnq6cGky+sLBL37IJpXymZiCTFPOoDnvuSqrZgm4r6y38vXoKC?=
+ =?Windows-1252?Q?SLL6/wJQJINL/hYhtzu13DYGnmzAm/1zfrOaHYWWdcJNyFVVQoyANTxD?=
+ =?Windows-1252?Q?eDdiwRgbNDvoPzjwztDXBlHSJ1WjalVZITMjEUqvuRYimP4cvtiYrNXt?=
+ =?Windows-1252?Q?TUo8h2/Tk/YeupRS0ARNNwFrCyIL6XQY/6DTlL9UlMrEmnFbFop7k3cT?=
+ =?Windows-1252?Q?wlWbPp4P2Sb9C5ZsSoa1GSyY2EWyPwplEi5gxX9h9DxugsSBbF6jhG5w?=
+ =?Windows-1252?Q?HwsTsf75Hktr8JMNxKCmnOozhUxhvmsuFErjOQz9eFRyh39s198RdBne?=
+ =?Windows-1252?Q?2mKuzsx/4Jl4yYxlnc/K1DXTek4vdmLMAkgSCManvLm8451dbLP4tSnO?=
+ =?Windows-1252?Q?4I+YsSq/WGl1ctGSFq1U8iPyg9cVA02f5s11rKdkcSXDsZIeLIwALDr7?=
+ =?Windows-1252?Q?oe3hDmuG0bSd5wsSo9OUPmoc9Xa5edr03A6Kw9P/dOV6TfG5XcVZ06PN?=
+ =?Windows-1252?Q?YxEDXZz2XKeFx1xhQYw/eGqnWzjZVI7DTPo/LTxlhigIk/Ij0RGwbqAv?=
+ =?Windows-1252?Q?jTygCsEgsi62Wi2kZyegXnOknNP9XI40x7CA+gEmfo9ITZgYpHJylxVS?=
+ =?Windows-1252?Q?qXoePDsaIsIaezHMKciRQrsg1B6rmrkuNeKfZJEYEBkLsY1peNqvW5lv?=
+ =?Windows-1252?Q?YytgSDdXaUxfGKWcbE9qaFWcv1guID7jVB97Rz6kOiKqhUSYBetI4y5B?=
+ =?Windows-1252?Q?pVN4y30rR4v5vM1mnSZ3v3oUs2g2GsGQXCxKMc/hXITLKMUSwiP2mgf5?=
+ =?Windows-1252?Q?R0wqmHp72UaLyT7hid6rldxUmyom4XUcodRGHUux785tmAihG0SZzXkJ?=
+ =?Windows-1252?Q?/aGsreCl2KQKsINvR8IT7E/FDrJbb01pkWu7kMOHmuqhALW/8exbZnHB?=
+ =?Windows-1252?Q?tYalNd+hW69simk2GJWxlOaxw3hO9N/+UJCvc2BIULPwQSoy/S3/TteT?=
+ =?Windows-1252?Q?yOCbUzcStXrG36gvJS4wD/rMhhsKW7tL0vipcM399J1LiBlwiYVlT5F2?=
+ =?Windows-1252?Q?8KGyL1hlBskBaC4EGn/NtbnK5JFrRMO/9XX1nPG6Jlj6991jMw6KA9Kv?=
+ =?Windows-1252?Q?arsO5WePI8Zd4EAnYUPHHnYVTStPVsLXGPrnOBK/WrkDxQe6jby7sWJe?=
+ =?Windows-1252?Q?Em9VK0/lrv33IpWtpK0PVvWg4YVrT7kYyQwruAVEcSukCJV7XrxvslN1?=
+ =?Windows-1252?Q?I1wrebT7nc00Q+sZC9iDcNeB8bJ+a0MnE9DVj9Hr+ZgtEYdJhUms/5Ly?=
+ =?Windows-1252?Q?AXAQmDr118erSm/I?=
+Content-Type: multipart/alternative;
+	boundary="_000_PSAPR03MB525698EABCDF253B358F17ECC4DE9PSAPR03MB5256apcp_"
+MIME-Version: 1.0
+X-OriginatorOrg: outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: PSAPR03MB5256.apcprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-CrossTenant-Network-Message-Id: cb63d870-51db-457d-6b1e-08da44b56cd3
+X-MS-Exchange-CrossTenant-originalarrivaltime: 02 Jun 2022 16:32:03.1598
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-rms-persistedconsumerorg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: TY2PR03MB4048
+X-NCJF-Result: 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
+X-NCJF-Version: 8
+Authentication-Results: asp-relay-shared.jellyfish.systems;
+	dkim=pass header.d=outlook.com header.s=selector1 header.b=otlTOhc4;
+	arc=pass ("microsoft.com:s=arcselector9901:i=1");
+	dmarc=pass (policy=none) header.from=outlook.com;
+	spf=pass (asp-relay-shared.jellyfish.systems: domain of rajesh.sharma12547@outlook.com designates 40.92.107.44 as permitted sender) smtp.mailfrom=rajesh.sharma12547@outlook.com
+
+--_000_PSAPR03MB525698EABCDF253B358F17ECC4DE9PSAPR03MB5256apcp_
+Content-Type: text/plain; charset="Windows-1252"
+Content-Transfer-Encoding: quoted-printable
+
+Dear,
+Hope you are doing well!
+
+As per my previous email I would like to remind you I haven=92t heard any r=
+esponse from your side. We work in all phases of the App Development proces=
+s and in all technologies.
+
+Got an idea for Mobile Application or Software project- Leave me a message =
+with your positive reply?
+
+Regards,
+Rajesh
+________________________________
+From: Rajesh Sharma
+Sent: Wednesday, May 18, 2022 2:25 AM
+Subject: Mobile/web apps!!
+
+Greetings,
+
+We are an award-winning web application development company in India, servi=
+ng the digital needs of thousands of businesses globally. our web developme=
+nt company has helped many startups and enterprises build world-class B2B &=
+ B2C web applications for diverse industries.
+
+Our services:-
+
+Web Application Development
+Mobile App Development
+UI/UX Design
+Frontend Development
+Application Maintenance & support
+
+Looking to outsource custom web app development services or set up an offsh=
+ore web app developers' team? Get in touch with our web development company=
+ today!
+
+Regards,
+Rajesh Sharma
+Country: India
+
+--_000_PSAPR03MB525698EABCDF253B358F17ECC4DE9PSAPR03MB5256apcp_
+Content-Type: text/html; charset="Windows-1252"
+Content-Transfer-Encoding: quoted-printable
+
+<html>
+<head>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3DWindows-1=
+252">
+<style type=3D"text/css" style=3D"display:none;"> P {margin-top:0;margin-bo=
+ttom:0;} </style>
+</head>
+<body dir=3D"ltr">
+<div style=3D"font-family: Calibri, Arial, Helvetica, sans-serif; font-size=
+: 12pt; color: rgb(0, 0, 0);">
+Dear,
+<div>Hope you are doing well!</div>
+<div><br>
+</div>
+<div>As per my previous email I would like to remind you I haven=92t heard =
+any response from your side. We work in all phases of the App Development p=
+rocess and in all technologies.</div>
+<div><br>
+</div>
+<div>Got an idea for Mobile Application or Software project- Leave me a mes=
+sage with your positive reply?</div>
+<div><br>
+</div>
+Regards,</div>
+<div style=3D"font-family: Calibri, Arial, Helvetica, sans-serif; font-size=
+: 12pt; color: rgb(0, 0, 0);">
+Rajesh<br>
+</div>
+<div id=3D"appendonsend"></div>
+<hr style=3D"display:inline-block;width:98%" tabindex=3D"-1">
+<div id=3D"divRplyFwdMsg" dir=3D"ltr"><font face=3D"Calibri, sans-serif" st=
+yle=3D"font-size:11pt" color=3D"#000000"><b>From:</b> Rajesh Sharma<br>
+<b>Sent:</b> Wednesday, May 18, 2022 2:25 AM<br>
+<b>Subject:</b> Mobile/web apps!!</font>
+<div>&nbsp;</div>
+</div>
+<style type=3D"text/css" style=3D"display:none">
+<!--
+p
+	{margin-top:0;
+	margin-bottom:0}
+-->
+</style>
+<div dir=3D"ltr">
+<div class=3D"x_elementToProof" style=3D"font-family:Calibri,Arial,Helvetic=
+a,sans-serif; font-size:12pt; color:rgb(0,0,0)">
+Greetings,
+<div><br>
+</div>
+<div>We are an award-winning web application development company in India, =
+serving the digital needs of thousands of businesses globally. our web deve=
+lopment company has helped many startups and enterprises build world-class =
+B2B &amp; B2C web applications for diverse
+ industries.</div>
+<div><br>
+</div>
+<div>Our services:-</div>
+<div><br>
+</div>
+<div>Web Application Development</div>
+<div>Mobile App Development</div>
+<div>UI/UX Design</div>
+<div>Frontend Development</div>
+<div>Application Maintenance &amp; support </div>
+<div><br>
+</div>
+<div>Looking to outsource custom web app development services or set up an =
+offshore web app developers' team? Get in touch with our web development co=
+mpany today!</div>
+<div><br>
+</div>
+Regards,<br>
+</div>
+<div class=3D"x_elementToProof" style=3D"font-family:Calibri,Arial,Helvetic=
+a,sans-serif; font-size:12pt; color:rgb(0,0,0)">
+Rajesh Sharma</div>
+<div class=3D"x_elementToProof" style=3D"font-family:Calibri,Arial,Helvetic=
+a,sans-serif; font-size:12pt; color:rgb(0,0,0)">
+Country: India</div>
+</div>
+</body>
+</html>
+
+--_000_PSAPR03MB525698EABCDF253B358F17ECC4DE9PSAPR03MB5256apcp_--

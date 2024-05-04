@@ -1,0 +1,329 @@
+Return-Path: <ThalaSiva2021@outlook.com>
+Delivered-To: info@dependablelc.com
+Received: from host59.registrar-servers.com
+	by host59.registrar-servers.com with LMTP
+	id uOXbDVV2/2KIwTwA+KyzgQ
+	(envelope-from <ThalaSiva2021@outlook.com>)
+	for <info@dependablelc.com>; Fri, 19 Aug 2022 07:39:01 -0400
+Return-path: <ThalaSiva2021@outlook.com>
+Envelope-to: info@dependablelc.com
+Delivery-date: Fri, 19 Aug 2022 07:39:01 -0400
+Received: from [63.250.43.69] (port=54799 helo=asp-relay-shared.jellyfish.systems)
+	by host59.registrar-servers.com with esmtps  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <ThalaSiva2021@outlook.com>)
+	id 1oP0L7-00Gwh4-5M
+	for info@dependablelc.com;
+	Fri, 19 Aug 2022 07:39:01 -0400
+Received: from APC01-SG2-obe.outbound.protection.outlook.com (mail-sgaapc01olkn2040.outbound.protection.outlook.com [40.92.53.40])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by asp-relay-shared.jellyfish.systems (Postfix) with ESMTPS id 4M8KXH31G9z4w4y
+	for <info@dependablelc.com>; Fri, 19 Aug 2022 11:38:50 +0000 (UTC)
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=iILGualD7rjj6C+j6e60xf4V+6iPCCJ+EFoVQUm3HzyJy4Bsintwj5sgjTBI7I2wbzzPNtHlp27VacMISs+yzE3OHqTfuwOd/sb3kDo2OhxiT408Y10AHvSdb3MbCkXsX8WygKxqJ4R8SqUXzIpbu2xWTdkU2/Hec6SVx3bGm8h0pErBrG8NYHS3s6HfYs7oGCxEuR+mMG9jKf1/4XFhh95j4rp7Dzzl3zz1myUUhXGuUdoAEx2iwFjaazEsqe1QsOr9oO8ZmGN9iYxlkWpqEykhG9k5UXreMeQEiEbUlVmiYj/U8GteexXny2CsJ/yNIf8mhKRliIUuBll+qcDH/g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=zFmMewYqOli9QSspr23nWKf1WqhBxBMfBU2uH0QEBjo=;
+ b=C/n4+ASKTt0ZlPHgJgeHzKOmyK5D81bePufGPSPrBt/310mnPbbSIXAFh+b1S92z0GtDOYvMwtvNUtJ0cZDWJ4NQhTs1XZzDjOLqn6xsSBVt6XR5ajs8UrBjwC7+gFaIq2LVLwC24jtW6Ks1OSKuopkmiCUSIV78MQ3ZWo7shU6HPwcdGjTO2pByiYurkLrS5l1H8yepyekRR0OlocPmXIkvfr9X9hXf6mkLcyHCmLi3JgN5XS0MJJFuvfYTxFQSwinW3AyJynaNhx8MGIF7hRmfWz7kbNmf2KyqXcmxIt1w5QydGX1MatGI9QbU3qFoLIo/bKSn6QBEqRmSbnIonw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
+ dkim=none; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=zFmMewYqOli9QSspr23nWKf1WqhBxBMfBU2uH0QEBjo=;
+ b=BXAvANHa997YuEsrcQSKv1aT7Ck1SFScUzuMva2vehT/gerR3Sac4WtRFBlvrbERnn6XtZhqnjrcqJQJd0nFDqSDOVhQMwmQsmEAQbP+7Vd610kJAlH3U6wEzi4AJE1dLiJXdxCpvYuxFdtqLKXxy/IhTrMizDKSyczBzfH9zQX4GuAScn3rg7m7BI3H+1vxiO09LQaaENQDuufwcJOMYIOtHX03nvFkf2cIl8bpzygKb2hkxsBK10trJrntSc0ijJPM9OfGt7ZRwIP13BAYdQ7/bA0dlwZiZn6TZ2S37dpu+Op0wqZ8ZZFwUgJMe5HboStnZ5vvYuslo+a/7kskYQ==
+Received: from PUZPR03MB5990.apcprd03.prod.outlook.com (2603:1096:301:b5::10)
+ by SG2PR03MB3705.apcprd03.prod.outlook.com (2603:1096:4:47::17) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.5566.4; Fri, 19 Aug
+ 2022 11:37:04 +0000
+Received: from PUZPR03MB5990.apcprd03.prod.outlook.com
+ ([fe80::e43c:d0e8:8ab6:598]) by PUZPR03MB5990.apcprd03.prod.outlook.com
+ ([fe80::e43c:d0e8:8ab6:598%5]) with mapi id 15.20.5566.004; Fri, 19 Aug 2022
+ 11:37:04 +0000
+From: Thala Siva <ThalaSiva2021@outlook.com>
+Subject: Proposal
+Thread-Topic: Proposal
+Thread-Index: AQHYs7/98eFg2ES2aEqFcJtYmR5CSQ==
+Date: Fri, 19 Aug 2022 11:37:03 +0000
+Message-ID:
+ <PUZPR03MB59906FD298C59A1B3B5A6366A06C9@PUZPR03MB5990.apcprd03.prod.outlook.com>
+Accept-Language: en-GB, en-US
+Content-Language: en-GB
+X-MS-Has-Attach:
+X-MS-TNEF-Correlator:
+msip_labels:
+x-tmn: [6ihIWRmKZ7OtO7MoFXLodY33E8YiM6OT]
+x-ms-publictraffictype: Email
+x-ms-office365-filtering-correlation-id: f5b8bfb9-dcaa-4892-0676-08da81d72359
+x-ms-traffictypediagnostic: SG2PR03MB3705:EE_
+x-microsoft-antispam: BCL:0;
+x-microsoft-antispam-message-info:
+ jH5v5oB5e/eThI3/zmMXFO8BwswyQYQbmZ7qhrv+fOMCU+OlPK94a96U2TwTEzqSWybas335sZvAXdB+8/BmPRSIQb+LA+vMwNxV6s9AiEYPqXhnHHmzx4DoSut0TB/rFm01FeBFvNf4fLZYxexXvA667OelGct7rP8w6mSsIZ5meuxKnfe8IDay5jxa1anWV2fIT+dJyAw73KpubkgzSwqCPqXt6F4HwWzz1sRtbz6l68BxQK5uIZCq/JoJoZ5nZ+hPYbVOoylrrkUtL7sYVd4W3FwdWMGTunS8/zCh+Bmtf6CICVkKBiDMvT6wrPQKYyS4KPQnSFn/RbBui78wXsfD290r7xtfbZrwGRzUiLiuE7oq8KqpdEpvIFnwpo2NzjXIx0ZR4OedEGm4aJoV+Kuxq2GMVxp7rYlx7RERvAcLWQvnT+BaAYFIL2rBc7EN4ahBj5S5WqNJY6nvYrNywdI63yLPPSdgY1Feb4vSiOjdu60uT+QgfcBWeMLd4vkW0Xc3LpuVcAY9n8yeNUK0vNOEsagJTCLXBM29ktJLHUUlsRKYrcyaF3B13yylU9lfE+Pp+TIl+UpsUx/7T3GDRGVK4sYbZLTpONh4ZQGz6J0J1m0mP9KfgSUhCsEG739a
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0:
+ =?Windows-1252?Q?haDAfYUvUQszJy9cm3Y4ztMxogolsay2YmlPh1a8U2Q8qx+B4n7Yb+z8?=
+ =?Windows-1252?Q?t0v0T1VNmQuCWv8SUEN/fROPGTt/169Xj/isVrtuhFEJjjOIOTBWxuun?=
+ =?Windows-1252?Q?U13KNeoM/Fm5Lt2sQ4WAcvQkeOGaIt+NSPTaFu7Vqwu13OVzqL0O4EhF?=
+ =?Windows-1252?Q?UdxRuUudbP4ZJIA42EXAwbJA7NOyVB4tbjxk7NsvckqzWCHqlf0Q1RZr?=
+ =?Windows-1252?Q?FvPCP3PR8YEV8Pj08aE5jhYpgeK6X2Qlpi9Rzx7enxfSY4MNc+m3tAMS?=
+ =?Windows-1252?Q?nWWswcjJ/yWwya/Lo4BxLs6RbV9HnIC7zRJStVwz6+2ybO/KEZ8I5xEW?=
+ =?Windows-1252?Q?6+UurTpsIzlwNFqmupKFPKQBOwyQekCgxPoRTJJHWSaho7teweJiDPtb?=
+ =?Windows-1252?Q?ttsOF53WPJBhjCjxJZmwHWH+yxiWI0b1/cG1QzkVQqQ8kg+8otayoz/H?=
+ =?Windows-1252?Q?rAwWPF26io36HA5idZy40M2X1KkJZElnUuaINC73hCfkprQrDq14DEFj?=
+ =?Windows-1252?Q?M0DPnXLSZDV7h+STVYv/ken4wGxA+n/P3UmJi4sYBKpKGTKplbHBDFtO?=
+ =?Windows-1252?Q?P0vmBhu94+N6mPTU3kKizyaRotaeBu4dPZpca4eDRARfyN34gekyNR1e?=
+ =?Windows-1252?Q?oSwMu0oVc+6ME9JiQsueaorjO83B57rQZIWYZV2ZfOKfWNFeY7ZBf9/M?=
+ =?Windows-1252?Q?rGHz/BCX/DC0+PU91lw68ToBG8fS4hgZM/DjIBbvwc4mDV5vkdxiEhH8?=
+ =?Windows-1252?Q?Ok3wMTFiDiKIgaiL9HJjW5LBf9UaEs8UDGY70YYnFcDViunKqFxFwoO7?=
+ =?Windows-1252?Q?rz7jF+ygw5T2/oWncfPcz8ky2VfNSv+RQqF4TKTojiNA3dK4Pa/uWsRZ?=
+ =?Windows-1252?Q?JCoTYe9jIE0xe7agR9HvGnTRkinifoRpcxh4gmSOufsFNzz4HOV89Pq4?=
+ =?Windows-1252?Q?52fUDMOSstjHmWAwAMKs9uEZhTv5XHztgVnWqX2w2c94Rym38yciV3gQ?=
+ =?Windows-1252?Q?gc5Xtv6MYIPDAPuiLMINHUgdlRTaKHVDanDOvsDOTM60Rc1TM9GptveH?=
+ =?Windows-1252?Q?F+wL5yQwCNODNqcsomh0GQiRWgx7VHuiBwxva1DpuNd7mpch3ztKfmQv?=
+ =?Windows-1252?Q?z7zc1wMgwDW6RUHDq+aaSC6qGM3kZWEFkhcSWkdIV+yd9jKbdTl+szyI?=
+ =?Windows-1252?Q?5P/7iWRKvnlOP6aSklEb4hZqA8Ul0BV+FE57IfeWVOE96xaEZQEHHqA5?=
+ =?Windows-1252?Q?nbJp9og08dk+qKI0jAdwN+I4oQQWw5lsWTU46uK/OWmhVwDBCcYQsidC?=
+ =?Windows-1252?Q?iEwIGEronduEGr9zcBazrknPoXt30nxNVpVX0VzTkp3KdvMheIf55kZt?=
+ =?Windows-1252?Q?Kvkgn/bPtdUiTg=3D=3D?=
+Content-Type: multipart/alternative;
+	boundary="_000_PUZPR03MB59906FD298C59A1B3B5A6366A06C9PUZPR03MB5990apcp_"
+MIME-Version: 1.0
+X-OriginatorOrg: outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: PUZPR03MB5990.apcprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-CrossTenant-Network-Message-Id: f5b8bfb9-dcaa-4892-0676-08da81d72359
+X-MS-Exchange-CrossTenant-originalarrivaltime: 19 Aug 2022 11:37:03.7022
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-rms-persistedconsumerorg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SG2PR03MB3705
+X-NCJF-Result: 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
+X-NCJF-Version: 1
+Authentication-Results: asp-relay-shared.jellyfish.systems;
+	dkim=pass header.d=outlook.com header.s=selector1 header.b=BXAvANHa;
+	arc=pass ("microsoft.com:s=arcselector9901:i=1");
+	dmarc=pass (policy=none) header.from=outlook.com;
+	spf=pass (asp-relay-shared.jellyfish.systems: domain of ThalaSiva2021@outlook.com designates 40.92.53.40 as permitted sender) smtp.mailfrom=ThalaSiva2021@outlook.com
+
+--_000_PUZPR03MB59906FD298C59A1B3B5A6366A06C9PUZPR03MB5990apcp_
+Content-Type: text/plain; charset="Windows-1252"
+Content-Transfer-Encoding: quoted-printable
+
+Hi,
+I am Thala, SEO Specialist,
+We Providing a wide range of services in order to generate higher visitor t=
+raffic to your website.
+We offer following Services at much lower Cost:-
+SEO (with plan & activity), SMO (LinkedIn, Facebook, Twitter etc.), Website=
+ Designing, Technical Content Writing.
+I=92d be happy to send you our package, pricing and past work details, if y=
+ou=92d like to assess our work.
+We provide all services at much lower cost than what it might be in house
+Thanks and Regards,
+Thala Siva
+
+
+--_000_PUZPR03MB59906FD298C59A1B3B5A6366A06C9PUZPR03MB5990apcp_
+Content-Type: text/html; charset="Windows-1252"
+Content-Transfer-Encoding: quoted-printable
+
+<html>
+<head>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3DWindows-1=
+252">
+<style type=3D"text/css" style=3D"display:none;"> P {margin-top:0;margin-bo=
+ttom:0;} </style>
+</head>
+<body dir=3D"ltr">
+<div style=3D"font-family: Calibri, Arial, Helvetica, sans-serif; font-size=
+: 12pt; color: rgb(0, 0, 0);" class=3D"elementToProof">
+<p class=3D"MsoNormal" style=3D"margin:0in 0in 10pt;font-size:11pt;font-fam=
+ily:&quot;Calibri&quot;, &quot;sans-serif&quot;">
+Hi,<span style=3D"mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbs=
+p;&nbsp;&nbsp;&nbsp; </span></p>
+<p class=3D"MsoNormal" style=3D"margin:0in 0in 10pt;font-size:11pt;font-fam=
+ily:&quot;Calibri&quot;, &quot;sans-serif&quot;">
+I am Thala, SEO Specialist,</p>
+<p class=3D"MsoNormal" style=3D"margin:0in 0in 10pt;font-size:11pt;font-fam=
+ily:&quot;Calibri&quot;, &quot;sans-serif&quot;">
+We Providing a wide range of services in order to generate higher visitor t=
+raffic to your website.</p>
+<p class=3D"MsoNormal" style=3D"margin:0in 0in 10pt;font-size:11pt;font-fam=
+ily:&quot;Calibri&quot;, &quot;sans-serif&quot;">
+<b><span style=3D"font-family:&quot;Arial&quot;,&quot;sans-serif&quot;;mso-=
+fareast-font-family:&quot;Times New Roman&quot;;color:#0070C0">We offer fol=
+lowing Services at much lower Cost:-</span><span style=3D"color:#0070C0"><o=
+:p>&nbsp;</o:p></span></b></p>
+<p class=3D"MsoNormal" style=3D"margin:0in 0in 10pt;font-size:11pt;font-fam=
+ily:&quot;Calibri&quot;, &quot;sans-serif&quot;">
+<b>SEO (with plan &amp; activity), SMO (LinkedIn, Facebook, Twitter etc.), =
+Website Designing, Technical Content Writing</b>.</p>
+<p class=3D"MsoNormal" style=3D"margin:0in 0in 10pt;font-size:11pt;font-fam=
+ily:&quot;Calibri&quot;, &quot;sans-serif&quot;">
+I=92d be happy to send you our package, pricing and past work details, if y=
+ou=92d like to assess our work.</p>
+<p class=3D"MsoNormal" style=3D"margin:0in 0in 10pt;font-size:11pt;font-fam=
+ily:&quot;Calibri&quot;, &quot;sans-serif&quot;">
+We provide all services at much lower cost than what it might be in house</=
+p>
+<p class=3D"MsoNormal" style=3D"margin:0in 0in 10pt;font-size:11pt;font-fam=
+ily:&quot;Calibri&quot;, &quot;sans-serif&quot;">
+Thanks and Regards,</p>
+<p class=3D"MsoNormal" style=3D"margin:0in 0in 10pt;font-size:11pt;font-fam=
+ily:&quot;Calibri&quot;, &quot;sans-serif&quot;">
+Thala Siva</p>
+<br>
+</div>
+</body>
+</html>
+
+--_000_PUZPR03MB59906FD298C59A1B3B5A6366A06C9PUZPR03MB5990apcp_--

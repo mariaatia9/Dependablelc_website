@@ -1,0 +1,338 @@
+Return-Path: <louay.s@caretakers.ae>
+Delivered-To: info@dependablelc.com
+Received: from host59.registrar-servers.com
+	by host59.registrar-servers.com with LMTP
+	id KLuAHlePV2NktRQA+KyzgQ
+	(envelope-from <louay.s@caretakers.ae>)
+	for <info@dependablelc.com>; Tue, 25 Oct 2022 03:25:11 -0400
+Return-path: <louay.s@caretakers.ae>
+Envelope-to: info@dependablelc.com
+Delivery-date: Tue, 25 Oct 2022 03:25:11 -0400
+Received: from [63.250.43.69] (port=13350 helo=asp-relay-shared.jellyfish.systems)
+	by host59.registrar-servers.com with esmtps  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <louay.s@caretakers.ae>)
+	id 1onEJD-005wZ3-EB
+	for info@dependablelc.com;
+	Tue, 25 Oct 2022 03:25:11 -0400
+Received: from buffalo.birch.relay.mailchannels.net (buffalo.birch.relay.mailchannels.net [23.83.209.24])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by asp-relay-shared.jellyfish.systems (Postfix) with ESMTPS id 4MxNkW4HTpzyTM
+	for <info@dependablelc.com>; Tue, 25 Oct 2022 07:25:02 +0000 (UTC)
+X-Sender-Id: instrampxe0y3a|x-authuser|louay.s@caretakers.ae
+Received: from relay.mailchannels.net (localhost [127.0.0.1])
+	by relay.mailchannels.net (Postfix) with ESMTP id D8099341EFB;
+	Tue, 25 Oct 2022 07:25:00 +0000 (UTC)
+Received: from cpanel-002-fla.hostingww.com (unknown [127.0.0.6])
+	(Authenticated sender: instrampxe0y3a)
+	by relay.mailchannels.net (Postfix) with ESMTPA id ED578341D71;
+	Tue, 25 Oct 2022 07:24:59 +0000 (UTC)
+ARC-Seal: i=1; s=arc-2022; d=mailchannels.net; t=1666682700; a=rsa-sha256;
+	cv=none;
+	b=5GdJXsC+yra3DvTKGtNm0PRVx2laAfhFgc6lyPlKv7cgMoYql89znLCDZd6hvji1vLI3Z4
+	KegRyBE7xQ1DCcZDVtt5yoltNaqGFvRfDtLGZx7o+skem+qj7EXHMEYTqN45QWMOz0W+Ar
+	gFWQ73ElY1LbWsO4qvucpo+oBLy1criy9aO0zlE7f3r26knUtImvPIUv4pJoKabJjxyflJ
+	fbATmGu9Sxv9Mr+nSZQ01SoYNnKwPlyiMXZz6pnD0m/PldFNK9bZxPHacAi2pGMdDfnQaE
+	2VHBbymI3M+BMAFqhIFLUshW5zuZ5yupy0WWdE4J1bdLKoFNElYhyTAWutW5JA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=mailchannels.net;
+	s=arc-2022; t=1666682700;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=L2FwLyZEznC+Ldi4pYSO3b0G5o++jXb5WFTxe5WX/ao=;
+	b=xvfi+cmMpef5tHMobfUILIhTrkYJrmDIm4ZLW29KaGTeIUMqzDZC6Sa/8FOClrrzkhJjCm
+	0SB47wAd8+JUSuEdNUBx0VThWrfImklkQi2hQmW4x9OOCqJZlO4HJGgGNdJ+nLcQE9hvpw
+	o13jzBPY3mzQcYCAKbma0UTNU6dA2T/E3IuKKS32bHiGVPa5oGzVVLjz6uiS/SZyQu8dJV
+	t1hyHejhvUDHuSIzTiZWFQH9g8yPAd4kcBjV/POt9EaialxDnUu6uKEUhJoDphyH4L5eKB
+	y7OHb+2sxbCHbDOooTK0gA19hIutDJTlEbxTyFQH5vg/CUdfuh0ov+qVXwwgrA==
+ARC-Authentication-Results: i=1;
+	rspamd-7fb88f4dd5-x7hrn;
+	auth=pass smtp.auth=instrampxe0y3a smtp.mailfrom=louay.s@caretakers.ae
+X-Sender-Id: instrampxe0y3a|x-authuser|louay.s@caretakers.ae
+X-MC-Relay: Neutral
+X-MailChannels-SenderId: instrampxe0y3a|x-authuser|louay.s@caretakers.ae
+X-MailChannels-Auth-Id: instrampxe0y3a
+X-Stretch-Trouble: 3860f9226f73e00b_1666682700397_1420595366
+X-MC-Loop-Signature: 1666682700397:3224006788
+X-MC-Ingress-Time: 1666682700396
+Received: from cpanel-002-fla.hostingww.com (cpanel-002-fla.hostingww.com
+ [104.156.59.2])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384)
+	by 100.126.154.5 (trex/6.7.1);
+	Tue, 25 Oct 2022 07:25:00 +0000
+Received: from [40.99.161.189] (port=12059 helo=MW4PR11MB6840.namprd11.prod.outlook.com)
+	by cpanel-002-fla.hostingww.com with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <louay.s@caretakers.ae>)
+	id 1onEIx-00GToY-N3;
+	Tue, 25 Oct 2022 18:24:59 +1100
+From: Louay AL Sayed <louay.s@caretakers.ae>
+To: Sivan Reddy <sivan.reddy0@gmail.com>, "info@dependablelc.com"
+	<info@dependablelc.com>
+Subject: Re: Passport for PRO and Legal
+Thread-Topic: Passport for PRO and Legal
+Thread-Index: AUE5X1pIpY4Df+a7+i6ssatUhsLzi69dxtlp
+X-MS-Exchange-MessageSentRepresentingType: 1
+Date: Tue, 25 Oct 2022 07:24:50 +0000
+Message-ID:
+	<MW4PR11MB6840C1D5D6C7F0FC94030F41A0319@MW4PR11MB6840.namprd11.prod.outlook.com>
+References:
+	<CAJmcBsnHAH9awez_aTBZ8WYYhL+Dr_i=_w+2ndZ9104H8wnYZA@mail.gmail.com>
+In-Reply-To:
+	<CAJmcBsnHAH9awez_aTBZ8WYYhL+Dr_i=_w+2ndZ9104H8wnYZA@mail.gmail.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach:
+X-MS-Exchange-Organization-SCL: -1
+X-MS-TNEF-Correlator:
+X-MS-Exchange-Organization-RecordReviewCfmType: 0
+Content-Type: multipart/alternative;
+	boundary="_000_MW4PR11MB6840C1D5D6C7F0FC94030F41A0319MW4PR11MB6840namp_"
+MIME-Version: 1.0
+X-OutGoing-Spam-Status: No, score=-1.0
+X-AuthUser: louay.s@caretakers.ae
+X-NCJF-Result: VJFX3eFyX9CZNboNHk/3D93f/Nuz2tetE4dYtILfVRoCG28mLoCVK4gPJin1MLw
+ 
+	+i4Akh1lwt07uVIXeFb3kqbsnCG1MFvrUCrC2N0QXjMsqX1vBDH7BufDZK/qoLM71IfeYpPLi+YpTB
+ 
+	DsWTfxcRZ+Nuo1hSH3/n4VeikacBbGxb7U4lBem7afF/7XRJQdmup1AGq0BoV/qZO06cL6S7x/w+B+
+ 
+	HeA2PVn98NEccotUYrrlyML8++H4JzxK7tgJsX9I/Evb2D1gqIOK2jcrKOg4xNdeULSdJoP6nP+8V7
+ 
+	N8zptPSnZnhmx5GdHW3ZDO6oLdzwNSTMJEVebKAsE8CUe6neM8/S3EMa9cqLjUGoZjWtrc7COvA4Rl
+ 
+	K4f1tucM8dxECL6oNjGHKq4md5tj+32eVsO7GNzM9YStHCTLlvbtgJBGVeqsrBWGTmUkTvOPGzfYJ6
+ 
+	Xfx9iSMEewZF1KVlms7KXdauW42UK2jpIyNp3q+r93BXFGMcBpCYBIJcHQwh8GQ3Rt4ZV/7W8q0wOc
+ 
+	sy8l3V+pMOMlphhd0tHbjuGo7xVy2/xs9lx6RM+YbFTlw++L4t/pojd53wfOP0IdDF+ZyQ8wfh5u9u
+ 
+	HnSbwsW99hdluEGrRF3Z4AXz6VGJP7dIKSpcIFpJb3BL+yKPPa9WXs05ukSQL4i+C3NlqQOUV9mHMy
+ 
+	A5FoqVk3Chv0AMtpDdNw8AIqu5FgKV6WSJ/YTgNG8BC4uir1TKYJf7jl9Ek9wPygmYtpT6I75BrI9o
+ 
+	GJFjiwF7CifQNd6ZXWUwjwIFLsXsH66mGhI36ZjB2AQkndrAjBNkDnqOOLs6IVlQ9Z+mU3Id5xByQ+
+ 
+	0YU1K6dcAHuA5WT82AHPdMqRpJljVGgoYGkwvRNvpPA3t14ZbJnbINtjZY7KBepCuKbXenfHd3bGK4
+ 
+	6G7kZRJmmLUT/NEv2JeTtyPziOPBuRHF2b4a2o37ILuSpsoyMr4a9GKNUhQGgmU8xdBuVppsHz0Gx0
+ 
+	rRPQAmKAy6xPDYQ3NKo8sO8SulL5dteNfd4Z//aOO0P7mVCnFs8JV0XKvZElfhaThsJYrreQNUvz0w
+ 
+	REHzaxpHGZeESAf3/WN4IYZcbbeG6kxdNa7FuUTXabZEXr/C+wHLNw+Ja/m27EUjbDVNE7yN2Tqdje
+ 
+	kCP4pYqDi252hKl47KN7J66Z7Ydo9s7u06+gF2xbgABXOzpT/yHhouNjM0QYU4LXRMQtCHpxPiy53g
+ 
+	5957jI6i+KK/1ZsuubJoq1PL87SrSJtUmWO6kJ0wAolM+cd941NS/E1Tb/DEFl7SguxfIbO2cHBk4D
+ 
+	3M835yJty/keYnYRxFwk9oYbMKjLPkxdVj9qzSvsBQgfrox9PzIS2ucNNwSrYAyUh9FZuXGUUIGQ5y
+ 
+	BQV8Toc0dFMlctSMp0gnInCMAaRr629a5dSa0IMcSP+94sVGWUAZwHlgBIqK7zoxN6NKqs5UAdCMvj
+ 
+	tzC53rffrRn7MMG0u2nijop86e0Zp1+8g6FECxdYHI9hTe22c7eHa57st9xHcKyrzggbI9GEjFJm1I
+ 
+	NZC+HbSuJBBjc4lHEfVBeqPrDI194vzw+kkG1F2++3fG+lXcLVOUIPHK28YpSM09Ml5kKyUGvvXqJe
+ 
+	ZSKpYA/edtsNg1cWgqXZBKAfFZ+51QxvA5eIMPixMOU9oK1gOE9DNINVhkn+IRR1u7UaH1G2rXrfJn
+ 
+	xV3G1gsmSPXV8dtOxA9gAZlKCutamA18uTuFTvfqivmXY/BjHh6F2VOnQjpy+4RS8mv1Eh8Dc49Bhu
+ 
+	zks7JWaYOpc7eOrfBWBuICv2tbovojPTNCaWm4KmKD1tjXIiRwwVqfHGd+2C4CNO3xy+RKhym7lPsK
+ 
+	sByBQVciRpE4GHrJ7YvW2TytMDwU47c2TzjSh9BkqOfsSeMg6aMfooLCaUWNXL7IexS8bKBMMlpelu
+ 
+	tLvHVL9rleX0OUbw/TIZMNqFmS6bCWaPE1CRWm92ipunkNNKU6dgLbVSWBaPS5lkPW9RojdTFv9HCh
+ 
+	e2gUyR99PUi5Rc5+4e+t3EyiMILg0IP4pMpzNo3OHH1TZ5phNqfEDr4JpJ5mV70I5rRI+MO153FzEb
+ 
+	UeNP9fqzsenAGxxWzpPI5NgOB+T6xL9irmwlmw9c6wvkT8K6AjleXNxBbQxg+65XW+Csb5AkPaXSuW
+ 
+	AdFU5v93+Jn9cKPjT7N4Rn/xLp0OP7K012fHmKf1GMeL4HaKkkehqZkbj6sXqtBx+LihOldZ3vH9Sw
+ 
+	ILVKoj7yAx4ePFFUfSMfCnMXDB88If6jxT07IuMZVrdCDVJF0zkKpKqdsGsD0zBU0JZ/KDTRUKLOWJ
+ 
+	7NB/8LxcExQ63yYvw3p+OE/+x5MzxUPsblrBfI4b6ttzb1cJSfzaq5nZD3Khn9y/n3+lVE2BSqCZZ/
+ 
+	5b0wFGBWrfDvGeWG3ZUC7YpnA9W8Qly3DpDPFNa/zc3DgwAd78hXFOXEQK6cufPzoT7gOkAYDN5L1q
+ 
+	CCcyQLulMgpRVIkpvYwwWQ3Upl2lwJ1Tar5VD2+FqUsHRH14cA87FfZoLi5VzreOEEb6cMmrNUSvFQ
+ 
+	9lZcjfUAQOuNI0RuWHn+y+fUFPdM2eyUkjUXJjQcx3fCHVfIsqLJv91yPy7cKNMuGk044xeDqCtSVq
+ 
+	eKjIydp1Ou7qs+fymSay7cBYZZtW1DV+DF+z9D/LaMuaaGnshwwjZe/D7Niq6Sfv2aWbGBmEYXKkrw
+ 
+	bbxk69GEM3J3IhnsySY37dS6vCUyXjfl6xEDpH6JOJ8Rgcu4sMmh7V97hXi4jt/jo6uKhkowJkW4x5
+ 
+	1qdYbNIDHQOwapPv+hNlsNg8iTs25En2p2iLDRzvJ7oFvMAZHvWhmxRUtkXSQK7wfuat9MMG6g6Ocy
+ 
+	Xnxl+WlAuZ4ZZA00RtxywXDWf52XP58hTBblGIH7bAIJZ0g8vLB5mWh91HnG6SyXEthNfxcfStD2PG
+ 
+	ZtzQkdFamvQ2UV1CVNnbAVNvroLtr5ETBUQ0s4p/q2o6UhByZu/k3B8AxeBh6w+cEn7V7FHLdIN0FR
+ 
+	ceoJ9BOQkOGUeXtXK1XrpwaLUrpiOh6Mh2QwOQeoBwl5YwUj7l2vO1AAdwoHMWO07xm0+Q19xufqU5
+ 
+	KA2tL0+T7g3Pchv2KVo9kEeVbh7IX+kLdGSvdJ4pkXtGYY5Yl3X4QYAHx7LiLHaXPJA5XzP6LeQBdF
+ 
+	6QzeGSr9qevQ6srqrG2gTB6Qg0CNgZm7hfbHdbsv1vci7LnRgp+u4aj6aAg9Vacw5H4evTHUqdRS2C
+ 
+	A1kId57sS9pgho5KWqfL8mB2+CETTIHGbF6E36IPXqhhvxeevOLK4uTv97CLxxnrEa+U40OLfxNB1G
+ 
+	itQ77EqHGnz3AEtGfnI0Ztsc4CMSICa4f5zcVRzJzyPqei+MbWDEYOMxY6jfuBiZyvNHhj8vUy82n7
+ 
+	3Zh0zflsxTlWniupb86EHfZJhjG38zRXaWrPh0h6SjBa7YFcxRaw2BKB6jdQWkhIzpqgxYRPxiZX+S
+ 
+	oNABJI9cdm4jUj9Fu4jvVAAvOZPD9NcZSijTwL8kCUFPXwlUf7Fezr/Wu3o/sGYblja23vossbTLEo
+ 
+	vKDi4MXDSY6/SkAKi9xeTwnDDFEboSBJShHwDG7DH3G8AFq9griHla28WYXZZLoW2NXhC8wf/YjoX8
+ 
+	d0ybSlkj9jhhX28kKmoWbZB9VRmu2ZputHSXEdwLDik2UcWl679ZrmKT7ssw7pCnao0CCN/awK5eFy
+ 
+	hznIm74oGAst5zUmZYbsIbMfwEDIL/FEX0uUJ7bEz7EWcWIYWEQtonijv68dF2pLyKYwXfZN+AgzLC
+ 
+	lBEVb/s06p7TxPHv/ycOMq/2ollwSxP6wZcI+agJojGU+b1oImGVIAnlT/t8DeB29CLcK9haKdbZUx
+ 
+	eQxPo9SIdoO0Poa7ajjJnE3PgnJYsaUAytpOU+Cb7ygfGgziYxlMBl25Uqb1zCU0zrR5panTQ6Tbr1
+ 
+	9S/IBcwJnM3D+0RR/HJKA50KH2SN0fCARDHzOieY6YgtVLirRwmr+t9uNo6AK0Q0FvGsa2osgTFdz0
+ 
+	kRxNd9lrnsRY2P7bVDzRk+rkz5DduPR4cXPmC81xtQwQSVWzcxeG2JbiHJNH5vqq8PvjjBnV5ve5tD
+ 
+	AMwAJLZxFtMSURwmFWdJKq7RdSB3XjKix8q6F9hyYltSDJySbD0cGppykSm5MbWzaItiAWgf2bB2pt
+ 
+	bHBGwXc59guqADaEJKhXGlqMLc+VIUGp00PqaaG9PGoThdo2iTyQoKSw0NVQc4cEUhPPLERglF5c/P
+ 
+	h/mmlmebS6gC7vLq1r3O67AHG/cKeYPo03Hi0D4rcgQgnPZ2fUu39hA2Pt0IlJH5pDpmc8i8EMm3kW
+ 
+	gIcxil0fFFpUzR+2c5dkpxE37cEyZrk6ByPtxoJ6c0jQDgwCD7ROb4mbvXwm2Et+HLIeFD7hvZjVg6
+ 
+	SDlDz1ejuFwp6XUhbGjiATrSoQxSdVFmlM2KR4Bu3sllBBRc5wkr8oG/CMQegK5/fEBplwshbHohqb
+ 
+	ed1U6i1Armyt7ncYG+oVlIRs0ZK6O+D6IjR9oruZLFkXFVrjD/swlWpb59bpsd6QUu+2zVKGfLaAmY
+ 
+	12yuNLV58xjmn9N6Bb2DEOmaN7/vfmG6iAZt17igBsfIk8WKemOTjHgAv/5WJ0LdES1If34PXcBzkE
+ 
+	ia6GF5V0iRTG1fZR6weFULRyapgMZjGgG+2wofJcIMFCAsLZtSZL2HFuS24Cti5NHCjrNwaSABapmZ
+ 
+	pkul8UA/CgGPxNzj9cLzO2Dy65pHPp8usIcjvGmBNj5I7QhEqwfEIKNlKxOwfdpD7ACmD2kMtIdyRm
+ 
+	aSkW7GQjZ+VReLnwvd+YcDj8VN2BhxwTTl41ynX6mLj5n24VLEV8xPaJBuFWN8wb+A/VVxrSWHkUbG
+ 
+	AKDWyw5c/4wypeDGxZBdOjtPR/h5sCUCrIBq3LbhbMPsm44Eih7hPoHKMciBbxhn1VWZGQBfHOkR2z
+ 
+	fdF8miWj8uOn6fZfFmJDMfY66EtkZObID++KicGm6r6tcAwvvvy9X6ZCKbpsodf6JkUnthMDHeKZCu
+ 
+	aS4re1GEiUkt4Lv3HHfxaR90Qem8lOWLlOPYSjtCvQlUZrxR/oA+O2feNVD5VZOlqB6q/QcT+U8tyU
+ 
+	P6jryaczQIn5W4hzvUbzuwig4DSgSg4Zig8vBTLFYYGIlBFPM0e1tPkBb7Xk275bMwHtiZjXMbAnYD
+ 
+	F6K0oUnRDu3C8bOCJD75UMp4JdioUQ08O3nSia9C8aTVtL6n82qJqcYk+P2bgLDzw8pbACywqwGPAC
+ 
+	IiazmrZh8bEgZPwxN1zrm1gbaVmlfwH7Bg/O/4H4d8ZDZ7g0whxPTh6lCqsqdiAQrHVfjdHuLTym9d
+ 
+	M3CQE9IE1cSygdDDk/veUU1UsYMPBMQ8GhNWQkOxLRb2TMUt1pjVtliYSrd0K6nqb2h3AtuZ1hZ6GK
+ 
+	gAedgDT6nQNRcooLcHu/hwjcCWQoLHiiTWdcMX7vwx4FFAC80SBo7ijY5he2yvD4CLSum/TBvqQllB
+ 
+	K4kcaimFS6Jy04KnSm+DFIlAOgVP/YfD4HZ34Sjb7IuMDH1GUgA0JRqbDP1qyBoEWlinQf0PqQkF5w
+ 
+	UtyUbDc68VJ0/R3Qa4=
+X-NCJF-Version: 2
+Authentication-Results: asp-relay-shared.jellyfish.systems;
+	dkim=none;
+	arc=reject ("signature check failed: fail, {[1] = sig:mailchannels.net:reject}");
+	dmarc=none;
+	spf=none (asp-relay-shared.jellyfish.systems: domain of louay.s@caretakers.ae has no SPF policy when checking 23.83.209.24) smtp.mailfrom=louay.s@caretakers.ae
+
+--_000_MW4PR11MB6840C1D5D6C7F0FC94030F41A0319MW4PR11MB6840namp_
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
+
+Hi Sivan,
+
+I still need your visa & Emirates Id copy along with the NOC letter please.
+Regards,
+Louay
+
+Get Outlook for iOS<https://aka.ms/o0ukef>
+________________________________
+From: Sivan Reddy <sivan.reddy0@gmail.com>
+Sent: Tuesday, October 25, 2022 10:23:51 AM
+To: info@dependablelc.com <info@dependablelc.com>
+Cc: Louay AL Sayed <louay.s@caretakers.ae>
+Subject: Passport for PRO and Legal
+
+Hi Amer/ Louay
+
+Please find passport copy attached to expedite the legal documentation and =
+DED process
+
+Let me know if you need other documents by close of business today
+
+
+Kind regards
+
+sivan
+
+--_000_MW4PR11MB6840C1D5D6C7F0FC94030F41A0319MW4PR11MB6840namp_
+Content-Type: text/html; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
+
+<html>
+<head>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dus-ascii"=
+>
+</head>
+<body>
+<div>
+<div>
+<div dir=3D"ltr">
+<div>Hi Sivan,</div>
+<div dir=3D"ltr"><br>
+</div>
+<div dir=3D"ltr">I still need your visa &amp; Emirates Id copy along with t=
+he NOC letter please.</div>
+<div dir=3D"ltr">Regards,</div>
+<div dir=3D"ltr">Louay</div>
+</div>
+</div>
+<div id=3D"ms-outlook-mobile-signature">
+<div><br>
+</div>
+Get <a href=3D"https://aka.ms/o0ukef">Outlook for iOS</a></div>
+</div>
+<hr style=3D"display:inline-block;width:98%" tabindex=3D"-1">
+<div id=3D"divRplyFwdMsg" dir=3D"ltr"><font face=3D"Calibri, sans-serif" st=
+yle=3D"font-size:11pt" color=3D"#000000"><b>From:</b> Sivan Reddy &lt;sivan=
+.reddy0@gmail.com&gt;<br>
+<b>Sent:</b> Tuesday, October 25, 2022 10:23:51 AM<br>
+<b>To:</b> info@dependablelc.com &lt;info@dependablelc.com&gt;<br>
+<b>Cc:</b> Louay AL Sayed &lt;louay.s@caretakers.ae&gt;<br>
+<b>Subject:</b> Passport for PRO and Legal</font>
+<div>&nbsp;</div>
+</div>
+<div>
+<div dir=3D"ltr">Hi Amer/ Louay
+<div><br>
+</div>
+<div>Please find passport copy attached to expedite the legal documentation=
+&nbsp;and DED process</div>
+<div><br>
+</div>
+<div>Let me know if you need other documents by close of business&nbsp;toda=
+y</div>
+<div><br>
+</div>
+<div><br>
+</div>
+<div>Kind regards</div>
+<div><br>
+</div>
+<div>sivan</div>
+</div>
+</div>
+</body>
+</html>
+
+--_000_MW4PR11MB6840C1D5D6C7F0FC94030F41A0319MW4PR11MB6840namp_--

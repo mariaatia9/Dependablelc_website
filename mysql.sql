@@ -1,0 +1,22 @@
+-- cPanel mysql backup
+GRANT USAGE ON *.* TO 'dependablelc'@'198.54.126.38' IDENTIFIED BY PASSWORD '*202FDC6CC3C1A7850B86CB019BAFE5AA761A6903';
+GRANT ALL PRIVILEGES ON `dependablelc\_facebook`.* TO 'dependablelc'@'198.54.126.38';
+GRANT ALL PRIVILEGES ON `dependablelc\_wp226`.* TO 'dependablelc'@'198.54.126.38';
+GRANT USAGE ON *.* TO 'dependablelc'@'host59.registrar-servers.com' IDENTIFIED BY PASSWORD '*202FDC6CC3C1A7850B86CB019BAFE5AA761A6903';
+GRANT ALL PRIVILEGES ON `dependablelc\_wp226`.* TO 'dependablelc'@'host59.registrar-servers.com';
+GRANT ALL PRIVILEGES ON `dependablelc\_facebook`.* TO 'dependablelc'@'host59.registrar-servers.com';
+GRANT USAGE ON *.* TO 'dependablelc'@'localhost' IDENTIFIED BY PASSWORD '*202FDC6CC3C1A7850B86CB019BAFE5AA761A6903';
+GRANT ALL PRIVILEGES ON `dependablelc\_facebook`.* TO 'dependablelc'@'localhost';
+GRANT ALL PRIVILEGES ON `dependablelc\_wp226`.* TO 'dependablelc'@'localhost';
+GRANT USAGE ON *.* TO 'dependablelc_facebook'@'198.54.126.38' IDENTIFIED BY PASSWORD '*39DFF6CBFC321CA2AE61AECF2DDEEF580C56B834';
+GRANT ALL PRIVILEGES ON `dependablelc\_facebook`.* TO 'dependablelc_facebook'@'198.54.126.38';
+GRANT USAGE ON *.* TO 'dependablelc_facebook'@'host59.registrar-servers.com' IDENTIFIED BY PASSWORD '*39DFF6CBFC321CA2AE61AECF2DDEEF580C56B834';
+GRANT ALL PRIVILEGES ON `dependablelc\_facebook`.* TO 'dependablelc_facebook'@'host59.registrar-servers.com';
+GRANT USAGE ON *.* TO 'dependablelc_facebook'@'localhost' IDENTIFIED BY PASSWORD '*39DFF6CBFC321CA2AE61AECF2DDEEF580C56B834';
+GRANT ALL PRIVILEGES ON `dependablelc\_facebook`.* TO 'dependablelc_facebook'@'localhost';
+GRANT USAGE ON *.* TO 'dependablelc_wp226'@'198.54.126.38' IDENTIFIED BY PASSWORD '*7C2F2B3FD6B00C7E3A28E5821C46EB2C1CE7D043';
+GRANT ALL PRIVILEGES ON `dependablelc\_wp226`.* TO 'dependablelc_wp226'@'198.54.126.38';
+GRANT USAGE ON *.* TO 'dependablelc_wp226'@'host59.registrar-servers.com' IDENTIFIED BY PASSWORD '*7C2F2B3FD6B00C7E3A28E5821C46EB2C1CE7D043';
+GRANT ALL PRIVILEGES ON `dependablelc\_wp226`.* TO 'dependablelc_wp226'@'host59.registrar-servers.com';
+GRANT USAGE ON *.* TO 'dependablelc_wp226'@'localhost' IDENTIFIED BY PASSWORD '*7C2F2B3FD6B00C7E3A28E5821C46EB2C1CE7D043';
+GRANT ALL PRIVILEGES ON `dependablelc\_wp226`.* TO 'dependablelc_wp226'@'localhost';

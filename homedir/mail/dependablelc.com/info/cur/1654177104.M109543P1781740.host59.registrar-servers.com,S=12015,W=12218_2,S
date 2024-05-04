@@ -1,0 +1,203 @@
+Return-Path: <lauramancini@msn.com>
+Delivered-To: info@dependablelc.com
+Received: from server1.parahost.co
+	by server1.parahost.co with LMTP
+	id 9xcjKezLQmLaQgAAYK0uVw
+	(envelope-from <lauramancini@msn.com>)
+	for <info@dependablelc.com>; Tue, 29 Mar 2022 12:05:48 +0300
+Return-path: <lauramancini@msn.com>
+Envelope-to: info@dependablelc.com
+Delivery-date: Tue, 29 Mar 2022 12:05:48 +0300
+Received: from mail-vi1eur05olkn2017.outbound.protection.outlook.com ([40.92.90.17]:2654 helo=EUR05-VI1-obe.outbound.protection.outlook.com)
+	by server1.parahost.co with esmtps  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <lauramancini@msn.com>)
+	id 1nZ7nQ-0004NV-Ak
+	for info@dependablelc.com;
+	Tue, 29 Mar 2022 12:05:48 +0300
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=N7ms5UFSG2QVV2DQdwCqIENpBS1JfAfz48R6EoQWMNn7rxci439LI70wu4PPf3jposavTWnLwC1eaarLUI/mOJg/gj5ZLqz2YSw60tzqJfMRY7Hjcu4Zw3AqTYRwRgKyYZmBmKUwny62uYy/hMZ/gsbYMW0wpyetv1lcl7rkFqybzbbne9B061E9YdWfGLFXf47KPrvAY/B+swVJkSli2/2Q3710sL8YtWrfA2VTyNpU3SMaJ9HWJn1RzY23x1vhA8tGXUkaENA9GkP6YL1c9ZFXEayaER5v02Jh+rj5xC2hZMKlqs+YGm0M2OYVgutPVSC6+8hbvxe2P5sABBObjw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=t+WsDeNthedbGjZu1tqVdrd0M2RTAacpC41zhv3lecI=;
+ b=S1ajMWch5XFr5we5GX8skhoFchHM9EXJcI/W7NZ0+AmXJUdZQqQ2X6nkZU7rGrme0CSeYXZaw8XAWMzSbQd5vsoRwjAa4DzUV5Q7BITOiSdk/lK5Grui5Ml36mZep3eUwvIcttNQHYkvKLWYoRba1fXWWpDtFV7HR6vbwQPnh0It0DEyNlzeN4d1LlA+t/G8Ievbr4ud2qGUNJ7E5ZKBBGRE+v79sHA0Iyspj7wwVstVe7ghr+sUaFex+iWVc2AD8s9oNiCFT6sTHBIF3FXQ9aF8Bl7VpVygDbAbLCe4d86rLGyAYYFfNk8Q9U9X66pUwLzw+HAg4+w0XecXUjL/1w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
+ dkim=none; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=msn.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=t+WsDeNthedbGjZu1tqVdrd0M2RTAacpC41zhv3lecI=;
+ b=kpoekWQ90BdTW3ZcM1RpZMPXKwZlXZy/HOv0NPFLh6u6Jfx4AI/4Lx8x5jhPfnEdvZfjq7WUcjMuWIvB+9zXrOkSOillP2L1oROBgHHYFtsUiRgZV93hZyHl4kX0g00AppIoKpmCykMI/LXXl16J81rmLWegUgtc9mvzlKLDOgSiVit4HdwaohBGYXGKCMvsWoy5buObeGyvZdSbJDhmIcZxRd+FUT7RwO9LAjYyWuzXI+59ewKFv3FASctH7CyLrchCcUEwGIAN/ZezFFxvW66+pQxvqKX5a07L1RuqhAEGELQ+ZXB8b5whu8Qjg8N/QkekUVmNHWyqECjMBPhJLg==
+Received: from PAXP195MB1462.EURP195.PROD.OUTLOOK.COM (2603:10a6:102:283::12)
+ by AS8P195MB1207.EURP195.PROD.OUTLOOK.COM (2603:10a6:20b:3c2::16) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.5102.17; Tue, 29 Mar
+ 2022 09:05:05 +0000
+Received: from PAXP195MB1462.EURP195.PROD.OUTLOOK.COM
+ ([fe80::d042:597c:e264:b661]) by PAXP195MB1462.EURP195.PROD.OUTLOOK.COM
+ ([fe80::d042:597c:e264:b661%9]) with mapi id 15.20.5102.023; Tue, 29 Mar 2022
+ 09:05:05 +0000
+From: Laura Mancini <lauramancini@msn.com>
+To: "aamersaade80@gmail.com" <aamersaade80@gmail.com>, "info@dependablelc.com"
+	<info@dependablelc.com>
+CC: Laura Mancini <lauramancini@msn.com>
+Subject: I: URGENT RESPONSE
+Thread-Topic: URGENT RESPONSE
+Thread-Index: AQHXlwoBywNbs6UjLkCtwHECJN7Ih6zXafMZ
+Date: Tue, 29 Mar 2022 09:05:05 +0000
+Message-ID:
+ <PAXP195MB14622F7A786BBEF74F3CB87AC11E9@PAXP195MB1462.EURP195.PROD.OUTLOOK.COM>
+References: <873596169.381225.1629604723442@mymail.optimum.net>
+In-Reply-To: <873596169.381225.1629604723442@mymail.optimum.net>
+Accept-Language: it-IT, en-US
+Content-Language: it-IT
+X-MS-Has-Attach:
+X-MS-TNEF-Correlator:
+suggested_attachment_session_id: 4160294c-4188-91d2-49ac-504a202a92f4
+x-ms-exchange-messagesentrepresentingtype: 1
+x-tmn: [C8VQ4KEOGHPCXXrRbSOjqGOlhL9YKe3O]
+x-ms-publictraffictype: Email
+x-ms-office365-filtering-correlation-id: 394ada6a-f3df-4d7a-3933-08da1163378c
+x-ms-exchange-slblob-mailprops:
+ 3yIWLBAu26sa6ZTXG78Z6jlwbTjwQ4xWn2fALf6WsQsCx5hqxaQZRBCV3tObtr//3xNR+Lro9bD5qAWzlYIg0b/776hyhWai6YSSlx2jBg7zagPP05jVY9iX8oubE6cdhCTZHojHp4FqphZTC1vknjRjshANUTZAM2YhVwe9hCXj/JdzhQ1KmBPwqgXt/Qn15Xh9LlX86jk7GC0zCsdvQtamOvpHZ5/mbZPqXg8G4qxmJxJjSK57i8CETsKBjHbpGsccXM2dUIQpK/lFDLj/En60Qrwul/DSsKMEIWJocv2kNSKozzf/bkPS0r3aovjFIQarKR3tAGwj/vbHpxljFE4Ykg3zFce80jAQvXW2Bth/k4cxm8aa+77f26D2gye1x0SZb5POqr2nwxJuXJUp1PbjhLbX/h2gbAUYrlCbHzmFtjyX87sSq2n0wEqUOZlQO9G/1C6oKJdGZca9eBs07yptt8dZrgwIQ0grfi2KWS8tBHJHjugB/W0TXSkW9aj3asa1pGG8ZLHc4+MMcPTQCe2PATF8Q+d3JknDbHKf0XY+2P76huxKy99ETOZ2cCYWHjwaVyfLSA9pffqNXDaEu3owLsb2EoivBQxOAFVy4596Fbil8lnm9+MgD2qlp5PrPhO/F4sxt2+RBB7LQzXXrA==
+x-ms-traffictypediagnostic: AS8P195MB1207:EE_
+x-microsoft-antispam: BCL:0;
+x-microsoft-antispam-message-info:
+ 8peT61bTLbgFpPHVdHJ8Khugfl9yp2dGD0s6vmjqK1efQ9RMMTuhXFhSt6XOtaJmeqGFsQnbyQYxOhZBXg2IpalM9bEKh+rh9t/4Mg+7s6mfbZ17qxT/BRQsS+3TTzRLA+wUW0N3BZiHOrxW87uqkxEZI6UNasNO7YiSlZxLKkVdL+TB9Xbf0IOt931QhOcPYkICnuq6az1+jbTfJ8VnibNtj3LMFln/2iZR5pc2I4MAN2mcUujzCD326gTY2kkrk/lVqb/yE2VXSGAxR/m+wA6av4vTB+C5cjnqI3UQEOTFBEHZnB9ANAymPW9exJU1VTWKzLRuFOnsU+1gFe+YAcTJRjKogLJe82bZlqTt9AX1BGxfBGdhw7FwExAfRTYhczoYwx5E8q7siQIj56CekkDjEIcV+1qt8I7SS1lslNipeHO6tlofzXb74S/4ips0HMIGubgwIWq7obabI45dwx8p8Gzg+K/RHipFKoNleSqr1vED8oZ41JzgKAaGcOGR4an5KXLSTCq7Pna3brEjtNF/PQf4he0Pqk0lG8Ceh8wt2oY0mF5MVCip4EA0/l/zdEtSjr43rl3cxm8QDL8aTQ==
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0:
+ =?iso-8859-1?Q?+Faff4TA60RJPDlK/pHc0JHw+prPJShqRF1dTJ+4OitEWio9CAPt2n0rUh?=
+ =?iso-8859-1?Q?Mh6Nf4+HhuG9tP5zoGuG9IyL6HUqocMdjBcOSM2pPXao2xS73yaKeLMzpz?=
+ =?iso-8859-1?Q?lWaOZcBPeLMZf4F1jTgZxObfr7klajvJOlb3pK7w5qK0mpnP1hYx6XPE4x?=
+ =?iso-8859-1?Q?ErLZ4UV66JlhCV86KKjRZ+4K/8V2I0jXEReQZVk5Qan9aP9LaoN7yekHCc?=
+ =?iso-8859-1?Q?GY2dHqJpNV0jwPpZ19IUrstM5e86ot+vS1G+8F72gnEFodkfpcQymHUjLJ?=
+ =?iso-8859-1?Q?JAy713wIpzTke0HSmVqTKGqjqBvKLVpWFfKO2W3taOrmcBPfvBswHYv4AQ?=
+ =?iso-8859-1?Q?FOqbTpF3vahXNb+SAffMcQlRGOkPkxWJa/LH7xFpkQAXgS5l1vLlm08c2e?=
+ =?iso-8859-1?Q?SOSobuyYoyeOwkKZ94D0LTbtRdp1u7u0+/se7tH3kaEKa6KVoOR37WK1gk?=
+ =?iso-8859-1?Q?MutEeTD2QOQMKiInX/G1PdgrmZ0GEqt5fUAalao8pwnWVYxfS5i218RhAg?=
+ =?iso-8859-1?Q?e+BMkQ6dfQ537satQeKfmvatkR2O753HhjMUknChlgYyHS2VaF6HCg09CO?=
+ =?iso-8859-1?Q?LnxeA9HwWjNtwchHGrnDIW42MuCW6JyImRrNDZ8Bf5F6eYA6YoH9lPyoXS?=
+ =?iso-8859-1?Q?MPKXjC9jK+lDuN3/7WO/GT6Abe+8Aan9abngWNuWpeGRsXSf/DaTIBGIdA?=
+ =?iso-8859-1?Q?VGMJpnPZyCIDm/QZEuP1AITCprJYCgge6tVcFIct4WCtpTL/GsSdogKozx?=
+ =?iso-8859-1?Q?9h6QDaZb5K6PPQ34EVc7iFBlKXxXtRqI25UjErHqd1saeg55zIzaMO9Nyq?=
+ =?iso-8859-1?Q?1w2iY0o9I2l8A+ZEYkjHS0GGtkc2sOORVygtc3308IhCfCoS19yjrEPH5R?=
+ =?iso-8859-1?Q?8QoK6bf+sXczwPEisg3dP6NutmXhARmHcxqCndskepTPKDjIEW1MEeecJh?=
+ =?iso-8859-1?Q?N3zDZB9YdYfVLbyM8QJw0yHoSlaiDvj+W6f8pe82Ez2rUf5HlIbZsnADHI?=
+ =?iso-8859-1?Q?/R41kJPn9ps5AEfpDNsgUbL51h87IB2doWdsvYp+GKoQBiDHEBx7TMSApI?=
+ =?iso-8859-1?Q?+pqZKB0XafDzsEV5iPEr7baSp5j4Zvbp0AU+e9gMyMXMj21Ht3eq2suCqC?=
+ =?iso-8859-1?Q?1LemB6p81kbTt0uV0ukcoXSxSTijqirV1ww5GCqxVtsmG9pi05T9VU12Uk?=
+ =?iso-8859-1?Q?nlSTV0b0D+UoCj0E11ot5lo2fH6RkknbKyLuYTHxF/4ItGsl7MJeJ0pQ58?=
+ =?iso-8859-1?Q?ewJIY41ooGsd9O8gBeESdyWy8aZWm+S+TOvow7wGud0XWHqXPO1n1w5V8B?=
+ =?iso-8859-1?Q?rr7Qpd2vSjfD5rnnZWcYmT6SBA4lRr5Hj3aSsbt27ODqH7chw6wMRC/fF1?=
+ =?iso-8859-1?Q?YcmZFp6uSjKsCnzBRGfRRCw3DV74n77plSER6XVB7UJLYEUUPGwmcDanfi?=
+ =?iso-8859-1?Q?0PUTs+zaMYUq10lGoizLL1GlGxE6kIj7TqKgy0jYkrpFgBfGQRtuPjRH3C?=
+ =?iso-8859-1?Q?A=3D?=
+Content-Type: multipart/alternative;
+	boundary="_000_PAXP195MB14622F7A786BBEF74F3CB87AC11E9PAXP195MB1462EURP_"
+MIME-Version: 1.0
+X-OriginatorOrg: sct-15-20-4755-11-msonline-outlook-49ed2.templateTenant
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: PAXP195MB1462.EURP195.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-CrossTenant-Network-Message-Id: 394ada6a-f3df-4d7a-3933-08da1163378c
+X-MS-Exchange-CrossTenant-originalarrivaltime: 29 Mar 2022 09:05:05.7248
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-rms-persistedconsumerorg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8P195MB1207
+X-Spam-Status: No, score=1.2
+X-Spam-Score: 12
+X-Spam-Bar: +
+X-Ham-Report: Spam detection software, running on the system "server1.parahost.co",
+ has NOT identified this incoming email as spam.  The original
+ message has been attached to this so you can view it or label
+ similar future email.  If you have any questions, see
+ root\@localhost for details.
+ Content preview:  Da: Simon J Lo Gatto Inviato: domenica 22 agosto 2021 03:58
+    A: laura.mancini@middleeastfashionweek.org ; lauramancini@msn.com Oggetto:
+    Re: URGENT RESPONSE Hi Laura , Good Morning to you,Let me know if you're
+   free, I need you to go an errand for me urgently, am available via e-mail 
+ Content analysis details:   (1.2 points, 5.0 required)
+  pts rule name              description
+ ---- ---------------------- --------------------------------------------------
+ -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
+  0.0 FREEMAIL_FROM          Sender email is commonly abused enduser mail
+                             provider
+                             [lauramancini[at]msn.com]
+  0.5 SUBJ_ALL_CAPS          Subject is all capitals
+ -0.0 SPF_PASS               SPF: sender matches SPF record
+  0.0 HTML_MESSAGE           BODY: HTML included in message
+ -0.1 DKIM_VALID             Message has at least one valid DKIM or DK signature
+  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
+                             valid
+ -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
+                             author's domain
+ -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
+                             envelope-from domain
+ -0.0 T_SCC_BODY_TEXT_LINE   No description available.
+  0.9 URG_BIZ                Contains urgent matter
+X-Spam-Flag: NO
+
+--_000_PAXP195MB14622F7A786BBEF74F3CB87AC11E9PAXP195MB1462EURP_
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
+
+
+
+________________________________
+Da: Simon J Lo Gatto
+Inviato: domenica 22 agosto 2021 03:58
+A: laura.mancini@middleeastfashionweek.org <laura.mancini@middleeastfashion=
+week.org>; lauramancini@msn.com <lauramancini@msn.com>
+Oggetto: Re: URGENT RESPONSE
+
+
+Hi Laura ,
+Good Morning to you,Let me know if you're free, I need you to go an errand =
+for me urgently, am available via e-mail
+
+Thanks.
+
+--_000_PAXP195MB14622F7A786BBEF74F3CB87AC11E9PAXP195MB1462EURP_
+Content-Type: text/html; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
+
+<html>
+<head>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Diso-8859-=
+1">
+<style type=3D"text/css" style=3D"display:none;"> P {margin-top:0;margin-bo=
+ttom:0;} </style>
+</head>
+<body dir=3D"ltr">
+<div style=3D"font-family: Calibri, Helvetica, sans-serif; font-size: 12pt;=
+ color: rgb(0, 0, 0);">
+<br>
+</div>
+<div style=3D"font-family: Calibri, Helvetica, sans-serif; font-size: 12pt;=
+ color: rgb(0, 0, 0);">
+<br>
+</div>
+<div id=3D"appendonsend"></div>
+<hr tabindex=3D"-1" style=3D"display:inline-block; width:98%">
+<div id=3D"divRplyFwdMsg" dir=3D"ltr"><font face=3D"Calibri, sans-serif" co=
+lor=3D"#000000" style=3D"font-size:11pt"><b>Da:</b> Simon J Lo Gatto&nbsp;<=
+br>
+<b>Inviato:</b> domenica 22 agosto 2021 03:58<br>
+<b>A:</b> laura.mancini@middleeastfashionweek.org &lt;laura.mancini@middlee=
+astfashionweek.org&gt;; lauramancini@msn.com &lt;lauramancini@msn.com&gt;<b=
+r>
+<b>Oggetto:</b> Re: URGENT RESPONSE</font>
+<div>&nbsp;</div>
+</div>
+<div>
+<p class=3D"x_default-style">Hi Laura ,<br>
+Good Morning to you,Let me know if you're free, I need you to go an errand =
+for me urgently, am available via e-mail</p>
+<p class=3D"x_default-style">Thanks.</p>
+</div>
+</body>
+</html>
+
+--_000_PAXP195MB14622F7A786BBEF74F3CB87AC11E9PAXP195MB1462EURP_--

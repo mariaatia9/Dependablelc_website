@@ -1,0 +1,77 @@
+Return-Path: <>
+Delivered-To: info@dependablelc.com
+Received: from host59.registrar-servers.com
+	by host59.registrar-servers.com with LMTP
+	id AJO5Jj9hsWJMwRcA+KyzgQ
+	(envelope-from <>)
+	for <info@dependablelc.com>; Tue, 21 Jun 2022 02:12:15 -0400
+Return-path: <>
+Envelope-to: info@dependablelc.com
+Delivery-date: Tue, 21 Jun 2022 02:12:15 -0400
+Received: from mailnull by host59.registrar-servers.com with local (Exim 4.95)
+	id 1o3X7X-007RIL-J9
+	for info@dependablelc.com;
+	Tue, 21 Jun 2022 02:12:15 -0400
+X-Failed-Recipients: abdulijabar@aramex.com
+Auto-Submitted: auto-replied
+From: Mail Delivery System <Mailer-Daemon@host59.registrar-servers.com>
+To: info@dependablelc.com
+References: <000901d88535$d71ccf20$85566d60$@dependablelc.com>
+Content-Type: multipart/report; report-type=delivery-status; boundary=1655791935-eximdsn-1339208676
+MIME-Version: 1.0
+Subject: Mail delivery failed: returning message to sender
+Message-Id: <E1o3X7X-007RIL-J9@host59.registrar-servers.com>
+Date: Tue, 21 Jun 2022 02:12:15 -0400
+
+--1655791935-eximdsn-1339208676
+Content-type: text/plain; charset=us-ascii
+
+This message was created automatically by mail delivery software.
+
+A message that you sent could not be delivered to one or more of its
+recipients. This is a permanent error. The following address(es) failed:
+
+  abdulijabar@aramex.com
+    host aramex-com.mail.protection.outlook.com [104.47.51.138]
+    SMTP error from remote mail server after RCPT TO:<abdulijabar@aramex.com>:
+    550 5.4.1 Recipient address rejected: Access denied. AS(201806281) [DBAEUR03FT058.eop-EUR03.prod.protection.outlook.com]
+
+--1655791935-eximdsn-1339208676
+Content-type: message/delivery-status
+
+Reporting-MTA: dns; host59.registrar-servers.com
+
+Action: failed
+Final-Recipient: rfc822;abdulijabar@aramex.com
+Status: 5.0.0
+Remote-MTA: dns; aramex-com.mail.protection.outlook.com
+Diagnostic-Code: smtp; 550 5.4.1 Recipient address rejected: Access denied. AS(201806281) [DBAEUR03FT058.eop-EUR03.prod.protection.outlook.com]
+
+--1655791935-eximdsn-1339208676
+Content-type: text/rfc822-headers
+
+Return-path: <info@dependablelc.com>
+Received: from [151.253.234.190] (port=30484 helo=LAPTOP2T90H7MC)
+	by host59.registrar-servers.com with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <info@dependablelc.com>)
+	id 1o3X7R-007R3h-Fk;
+	Tue, 21 Jun 2022 02:12:11 -0400
+From: <info@dependablelc.com>
+To: <abdulijabar@aramex.com>
+Cc: <pcabraham@reliabletrpt.ae>,
+	<aamersaade80@gmail.com>
+Subject: =?windows-1256?B?xdrhx+QgxeTQx9Eg3sfk5uTtIOPVz94g2uQg2NHt3iDH4d/HysggyMfh?=
+	=?windows-1256?B?2s/h?=
+Date: Tue, 21 Jun 2022 10:12:04 +0400
+Message-ID: <000901d88535$d71ccf20$85566d60$@dependablelc.com>
+MIME-Version: 1.0
+Content-Type: multipart/mixed;
+	boundary="----=_NextPart_000_000A_01D88557.5E30E020"
+X-Mailer: Microsoft Outlook 16.0
+Thread-Index: AdiFNROBffmCx9NbRjuIlRSjg1mfUQ==
+Content-Language: en-gb
+X-Exim-DSN-Information: Due to administrative limits only headers are returned
+
+
+--1655791935-eximdsn-1339208676--
